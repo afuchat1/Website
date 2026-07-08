@@ -19,8 +19,9 @@
   *, *::before, *::after { box-sizing: border-box; }
 
   html {
-    /* Single unified sky-blue gradient — matches the AfuChat hero image exactly */
-    background: linear-gradient(160deg, #DBF0FF 0%, #A8D4F0 45%, #68A8D0 100%) fixed;
+    /* Radial gradient matching the AfuChat brand image exactly:
+       near-white light blue in the center, rich sky blue at the edges/corners */
+    background: radial-gradient(ellipse at 50% 38%, #EBF7FF 0%, #C2E5F8 28%, #6CC3ED 62%, #46AEE2 100%) fixed;
     min-height: 100%;
   }
 
