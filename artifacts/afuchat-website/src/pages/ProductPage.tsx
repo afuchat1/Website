@@ -81,17 +81,14 @@ export default function ProductPage() {
               {product.name} is deeply integrated with the rest of AfuChat. Your identity, files, AI assistant, and contacts are all shared — so switching between services feels like using one powerful app, not eight separate ones.
             </p>
             <div className="flex flex-col gap-4">
-              {otherProducts.map((p) => {
-                const OIcon = p.icon;
-                return (
-                  <Link key={p.id} href={p.path}>
-                    <div className="flex items-center gap-3 group">
-                      <OIcon className="w-4 h-4 flex-shrink-0" style={{ color: p.color }} />
-                      <span className="text-sm text-white/50 group-hover:text-white/80 transition-colors">{p.name} — {p.tagline}</span>
-                    </div>
-                  </Link>
-                );
-              })}
+              {otherProducts.map((p) => (
+                <Link key={p.id} href={p.path}>
+                  <div className="flex items-center gap-3 group">
+                    <img src={p.icon3d} alt="" className="w-7 h-7 object-contain flex-shrink-0" />
+                    <span className="text-sm text-white/50 group-hover:text-white/80 transition-colors">{p.name} — {p.tagline}</span>
+                  </div>
+                </Link>
+              ))}
             </div>
           </motion.div>
           <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
