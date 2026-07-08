@@ -12,7 +12,7 @@ const PAGE_CONTENT: Record<string, { gradient: string; accent: string; sections:
   about: {
     gradient: `radial-gradient(ellipse at 70% 20%, rgba(14,80,200,0.40) 0%, transparent 55%), radial-gradient(ellipse at 20% 70%, rgba(80,30,200,0.25) 0%, transparent 50%), #060e22`,
     accent: '#1F95FF',
-    illustration: '/ill-social.jpg',
+    illustration: '/illustrations/ill-sec-about.png',
     sections: [
       { heading: 'Who we are', body: 'AfuChat Technologies Limited is a technology company founded with a single belief: your digital life should feel like one continuous experience, not a fragmented collection of disconnected apps. We build products that share a single identity, a single intelligence layer, and a single purpose — to make the digital world effortless for everyone.' },
       { heading: 'Our mission', body: 'We believe that the future of the internet is unified. Too many platforms demand separate accounts, separate passwords, and separate subscriptions for services that should naturally work together. AfuChat exists to fix that. Our mission is to build the world\'s most connected digital ecosystem — one where communication, creativity, entertainment, and commerce flow without friction.' },
@@ -22,7 +22,17 @@ const PAGE_CONTENT: Record<string, { gradient: string; accent: string; sections:
   company: {
     gradient: `radial-gradient(ellipse at 70% 20%, rgba(14,80,200,0.40) 0%, transparent 55%), radial-gradient(ellipse at 20% 70%, rgba(80,30,200,0.25) 0%, transparent 50%), #060e22`,
     accent: '#6C63FF',
-    illustration: '/ill-community2.jpg',
+    illustration: '/illustrations/ill-sec-leadership.png',
+    sections: [
+      { heading: 'AfuChat Technologies Limited', body: 'We are a global technology company building the next generation of connected digital services. Our headquarters are in Hong Kong, with engineering and product teams distributed across Asia, Europe, and North America.' },
+      { heading: 'Leadership', body: 'Our leadership team brings together decades of experience in consumer internet, enterprise software, and applied AI. We are united by a shared vision: that people deserve a digital ecosystem as seamless and well-designed as the physical world they inhabit.' },
+      { heading: 'Our values', body: 'Privacy is a right, not a feature. Speed is respect for the user\'s time. Security is the floor, not the ceiling. Simplicity is the hardest thing to build. We hold these values in every product decision, every API design, and every hire we make.' },
+    ],
+  },
+  leadership: {
+    gradient: `radial-gradient(ellipse at 70% 20%, rgba(14,80,200,0.40) 0%, transparent 55%), radial-gradient(ellipse at 20% 70%, rgba(80,30,200,0.25) 0%, transparent 50%), #060e22`,
+    accent: '#6C63FF',
+    illustration: '/illustrations/ill-sec-leadership.png',
     sections: [
       { heading: 'AfuChat Technologies Limited', body: 'We are a global technology company building the next generation of connected digital services. Our headquarters are in Hong Kong, with engineering and product teams distributed across Asia, Europe, and North America.' },
       { heading: 'Leadership', body: 'Our leadership team brings together decades of experience in consumer internet, enterprise software, and applied AI. We are united by a shared vision: that people deserve a digital ecosystem as seamless and well-designed as the physical world they inhabit.' },
@@ -32,7 +42,7 @@ const PAGE_CONTENT: Record<string, { gradient: string; accent: string; sections:
   enterprise: {
     gradient: `radial-gradient(ellipse at 30% 20%, rgba(100,30,200,0.35) 0%, transparent 50%), radial-gradient(ellipse at 80% 60%, rgba(20,60,180,0.28) 0%, transparent 50%), #07091e`,
     accent: '#1F95FF',
-    illustration: '/ill-devteam.jpg',
+    illustration: '/illustrations/ill-sec-enterprise.png',
     sections: [
       { heading: 'Enterprise-grade ecosystem', body: 'AfuChat offers dedicated enterprise plans with advanced security controls, custom domain support, audit logging, and dedicated infrastructure. Deploy the entire AfuChat ecosystem within your organization under your own brand with full administrative control.' },
       { heading: 'Security & compliance', body: 'Enterprise accounts include SOC 2 Type II compliance reports, data residency options, single tenant deployments, and custom data retention policies. Our security team works directly with enterprise customers to meet their specific regulatory requirements.' },
@@ -42,7 +52,7 @@ const PAGE_CONTENT: Record<string, { gradient: string; accent: string; sections:
   security: {
     gradient: `radial-gradient(ellipse at 70% 40%, rgba(15,60,180,0.40) 0%, transparent 55%), radial-gradient(ellipse at 20% 70%, rgba(20,140,180,0.22) 0%, transparent 50%), #050d1f`,
     accent: '#16C784',
-    illustration: '/ill-auth.jpg',
+    illustration: '/illustrations/ill-sec-security.png',
     sections: [
       { heading: 'Security by design', body: 'Security is not an add-on at AfuChat — it is the foundation every product is built on. We use AES-256 encryption for data at rest, TLS 1.3 for data in transit, and zero-knowledge architecture for messages and files. This means even AfuChat employees cannot read your data.' },
       { heading: 'Two-factor authentication', body: 'Every AfuMail account supports TOTP-based two-factor authentication and hardware security keys. We strongly recommend enabling 2FA. For enterprise accounts, 2FA can be enforced across the entire organization with a single policy change.' },
@@ -52,11 +62,69 @@ const PAGE_CONTENT: Record<string, { gradient: string; accent: string; sections:
   contact: {
     gradient: `radial-gradient(ellipse at 55% 90%, rgba(0,180,170,0.25) 0%, transparent 45%), radial-gradient(ellipse at 15% 65%, rgba(90,40,200,0.35) 0%, transparent 52%), #060d24`,
     accent: '#14B8A6',
-    illustration: '/ill-appeco.png',
+    illustration: '/illustrations/ill-sec-contact.png',
     sections: [
       { heading: 'Get in touch', body: 'We\'d love to hear from you. Whether you have a question about a product, a partnership inquiry, a press request, or just want to say hello — our team is here.' },
       { heading: 'Support', body: 'For product support, please visit our Help Center. Our support team responds within 4 hours on business days and within 24 hours on weekends. Enterprise customers have access to dedicated support with a guaranteed 1-hour SLA.' },
       { heading: 'Business inquiries', body: 'For partnership, enterprise, and media inquiries, please reach out to us at business@afuchat.com. We typically respond within one business day.' },
+    ],
+  },
+  careers: {
+    gradient: `radial-gradient(ellipse at 70% 20%, rgba(14,140,200,0.40) 0%, transparent 55%), radial-gradient(ellipse at 20% 70%, rgba(20,160,140,0.22) 0%, transparent 50%), #04101c`,
+    accent: '#16C784',
+    illustration: '/illustrations/ill-sec-careers.png',
+    sections: [
+      { heading: 'Build the connected future', body: 'We are looking for people who want to build a digital ecosystem used by millions — engineers, designers, and operators who care about craft, speed, and the details that make software feel effortless.' },
+      { heading: 'How we work', body: 'Small autonomous teams own entire products end-to-end. We favor shipping over process, and we default to giving people real ownership early. Remote-friendly, with hubs in Hong Kong, Singapore, and London.' },
+      { heading: 'Benefits', body: 'Competitive pay and equity, fully covered health coverage, flexible time off, and a learning budget for every employee. We also give every team member free access to the entire AfuChat ecosystem.' },
+    ],
+  },
+  press: {
+    gradient: `radial-gradient(ellipse at 70% 20%, rgba(16,160,120,0.35) 0%, transparent 55%), radial-gradient(ellipse at 20% 70%, rgba(14,80,200,0.25) 0%, transparent 50%), #04141a`,
+    accent: '#10B981',
+    illustration: '/illustrations/ill-sec-press.png',
+    sections: [
+      { heading: 'Media resources', body: 'Journalists and content creators can find our logo assets, product screenshots, and executive bios in our press kit. For interview requests or embargoed briefings, reach out to our communications team directly.' },
+      { heading: 'Recent coverage', body: 'AfuChat has been featured in leading technology and business publications covering our approach to unified digital identity and the rise of integrated service ecosystems.' },
+      { heading: 'Press contact', body: 'For all media inquiries, email press@afuchat.com. We aim to respond to journalists within one business day.' },
+    ],
+  },
+  brand: {
+    gradient: `radial-gradient(ellipse at 70% 20%, rgba(140,60,220,0.35) 0%, transparent 55%), radial-gradient(ellipse at 20% 70%, rgba(220,60,150,0.22) 0%, transparent 50%), #10061c`,
+    accent: '#8B5CF6',
+    illustration: '/illustrations/ill-sec-brand.png',
+    sections: [
+      { heading: 'Our visual identity', body: 'The AfuChat brand is built around a single idea — connection. Our logo, color palette, and typography are designed to feel consistent across all eight products while giving each one its own accent color.' },
+      { heading: 'Logo usage', body: 'Please do not alter, recolor, or distort the AfuChat logo. Maintain clear space around it equal to the height of the logomark, and always use the provided source files rather than recreating it.' },
+      { heading: 'Download assets', body: 'Approved logos, color specifications, and typography guidelines are available for partners and press upon request at brand@afuchat.com.' },
+    ],
+  },
+  help: {
+    gradient: `radial-gradient(ellipse at 70% 20%, rgba(15,120,200,0.40) 0%, transparent 55%), radial-gradient(ellipse at 20% 70%, rgba(20,160,180,0.25) 0%, transparent 50%), #05141f`,
+    accent: '#14B8A6',
+    illustration: '/illustrations/ill-sec-help.png',
+    sections: [
+      { heading: 'How can we help?', body: 'Our Help Center covers account setup, billing, security, and troubleshooting for all eight AfuChat products. Most answers are available instantly through search.' },
+      { heading: 'Still stuck?', body: 'If you cannot find what you need, contact our support team from within any AfuChat product, or email support@afuchat.com. We respond within 4 hours on business days.' },
+      { heading: 'Enterprise support', body: 'Enterprise customers have access to a dedicated support channel with a guaranteed 1-hour response SLA, available through your account administrator.' },
+    ],
+  },
+  login: {
+    gradient: `radial-gradient(ellipse at 70% 20%, rgba(14,80,200,0.40) 0%, transparent 55%), radial-gradient(ellipse at 20% 70%, rgba(80,30,200,0.25) 0%, transparent 50%), #060e22`,
+    accent: '#1F95FF',
+    illustration: '/illustrations/ill-sec-identity.png',
+    sections: [
+      { heading: 'Welcome back', body: 'Sign in with your AfuMail address to access AfuChat, AfuCloud, AfuAI, and every other service in the ecosystem — all with the same secure identity.' },
+      { heading: 'Forgot your password?', body: 'Use the password recovery link on the sign-in screen. For accounts with two-factor authentication enabled, you will need access to your registered device.' },
+    ],
+  },
+  sitemap: {
+    gradient: `radial-gradient(ellipse at 70% 20%, rgba(14,80,200,0.35) 0%, transparent 55%), radial-gradient(ellipse at 20% 70%, rgba(60,40,180,0.22) 0%, transparent 50%), #070c1e`,
+    accent: '#1F95FF',
+    illustration: '/illustrations/ill-sec-sitemap.png',
+    sections: [
+      { heading: 'Find your way around', body: 'A complete directory of every page across the AfuChat corporate site — products, company information, developer resources, and legal documentation.' },
+      { heading: 'Need something else?', body: 'If you cannot find a page you are looking for, visit our Help Center or contact our team directly.' },
     ],
   },
 };
@@ -123,7 +191,7 @@ export default function GenericPage({ title, type }: GenericPageProps) {
                 <motion.div key={p.id} initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.07 }}>
                   <Link href={p.path}>
                     <div className="flex items-center gap-3 group">
-                      <Icon className="w-4 h-4 flex-shrink-0" style={{ color: p.color }} />
+                      <img src={p.illustration} alt={`${p.name} illustration`} className="w-10 h-10 object-contain flex-shrink-0" />
                       <span className="text-sm text-white/50 group-hover:text-white transition-colors">{p.name}</span>
                     </div>
                   </Link>

@@ -70,13 +70,9 @@ export default function HeroSection() {
             className="flex justify-center lg:justify-end"
           >
             <img
-              src="/brand-bg.png"
-              alt="AfuChat app preview"
+              src="/illustrations/ill-sec-hero.png"
+              alt="One identity connecting every AfuChat service"
               className="w-full max-w-md lg:max-w-lg drop-shadow-2xl"
-              style={{
-                WebkitMaskImage: 'radial-gradient(ellipse 90% 88% at 55% 48%, black 45%, transparent 100%)',
-                maskImage: 'radial-gradient(ellipse 90% 88% at 55% 48%, black 45%, transparent 100%)',
-              }}
             />
           </motion.div>
         </div>

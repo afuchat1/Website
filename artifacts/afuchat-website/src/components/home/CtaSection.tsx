@@ -18,6 +18,14 @@ export default function CtaSection() {
     >
       <div className="relative z-10 max-container container-pad">
         <div className="text-center max-w-2xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20, scale: 0.9 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            viewport={{ once: true }}
+            className="flex justify-center mb-4"
+          >
+            <img src="/illustrations/ill-sec-cta.png" alt="Launch your AfuChat journey" className="w-40 h-40 object-contain drop-shadow-2xl" />
+          </motion.div>
           <motion.p
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}

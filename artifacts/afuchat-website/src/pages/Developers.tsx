@@ -44,7 +44,7 @@ export default function Developers() {
             </div>
           </motion.div>
           <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.1 }}>
-            <img src="/ill-devheader.jpg" alt="Developer platform" className="w-full rounded-3xl shadow-2xl shadow-green-900/30" />
+            <img src="/illustrations/ill-sec-developer.png" alt="Developer platform" className="w-full max-w-md mx-auto drop-shadow-2xl" />
           </motion.div>
         </div>
       </div>

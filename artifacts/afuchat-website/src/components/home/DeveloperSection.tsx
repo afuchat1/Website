@@ -26,7 +26,7 @@ export default function DeveloperSection() {
           initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
           className="flex justify-center mb-16"
         >
-          <img src="/ill-devheader.jpg" alt="Developer platform" className="w-full max-w-2xl rounded-3xl shadow-2xl shadow-black/50" />
+          <img src="/illustrations/ill-sec-developer.png" alt="AfuChat developer platform" className="w-full max-w-sm drop-shadow-2xl" />
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">

@@ -27,7 +27,7 @@ export default function Products() {
             </p>
           </motion.div>
           <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.1 }}>
-            <img src="/ill-community2.jpg" alt="People using AfuChat products" className="w-full rounded-3xl shadow-2xl shadow-purple-900/30" />
+            <img src="/illustrations/ill-sec-products.png" alt="The full AfuChat product suite" className="w-full max-w-lg mx-auto drop-shadow-2xl" />
           </motion.div>
         </div>
       </div>
@@ -44,16 +44,16 @@ export default function Products() {
                 className="border-t border-white/8"
               >
                 <Link href={product.path}>
-                  <div className="grid grid-cols-1 md:grid-cols-12 gap-6 py-8 items-start group cursor-pointer">
-                    <div className="md:col-span-1 flex items-center gap-3">
-                      <Icon className="w-6 h-6" style={{ color: product.color }} />
+                  <div className="grid grid-cols-1 md:grid-cols-12 gap-6 py-8 items-center group cursor-pointer">
+                    <div className="md:col-span-2 flex items-center gap-3">
+                      <img src={product.illustration} alt={`${product.name} illustration`} className="w-20 h-20 object-contain flex-shrink-0" />
                     </div>
-                    <div className="md:col-span-3">
+                    <div className="md:col-span-2">
                       <h2 className="text-xl font-bold text-white group-hover:text-white mb-1">{product.name}</h2>
                       <p className="text-sm font-medium" style={{ color: product.color }}>{product.tagline}</p>
                     </div>
                     <p className="md:col-span-5 text-sm text-white/50 leading-relaxed">{product.description}</p>
-                    <div className="md:col-span-3 flex flex-wrap gap-2">
+                    <div className="md:col-span-3 flex flex-wrap gap-2 self-start">
                       {product.features.map((f, j) => (
                         <span key={j} className="text-xs text-white/35">{f}{j < product.features.length - 1 ? ' ·' : ''}</span>
                       ))}

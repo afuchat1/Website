@@ -44,7 +44,7 @@ export default function ProductsSection() {
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.6 }}
           >
-            <img src="/ill-community2.jpg" alt="Connected community" className="w-full max-w-lg mx-auto rounded-3xl shadow-2xl shadow-purple-900/30" />
+            <img src="/illustrations/ill-sec-products.png" alt="The full AfuChat product suite" className="w-full max-w-lg mx-auto drop-shadow-2xl" />
           </motion.div>
         </div>
 
@@ -59,7 +59,7 @@ export default function ProductsSection() {
               >
                 <Link href={product.path}>
                   <div className="group cursor-pointer">
-                    <Icon className="w-6 h-6 mb-4" style={{ color: product.color }} />
+                    <img src={product.illustration} alt={`${product.name} illustration`} className="w-16 h-16 object-contain mb-4" />
                     <h3 className="text-sm font-bold text-white mb-1.5">{product.name}</h3>
                     <p className="text-xs text-white/40 leading-relaxed mb-3">{product.description}</p>
                     <span className="text-xs font-medium group-hover:underline" style={{ color: product.color }}>Learn more →</span>

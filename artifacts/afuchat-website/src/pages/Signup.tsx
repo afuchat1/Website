@@ -63,7 +63,7 @@ export default function Signup() {
 
           {/* Right: form */}
           <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: 0.1 }}>
-            <Mail className="w-8 h-8 text-[#1F95FF] mb-5" />
+            <img src="/illustrations/ill-sec-identity.png" alt="Create your AfuMail identity" className="w-28 h-28 object-contain mb-5" />
             <h1 className="text-2xl font-bold text-white mb-2 tracking-tight">Create your AfuMail</h1>
             <p className="text-white/45 mb-8 text-sm">Fill in your details below and join millions of people already in the ecosystem.</p>
 

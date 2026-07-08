@@ -31,7 +31,7 @@ export default function ProductPage() {
           </Link>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             <div>
-              <Icon className="w-10 h-10 mb-6" style={{ color: product.color }} />
+              <Icon className="w-8 h-8 mb-6" style={{ color: product.color }} />
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white mb-3 tracking-tight">{product.name}</h1>
               <p className="text-xl font-semibold mb-5" style={{ color: product.color }}>{product.tagline}</p>
               <p className="text-lg text-white/55 leading-relaxed mb-8 max-w-lg">
@@ -46,8 +46,7 @@ export default function ProductPage() {
               </Link>
             </div>
             <div className="flex items-start justify-end">
-              <img src="/ill-appeco.png" alt={`${product.name} illustration`} className="w-full max-w-sm drop-shadow-2xl"
-                onError={(e)=>{(e.target as HTMLImageElement).style.display='none';}} />
+              <img src={product.illustration} alt={`${product.name} illustration`} className="w-full max-w-sm drop-shadow-2xl" />
             </div>
           </div>
         </motion.div>
@@ -96,7 +95,7 @@ export default function ProductPage() {
             </div>
           </motion.div>
           <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
-            <img src="/ill-servers.png" alt="Platform integration" className="w-full max-w-sm mx-auto drop-shadow-2xl"
+            <img src="/illustrations/ill-sec-ecosystem.png" alt="Platform integration" className="w-full max-w-sm mx-auto drop-shadow-2xl"
               style={{ filter: `drop-shadow(0 20px 40px ${product.color}30)` }} />
           </motion.div>
         </div>

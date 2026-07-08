@@ -63,7 +63,7 @@ export default function EcosystemSection() {
             initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}
             className="flex items-center justify-center"
           >
-            <img src="/ill-social.jpg" alt="AfuChat connected ecosystem" className="w-full max-w-lg rounded-2xl shadow-2xl shadow-blue-900/40" />
+            <img src="/illustrations/ill-sec-ecosystem.png" alt="AfuChat connected ecosystem" className="w-full max-w-lg drop-shadow-2xl" />
           </motion.div>
         </div>
       </div>

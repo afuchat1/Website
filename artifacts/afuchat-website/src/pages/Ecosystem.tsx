@@ -31,7 +31,7 @@ export default function Ecosystem() {
             </Link>
           </motion.div>
           <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.6, delay: 0.1 }}>
-            <img src="/ill-social.jpg" alt="Connected ecosystem" className="w-full rounded-3xl shadow-2xl shadow-blue-900/40" />
+            <img src="/illustrations/ill-sec-ecosystem.png" alt="Connected ecosystem" className="w-full max-w-lg mx-auto drop-shadow-2xl" />
           </motion.div>
         </div>
       </div>
@@ -78,10 +78,10 @@ export default function Ecosystem() {
               <motion.div
                 key={product.id}
                 initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.04 }}
-                className="grid grid-cols-1 md:grid-cols-4 gap-6 py-8 border-t border-white/8 items-start"
+                className="grid grid-cols-1 md:grid-cols-4 gap-6 py-8 border-t border-white/8 items-center"
               >
                 <div className="flex items-center gap-4">
-                  <Icon className="w-6 h-6 flex-shrink-0" style={{ color: product.color }} />
+                  <img src={product.illustration} alt={`${product.name} illustration`} className="w-14 h-14 object-contain flex-shrink-0" />
                   <div>
                     <h3 className="text-base font-bold text-white">{product.name}</h3>
                     <p className="text-xs font-medium mt-0.5" style={{ color: product.color }}>{product.tagline}</p>
@@ -109,8 +109,7 @@ export default function Ecosystem() {
               <Link href="/products" className="text-white/50 font-medium text-sm py-3.5 hover:text-white transition-colors">Browse products →</Link>
             </div>
           </div>
-          <img src="/ill-networking.png" alt="People networking" className="w-full max-w-md mx-auto drop-shadow-2xl"
-            onError={(e)=>{(e.target as HTMLImageElement).src='/ill-community2.jpg';}} />
+          <img src="/illustrations/ill-sec-cta.png" alt="Get started with AfuChat" className="w-full max-w-xs mx-auto drop-shadow-2xl" />
         </motion.div>
       </div>
     </div>

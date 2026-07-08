@@ -15,6 +15,7 @@ export interface ProductData {
   bgColor: string;
   path: string;
   icon: ProductIcon;
+  illustration: string;
 }
 
 export const PRODUCT_DATA: ProductData[] = [
@@ -27,7 +28,8 @@ export const PRODUCT_DATA: ProductData[] = [
     color: "#1F95FF",
     bgColor: "#EBF5FF",
     path: "/products/afumail",
-    icon: Mail
+    icon: Mail,
+    illustration: "/illustrations/ill-svc-afumail.png"
   },
   {
     id: "afuchat",
@@ -38,7 +40,8 @@ export const PRODUCT_DATA: ProductData[] = [
     color: "#6C63FF",
     bgColor: "#F0EFFF",
     path: "/products/afuchat",
-    icon: MessageCircle
+    icon: MessageCircle,
+    illustration: "/illustrations/ill-svc-afuchat.png"
   },
   {
     id: "afuai",
@@ -49,7 +52,8 @@ export const PRODUCT_DATA: ProductData[] = [
     color: "#F59E0B",
     bgColor: "#FEF3C7",
     path: "/products/afuai",
-    icon: Sparkles
+    icon: Sparkles,
+    illustration: "/illustrations/ill-svc-afuai.png"
   },
   {
     id: "afucloud",
@@ -60,7 +64,8 @@ export const PRODUCT_DATA: ProductData[] = [
     color: "#0EA5E9",
     bgColor: "#E0F2FE",
     path: "/products/afucloud",
-    icon: Cloud
+    icon: Cloud,
+    illustration: "/illustrations/ill-svc-afucloud.png"
   },
   {
     id: "afumovies",
@@ -71,7 +76,8 @@ export const PRODUCT_DATA: ProductData[] = [
     color: "#EF4444",
     bgColor: "#FEE2E2",
     path: "/products/afumovies",
-    icon: Play
+    icon: Play,
+    illustration: "/illustrations/ill-svc-afumovies.png"
   },
   {
     id: "afumall",
@@ -82,7 +88,8 @@ export const PRODUCT_DATA: ProductData[] = [
     color: "#F97316",
     bgColor: "#FFEDD5",
     path: "/products/afumall",
-    icon: ShoppingBag
+    icon: ShoppingBag,
+    illustration: "/illustrations/ill-svc-afumall.png"
   },
   {
     id: "afunews",
@@ -93,7 +100,8 @@ export const PRODUCT_DATA: ProductData[] = [
     color: "#10B981",
     bgColor: "#D1FAE5",
     path: "/products/afunews",
-    icon: Newspaper
+    icon: Newspaper,
+    illustration: "/illustrations/ill-svc-afunews.png"
   },
   {
     id: "afublog",
@@ -104,6 +112,7 @@ export const PRODUCT_DATA: ProductData[] = [
     color: "#8B5CF6",
     bgColor: "#EDE9FE",
     path: "/products/afublog",
-    icon: PenLine
+    icon: PenLine,
+    illustration: "/illustrations/ill-svc-afublog.png"
   }
 ];
