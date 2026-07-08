@@ -12,8 +12,8 @@ const orgSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
   name: 'AfuChat Technologies Limited',
-  url: 'https://afuchat.com',
-  logo: 'https://afuchat.com/favicon.png',
+  url: 'https://web.afuchat.com',
+  logo: 'https://web.afuchat.com/favicon.png',
   description: 'AfuChat Technologies Limited builds independent digital products for everyone — AfuMail, AfuChat, AfuAI, AfuCloud, AfuMovies, AfuMall, AfuNews, and AfuBlog.',
   sameAs: [],
   contactPoint: {

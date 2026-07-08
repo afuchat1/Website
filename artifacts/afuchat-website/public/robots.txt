@@ -26,4 +26,4 @@ Allow: /
 User-agent: Google-Extended
 Allow: /
 
-Sitemap: https://afuchat.com/sitemap.xml
+Sitemap: https://web.afuchat.com/sitemap.xml

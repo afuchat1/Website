@@ -1,6 +1,6 @@
 import { Helmet } from 'react-helmet-async';
 
-const SITE_URL = 'https://afuchat.com';
+const SITE_URL = 'https://web.afuchat.com';
 const DEFAULT_OG_IMAGE = `${SITE_URL}/og-default.png`;
 
 interface PageSEOProps {
