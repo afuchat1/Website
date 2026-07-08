@@ -27,7 +27,7 @@ const steps = [
 
 export default function IdentitySection() {
   return (
-    <section className="section-pad bg-white">
+    <section className="section-pad">
       <div className="max-container container-pad">
         <div className="text-center mb-14 lg:mb-20">
           <motion.h2

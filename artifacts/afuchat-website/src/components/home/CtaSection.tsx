@@ -3,7 +3,7 @@ import { Link } from 'wouter';
 
 export default function CtaSection() {
   return (
-    <section className="section-pad bg-white">
+    <section className="section-pad">
       <div className="max-container container-pad text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

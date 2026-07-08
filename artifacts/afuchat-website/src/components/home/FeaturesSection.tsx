@@ -30,7 +30,7 @@ const features = [
 
 export default function FeaturesSection() {
   return (
-    <section className="section-pad bg-[#F8FAFC]">
+    <section className="section-pad">
       <div className="max-container container-pad">
         <div className="text-center mb-14 lg:mb-20">
           <motion.h2

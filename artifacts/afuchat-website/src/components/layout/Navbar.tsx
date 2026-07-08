@@ -9,42 +9,44 @@ export default function Navbar() {
   const [location] = useLocation();
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 10);
-    };
+    const handleScroll = () => setScrolled(window.scrollY > 10);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  useEffect(() => {
-    setIsOpen(false);
-  }, [location]);
+  useEffect(() => { setIsOpen(false); }, [location]);
 
   const navLinks = [
-    { label: "Products", href: "/products" },
-    { label: "Ecosystem", href: "/ecosystem" },
-    { label: "Developers", href: "/developers" },
-    { label: "Company", href: "/about" },
+    { label: 'Products',    href: '/products' },
+    { label: 'Ecosystem',   href: '/ecosystem' },
+    { label: 'Developers',  href: '/developers' },
+    { label: 'Company',     href: '/about' },
   ];
 
   return (
-    <header 
-      className={`fixed top-0 left-0 right-0 z-50 bg-white border-b border-[#E2E8F0] transition-shadow duration-200 ${scrolled ? 'shadow-sm' : ''}`}
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200
+        border-b border-white/30
+        ${scrolled
+          ? 'bg-white/80 backdrop-blur-xl shadow-sm shadow-blue-900/10'
+          : 'bg-white/60 backdrop-blur-lg'
+        }`}
     >
       <div className="max-container container-pad h-16 flex items-center justify-between">
+
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 flex-shrink-0">
           <img src={logo} alt="AfuChat Logo" className="h-8 w-auto" />
-          <span className="font-bold text-[#0F172A] text-lg">AfuChat</span>
+          <span className="font-bold text-[#0A2540] text-lg">AfuChat</span>
         </Link>
 
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-8">
-          {navLinks.map((link) => (
-            <Link 
-              key={link.label} 
+          {navLinks.map(link => (
+            <Link
+              key={link.label}
               href={link.href}
-              className="text-sm font-medium text-[#64748B] hover:text-[#0F172A] transition-colors"
+              className="text-sm font-medium text-[#2D5A7A] hover:text-[#0A2540] transition-colors"
             >
               {link.label}
             </Link>
@@ -53,23 +55,25 @@ export default function Navbar() {
 
         {/* Desktop Actions */}
         <div className="hidden md:flex items-center gap-3">
-          <Link 
+          <Link
             href="/login"
-            className="text-sm font-medium text-[#0F172A] border border-[#E2E8F0] rounded-lg px-4 py-2 hover:bg-[#F8FAFC] transition-colors"
+            className="text-sm font-medium text-[#0A2540] border border-white/60 bg-white/40
+                       rounded-lg px-4 py-2 hover:bg-white/60 transition-colors backdrop-blur-sm"
           >
             Log in
           </Link>
-          <Link 
+          <Link
             href="/signup"
-            className="text-sm font-medium text-white bg-[#1F95FF] rounded-lg px-4 py-2 hover:bg-[#0F7AE0] transition-colors"
+            className="text-sm font-medium text-white bg-[#1F95FF] rounded-lg px-4 py-2
+                       hover:bg-[#0F7AE0] transition-colors shadow-md shadow-blue-500/25"
           >
             Sign Up
           </Link>
         </div>
 
         {/* Mobile Hamburger */}
-        <button 
-          className="md:hidden p-2 -mr-2 text-[#0F172A]"
+        <button
+          className="md:hidden p-2 -mr-2 text-[#0A2540]"
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Toggle menu"
         >
@@ -79,28 +83,30 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden absolute top-16 left-0 right-0 bg-white border-b border-[#E2E8F0] shadow-lg flex flex-col">
+        <div className="md:hidden absolute top-16 left-0 right-0 border-b border-white/30
+                        bg-white/85 backdrop-blur-xl shadow-lg flex flex-col">
           <div className="flex flex-col py-4">
-            {navLinks.map((link) => (
-              <Link 
-                key={link.label} 
+            {navLinks.map(link => (
+              <Link
+                key={link.label}
                 href={link.href}
-                className="px-4 py-3 text-base font-medium text-[#0F172A] hover:bg-[#F8FAFC]"
+                className="px-4 py-3 text-base font-medium text-[#0A2540] hover:bg-white/40"
               >
                 {link.label}
               </Link>
             ))}
           </div>
           <div className="flex flex-col gap-3 px-4 pb-6">
-            <Link 
+            <Link
               href="/login"
-              className="text-center font-medium text-[#0F172A] border border-[#E2E8F0] rounded-lg px-4 py-3 active:bg-[#F8FAFC]"
+              className="text-center font-medium text-[#0A2540] border border-white/50
+                         bg-white/30 rounded-lg px-4 py-3"
             >
               Log in
             </Link>
-            <Link 
+            <Link
               href="/signup"
-              className="text-center font-medium text-white bg-[#1F95FF] rounded-lg px-4 py-3 active:bg-[#0F7AE0]"
+              className="text-center font-medium text-white bg-[#1F95FF] rounded-lg px-4 py-3"
             >
               Sign Up
             </Link>

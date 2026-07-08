@@ -1,30 +1,61 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 @import 'tailwindcss';
 
+/* ── Sky-blue palette from the AfuChat brand image ── */
 @theme inline {
-  --color-background: #ffffff;
-  --color-surface: #F8FAFC;
-  --color-border: #E2E8F0;
+  --color-background: #A8D4F0;
+  --color-surface: rgba(255,255,255,0.70);
+  --color-border: rgba(255,255,255,0.45);
+  --color-border-strong: rgba(255,255,255,0.65);
   --color-primary: #1F95FF;
   --color-primary-dark: #0F7AE0;
   --color-secondary: #6C63FF;
   --color-text: #0F172A;
-  --color-text-secondary: #64748B;
+  --color-text-secondary: #2D5A7A;
   --font-sans: 'Inter', sans-serif;
 }
 
 @layer base {
-  * { box-sizing: border-box; }
+  *, *::before, *::after { box-sizing: border-box; }
+
+  html {
+    /* Single unified sky-blue gradient — matches the AfuChat hero image exactly */
+    background: linear-gradient(160deg, #DBF0FF 0%, #A8D4F0 45%, #68A8D0 100%) fixed;
+    min-height: 100%;
+  }
+
   body {
     font-family: var(--font-sans);
-    background: white;
+    /* Inherit the html gradient — no override */
+    background: transparent;
     color: #0F172A;
     -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    letter-spacing: -0.02em;
   }
 }
 
 @layer utilities {
   .container-pad { @apply px-4 sm:px-6 lg:px-8; }
-  .section-pad { @apply py-16 sm:py-20 lg:py-28; }
+  .section-pad   { @apply py-16 sm:py-20 lg:py-28; }
   .max-container { @apply max-w-7xl mx-auto; }
+
+  /* White glass card — sits cleanly on the sky-blue bg */
+  .glass-card {
+    background: rgba(255,255,255,0.82);
+    border: 1px solid rgba(255,255,255,0.65);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  /* Softer card for section tonal breaks */
+  .tint-card {
+    background: rgba(255,255,255,0.18);
+    border: 1px solid rgba(255,255,255,0.35);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
 }

@@ -6,7 +6,7 @@ export default function ProductsSection() {
   const featuredProducts = PRODUCT_DATA.slice(0, 5);
 
   return (
-    <section className="section-pad bg-white">
+    <section className="section-pad">
       <div className="max-container container-pad">
         <div className="mb-12 sm:mb-16 text-center sm:text-left">
           <motion.h2

@@ -7,7 +7,7 @@ export default function EcosystemSection() {
   const products = PRODUCT_DATA.filter(p => p.id !== 'afumail');
 
   return (
-    <section className="section-pad bg-[#F8FAFC] overflow-hidden">
+    <section className="section-pad overflow-hidden">
       <div className="max-container container-pad">
         <div className="text-center mb-16 lg:mb-24">
           <motion.h2 
