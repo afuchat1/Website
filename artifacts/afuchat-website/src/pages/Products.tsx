@@ -1,46 +1,83 @@
+import { motion } from 'framer-motion';
 import { PRODUCT_DATA } from '@/data/products';
 import { Link } from 'wouter';
 
 export default function Products() {
   return (
-    <div className="w-full pb-20">
-      <div className="bg-[#F8FAFC] border-b border-[#E2E8F0]">
-        <div className="max-container container-pad py-16 sm:py-24 text-center">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#0F172A] mb-6">Our Products</h1>
-          <p className="text-lg sm:text-xl text-[#64748B] max-w-3xl mx-auto">
-            Explore the complete suite of AfuChat services, designed to work together seamlessly.
-          </p>
+    <div
+      className="w-full min-h-screen"
+      style={{
+        background: `
+          radial-gradient(ellipse at 30% 20%, rgba(100,30,200,0.35) 0%, transparent 50%),
+          radial-gradient(ellipse at 80% 60%, rgba(20,60,180,0.28) 0%, transparent 50%),
+          #07091e
+        `,
+      }}
+    >
+      {/* Hero */}
+      <div className="max-container container-pad pt-20 pb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }}>
+            <p className="text-purple-400 font-semibold text-xs uppercase tracking-widest mb-3">The Full Suite</p>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white mb-5 tracking-tight leading-tight">
+              Eight products.<br />One account.
+            </h1>
+            <p className="text-lg text-white/55 max-w-xl leading-relaxed">
+              Every AfuChat product is crafted to stand on its own — and to become dramatically more powerful when combined. Your single AfuMail account unlocks all of them.
+            </p>
+          </motion.div>
+          <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.1 }}>
+            <img src="/ill-community2.jpg" alt="People using AfuChat products" className="w-full rounded-3xl shadow-2xl shadow-purple-900/30" />
+          </motion.div>
         </div>
       </div>
 
-      <div className="max-container container-pad pt-16 sm:pt-20">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {PRODUCT_DATA.map((product) => {
+      {/* Products flat list */}
+      <div className="max-container container-pad py-10">
+        <div className="flex flex-col">
+          {PRODUCT_DATA.map((product, i) => {
             const Icon = product.icon;
             return (
-              <Link key={product.id} href={product.path}>
-                <div 
-                  className="bg-white border border-[#E2E8F0] rounded-[20px] p-8 h-full hover:shadow-lg transition-all duration-300 group"
-                >
-                  <Icon className="w-8 h-8 mb-6" style={{ color: product.color }} />
-                  <h3 className="text-2xl font-bold text-[#0F172A] mb-2">{product.name}</h3>
-                  <p className="text-[#1F95FF] font-medium text-sm mb-4">{product.tagline}</p>
-                  <p className="text-[#64748B] mb-6">
-                    {product.description}
-                  </p>
-                  <ul className="space-y-2">
-                    {product.features.map((feature, i) => (
-                      <li key={i} className="text-sm text-[#0F172A] flex items-center gap-2">
-                        <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: product.color }} />
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </Link>
+              <motion.div
+                key={product.id}
+                initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.05 }}
+                className="border-t border-white/8"
+              >
+                <Link href={product.path}>
+                  <div className="grid grid-cols-1 md:grid-cols-12 gap-6 py-8 items-start group cursor-pointer">
+                    <div className="md:col-span-1 flex items-center gap-3">
+                      <Icon className="w-6 h-6" style={{ color: product.color }} />
+                    </div>
+                    <div className="md:col-span-3">
+                      <h2 className="text-xl font-bold text-white group-hover:text-white mb-1">{product.name}</h2>
+                      <p className="text-sm font-medium" style={{ color: product.color }}>{product.tagline}</p>
+                    </div>
+                    <p className="md:col-span-5 text-sm text-white/50 leading-relaxed">{product.description}</p>
+                    <div className="md:col-span-3 flex flex-wrap gap-2">
+                      {product.features.map((f, j) => (
+                        <span key={j} className="text-xs text-white/35">{f}{j < product.features.length - 1 ? ' ·' : ''}</span>
+                      ))}
+                    </div>
+                  </div>
+                </Link>
+              </motion.div>
             );
           })}
+          <div className="border-t border-white/8" />
         </div>
+      </div>
+
+      {/* Bottom CTA */}
+      <div className="max-container container-pad py-20 border-t border-white/8">
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+          <h2 className="text-3xl font-bold text-white mb-4 tracking-tight">One account. All products. Forever free.</h2>
+          <p className="text-white/50 text-lg mb-8 max-w-xl leading-relaxed">
+            Create your AfuMail account in under 30 seconds and unlock every product in the ecosystem at no cost.
+          </p>
+          <Link href="/signup" className="inline-block px-7 py-3.5 bg-[#1F7AFF] text-white font-bold text-sm rounded-xl hover:bg-[#1468E0] transition-colors">
+            Get started free →
+          </Link>
+        </motion.div>
       </div>
     </div>
   );

@@ -17,70 +17,53 @@ export default function EcosystemSection() {
       }}
     >
       <div className="relative z-10 max-container container-pad">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           <div>
             <motion.p
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-blue-400 font-semibold text-sm uppercase tracking-widest mb-3"
-            >
-              Platform Ecosystem
-            </motion.p>
+              initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+              className="text-blue-400 font-semibold text-xs uppercase tracking-widest mb-3"
+            >Platform Ecosystem</motion.p>
             <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.05 }}
+              initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.05 }}
               className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-5 tracking-tight leading-tight"
             >
               One identity.<br />Eight powerful services.
             </motion.h2>
             <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-              className="text-lg text-white/55 mb-8 leading-relaxed"
+              initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}
+              className="text-lg text-white/55 mb-10 leading-relaxed"
             >
               AfuMail sits at the center of everything. Sign in once and every service — chat, AI, cloud, entertainment and more — is instantly available.
             </motion.p>
             <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.15 }}
-              className="grid grid-cols-2 gap-3"
+              initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.15 }}
+              className="grid grid-cols-2 gap-y-5 gap-x-8"
             >
-              {products.map((product) => {
+              {products.map((product, i) => {
                 const Icon = product.icon;
                 return (
-                  <Link href={product.path} key={product.id}>
-                    <div className="flex items-center gap-3 p-3 rounded-xl bg-white/6 border border-white/10 hover:bg-white/12 hover:border-white/25 transition-all cursor-pointer group">
-                      <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0" style={{ background: `${product.color}22` }}>
-                        <Icon className="w-4 h-4" style={{ color: product.color }} />
+                  <motion.div key={product.id} initial={{ opacity: 0, x: -10 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.05 }}>
+                    <Link href={product.path}>
+                      <div className="flex items-center gap-3 group cursor-pointer">
+                        <Icon className="w-5 h-5 flex-shrink-0" style={{ color: product.color }} />
+                        <span className="text-sm font-medium text-white/65 group-hover:text-white transition-colors">{product.name}</span>
                       </div>
-                      <span className="text-sm font-medium text-white/75 group-hover:text-white transition-colors">{product.name}</span>
-                    </div>
-                  </Link>
+                    </Link>
+                  </motion.div>
                 );
               })}
             </motion.div>
+            <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.4 }} className="mt-10">
+              <Link href="/ecosystem" className="text-blue-400 font-medium text-sm hover:text-blue-300 transition-colors">
+                Explore the full ecosystem →
+              </Link>
+            </motion.div>
           </div>
-
-          {/* Illustration */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}
             className="flex items-center justify-center"
           >
-            <img
-              src="/ill-social.jpg"
-              alt="AfuChat connected ecosystem"
-              className="w-full max-w-lg rounded-2xl shadow-2xl shadow-blue-900/40 border border-white/8"
-            />
+            <img src="/ill-social.jpg" alt="AfuChat connected ecosystem" className="w-full max-w-lg rounded-2xl shadow-2xl shadow-blue-900/40" />
           </motion.div>
         </div>
       </div>
