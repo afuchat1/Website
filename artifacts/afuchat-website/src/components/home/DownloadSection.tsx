@@ -2,23 +2,23 @@ import { motion } from 'framer-motion';
 
 export default function DownloadSection() {
   return (
-    <section className="relative py-14">
-      <div className="max-container container-pad flex flex-col md:flex-row items-center justify-between gap-8">
+    <section className="relative py-12 sm:py-14">
+      <div className="max-container container-pad flex flex-col md:flex-row items-center justify-between gap-6 sm:gap-8">
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           className="text-center md:text-left text-white"
         >
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-2 text-white">Available everywhere.</h2>
-          <p className="text-white/55 text-lg">Take your ecosystem on the go.</p>
+          <h2 className="text-[26px] leading-tight sm:text-3xl lg:text-4xl font-bold mb-2 text-white">Available everywhere.</h2>
+          <p className="text-white/55 text-base sm:text-lg">Take your ecosystem on the go.</p>
         </motion.div>
 
         <motion.div
           initial={{ opacity: 0, x: 20 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          className="flex flex-col sm:flex-row items-center gap-4"
+          className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 w-full sm:w-auto"
         >
           {/* Google Play */}
           <a

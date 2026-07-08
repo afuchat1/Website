@@ -15,20 +15,20 @@ export default function FeaturesSection() {
   return (
     <section className="section-pad relative">
       <div className="relative z-10 max-container container-pad">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center mb-12 sm:mb-20">
           {/* Illustration */}
           <motion.div
             initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}
-            className="order-2 lg:order-1 flex justify-center"
+            className="order-1 lg:order-1 flex justify-center mb-2 sm:mb-0"
           >
-            <img src={illSecSecurity} alt="Platform security and reliability" className="w-full max-w-sm drop-shadow-2xl"
+            <img src={illSecSecurity} alt="Platform security and reliability" className="w-full max-w-[260px] sm:max-w-sm drop-shadow-2xl"
               style={{ filter: 'drop-shadow(0 24px 48px rgba(20,184,166,0.30))' }} />
           </motion.div>
           {/* Text */}
-          <div className="order-1 lg:order-2">
+          <div className="order-2 lg:order-2">
             <motion.p
               initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-              className="text-teal-400 font-semibold text-xs uppercase tracking-widest mb-3"
+              className="text-teal-400 font-semibold text-[10px] sm:text-xs uppercase tracking-widest mb-3"
             >Platform Advantages</motion.p>
             <motion.h2
               initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.05 }}
@@ -36,13 +36,13 @@ export default function FeaturesSection() {
             >Why millions choose<br />AfuChat.</motion.h2>
             <motion.p
               initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}
-              className="text-lg text-white/55 leading-relaxed"
+              className="text-base sm:text-lg text-white/55 leading-relaxed"
             >Built from the ground up for security, speed, and simplicity — everything you need, nothing you don't.</motion.p>
           </div>
         </div>
 
         {/* Flat feature grid — no card wrappers */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-10 sm:gap-x-12 sm:gap-y-12">
           {features.map((f, i) => {
             const Icon = f.icon;
             return (

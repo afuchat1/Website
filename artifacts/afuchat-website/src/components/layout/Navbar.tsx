@@ -197,27 +197,27 @@ export default function Navbar() {
 
       {/* ── Mobile menu ── */}
       {isOpen && (
-        <div className="md:hidden absolute top-16 left-0 right-0 bg-[#040c1e]/98 backdrop-blur-2xl shadow-2xl shadow-black/40">
-          <div className="flex flex-col py-3">
+        <div className="md:hidden absolute top-16 left-0 right-0 bg-[#040c1e]/98 backdrop-blur-2xl shadow-2xl shadow-black/40 max-h-[calc(100dvh-64px)] overflow-y-auto pb-6 border-b border-white/10">
+          <div className="flex flex-col py-2">
             <button
-              className="flex items-center justify-between px-5 py-3.5 text-sm font-medium text-white/70 hover:text-white hover:bg-white/4 w-full transition-colors"
+              className="flex items-center justify-between px-6 py-4 text-base font-medium text-white/80 hover:text-white hover:bg-white/4 w-full transition-colors"
               onClick={() => setMobileProductsOpen(v => !v)}
               aria-expanded={mobileProductsOpen}
             >
               Products
-              <ChevronDown className={`w-4 h-4 transition-transform ${mobileProductsOpen ? 'rotate-180' : ''}`} />
+              <ChevronDown className={`w-5 h-5 transition-transform ${mobileProductsOpen ? 'rotate-180' : ''}`} />
             </button>
 
             {mobileProductsOpen && (
-              <div className="flex flex-col bg-white/3">
+              <div className="flex flex-col bg-white/5 py-2">
                 {PRODUCT_DATA.map(p => (
                   <Link
                     key={p.id}
                     href={p.path}
-                    className="flex items-center gap-3 px-7 py-3 text-sm text-white/55 hover:text-white transition-colors"
+                    className="flex items-center gap-4 px-8 py-3.5 text-sm text-white/60 hover:text-white hover:bg-white/5 transition-colors"
                   >
-                    <img src={p.icon3d} alt="" className="w-6 h-6 object-contain flex-shrink-0" />
-                    {p.name}
+                    <img src={p.icon3d} alt="" className="w-7 h-7 object-contain flex-shrink-0" />
+                    <span className="font-medium">{p.name}</span>
                   </Link>
                 ))}
               </div>
@@ -227,23 +227,23 @@ export default function Navbar() {
               <Link
                 key={link.label}
                 href={link.href}
-                className="px-5 py-3.5 text-sm font-medium text-white/70 hover:text-white hover:bg-white/4 transition-colors"
+                className="px-6 py-4 text-base font-medium text-white/80 hover:text-white hover:bg-white/4 transition-colors"
               >
                 {link.label}
               </Link>
             ))}
           </div>
 
-          <div className="flex flex-col gap-3 px-5 pb-5 pt-1">
+          <div className="flex flex-col gap-3 px-6 pt-2">
             <Link
               href="/login"
-              className="text-center text-sm font-medium text-white/75 border border-white/15 rounded-full px-4 py-3 hover:bg-white/6 transition-colors"
+              className="flex items-center justify-center text-sm font-medium text-white/80 border border-white/15 rounded-full px-4 py-3.5 hover:bg-white/6 transition-colors"
             >
               Log in
             </Link>
             <Link
               href="/signup"
-              className="text-center text-sm font-medium text-white bg-gradient-to-r from-[#1F7AFF] to-[#6C63FF] rounded-full px-4 py-3 hover:opacity-90 transition-opacity"
+              className="flex items-center justify-center text-sm font-bold text-white bg-gradient-to-r from-[#1F7AFF] to-[#6C63FF] rounded-full px-4 py-3.5 hover:opacity-90 transition-opacity"
             >
               Sign Up
             </Link>

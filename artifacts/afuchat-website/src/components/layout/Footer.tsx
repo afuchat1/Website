@@ -10,10 +10,10 @@ export default function Footer() {
       <div className="max-container container-pad pt-16 pb-8">
 
         {/* ── Main grid ── */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-10 mb-14">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 mb-10 md:mb-14">
 
           {/* Brand */}
-          <div className="col-span-2 md:col-span-1">
+          <div className="col-span-1 sm:col-span-2 md:col-span-1">
             <Link href="/" className="flex items-center gap-2.5 mb-5">
               <img src={logo} alt="AfuChat" className="h-8 w-auto" />
               <span className="text-white font-bold text-lg">AfuChat</span>

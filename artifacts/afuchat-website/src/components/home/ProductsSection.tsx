@@ -9,50 +9,53 @@ export default function ProductsSection() {
   return (
     <section className="section-pad relative">
       <div className="relative z-10 max-container container-pad">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start mb-20">
-          <div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-20 items-center mb-12 sm:mb-20">
+          <div className="order-2 lg:order-1">
             <motion.p
               initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-              className="text-purple-400 font-semibold text-xs uppercase tracking-widest mb-3"
+              className="text-purple-400 font-semibold text-[10px] sm:text-xs uppercase tracking-widest mb-3"
             >The Full Suite</motion.p>
             <motion.h2
               initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.05 }}
-              className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-5 tracking-tight leading-tight"
+              className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 sm:mb-5 tracking-tight leading-tight"
             >
               Everything you need<br />in one ecosystem.
             </motion.h2>
             <motion.p
               initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}
-              className="text-lg text-white/55 mb-6 leading-relaxed"
+              className="text-base sm:text-lg text-white/55 mb-6 leading-relaxed"
             >
               Eight powerful services built to work together. One AfuMail account unlocks all of them — no passwords to juggle, no separate subscriptions.
             </motion.p>
-            <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.15 }}>
-              <Link href="/products" className="text-purple-400 font-medium text-sm hover:text-purple-300 transition-colors">
+            <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.15 }} className="text-center sm:text-left">
+              <Link href="/products" className="inline-block py-3 sm:py-0 text-purple-400 font-medium text-sm hover:text-purple-300 transition-colors">
                 View all products →
               </Link>
             </motion.div>
           </div>
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.6 }}
+            className="order-1 lg:order-2 mb-2 sm:mb-0"
           >
-            <img src={illSecProducts} alt="The full AfuChat product suite" className="w-full max-w-lg mx-auto drop-shadow-2xl" />
+            <img src={illSecProducts} alt="The full AfuChat product suite" className="w-full max-w-[260px] sm:max-w-md lg:max-w-lg mx-auto drop-shadow-2xl" />
           </motion.div>
         </div>
 
         {/* Flat product grid — no cards, no borders */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-10 gap-y-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-10 sm:gap-x-10 sm:gap-y-10">
           {products.map((product, i) => (
             <motion.div
               key={product.id}
               initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-50px' }} transition={{ delay: i * 0.06 }}
             >
               <Link href={product.path}>
-                <div className="group cursor-pointer">
-                  <img src={product.icon3d} alt={`${product.name} icon`} className="w-14 h-14 object-contain mb-4" />
-                  <h3 className="text-sm font-bold text-white mb-1.5">{product.name}</h3>
-                  <p className="text-xs text-white/40 leading-relaxed mb-3">{product.description}</p>
-                  <span className="text-xs font-medium group-hover:underline" style={{ color: product.color }}>Learn more →</span>
+                <div className="group cursor-pointer bg-white/5 sm:bg-transparent p-5 sm:p-0 rounded-2xl sm:rounded-none hover:bg-white/10 sm:hover:bg-transparent transition-colors">
+                  <div className="flex items-center gap-4 sm:gap-0 sm:block mb-3 sm:mb-0">
+                    <img src={product.icon3d} alt={`${product.name} icon`} className="w-12 h-12 sm:w-14 sm:h-14 object-contain sm:mb-4" />
+                    <h3 className="text-base sm:text-sm font-bold text-white sm:mb-1.5">{product.name}</h3>
+                  </div>
+                  <p className="text-sm sm:text-xs text-white/50 sm:text-white/40 leading-relaxed mb-4 sm:mb-3">{product.description}</p>
+                  <span className="text-sm sm:text-xs font-medium group-hover:underline" style={{ color: product.color }}>Learn more →</span>
                 </div>
               </Link>
             </motion.div>
