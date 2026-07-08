@@ -4,6 +4,7 @@ import { PRODUCT_DATA } from '@/data/products';
 import NotFound from '@/pages/not-found';
 import { illSecEcosystem } from '@/data/illustrations';
 import Footer from '@/components/layout/Footer';
+import PageSEO from '@/components/seo/PageSEO';
 
 export default function ProductPage() {
   const params = useParams();
@@ -14,6 +15,11 @@ export default function ProductPage() {
 
   return (
     <div className="w-full min-h-screen">
+      <PageSEO
+        title={`${product.name} — ${product.tagline} | AfuChat`}
+        description={`${product.description} ${product.features.join(', ')}. Part of the AfuChat product ecosystem.`}
+        canonical={product.path}
+      />
       {/* Hero */}
       <div className="max-container container-pad pt-6 pb-12 sm:pt-14 sm:pb-16">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>

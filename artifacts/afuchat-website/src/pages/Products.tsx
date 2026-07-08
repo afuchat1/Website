@@ -3,10 +3,16 @@ import { PRODUCT_DATA } from '@/data/products';
 import { Link } from 'wouter';
 import { illSecProducts } from '@/data/illustrations';
 import Footer from '@/components/layout/Footer';
+import PageSEO from '@/components/seo/PageSEO';
 
 export default function Products() {
   return (
     <div className="w-full min-h-screen">
+      <PageSEO
+        title="Products — AfuChat Technologies"
+        description="Explore AfuChat's suite of eight independent digital products — AfuMail, AfuChat, AfuAI, AfuCloud, AfuMovies, AfuMall, AfuNews, and AfuBlog. Use one, use them all."
+        canonical="/products"
+      />
       {/* Hero */}
       <div className="max-container container-pad pt-8 pb-10 sm:pt-20 sm:pb-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">

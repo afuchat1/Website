@@ -4,6 +4,13 @@ import { Terminal, Book, Code2, Globe, Zap, Lock } from 'lucide-react';
 import DeveloperSection from '@/components/home/DeveloperSection';
 import { illSecDeveloper } from '@/data/illustrations';
 import Footer from '@/components/layout/Footer';
+import PageSEO from '@/components/seo/PageSEO';
+
+const SEO_META = {
+  title: 'Developer Platform — AfuChat',
+  description: 'Build on AfuChat with REST and GraphQL APIs, real-time WebSocket events, open-source SDKs for React, Node.js, Python, iOS, and Android. AfuMail SSO included.',
+  canonical: '/developers',
+};
 
 const resources = [
   { icon: Terminal, color: '#6C63FF', title: 'API Reference', desc: 'Complete REST and GraphQL documentation for all our products with live code examples.', link: 'Read APIs →' },
@@ -20,6 +27,7 @@ const capabilities = [
 export default function Developers() {
   return (
     <div className="w-full min-h-screen">
+      <PageSEO {...SEO_META} />
       {/* Hero */}
       <div className="max-container container-pad pt-12 pb-10 sm:pt-20 sm:pb-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">

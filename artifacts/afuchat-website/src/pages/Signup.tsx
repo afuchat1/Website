@@ -3,10 +3,16 @@ import { Link } from 'wouter';
 import { ArrowRight, Check } from 'lucide-react';
 import { illSecIdentity } from '@/data/illustrations';
 import Footer from '@/components/layout/Footer';
+import PageSEO from '@/components/seo/PageSEO';
 
 export default function Signup() {
   return (
     <div className="min-h-screen flex flex-col">
+      <PageSEO
+        title="Create Your Free Account — AfuChat"
+        description="Sign up for free and access every AfuChat product with a single account. One identity, zero friction — AfuMail, AfuChat, AfuAI, AfuCloud, and more."
+        canonical="/signup"
+      />
       {/* Main */}
       <main className="flex-1 flex items-center justify-center px-4 py-8 sm:py-16">
         <div className="w-full max-w-5xl grid grid-cols-1 lg:grid-cols-2 gap-12 sm:gap-16 items-center">

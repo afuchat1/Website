@@ -7,6 +7,7 @@ import {
   illSecPress, illSecSecurity, illSecSitemap,
 } from '@/data/illustrations';
 import Footer from '@/components/layout/Footer';
+import PageSEO from '@/components/seo/PageSEO';
 
 interface GenericPageProps {
   title: string;
@@ -150,12 +151,35 @@ const fallback = {
   ],
 };
 
+const PAGE_SEO: Record<string, { description: string; canonical: string }> = {
+  about:        { description: 'AfuChat Technologies Limited — building powerful standalone digital tools accessible to everyone. Learn who we are, our mission, and how we build.', canonical: '/about' },
+  leadership:   { description: 'Meet the AfuChat leadership team. Decades of experience in consumer internet, enterprise software, and applied AI, united by a shared vision.', canonical: '/about/leadership' },
+  careers:      { description: 'Build the future at AfuChat. Join small autonomous teams shipping products used by millions. Remote-friendly with hubs in Hong Kong, Singapore, and London.', canonical: '/about/careers' },
+  press:        { description: 'AfuChat press resources — logo assets, product screenshots, executive bios, and media contact information for journalists and content creators.', canonical: '/about/press' },
+  brand:        { description: 'AfuChat brand guidelines — logo usage, colour palette, typography, and approved assets for partners and press.', canonical: '/about/brand' },
+  enterprise:   { description: 'AfuChat enterprise plans with advanced security controls, custom domain support, audit logging, SSO, SCIM provisioning, and dedicated infrastructure.', canonical: '/enterprise' },
+  security:     { description: 'Security at AfuChat — AES-256 encryption at rest, TLS 1.3 in transit, zero-knowledge architecture, 2FA, and a responsible vulnerability disclosure programme.', canonical: '/security' },
+  contact:      { description: 'Get in touch with AfuChat. Product support, partnership inquiries, press requests, and enterprise sales — we respond within one business day.', canonical: '/contact' },
+  help:         { description: 'AfuChat Help Center — account setup, billing, security, and troubleshooting guides for all AfuChat products. Support responds within 4 hours on business days.', canonical: '/help' },
+  login:        { description: 'Sign in to your AfuChat account and access all your products in one place.', canonical: '/login' },
+  sitemap:      { description: 'A complete directory of every page across the AfuChat corporate website — products, company information, developer resources, and legal documentation.', canonical: '/sitemap' },
+  privacy:      { description: 'AfuChat Privacy Policy — how we collect, use, and protect your data. We never sell your personal information to third parties.', canonical: '/legal/privacy' },
+  terms:        { description: 'AfuChat Terms of Service — the rules and responsibilities that govern your use of our products and platform.', canonical: '/legal/terms' },
+  cookies:      { description: 'AfuChat Cookie Policy — what cookies we use, why we use them, and how you can control your preferences.', canonical: '/legal/cookies' },
+};
+
 export default function GenericPage({ title, type }: GenericPageProps) {
   const content = PAGE_CONTENT[type.toLowerCase()] ?? PAGE_CONTENT[title.toLowerCase().replace(/\s+/g, '')] ?? fallback;
   const accent = content.accent;
+  const seo = PAGE_SEO[type.toLowerCase()];
 
   return (
     <div className="w-full min-h-screen">
+      <PageSEO
+        title={`${title} — AfuChat`}
+        description={seo?.description ?? content.sections[0]?.body ?? `${title} — AfuChat Technologies Limited.`}
+        canonical={seo?.canonical}
+      />
       {/* Hero */}
       <div className="max-container container-pad pt-20 pb-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">

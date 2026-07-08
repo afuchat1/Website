@@ -1,10 +1,16 @@
 import { Link } from 'wouter';
 import { Home as HomeIcon } from 'lucide-react';
 import Footer from '@/components/layout/Footer';
+import PageSEO from '@/components/seo/PageSEO';
 
 export default function NotFound() {
   return (
     <div className="w-full">
+      <PageSEO
+        title="Page Not Found — AfuChat"
+        description="The page you are looking for doesn't exist or has been moved."
+        noindex
+      />
       <div className="min-h-[70vh] flex flex-col items-center justify-center container-pad text-center">
         <div className="w-20 h-20 bg-white/5 rounded-3xl flex items-center justify-center mb-6 border border-white/8">
           <span className="text-2xl font-extrabold text-white/60">404</span>

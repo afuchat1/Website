@@ -3,10 +3,16 @@ import { illSecEcosystem, illSecContact } from '@/data/illustrations';
 import { ShieldCheck, Target, Rocket, Users } from 'lucide-react';
 import { Link } from 'wouter';
 import Footer from '@/components/layout/Footer';
+import PageSEO from '@/components/seo/PageSEO';
 
 export default function Partners() {
   return (
     <div className="w-full min-h-screen">
+      <PageSEO
+        title="Partner Program — AfuChat"
+        description="Join the AfuChat partner ecosystem. Integration, channel, and strategic partnership programmes for companies of all sizes looking to grow alongside our products."
+        canonical="/partners"
+      />
       {/* Hero */}
       <div className="max-container container-pad pt-12 pb-10 sm:pt-20 sm:pb-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">
