@@ -15,8 +15,9 @@ A production-ready multi-page corporate website for AfuChat Technologies Limited
 
 | Variable | Where used | Notes |
 |---|---|---|
-| `DATABASE_URL` | `artifacts/api-server`, `lib/db` | Postgres connection string |
-| `SESSION_SECRET` | `artifacts/api-server` | Session signing secret |
+| `DATABASE_URL` | `lib/db` | Postgres connection string; used by Drizzle tooling (`db push`) and any DB-backed routes |
+| `SUPABASE_URL` / `SUPABASE_ANON_KEY` | `artifacts/api-server` (`src/lib/supabase.ts`) | Read-only anon-key client for live AfuChat community/profile data; the API throws on startup of that path if missing |
+| `SESSION_SECRET` | Reserved, not yet consumed by API code | Set for future session signing use |
 | `PORT` | Both artifacts | Injected automatically by artifact.toml (18182 for web, 8080 for API) |
 | `BASE_PATH` | `artifacts/afuchat-website` | Injected automatically by artifact.toml (`/` for web) |
 
