@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { PRODUCT_DATA } from '@/data/products';
 import { Link } from 'wouter';
+import { illSecProducts } from '@/data/illustrations';
 
 export default function Products() {
   return (
@@ -18,7 +19,7 @@ export default function Products() {
             </p>
           </motion.div>
           <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.1 }}>
-            <img src="/illustrations/ill-sec-products.png" alt="The full AfuChat product suite" className="w-full max-w-lg mx-auto drop-shadow-2xl" />
+            <img src={illSecProducts} alt="The full AfuChat product suite" className="w-full max-w-lg mx-auto drop-shadow-2xl" />
           </motion.div>
         </div>
       </div>
@@ -60,7 +61,7 @@ export default function Products() {
           <p className="text-white/50 text-lg mb-8 max-w-xl leading-relaxed">
             Create your AfuMail account in under 30 seconds and unlock every product in the ecosystem at no cost.
           </p>
-          <Link href="/signup" className="inline-block px-7 py-3.5 bg-[#1F7AFF] text-white font-bold text-sm rounded-full hover:bg-[#1468E0] transition-colors">
+          <Link href="/signup" className="inline-block px-7 py-3.5 bg-gradient-to-r from-[#1F7AFF] to-[#6C63FF] text-white font-bold text-sm rounded-full hover:opacity-90 transition-opacity">
             Get started free →
           </Link>
         </motion.div>

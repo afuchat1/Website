@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { Link } from 'wouter';
 import { ArrowRight, Check } from 'lucide-react';
+import { illSecIdentity } from '@/data/illustrations';
 
 export default function Signup() {
   return (
@@ -37,7 +38,7 @@ export default function Signup() {
 
           {/* Right: form */}
           <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: 0.1 }}>
-            <img src="/illustrations/ill-sec-identity.png" alt="Create your AfuMail identity" className="w-28 h-28 object-contain mb-5" />
+            <img src={illSecIdentity} alt="Create your AfuMail identity" className="w-28 h-28 object-contain mb-5" />
             <h1 className="text-2xl font-bold text-white mb-2 tracking-tight">Create your AfuMail</h1>
             <p className="text-white/45 mb-8 text-sm">Fill in your details below and join millions of people already in the ecosystem.</p>
 
@@ -77,7 +78,7 @@ export default function Signup() {
               </div>
               <button
                 type="button"
-                className="w-full px-6 py-3.5 bg-[#1F95FF] hover:bg-[#0F7AE0] text-white font-bold rounded-full transition-colors flex items-center justify-center gap-2 text-sm mt-2"
+                className="w-full px-6 py-3.5 bg-gradient-to-r from-[#1F7AFF] to-[#6C63FF] hover:opacity-90 text-white font-bold rounded-full transition-colors flex items-center justify-center gap-2 text-sm mt-2"
               >
                 Create AfuMail account
                 <ArrowRight className="w-4 h-4" />

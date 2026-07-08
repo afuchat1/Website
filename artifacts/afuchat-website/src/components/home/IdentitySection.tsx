@@ -1,3 +1,4 @@
+import { illSecIdentity, illSecSecurity } from "@/data/illustrations";
 import { motion } from 'framer-motion';
 import { Mail, ShieldCheck, LayoutGrid } from 'lucide-react';
 
@@ -17,9 +18,9 @@ export default function IdentitySection() {
             initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}
             className="flex flex-col items-center gap-8"
           >
-            <img src="/illustrations/ill-sec-identity.png" alt="AfuMail identity and single sign-on" className="w-full max-w-md drop-shadow-2xl" />
+            <img src={illSecIdentity} alt="AfuMail identity and single sign-on" className="w-full max-w-md drop-shadow-2xl" />
             <div className="flex items-center gap-4 w-full max-w-md">
-              <img src="/illustrations/ill-sec-security.png" alt="Security shield" className="w-14 h-14 object-contain flex-shrink-0" />
+              <img src={illSecSecurity} alt="Security shield" className="w-14 h-14 object-contain flex-shrink-0" />
               <div>
                 <p className="text-white font-semibold text-sm">Bank-grade security</p>
                 <p className="text-white/40 text-xs mt-0.5">AES-256 encryption · 2FA · Zero-knowledge architecture</p>

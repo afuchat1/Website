@@ -1,3 +1,4 @@
+import { illSecEcosystem } from "@/data/illustrations";
 import { motion } from 'framer-motion';
 import { PRODUCT_DATA } from '@/data/products';
 import { Link } from 'wouter';
@@ -51,7 +52,7 @@ export default function EcosystemSection() {
             initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}
             className="flex items-center justify-center"
           >
-            <img src="/illustrations/ill-sec-ecosystem.png" alt="AfuChat connected ecosystem" className="w-full max-w-lg drop-shadow-2xl" />
+            <img src={illSecEcosystem} alt="AfuChat connected ecosystem" className="w-full max-w-lg drop-shadow-2xl" />
           </motion.div>
         </div>
       </div>

@@ -1,6 +1,11 @@
 import { motion } from 'framer-motion';
 import { Link } from 'wouter';
 import { PRODUCT_DATA } from '@/data/products';
+import {
+  illSecAbout, illSecBrand, illSecCareers, illSecContact,
+  illSecEnterprise, illSecHelp, illSecIdentity, illSecLeadership,
+  illSecPress, illSecSecurity, illSecSitemap,
+} from '@/data/illustrations';
 
 interface GenericPageProps {
   title: string;
@@ -15,7 +20,7 @@ const PAGE_CONTENT: Record<string, {
 }> = {
   about: {
     accent: '#1F95FF',
-    illustration: '/illustrations/ill-sec-about.png',
+    illustration: illSecAbout,
     sections: [
       { heading: 'Who we are', body: 'AfuChat Technologies Limited is a technology company founded with a single belief: your digital life should feel like one continuous experience, not a fragmented collection of disconnected apps. We build products that share a single identity, a single intelligence layer, and a single purpose — to make the digital world effortless for everyone.' },
       { heading: 'Our mission', body: "We believe that the future of the internet is unified. Too many platforms demand separate accounts, separate passwords, and separate subscriptions for services that should naturally work together. AfuChat exists to fix that. Our mission is to build the world's most connected digital ecosystem — one where communication, creativity, entertainment, and commerce flow without friction." },
@@ -24,7 +29,7 @@ const PAGE_CONTENT: Record<string, {
   },
   company: {
     accent: '#6C63FF',
-    illustration: '/illustrations/ill-sec-leadership.png',
+    illustration: illSecLeadership,
     sections: [
       { heading: 'AfuChat Technologies Limited', body: 'We are a global technology company building the next generation of connected digital services. Our headquarters are in Hong Kong, with engineering and product teams distributed across Asia, Europe, and North America.' },
       { heading: 'Leadership', body: 'Our leadership team brings together decades of experience in consumer internet, enterprise software, and applied AI. We are united by a shared vision: that people deserve a digital ecosystem as seamless and well-designed as the physical world they inhabit.' },
@@ -33,7 +38,7 @@ const PAGE_CONTENT: Record<string, {
   },
   leadership: {
     accent: '#6C63FF',
-    illustration: '/illustrations/ill-sec-leadership.png',
+    illustration: illSecLeadership,
     sections: [
       { heading: 'AfuChat Technologies Limited', body: 'We are a global technology company building the next generation of connected digital services. Our headquarters are in Hong Kong, with engineering and product teams distributed across Asia, Europe, and North America.' },
       { heading: 'Leadership', body: 'Our leadership team brings together decades of experience in consumer internet, enterprise software, and applied AI. We are united by a shared vision: that people deserve a digital ecosystem as seamless and well-designed as the physical world they inhabit.' },
@@ -42,7 +47,7 @@ const PAGE_CONTENT: Record<string, {
   },
   enterprise: {
     accent: '#1F95FF',
-    illustration: '/illustrations/ill-sec-enterprise.png',
+    illustration: illSecEnterprise,
     sections: [
       { heading: 'Enterprise-grade ecosystem', body: 'AfuChat offers dedicated enterprise plans with advanced security controls, custom domain support, audit logging, and dedicated infrastructure. Deploy the entire AfuChat ecosystem within your organization under your own brand with full administrative control.' },
       { heading: 'Security & compliance', body: 'Enterprise accounts include SOC 2 Type II compliance reports, data residency options, single tenant deployments, and custom data retention policies. Our security team works directly with enterprise customers to meet their specific regulatory requirements.' },
@@ -51,7 +56,7 @@ const PAGE_CONTENT: Record<string, {
   },
   security: {
     accent: '#16C784',
-    illustration: '/illustrations/ill-sec-security.png',
+    illustration: illSecSecurity,
     sections: [
       { heading: 'Security by design', body: 'Security is not an add-on at AfuChat — it is the foundation every product is built on. We use AES-256 encryption for data at rest, TLS 1.3 for data in transit, and zero-knowledge architecture for messages and files. This means even AfuChat employees cannot read your data.' },
       { heading: 'Two-factor authentication', body: 'Every AfuMail account supports TOTP-based two-factor authentication and hardware security keys. We strongly recommend enabling 2FA. For enterprise accounts, 2FA can be enforced across the entire organization with a single policy change.' },
@@ -60,7 +65,7 @@ const PAGE_CONTENT: Record<string, {
   },
   contact: {
     accent: '#14B8A6',
-    illustration: '/illustrations/ill-sec-contact.png',
+    illustration: illSecContact,
     sections: [
       { heading: 'Get in touch', body: "We'd love to hear from you. Whether you have a question about a product, a partnership inquiry, a press request, or just want to say hello — our team is here." },
       { heading: 'Support', body: 'For product support, please visit our Help Center. Our support team responds within 4 hours on business days and within 24 hours on weekends. Enterprise customers have access to dedicated support with a guaranteed 1-hour SLA.' },
@@ -69,7 +74,7 @@ const PAGE_CONTENT: Record<string, {
   },
   careers: {
     accent: '#16C784',
-    illustration: '/illustrations/ill-sec-careers.png',
+    illustration: illSecCareers,
     sections: [
       { heading: 'Build the connected future', body: 'We are looking for people who want to build a digital ecosystem used by millions — engineers, designers, and operators who care about craft, speed, and the details that make software feel effortless.' },
       { heading: 'How we work', body: 'Small autonomous teams own entire products end-to-end. We favor shipping over process, and we default to giving people real ownership early. Remote-friendly, with hubs in Hong Kong, Singapore, and London.' },
@@ -78,7 +83,7 @@ const PAGE_CONTENT: Record<string, {
   },
   press: {
     accent: '#3B82F6',
-    illustration: '/illustrations/ill-sec-press.png',
+    illustration: illSecPress,
     sections: [
       { heading: 'Media resources', body: 'Journalists and content creators can find our logo assets, product screenshots, and executive bios in our press kit. For interview requests or embargoed briefings, reach out to our communications team directly.' },
       { heading: 'Recent coverage', body: 'AfuChat has been featured in leading technology and business publications covering our approach to unified digital identity and the rise of integrated service ecosystems.' },
@@ -87,7 +92,7 @@ const PAGE_CONTENT: Record<string, {
   },
   brand: {
     accent: '#8B5CF6',
-    illustration: '/illustrations/ill-sec-brand.png',
+    illustration: illSecBrand,
     sections: [
       { heading: 'Our visual identity', body: 'The AfuChat brand is built around a single idea — connection. Our logo, color palette, and typography are designed to feel consistent across all eight products while giving each one its own accent color.' },
       { heading: 'Logo usage', body: 'Please do not alter, recolor, or distort the AfuChat logo. Maintain clear space around it equal to the height of the logomark, and always use the provided source files rather than recreating it.' },
@@ -96,7 +101,7 @@ const PAGE_CONTENT: Record<string, {
   },
   help: {
     accent: '#14B8A6',
-    illustration: '/illustrations/ill-sec-help.png',
+    illustration: illSecHelp,
     sections: [
       { heading: 'How can we help?', body: 'Our Help Center covers account setup, billing, security, and troubleshooting for all eight AfuChat products. Most answers are available instantly through search.' },
       { heading: 'Still stuck?', body: 'If you cannot find what you need, contact our support team from within any AfuChat product, or email support@afuchat.com. We respond within 4 hours on business days.' },
@@ -105,7 +110,7 @@ const PAGE_CONTENT: Record<string, {
   },
   login: {
     accent: '#1F95FF',
-    illustration: '/illustrations/ill-sec-identity.png',
+    illustration: illSecIdentity,
     sections: [
       { heading: 'Welcome back', body: 'Sign in with your AfuMail address to access AfuChat, AfuCloud, AfuAI, and every other service in the ecosystem — all with the same secure identity.' },
       { heading: 'Forgot your password?', body: 'Use the password recovery link on the sign-in screen. For accounts with two-factor authentication enabled, you will need access to your registered device.' },
@@ -113,7 +118,7 @@ const PAGE_CONTENT: Record<string, {
   },
   sitemap: {
     accent: '#64748B',
-    illustration: '/illustrations/ill-sec-sitemap.png',
+    illustration: illSecSitemap,
     sections: [
       { heading: 'Find your way around', body: 'A complete directory of every page across the AfuChat corporate site — products, company information, developer resources, and legal documentation.' },
       { heading: 'Need something else?', body: 'If you cannot find a page you are looking for, visit our Help Center or contact our team directly.' },

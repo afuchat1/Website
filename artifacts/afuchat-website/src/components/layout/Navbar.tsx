@@ -147,7 +147,7 @@ export default function Navbar() {
                     <Link
                       href="/signup"
                       onClick={() => setProductsOpen(false)}
-                      className="text-xs font-semibold text-white bg-[#1F7AFF] px-4 py-2 rounded-full hover:bg-[#1468E0] transition-colors"
+                      className="text-xs font-semibold text-white bg-gradient-to-r from-[#1F7AFF] to-[#6C63FF] px-4 py-2 rounded-full hover:opacity-90 transition-opacity"
                     >
                       Get started free
                     </Link>
@@ -178,7 +178,7 @@ export default function Navbar() {
           </Link>
           <Link
             href="/signup"
-            className="text-sm font-medium text-white bg-[#1F95FF] rounded-full px-5 py-2 hover:bg-[#0F7AE0] transition-colors"
+            className="text-sm font-medium text-white bg-gradient-to-r from-[#1F7AFF] to-[#6C63FF] rounded-full px-5 py-2 hover:opacity-90 transition-opacity"
           >
             Sign Up
           </Link>
@@ -243,7 +243,7 @@ export default function Navbar() {
             </Link>
             <Link
               href="/signup"
-              className="text-center text-sm font-medium text-white bg-[#1F95FF] rounded-full px-4 py-3 hover:bg-[#0F7AE0] transition-colors"
+              className="text-center text-sm font-medium text-white bg-gradient-to-r from-[#1F7AFF] to-[#6C63FF] rounded-full px-4 py-3 hover:opacity-90 transition-opacity"
             >
               Sign Up
             </Link>

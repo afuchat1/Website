@@ -1,3 +1,4 @@
+import { illSecCta } from "@/data/illustrations";
 import { motion } from 'framer-motion';
 import { Link } from 'wouter';
 
@@ -12,7 +13,7 @@ export default function CtaSection() {
             viewport={{ once: true }}
             className="flex justify-center mb-4"
           >
-            <img src="/illustrations/ill-sec-cta.png" alt="Launch your AfuChat journey" className="w-40 h-40 object-contain drop-shadow-2xl" />
+            <img src={illSecCta} alt="Launch your AfuChat journey" className="w-40 h-40 object-contain drop-shadow-2xl" />
           </motion.div>
           <motion.p
             initial={{ opacity: 0, y: 16 }}

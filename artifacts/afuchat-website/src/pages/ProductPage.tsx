@@ -3,6 +3,7 @@ import { useParams, Link } from 'wouter';
 import { PRODUCT_DATA } from '@/data/products';
 import NotFound from '@/pages/not-found';
 import { ArrowLeft } from 'lucide-react';
+import { illSecEcosystem } from '@/data/illustrations';
 
 export default function ProductPage() {
   const params = useParams();
@@ -83,7 +84,7 @@ export default function ProductPage() {
             </div>
           </motion.div>
           <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
-            <img src="/illustrations/ill-sec-ecosystem.png" alt="Platform integration" className="w-full max-w-sm mx-auto drop-shadow-2xl"
+            <img src={illSecEcosystem} alt="Platform integration" className="w-full max-w-sm mx-auto drop-shadow-2xl"
               style={{ filter: `drop-shadow(0 20px 40px ${product.color}30)` }} />
           </motion.div>
         </div>

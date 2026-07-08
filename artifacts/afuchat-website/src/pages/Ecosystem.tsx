@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { PRODUCT_DATA } from '@/data/products';
 import { Link } from 'wouter';
+import { illSecEcosystem, illSecCta } from '@/data/illustrations';
 
 export default function Ecosystem() {
   return (
@@ -16,12 +17,12 @@ export default function Ecosystem() {
             <p className="text-lg text-white/55 max-w-xl leading-relaxed mb-8">
               AfuChat is not a single app — it's a living ecosystem. Eight specialized services share one identity, one payment method, and one place to manage them all.
             </p>
-            <Link href="/signup" className="inline-block px-7 py-3.5 bg-[#1F7AFF] text-white font-bold text-sm rounded-full hover:bg-[#1468E0] transition-colors">
+            <Link href="/signup" className="inline-block px-7 py-3.5 bg-gradient-to-r from-[#1F7AFF] to-[#6C63FF] text-white font-bold text-sm rounded-full hover:opacity-90 transition-opacity">
               Create your free account →
             </Link>
           </motion.div>
           <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.6, delay: 0.1 }}>
-            <img src="/illustrations/ill-sec-ecosystem.png" alt="Connected ecosystem" className="w-full max-w-lg mx-auto drop-shadow-2xl" />
+            <img src={illSecEcosystem} alt="Connected ecosystem" className="w-full max-w-lg mx-auto drop-shadow-2xl" />
           </motion.div>
         </div>
       </div>
@@ -89,7 +90,7 @@ export default function Ecosystem() {
             <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4 tracking-tight">Ready to connect everything?</h2>
             <p className="text-white/55 text-lg mb-8 leading-relaxed">Create your free AfuMail account and step into an ecosystem built for the way you actually live and work.</p>
             <div className="flex gap-4 flex-wrap">
-              <Link href="/signup" className="px-7 py-3.5 bg-[#1F7AFF] text-white font-bold text-sm rounded-full hover:bg-[#1468E0] transition-colors">
+              <Link href="/signup" className="px-7 py-3.5 bg-gradient-to-r from-[#1F7AFF] to-[#6C63FF] text-white font-bold text-sm rounded-full hover:opacity-90 transition-opacity">
                 Create free account →
               </Link>
               <Link href="/products" className="text-white/50 font-medium text-sm py-3.5 hover:text-white transition-colors">
@@ -97,7 +98,7 @@ export default function Ecosystem() {
               </Link>
             </div>
           </div>
-          <img src="/illustrations/ill-sec-cta.png" alt="Get started with AfuChat" className="w-full max-w-xs mx-auto drop-shadow-2xl" />
+          <img src={illSecCta} alt="Get started with AfuChat" className="w-full max-w-xs mx-auto drop-shadow-2xl" />
         </motion.div>
       </div>
     </div>

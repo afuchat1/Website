@@ -1,3 +1,4 @@
+import { illSecProducts } from "@/data/illustrations";
 import { motion } from 'framer-motion';
 import { PRODUCT_DATA } from '@/data/products';
 import { Link } from 'wouter';
@@ -35,7 +36,7 @@ export default function ProductsSection() {
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.6 }}
           >
-            <img src="/illustrations/ill-sec-products.png" alt="The full AfuChat product suite" className="w-full max-w-lg mx-auto drop-shadow-2xl" />
+            <img src={illSecProducts} alt="The full AfuChat product suite" className="w-full max-w-lg mx-auto drop-shadow-2xl" />
           </motion.div>
         </div>
 

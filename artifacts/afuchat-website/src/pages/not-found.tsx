@@ -13,7 +13,7 @@ export default function NotFound() {
       </p>
       <Link
         href="/"
-        className="flex items-center gap-2 px-6 py-3 bg-[#1F95FF] text-white rounded-full font-medium hover:bg-[#0F7AE0] transition-colors"
+        className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#1F7AFF] to-[#6C63FF] text-white rounded-full font-medium hover:opacity-90 transition-opacity"
       >
         <HomeIcon className="w-4 h-4" />
         Back to Home

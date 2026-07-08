@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { Link } from 'wouter';
+import { illSecHero } from '@/data/illustrations';
 
 export default function HeroSection() {
   return (
@@ -37,7 +38,7 @@ export default function HeroSection() {
               transition={{ delay: 0.15 }}
               className="flex flex-wrap gap-3 mb-10"
             >
-              <Link href="/signup" className="px-7 py-3.5 bg-[#1F7AFF] text-white font-bold text-sm rounded-full hover:bg-[#1468E0] transition-colors shadow-lg shadow-blue-500/25">
+              <Link href="/signup" className="px-7 py-3.5 bg-gradient-to-r from-[#1F7AFF] to-[#6C63FF] text-white font-bold text-sm rounded-full hover:opacity-90 transition-opacity shadow-lg shadow-blue-500/25">
                 Create AfuMail →
               </Link>
               <Link href="/ecosystem" className="px-7 py-3.5 text-white/70 font-medium text-sm hover:text-white transition-colors">
@@ -60,7 +61,7 @@ export default function HeroSection() {
             className="flex justify-center lg:justify-end"
           >
             <img
-              src="/illustrations/ill-sec-hero.png"
+              src={illSecHero}
               alt="One identity connecting every AfuChat service"
               className="w-full max-w-md lg:max-w-lg drop-shadow-2xl"
             />

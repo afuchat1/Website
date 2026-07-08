@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'wouter';
 import { Terminal, Book, Code2, Globe, Zap, Lock } from 'lucide-react';
 import DeveloperSection from '@/components/home/DeveloperSection';
+import { illSecDeveloper } from '@/data/illustrations';
 
 const resources = [
   { icon: Terminal, color: '#6C63FF', title: 'API Reference', desc: 'Complete REST and GraphQL documentation for all 8 products with live code examples.', link: 'Read APIs →' },
@@ -39,7 +40,7 @@ export default function Developers() {
             </div>
           </motion.div>
           <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.1 }}>
-            <img src="/illustrations/ill-sec-developer.png" alt="Developer platform" className="w-full max-w-md mx-auto drop-shadow-2xl" />
+            <img src={illSecDeveloper} alt="Developer platform" className="w-full max-w-md mx-auto drop-shadow-2xl" />
           </motion.div>
         </div>
       </div>

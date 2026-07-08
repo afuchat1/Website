@@ -1,3 +1,4 @@
+import { illSecSecurity } from "@/data/illustrations";
 import { motion } from 'framer-motion';
 import { ShieldCheck, Lock, Sparkles, RefreshCw, Zap, Globe } from 'lucide-react';
 
@@ -20,7 +21,7 @@ export default function FeaturesSection() {
             initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}
             className="order-2 lg:order-1 flex justify-center"
           >
-            <img src="/illustrations/ill-sec-security.png" alt="Platform security and reliability" className="w-full max-w-sm drop-shadow-2xl"
+            <img src={illSecSecurity} alt="Platform security and reliability" className="w-full max-w-sm drop-shadow-2xl"
               style={{ filter: 'drop-shadow(0 24px 48px rgba(20,184,166,0.30))' }} />
           </motion.div>
           {/* Text */}
