@@ -20,8 +20,8 @@
 
   html {
     /* Radial gradient matching the AfuChat brand image exactly:
-       near-white light blue in the center, rich sky blue at the edges/corners */
-    background: radial-gradient(ellipse at 50% 38%, #EBF7FF 0%, #C2E5F8 28%, #6CC3ED 62%, #46AEE2 100%) fixed;
+       almost pure white at center, saturated sky blue pushed to the corners */
+    background: radial-gradient(ellipse 140% 120% at 50% 50%, #F6FCFF 0%, #D4EEFA 22%, #83C9EE 52%, #3AAEE3 100%) fixed;
     min-height: 100%;
   }
 
