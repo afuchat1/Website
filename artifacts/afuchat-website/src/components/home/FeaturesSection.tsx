@@ -30,14 +30,22 @@ const features = [
 
 export default function FeaturesSection() {
   return (
-    <section className="section-pad">
-      <div className="max-container container-pad">
+    <section
+      className="section-pad relative"
+      style={{
+        backgroundImage: "url('/bg-features.jpg')",
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+      }}
+    >
+      <div className="absolute inset-0 bg-black/50" />
+      <div className="relative z-10 max-container container-pad">
         <div className="text-center mb-14 lg:mb-20">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-50px' }}
-            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0F172A] tracking-tight"
+            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight"
           >
             Why AfuChat?
           </motion.h2>
@@ -53,12 +61,11 @@ export default function FeaturesSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-50px' }}
                 transition={{ delay: i * 0.09 }}
-                className="bg-white p-8 rounded-2xl border border-[#E2E8F0] flex flex-col items-start"
+                className="bg-white/8 backdrop-blur-md p-8 rounded-2xl border border-white/12 hover:border-white/30 transition-colors flex flex-col items-start"
               >
-                {/* bare icon — no background box */}
                 <Icon className="w-6 h-6 mb-5" style={{ color: f.color }} />
-                <h3 className="text-lg font-bold text-[#0F172A] mb-2">{f.title}</h3>
-                <p className="text-[#64748B] text-sm leading-relaxed">{f.desc}</p>
+                <h3 className="text-lg font-bold text-white mb-2">{f.title}</h3>
+                <p className="text-white/55 text-sm leading-relaxed">{f.desc}</p>
               </motion.div>
             );
           })}

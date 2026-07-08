@@ -19,8 +19,7 @@
   *, *::before, *::after { box-sizing: border-box; }
 
   html {
-    /* Radial gradient sampled exactly from the AfuChat brand image */
-    background: radial-gradient(ellipse 140% 120% at 50% 50%, #F6FCFF 0%, #D4EEFA 22%, #83C9EE 52%, #3AAEE3 100%) fixed;
+    background: #050810;
     min-height: 100%;
   }
 

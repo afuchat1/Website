@@ -4,9 +4,18 @@ import heroImage from '@assets/AfuChat_1783469000333.png';
 
 export default function HeroSection() {
   return (
-    /* Section is transparent — the page's unified sky-blue gradient shows through */
-    <section className="relative overflow-hidden pt-0 pb-0">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2">
+    <section
+      className="relative overflow-hidden pt-0 pb-0"
+      style={{
+        backgroundImage: "url('/bg-hero.jpg')",
+        backgroundSize: 'cover',
+        backgroundPosition: 'center top',
+      }}
+    >
+      {/* subtle dark overlay so text stays readable */}
+      <div className="absolute inset-0 bg-black/20" />
+
+      <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2">
 
         {/* ── LEFT: text ── */}
         <div className="flex flex-col items-start text-left px-4 sm:px-6 lg:px-10 xl:px-16
@@ -17,17 +26,17 @@ export default function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.45 }}
             className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full mb-6
-                       bg-white/40 border border-white/60 backdrop-blur-sm"
+                       bg-white/15 border border-white/30 backdrop-blur-sm"
           >
-            <span className="text-[#1463A5] text-xs">✦</span>
-            <span className="text-sm font-medium text-[#1463A5]">One account. Everything connected.</span>
+            <span className="text-blue-300 text-xs">✦</span>
+            <span className="text-sm font-medium text-white/90">One account. Everything connected.</span>
           </motion.div>
 
           <motion.h1
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.45, delay: 0.08 }}
-            className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-[#0A2540]
+            className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white
                        leading-[1.08] tracking-tight mb-5"
           >
             One identity.<br />
@@ -39,7 +48,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.45, delay: 0.16 }}
-            className="text-lg sm:text-xl text-[#2D5A7A] max-w-md mb-8 leading-relaxed"
+            className="text-lg sm:text-xl text-white/75 max-w-md mb-8 leading-relaxed"
           >
             Create one AfuMail account and instantly access chat, cloud storage, AI,
             entertainment and more — no separate sign-ups.
@@ -56,14 +65,14 @@ export default function HeroSection() {
               href="/signup"
               className="px-7 py-3.5 bg-[#1F95FF] text-white text-base font-semibold
                          rounded-xl hover:bg-[#0F7AE0] transition-colors text-center shadow-lg
-                         shadow-blue-500/30"
+                         shadow-blue-500/40"
             >
               Create AfuMail →
             </Link>
             <Link
               href="/ecosystem"
-              className="px-7 py-3.5 bg-white/60 text-[#0A2540] text-base font-semibold
-                         rounded-xl border border-white/70 hover:bg-white/80 transition-colors
+              className="px-7 py-3.5 bg-white/15 text-white text-base font-semibold
+                         rounded-xl border border-white/30 hover:bg-white/25 transition-colors
                          text-center backdrop-blur-sm"
             >
               See how it works
@@ -80,7 +89,7 @@ export default function HeroSection() {
               {['#1F95FF', '#6C63FF', '#10B981', '#F59E0B'].map((bg, i) => (
                 <div
                   key={i}
-                  className="w-9 h-9 rounded-full border-2 border-white/80 flex items-center
+                  className="w-9 h-9 rounded-full border-2 border-white/40 flex items-center
                              justify-center text-white text-xs font-bold shadow-sm"
                   style={{ background: bg }}
                 >
@@ -88,7 +97,7 @@ export default function HeroSection() {
                 </div>
               ))}
             </div>
-            <span className="text-sm font-medium text-[#2D5A7A]">Trusted by millions globally</span>
+            <span className="text-sm font-medium text-white/70">Trusted by millions globally</span>
           </motion.div>
         </div>
 

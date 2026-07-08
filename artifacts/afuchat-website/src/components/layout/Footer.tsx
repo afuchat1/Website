@@ -4,17 +4,25 @@ import logo from '@assets/afuchat_logo_transparent.png';
 
 export default function Footer() {
   return (
-    <footer className="border-t border-white/30 pt-16 pb-8">
-      <div className="max-container container-pad">
+    <footer
+      className="relative border-t border-white/10 pt-16 pb-8"
+      style={{
+        backgroundImage: "url('/bg-footer.jpg')",
+        backgroundSize: 'cover',
+        backgroundPosition: 'center top',
+      }}
+    >
+      <div className="absolute inset-0 bg-black/60" />
+      <div className="relative z-10 max-container container-pad">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-12 mb-16">
 
           {/* Brand */}
           <div className="lg:col-span-2 flex flex-col gap-4">
             <Link href="/" className="flex items-center gap-2">
               <img src={logo} alt="AfuChat Logo" className="h-8 w-auto" />
-              <span className="font-bold text-[#0A2540] text-xl">AfuChat</span>
+              <span className="font-bold text-white text-xl">AfuChat</span>
             </Link>
-            <p className="text-[#2D5A7A] text-sm max-w-sm leading-relaxed">
+            <p className="text-white/50 text-sm max-w-sm leading-relaxed">
               One identity. Every service. Zero friction.<br />
               The complete ecosystem for your digital life.
             </p>
@@ -25,7 +33,7 @@ export default function Footer() {
                 { href: 'https://github.com',   Icon: Github  },
               ].map(({ href, Icon }) => (
                 <a key={href} href={href} target="_blank" rel="noreferrer"
-                   className="text-[#2D5A7A] hover:text-[#1F95FF] transition-colors">
+                   className="text-white/40 hover:text-[#1F95FF] transition-colors">
                   <Icon className="w-5 h-5" />
                 </a>
               ))}
@@ -64,12 +72,12 @@ export default function Footer() {
             },
           ].map(col => (
             <div key={col.heading}>
-              <h4 className="font-semibold text-[#0A2540] mb-4">{col.heading}</h4>
+              <h4 className="font-semibold text-white/80 mb-4">{col.heading}</h4>
               <ul className="flex flex-col gap-3">
                 {col.links.map(l => (
                   <li key={l.label}>
                     <Link href={l.href}
-                      className="text-sm text-[#2D5A7A] hover:text-[#1F95FF] transition-colors">
+                      className="text-sm text-white/40 hover:text-[#1F95FF] transition-colors">
                       {l.label}
                     </Link>
                   </li>
@@ -79,9 +87,9 @@ export default function Footer() {
           ))}
         </div>
 
-        <div className="pt-8 border-t border-white/30 flex flex-col md:flex-row
+        <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row
                         items-center justify-between gap-4">
-          <p className="text-sm text-[#2D5A7A]">
+          <p className="text-sm text-white/30">
             © {new Date().getFullYear()} AfuChat Technologies Limited. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
@@ -91,7 +99,7 @@ export default function Footer() {
               { label: 'Cookies',        href: '/legal/cookies' },
             ].map(l => (
               <Link key={l.label} href={l.href}
-                className="text-sm text-[#2D5A7A] hover:text-[#1F95FF] transition-colors">
+                className="text-sm text-white/30 hover:text-[#1F95FF] transition-colors">
                 {l.label}
               </Link>
             ))}

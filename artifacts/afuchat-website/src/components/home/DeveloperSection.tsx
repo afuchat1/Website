@@ -10,30 +10,39 @@ export default function DeveloperSection() {
   ];
 
   return (
-    <section className="section-pad">
-      <div className="max-container container-pad">
+    <section
+      className="section-pad relative"
+      style={{
+        backgroundImage: "url('/bg-developer.jpg')",
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+      }}
+    >
+      <div className="absolute inset-0 bg-black/50" />
+      <div className="relative z-10 max-container container-pad">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+
           {/* Left Text */}
           <div className="flex flex-col items-start">
-            <motion.h2 
+            <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
-              className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0F172A] mb-6 tracking-tight"
+              className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 tracking-tight"
             >
               Build on AfuChat.
             </motion.h2>
-            <motion.p 
+            <motion.p
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ delay: 0.1 }}
-              className="text-lg text-[#64748B] mb-8"
+              className="text-lg text-green-200/70 mb-8"
             >
               Leverage the power of the AfuChat ecosystem. Integrate your applications with a single API to tap into millions of verified AfuMail users.
             </motion.p>
 
-            <motion.ul 
+            <motion.ul
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
@@ -41,8 +50,8 @@ export default function DeveloperSection() {
               className="flex flex-col gap-4 mb-10"
             >
               {points.map((point, i) => (
-                <li key={i} className="flex items-center gap-3 text-[#0F172A] font-medium">
-                  <CheckCircle2 className="w-5 h-5 text-[#16C784]" />
+                <li key={i} className="flex items-center gap-3 text-white font-medium">
+                  <CheckCircle2 className="w-5 h-5 text-[#16C784] flex-shrink-0" />
                   {point}
                 </li>
               ))}
@@ -54,9 +63,9 @@ export default function DeveloperSection() {
               viewport={{ once: true, margin: "-50px" }}
               transition={{ delay: 0.3 }}
             >
-              <Link 
-                href="/developers" 
-                className="px-6 py-3 bg-[#0F172A] text-white text-base font-semibold rounded-xl hover:bg-[#1E293B] transition-colors inline-block"
+              <Link
+                href="/developers"
+                className="px-6 py-3 bg-[#16C784] text-white text-base font-semibold rounded-xl hover:bg-[#12A870] transition-colors inline-block"
               >
                 Read the docs →
               </Link>
@@ -64,14 +73,14 @@ export default function DeveloperSection() {
           </div>
 
           {/* Right Code Block */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ delay: 0.2, duration: 0.5 }}
-            className="w-full bg-[#0F172A] rounded-2xl overflow-hidden shadow-xl"
+            className="w-full bg-black/60 backdrop-blur-md rounded-2xl overflow-hidden shadow-xl border border-green-500/20"
           >
-            <div className="flex items-center gap-2 px-4 py-3 bg-[#1E293B] border-b border-[#334155]">
+            <div className="flex items-center gap-2 px-4 py-3 bg-black/40 border-b border-green-500/15">
               <div className="w-3 h-3 rounded-full bg-[#EF4444]" />
               <div className="w-3 h-3 rounded-full bg-[#F59E0B]" />
               <div className="w-3 h-3 rounded-full bg-[#10B981]" />

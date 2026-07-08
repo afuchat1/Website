@@ -6,14 +6,22 @@ export default function ProductsSection() {
   const featuredProducts = PRODUCT_DATA.slice(0, 5);
 
   return (
-    <section className="section-pad">
-      <div className="max-container container-pad">
+    <section
+      className="section-pad relative"
+      style={{
+        backgroundImage: "url('/bg-products.jpg')",
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+      }}
+    >
+      <div className="absolute inset-0 bg-black/45" />
+      <div className="relative z-10 max-container container-pad">
         <div className="mb-12 sm:mb-16 text-center sm:text-left">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-50px' }}
-            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0F172A] mb-3 tracking-tight"
+            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-3 tracking-tight"
           >
             Everything you need in one ecosystem.
           </motion.h2>
@@ -22,7 +30,7 @@ export default function ProductsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-50px' }}
             transition={{ delay: 0.1 }}
-            className="text-lg text-[#64748B]"
+            className="text-lg text-purple-200/70"
           >
             Eight services. One AfuMail account.
           </motion.p>
@@ -40,16 +48,13 @@ export default function ProductsSection() {
                 transition={{ delay: index * 0.08 }}
               >
                 <Link href={product.path}>
-                  <div className="h-full bg-white border border-[#E2E8F0] rounded-2xl p-6 hover:border-[var(--p-color)] hover:shadow-md transition-all duration-200 group cursor-pointer"
+                  <div
+                    className="h-full bg-white/8 backdrop-blur-md border border-white/15 rounded-2xl p-6 hover:border-white/40 hover:bg-white/15 transition-all duration-200 cursor-pointer"
                     style={{ '--p-color': product.color } as React.CSSProperties}
                   >
-                    {/* Icon — no background box */}
-                    <Icon
-                      className="w-7 h-7 mb-5"
-                      style={{ color: product.color }}
-                    />
-                    <h3 className="text-base font-semibold text-[#0F172A] mb-1.5">{product.name}</h3>
-                    <p className="text-sm text-[#64748B] leading-relaxed">{product.description}</p>
+                    <Icon className="w-7 h-7 mb-5" style={{ color: product.color }} />
+                    <h3 className="text-base font-semibold text-white mb-1.5">{product.name}</h3>
+                    <p className="text-sm text-white/55 leading-relaxed">{product.description}</p>
                   </div>
                 </Link>
               </motion.div>
@@ -63,7 +68,7 @@ export default function ProductsSection() {
           viewport={{ once: true }}
           className="mt-10 text-center"
         >
-          <Link href="/products" className="inline-flex items-center text-[#1F95FF] font-medium hover:underline">
+          <Link href="/products" className="inline-flex items-center text-[#60BDFF] font-medium hover:text-white transition-colors">
             View all products →
           </Link>
         </motion.div>
