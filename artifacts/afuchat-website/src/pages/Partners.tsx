@@ -86,16 +86,20 @@ export default function Partners() {
             <h2 className="text-[28px] leading-[1.2] sm:text-3xl font-bold text-white mb-4 tracking-tight">Ready to partner?</h2>
             <p className="text-white/55 text-base mb-8 leading-relaxed">Tell us about your organization and how we can work together. Our team will get back to you within 2 business days.</p>
             <form className="flex flex-col gap-4">
-              <input type="text" placeholder="Company Name" className="bg-black/20 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-white/30 focus:outline-none focus:border-[#F59E0B]" />
-              <input type="email" placeholder="Work Email" className="bg-black/20 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-white/30 focus:outline-none focus:border-[#F59E0B]" />
-              <select className="bg-black/20 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#F59E0B] appearance-none">
-                <option value="">Partnership Type</option>
+              <input type="text" placeholder="Company Name" className="bg-black/20 border border-white/10 rounded-2xl px-4 py-3 text-white placeholder-white/30 focus:outline-none focus:border-[#F59E0B]" />
+              <input type="email" placeholder="Work Email" className="bg-black/20 border border-white/10 rounded-2xl px-4 py-3 text-white placeholder-white/30 focus:outline-none focus:border-[#F59E0B]" />
+              <select
+                defaultValue=""
+                style={{ colorScheme: 'dark' }}
+                className="bg-black/20 border border-white/10 rounded-2xl px-4 py-3 text-white focus:outline-none focus:border-[#F59E0B] appearance-none"
+              >
+                <option value="" disabled>Partnership Type</option>
                 <option value="tech">Technology Partner</option>
                 <option value="reseller">Reseller Partner</option>
                 <option value="media">Media Partner</option>
               </select>
-              <textarea placeholder="How would you like to partner?" rows={4} className="bg-black/20 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-white/30 focus:outline-none focus:border-[#F59E0B] resize-none"></textarea>
-              <button type="button" className="px-6 py-3.5 bg-[#F59E0B] text-white font-bold rounded-xl hover:bg-[#D97706] transition-colors mt-2">
+              <textarea placeholder="How would you like to partner?" rows={4} className="bg-black/20 border border-white/10 rounded-2xl px-4 py-3 text-white placeholder-white/30 focus:outline-none focus:border-[#F59E0B] resize-none"></textarea>
+              <button type="button" className="px-6 py-3.5 bg-[#F59E0B] text-white font-bold rounded-full hover:bg-[#D97706] transition-colors mt-2">
                 Submit Application
               </button>
             </form>
