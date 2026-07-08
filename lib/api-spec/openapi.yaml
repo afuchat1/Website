@@ -10,6 +10,8 @@ servers:
 tags:
   - name: health
     description: Health operations
+  - name: community
+    description: Real, live AfuChat community data (read-only)
 paths:
   /healthz:
     get:
@@ -24,6 +26,48 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/HealthStatus"
+  /community/stats:
+    get:
+      operationId: getCommunityStats
+      tags: [community]
+      summary: Community stats
+      description: Aggregate, live counts of real AfuChat members
+      responses:
+        "200":
+          description: Community stats
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CommunityStats"
+  /community/members:
+    get:
+      operationId: getCommunityMembers
+      tags: [community]
+      summary: Featured community members
+      description: A sample of real, public AfuChat member profiles
+      parameters:
+        - name: limit
+          in: query
+          required: false
+          schema:
+            type: number
+            minimum: 1
+            maximum: 24
+            default: 9
+        - name: sort
+          in: query
+          required: false
+          schema:
+            type: string
+            enum: [top, newest]
+            default: top
+      responses:
+        "200":
+          description: Community members
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CommunityMembersResponse"
 components:
   schemas:
     HealthStatus:
@@ -33,4 +77,51 @@ components:
           type: string
       required:
         - status
+    CommunityStats:
+      type: object
+      properties:
+        totalMembers:
+          type: number
+        verifiedMembers:
+          type: number
+        countries:
+          type: number
+      required:
+        - totalMembers
+        - verifiedMembers
+        - countries
+    CommunityMember:
+      type: object
+      properties:
+        handle:
+          type: string
+        displayName:
+          type: string
+        avatarUrl:
+          type: string
+          nullable: true
+        isVerified:
+          type: boolean
+        country:
+          type: string
+          nullable: true
+        grade:
+          type: string
+          nullable: true
+      required:
+        - handle
+        - displayName
+        - avatarUrl
+        - isVerified
+        - country
+        - grade
+    CommunityMembersResponse:
+      type: object
+      properties:
+        members:
+          type: array
+          items:
+            $ref: "#/components/schemas/CommunityMember"
+      required:
+        - members
 

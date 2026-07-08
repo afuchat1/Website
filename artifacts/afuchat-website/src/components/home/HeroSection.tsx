@@ -1,8 +1,22 @@
 import { motion } from 'framer-motion';
 import { Link } from 'wouter';
 import { illSecHero } from '@/data/illustrations';
+import { useGetCommunityMembers, useGetCommunityStats } from '@workspace/api-client-react';
+
+function initials(name: string) {
+  return name
+    .split(' ')
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((part) => part[0]?.toUpperCase())
+    .join('');
+}
 
 export default function HeroSection() {
+  const { data: membersData } = useGetCommunityMembers({ limit: 4, sort: 'newest' });
+  const { data: stats } = useGetCommunityStats();
+  const members = membersData?.members ?? [];
+
   return (
     <section className="relative flex items-center overflow-hidden">
       <div className="relative z-10 max-container container-pad w-full">
@@ -45,14 +59,32 @@ export default function HeroSection() {
                 Create free account →
               </Link>
             </motion.div>
-            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.25 }} className="flex items-center gap-3">
-              <div className="flex -space-x-2">
-                {['#6366F1','#10B981','#F59E0B','#EF4444'].map((c, i) => (
-                  <div key={i} className="w-6 h-6 sm:w-7 sm:h-7 rounded-full border-2 border-[#040c1e]" style={{ background: c }} />
-                ))}
-              </div>
-              <span className="text-white/40 text-xs sm:text-sm">Trusted by millions globally</span>
-            </motion.div>
+            {members.length > 0 && (
+              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.25 }} className="flex items-center gap-3">
+                <div className="flex -space-x-2">
+                  {members.map((member) =>
+                    member.avatarUrl ? (
+                      <img
+                        key={member.handle}
+                        src={member.avatarUrl}
+                        alt={member.displayName}
+                        className="w-6 h-6 sm:w-7 sm:h-7 rounded-full border-2 border-[#040c1e] object-cover bg-white/10"
+                      />
+                    ) : (
+                      <div
+                        key={member.handle}
+                        className="w-6 h-6 sm:w-7 sm:h-7 rounded-full border-2 border-[#040c1e] bg-gradient-to-br from-[#1F7AFF] to-[#6C63FF] flex items-center justify-center text-white text-[9px] font-bold"
+                      >
+                        {initials(member.displayName)}
+                      </div>
+                    ),
+                  )}
+                </div>
+                <span className="text-white/40 text-xs sm:text-sm">
+                  {stats ? `Trusted by ${stats.totalMembers.toLocaleString()}+ real members` : 'Trusted by real members'}
+                </span>
+              </motion.div>
+            )}
           </div>
           <motion.div
             initial={{ opacity: 0, scale: 0.92, y: 20 }}
