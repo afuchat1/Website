@@ -10,15 +10,17 @@ export default function ProductsSection() {
     <section
       className="section-pad relative"
       style={{
-        backgroundImage: "url('/bg-products.jpg')",
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
+        background: `
+          radial-gradient(ellipse at 25% 55%, rgba(100,30,200,0.32) 0%, transparent 50%),
+          radial-gradient(ellipse at 75% 30%, rgba(20,60,180,0.28) 0%, transparent 50%),
+          radial-gradient(ellipse at 50% 90%, rgba(0,140,180,0.15) 0%, transparent 45%),
+          #07091e
+        `,
       }}
     >
-      <div className="absolute inset-0 bg-black/50" />
       <div className="relative z-10 max-container container-pad">
 
-        {/* Section header with community illustration */}
+        {/* Header */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center mb-14">
           <div>
             <motion.p
@@ -43,7 +45,7 @@ export default function ProductsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="text-lg text-white/60 mb-6 leading-relaxed"
+              className="text-lg text-white/55 mb-6 leading-relaxed"
             >
               Eight powerful services. One AfuMail account. No juggling passwords across different platforms.
             </motion.p>
@@ -53,7 +55,7 @@ export default function ProductsSection() {
               viewport={{ once: true }}
               transition={{ delay: 0.15 }}
             >
-              <Link href="/products" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white/12 border border-white/20 text-white font-medium text-sm hover:bg-white/20 transition-colors">
+              <Link href="/products" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white/8 border border-white/15 text-white font-medium text-sm hover:bg-white/14 transition-colors">
                 View all products →
               </Link>
             </motion.div>
@@ -67,13 +69,13 @@ export default function ProductsSection() {
           >
             <img
               src="/ill-community2.jpg"
-              alt="Connected community illustration"
-              className="w-full max-w-lg mx-auto rounded-3xl shadow-2xl shadow-black/50 border border-white/10"
+              alt="Connected community"
+              className="w-full max-w-lg mx-auto rounded-3xl shadow-2xl shadow-purple-900/30 border border-white/8"
             />
           </motion.div>
         </div>
 
-        {/* Product cards grid */}
+        {/* Product cards */}
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
           {featuredProducts.map((product, index) => {
             const Icon = product.icon;
@@ -87,17 +89,17 @@ export default function ProductsSection() {
               >
                 <Link href={product.path}>
                   <div
-                    className="h-full bg-white/8 backdrop-blur-sm border border-white/12 rounded-2xl p-5 hover:border-white/35 hover:bg-white/14 transition-all duration-200 cursor-pointer group"
+                    className="h-full bg-white/6 border border-white/10 rounded-2xl p-5 hover:border-white/30 hover:bg-white/12 transition-all duration-200 cursor-pointer"
                     style={{ '--p-color': product.color } as React.CSSProperties}
                   >
                     <div
                       className="w-10 h-10 rounded-xl flex items-center justify-center mb-4"
-                      style={{ background: `${product.color}20`, border: `1px solid ${product.color}35` }}
+                      style={{ background: `${product.color}18`, border: `1px solid ${product.color}30` }}
                     >
                       <Icon className="w-5 h-5" style={{ color: product.color }} />
                     </div>
                     <h3 className="text-sm font-bold text-white mb-1.5">{product.name}</h3>
-                    <p className="text-xs text-white/50 leading-relaxed">{product.description}</p>
+                    <p className="text-xs text-white/45 leading-relaxed">{product.description}</p>
                   </div>
                 </Link>
               </motion.div>

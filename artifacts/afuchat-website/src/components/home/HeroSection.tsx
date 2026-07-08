@@ -1,137 +1,119 @@
 import { motion } from 'framer-motion';
 import { Link } from 'wouter';
-import heroImage from '@assets/AfuChat_1783469000333.png';
 
 export default function HeroSection() {
   return (
     <section
-      className="relative overflow-hidden pt-0 pb-0"
+      className="relative flex items-center overflow-hidden"
       style={{
-        backgroundImage: "url('/bg-hero.jpg')",
-        backgroundSize: 'cover',
-        backgroundPosition: 'center top',
+        background: `
+          radial-gradient(ellipse at 65% 40%, rgba(14,98,210,0.45) 0%, transparent 55%),
+          radial-gradient(ellipse at 20% 70%, rgba(99,60,220,0.30) 0%, transparent 50%),
+          radial-gradient(ellipse at 85% 80%, rgba(0,180,200,0.18) 0%, transparent 45%),
+          #040c1e
+        `,
       }}
     >
-      {/* subtle dark overlay so text stays readable */}
-      <div className="absolute inset-0 bg-black/20" />
+      {/* Subtle noise grain overlay */}
+      <div className="absolute inset-0 opacity-[0.025]" style={{
+        backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`,
+        backgroundSize: '200px',
+      }} />
 
-      <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2">
-
-        {/* ── LEFT: text ── */}
-        <div className="flex flex-col items-start text-left px-4 sm:px-6 lg:px-10 xl:px-16
-                        pt-14 sm:pt-20 lg:pt-28 pb-10 lg:pb-28">
-
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.45 }}
-            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full mb-6
-                       bg-white/15 border border-white/30 backdrop-blur-sm"
-          >
-            <span className="text-blue-300 text-xs">✦</span>
-            <span className="text-sm font-medium text-white/90">One account. Everything connected.</span>
-          </motion.div>
-
-          <motion.h1
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.45, delay: 0.08 }}
-            className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white
-                       leading-[1.08] tracking-tight mb-5"
-          >
-            One identity.<br />
-            Every service.<br />
-            Zero friction.
-          </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.45, delay: 0.16 }}
-            className="text-lg sm:text-xl text-white/75 max-w-md mb-8 leading-relaxed"
-          >
-            Create one AfuMail account and instantly access chat, cloud storage, AI,
-            entertainment and more — no separate sign-ups.
-          </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.45, delay: 0.24 }}
-            className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3
-                       w-full sm:w-auto mb-10"
-          >
-            <Link
-              href="/signup"
-              className="px-7 py-3.5 bg-[#1F95FF] text-white text-base font-semibold
-                         rounded-xl hover:bg-[#0F7AE0] transition-colors text-center shadow-lg
-                         shadow-blue-500/40"
+      <div className="relative z-10 max-container container-pad w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center py-20">
+          {/* Left content */}
+          <div>
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-white/15 bg-white/6 text-white/70 text-xs font-medium mb-6 backdrop-blur-sm"
             >
-              Create AfuMail →
-            </Link>
-            <Link
-              href="/ecosystem"
-              className="px-7 py-3.5 bg-white/15 text-white text-base font-semibold
-                         rounded-xl border border-white/30 hover:bg-white/25 transition-colors
-                         text-center backdrop-blur-sm"
-            >
-              See how it works
-            </Link>
-          </motion.div>
+              <span className="w-1.5 h-1.5 rounded-full bg-blue-400" />
+              One account. Everything connected.
+            </motion.div>
 
+            <motion.h1
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.05 }}
+              className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white mb-5 tracking-tight leading-[1.08]"
+            >
+              One identity.<br />
+              Every service.<br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">Zero friction.</span>
+            </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="text-lg text-white/55 mb-8 max-w-md leading-relaxed"
+            >
+              Create one AfuMail account and instantly access chat, cloud storage, AI, entertainment and more — no separate sign-ups.
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.15 }}
+              className="flex flex-wrap gap-3 mb-10"
+            >
+              <Link
+                href="/signup"
+                className="px-7 py-3.5 bg-[#1F7AFF] text-white font-bold text-sm rounded-xl hover:bg-[#1468E0] transition-colors shadow-lg shadow-blue-500/25"
+              >
+                Create AfuMail →
+              </Link>
+              <Link
+                href="/ecosystem"
+                className="px-7 py-3.5 bg-white/10 border border-white/18 text-white font-medium text-sm rounded-xl hover:bg-white/16 transition-colors backdrop-blur-sm"
+              >
+                See how it works
+              </Link>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.25 }}
+              className="flex items-center gap-3"
+            >
+              <div className="flex -space-x-2">
+                {['#6366F1','#10B981','#F59E0B','#EF4444'].map((c, i) => (
+                  <div
+                    key={i}
+                    className="w-7 h-7 rounded-full border-2 border-[#040c1e]"
+                    style={{ background: c }}
+                  />
+                ))}
+              </div>
+              <span className="text-white/45 text-sm">Trusted by millions globally</span>
+            </motion.div>
+          </div>
+
+          {/* Right: app mockup */}
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.45, delay: 0.32 }}
-            className="flex items-center gap-3"
+            initial={{ opacity: 0, scale: 0.92, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.1 }}
+            className="flex justify-center lg:justify-end"
           >
-            <div className="flex -space-x-2.5">
-              {['#1F95FF', '#6C63FF', '#10B981', '#F59E0B'].map((bg, i) => (
-                <div
-                  key={i}
-                  className="w-9 h-9 rounded-full border-2 border-white/40 flex items-center
-                             justify-center text-white text-xs font-bold shadow-sm"
-                  style={{ background: bg }}
-                >
-                  {['A', 'J', 'M', 'S'][i]}
-                </div>
-              ))}
+            <div className="relative">
+              <img
+                src="/brand-bg.png"
+                alt="AfuChat app preview"
+                className="w-full max-w-md lg:max-w-lg drop-shadow-2xl"
+                style={{
+                  WebkitMaskImage: 'radial-gradient(ellipse 90% 88% at 55% 48%, black 45%, transparent 100%)',
+                  maskImage: 'radial-gradient(ellipse 90% 88% at 55% 48%, black 45%, transparent 100%)',
+                }}
+                onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+              />
             </div>
-            <span className="text-sm font-medium text-white/70">Trusted by millions globally</span>
           </motion.div>
         </div>
-
-        {/* ── RIGHT: hero image masked so edges dissolve into the page gradient ── */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.18 }}
-          className="relative flex items-end justify-center overflow-hidden
-                     min-h-[300px] sm:min-h-[400px] lg:min-h-0"
-        >
-          <img
-            src={heroImage}
-            alt="AfuChat app"
-            className="w-full max-w-[400px] sm:max-w-[480px] lg:max-w-none lg:w-full
-                       object-contain object-bottom"
-            style={{
-              display: 'block',
-              maskImage: [
-                'linear-gradient(to right,  transparent 0%, black 18%)',
-                'linear-gradient(to bottom, transparent 0%, black 8% 88%, transparent 100%)',
-                'linear-gradient(to left,   black 70%, transparent 100%)',
-              ].join(', '),
-              maskComposite: 'intersect',
-              WebkitMaskImage: [
-                'linear-gradient(to right,  transparent 0%, black 18%)',
-                'linear-gradient(to bottom, transparent 0%, black 8% 88%, transparent 100%)',
-                'linear-gradient(to left,   black 70%, transparent 100%)',
-              ].join(', '),
-              WebkitMaskComposite: 'source-in',
-            }}
-          />
-        </motion.div>
-
       </div>
     </section>
   );

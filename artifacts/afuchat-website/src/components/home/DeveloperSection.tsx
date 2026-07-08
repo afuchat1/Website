@@ -14,12 +14,13 @@ export default function DeveloperSection() {
     <section
       className="section-pad relative"
       style={{
-        backgroundImage: "url('/bg-developer.jpg')",
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
+        background: `
+          radial-gradient(ellipse at 60% 30%, rgba(10,80,40,0.50) 0%, transparent 55%),
+          radial-gradient(ellipse at 20% 70%, rgba(5,50,80,0.30) 0%, transparent 50%),
+          #04100a
+        `,
       }}
     >
-      <div className="absolute inset-0 bg-black/60" />
       <div className="relative z-10 max-container container-pad">
 
         {/* Illustration banner at top */}
@@ -31,14 +32,14 @@ export default function DeveloperSection() {
         >
           <img
             src="/ill-devheader.jpg"
-            alt="Developer platform illustration"
-            className="w-full max-w-2xl rounded-3xl shadow-2xl shadow-black/60 border border-white/10"
+            alt="Developer platform"
+            className="w-full max-w-2xl rounded-3xl shadow-2xl shadow-black/50 border border-white/8"
           />
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
 
-          {/* Left: text + points */}
+          {/* Left */}
           <div className="flex flex-col items-start">
             <motion.p
               initial={{ opacity: 0, y: 16 }}
@@ -62,11 +63,10 @@ export default function DeveloperSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="text-lg text-white/60 mb-8 leading-relaxed"
+              className="text-lg text-white/55 mb-8 leading-relaxed"
             >
-              Integrate your application with a single API to tap into millions of verified AfuMail users across the entire ecosystem.
+              Integrate with a single API to tap into millions of verified AfuMail users across the entire ecosystem.
             </motion.p>
-
             <motion.ul
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -75,13 +75,12 @@ export default function DeveloperSection() {
               className="flex flex-col gap-3 mb-10 w-full"
             >
               {points.map((point, i) => (
-                <li key={i} className="flex items-center gap-3 px-4 py-3 rounded-xl bg-white/8 border border-white/10 text-white font-medium text-sm">
+                <li key={i} className="flex items-center gap-3 px-4 py-3 rounded-xl bg-white/6 border border-white/10 text-white font-medium text-sm">
                   <CheckCircle2 className="w-4 h-4 text-[#16C784] flex-shrink-0" />
                   {point}
                 </li>
               ))}
             </motion.ul>
-
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -89,16 +88,10 @@ export default function DeveloperSection() {
               transition={{ delay: 0.2 }}
               className="flex gap-3"
             >
-              <Link
-                href="/developers"
-                className="px-6 py-3 bg-[#16C784] text-white text-sm font-bold rounded-xl hover:bg-[#12A870] transition-colors"
-              >
+              <Link href="/developers" className="px-6 py-3 bg-[#16C784] text-white text-sm font-bold rounded-xl hover:bg-[#12A870] transition-colors">
                 Read the docs →
               </Link>
-              <Link
-                href="/developers"
-                className="px-6 py-3 bg-white/10 border border-white/20 text-white text-sm font-medium rounded-xl hover:bg-white/18 transition-colors"
-              >
+              <Link href="/developers" className="px-6 py-3 bg-white/8 border border-white/15 text-white text-sm font-medium rounded-xl hover:bg-white/14 transition-colors">
                 View SDKs
               </Link>
             </motion.div>
@@ -110,13 +103,14 @@ export default function DeveloperSection() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.15, duration: 0.5 }}
-            className="w-full bg-black/70 backdrop-blur-md rounded-2xl overflow-hidden shadow-xl border border-green-500/20"
+            className="w-full rounded-2xl overflow-hidden shadow-xl border border-green-500/15"
+            style={{ background: 'rgba(4,16,10,0.85)', backdropFilter: 'blur(16px)' }}
           >
-            <div className="flex items-center gap-2 px-4 py-3 bg-black/50 border-b border-white/8">
+            <div className="flex items-center gap-2 px-4 py-3 border-b border-white/8" style={{ background: 'rgba(0,0,0,0.3)' }}>
               <div className="w-3 h-3 rounded-full bg-[#EF4444]" />
               <div className="w-3 h-3 rounded-full bg-[#F59E0B]" />
               <div className="w-3 h-3 rounded-full bg-[#10B981]" />
-              <span className="ml-4 text-xs font-mono text-white/40">auth.ts</span>
+              <span className="ml-4 text-xs font-mono text-white/35">auth.ts</span>
             </div>
             <div className="p-6 overflow-x-auto">
               <pre className="text-sm font-mono leading-relaxed whitespace-pre-wrap">
@@ -168,15 +162,6 @@ export default function DeveloperSection() {
                   <span className="text-white">);</span>
                 </code>
               </pre>
-            </div>
-            {/* API illustration strip */}
-            <div className="border-t border-white/8 overflow-hidden" style={{ maxHeight: '120px' }}>
-              <img
-                src="/ill-api.jpg"
-                alt="API"
-                className="w-full object-cover object-top opacity-60"
-                style={{ maxHeight: '120px' }}
-              />
             </div>
           </motion.div>
         </div>

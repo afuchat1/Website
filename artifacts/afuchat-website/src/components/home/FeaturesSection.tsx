@@ -45,15 +45,18 @@ export default function FeaturesSection() {
     <section
       className="section-pad relative"
       style={{
-        backgroundImage: "url('/bg-features.jpg')",
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
+        /* Dark teal gradient — matches the reference screenshot */
+        background: `
+          radial-gradient(ellipse at 20% 50%, rgba(8,100,100,0.55) 0%, transparent 55%),
+          radial-gradient(ellipse at 75% 30%, rgba(10,80,120,0.40) 0%, transparent 50%),
+          radial-gradient(ellipse at 55% 85%, rgba(5,60,80,0.30) 0%, transparent 45%),
+          #050f14
+        `,
       }}
     >
-      <div className="absolute inset-0 bg-black/55" />
       <div className="relative z-10 max-container container-pad">
 
-        {/* Header + server illustration */}
+        {/* Header + cloud illustration — mirrors the reference screenshot */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
 
           {/* Illustration left */}
@@ -68,7 +71,7 @@ export default function FeaturesSection() {
               src="/ill-servers.png"
               alt="Cloud server infrastructure"
               className="w-full max-w-sm drop-shadow-2xl"
-              style={{ filter: 'drop-shadow(0 20px 40px rgba(0,150,255,0.25))' }}
+              style={{ filter: 'drop-shadow(0 24px 48px rgba(20,184,166,0.30))' }}
             />
           </motion.div>
 
@@ -96,7 +99,7 @@ export default function FeaturesSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="text-lg text-white/60 leading-relaxed"
+              className="text-lg text-white/55 leading-relaxed"
             >
               Built from the ground up for security, speed, and simplicity — everything you need, nothing you don't.
             </motion.p>
@@ -114,17 +117,17 @@ export default function FeaturesSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-50px' }}
                 transition={{ delay: i * 0.07 }}
-                className="bg-white/7 backdrop-blur-sm p-6 rounded-2xl border border-white/10 hover:border-white/25 hover:bg-white/12 transition-all flex items-start gap-4"
+                className="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-white/22 hover:bg-white/9 transition-all flex items-start gap-4"
               >
                 <div
                   className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5"
-                  style={{ background: `${f.color}20`, border: `1px solid ${f.color}35` }}
+                  style={{ background: `${f.color}18`, border: `1px solid ${f.color}30` }}
                 >
                   <Icon className="w-5 h-5" style={{ color: f.color }} />
                 </div>
                 <div>
                   <h3 className="text-base font-bold text-white mb-1.5">{f.title}</h3>
-                  <p className="text-white/50 text-sm leading-relaxed">{f.desc}</p>
+                  <p className="text-white/48 text-sm leading-relaxed">{f.desc}</p>
                 </div>
               </motion.div>
             );

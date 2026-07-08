@@ -6,62 +6,73 @@ export default function CtaSection() {
     <section
       className="section-pad relative overflow-hidden"
       style={{
-        backgroundImage: "url('/bg-cta.jpg')",
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
+        /* Smooth blue/purple/teal multi-radial — matches the reference screenshot exactly */
+        background: `
+          radial-gradient(ellipse at 15% 65%, rgba(90,40,200,0.50) 0%, transparent 52%),
+          radial-gradient(ellipse at 80% 30%, rgba(0,140,210,0.45) 0%, transparent 50%),
+          radial-gradient(ellipse at 55% 90%, rgba(0,180,170,0.30) 0%, transparent 45%),
+          radial-gradient(ellipse at 40% 10%, rgba(20,60,200,0.35) 0%, transparent 50%),
+          #060d24
+        `,
       }}
     >
-      <div className="absolute inset-0 bg-black/40" />
       <div className="relative z-10 max-container container-pad">
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-
-          {/* Left: text */}
-          <motion.div
+        <div className="text-center max-w-2xl mx-auto">
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-blue-300 font-semibold text-sm uppercase tracking-widest mb-3"
+          >
+            Get started free
+          </motion.p>
+          <motion.h2
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.05 }}
+            className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mb-5 tracking-tight leading-tight"
+          >
+            Start your AfuChat<br />journey today.
+          </motion.h2>
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-lg text-white/60 mb-8 leading-relaxed"
           >
-            <p className="text-blue-300 font-semibold text-sm uppercase tracking-widest mb-3">Get started free</p>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-5 tracking-tight leading-tight">
-              Start your AfuChat<br />journey today.
-            </h2>
-            <p className="text-lg text-white/70 mb-8 leading-relaxed">
-              Create your free AfuMail account in 30 seconds and unlock the entire ecosystem instantly — no credit card required.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-3">
-              <Link
-                href="/signup"
-                className="px-8 py-4 bg-white text-[#0F2CFF] text-base font-bold rounded-xl hover:bg-blue-50 transition-colors inline-flex items-center justify-center shadow-xl shadow-black/30"
-              >
-                Create free account →
-              </Link>
-              <Link
-                href="/ecosystem"
-                className="px-8 py-4 bg-white/12 border border-white/25 text-white text-base font-medium rounded-xl hover:bg-white/20 transition-colors inline-flex items-center justify-center"
-              >
-                See how it works
-              </Link>
-            </div>
-            <p className="text-sm text-white/40 mt-4">
-              Free forever · No credit card · Cancel anytime
-            </p>
-          </motion.div>
-
-          {/* Right: illustration */}
+            Create your free AfuMail account in 30 seconds and unlock the entire ecosystem instantly — no credit card required.
+          </motion.p>
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="flex justify-center"
+            transition={{ delay: 0.15 }}
+            className="flex flex-col sm:flex-row gap-3 justify-center mb-5"
           >
-            <img
-              src="/ill-community.jpg"
-              alt="Connected community illustration"
-              className="w-full max-w-md rounded-3xl shadow-2xl shadow-black/50 border border-white/10"
-            />
+            <Link
+              href="/signup"
+              className="px-9 py-4 bg-white text-[#0F2CFF] text-base font-bold rounded-xl hover:bg-blue-50 transition-colors shadow-xl shadow-black/30"
+            >
+              Create free account →
+            </Link>
+            <Link
+              href="/ecosystem"
+              className="px-9 py-4 bg-white/10 border border-white/22 text-white text-base font-medium rounded-xl hover:bg-white/18 transition-colors"
+            >
+              See how it works
+            </Link>
           </motion.div>
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="text-sm text-white/35"
+          >
+            No credit card required. Free forever.
+          </motion.p>
         </div>
       </div>
     </section>
