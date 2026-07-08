@@ -12,16 +12,7 @@ const features = [
 
 export default function FeaturesSection() {
   return (
-    <section
-      className="section-pad relative"
-      style={{
-        background: `
-          radial-gradient(ellipse at 20% 50%, rgba(8,100,100,0.55) 0%, transparent 55%),
-          radial-gradient(ellipse at 75% 30%, rgba(10,80,120,0.40) 0%, transparent 50%),
-          #050f14
-        `,
-      }}
-    >
+    <section className="section-pad relative">
       <div className="relative z-10 max-container container-pad">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
           {/* Illustration */}

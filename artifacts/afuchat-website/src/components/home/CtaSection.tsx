@@ -3,19 +3,7 @@ import { Link } from 'wouter';
 
 export default function CtaSection() {
   return (
-    <section
-      className="section-pad relative overflow-hidden"
-      style={{
-        /* Smooth blue/purple/teal multi-radial — matches the reference screenshot exactly */
-        background: `
-          radial-gradient(ellipse at 15% 65%, rgba(90,40,200,0.50) 0%, transparent 52%),
-          radial-gradient(ellipse at 80% 30%, rgba(0,140,210,0.45) 0%, transparent 50%),
-          radial-gradient(ellipse at 55% 90%, rgba(0,180,170,0.30) 0%, transparent 45%),
-          radial-gradient(ellipse at 40% 10%, rgba(20,60,200,0.35) 0%, transparent 50%),
-          #060d24
-        `,
-      }}
-    >
+    <section className="section-pad relative overflow-hidden">
       <div className="relative z-10 max-container container-pad">
         <div className="text-center max-w-2xl mx-auto">
           <motion.div

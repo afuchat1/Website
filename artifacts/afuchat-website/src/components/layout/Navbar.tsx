@@ -27,11 +27,11 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200
-        border-b border-white/30
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300
+        border-b border-white/8
         ${scrolled
-          ? 'bg-white/80 backdrop-blur-xl shadow-sm shadow-blue-900/10'
-          : 'bg-white/60 backdrop-blur-lg'
+          ? 'bg-[#040c1e]/80 backdrop-blur-xl'
+          : 'bg-transparent'
         }`}
     >
       <div className="max-container container-pad h-16 flex items-center justify-between">
@@ -39,7 +39,7 @@ export default function Navbar() {
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 flex-shrink-0">
           <img src={logo} alt="AfuChat Logo" className="h-8 w-auto" />
-          <span className="font-bold text-[#0A2540] text-lg">AfuChat</span>
+          <span className="font-bold text-white text-lg">AfuChat</span>
         </Link>
 
         {/* Desktop Nav */}
@@ -52,7 +52,7 @@ export default function Navbar() {
             onBlur={(e) => { if (!e.currentTarget.contains(e.relatedTarget as Node)) setProductsOpen(false); }}
           >
             <button
-              className="flex items-center gap-1 text-sm font-medium text-[#2D5A7A] hover:text-[#0A2540] transition-colors"
+              className="flex items-center gap-1 text-sm font-medium text-white/70 hover:text-white transition-colors"
               aria-expanded={productsOpen}
               aria-haspopup="true"
               onClick={() => setProductsOpen(v => !v)}
@@ -83,7 +83,7 @@ export default function Navbar() {
             <Link
               key={link.label}
               href={link.href}
-              className="text-sm font-medium text-[#2D5A7A] hover:text-[#0A2540] transition-colors"
+              className="text-sm font-medium text-white/70 hover:text-white transition-colors"
             >
               {link.label}
             </Link>
@@ -94,8 +94,8 @@ export default function Navbar() {
         <div className="hidden md:flex items-center gap-3">
           <Link
             href="/login"
-            className="text-sm font-medium text-[#0A2540] border border-white/60 bg-white/40
-                       rounded-lg px-4 py-2 hover:bg-white/60 transition-colors backdrop-blur-sm"
+            className="text-sm font-medium text-white/80 border border-white/20 bg-white/8
+                       rounded-lg px-4 py-2 hover:bg-white/15 transition-colors backdrop-blur-sm"
           >
             Log in
           </Link>

@@ -2,16 +2,7 @@ import { motion } from 'framer-motion';
 
 export default function DownloadSection() {
   return (
-    <section
-      className="relative py-14"
-      style={{
-        background: `
-          radial-gradient(ellipse at 20% 50%, rgba(31,122,255,0.45) 0%, transparent 55%),
-          radial-gradient(ellipse at 80% 50%, rgba(108,99,255,0.35) 0%, transparent 50%),
-          #060d24
-        `,
-      }}
-    >
+    <section className="relative py-14">
       <div className="max-container container-pad flex flex-col md:flex-row items-center justify-between gap-8">
         <motion.div
           initial={{ opacity: 0, x: -20 }}

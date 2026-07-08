@@ -3,17 +3,7 @@ import { Link } from 'wouter';
 
 export default function HeroSection() {
   return (
-    <section
-      className="relative flex items-center overflow-hidden"
-      style={{
-        background: `
-          radial-gradient(ellipse at 65% 40%, rgba(14,98,210,0.45) 0%, transparent 55%),
-          radial-gradient(ellipse at 20% 70%, rgba(99,60,220,0.30) 0%, transparent 50%),
-          radial-gradient(ellipse at 85% 80%, rgba(0,180,200,0.18) 0%, transparent 45%),
-          #040c1e
-        `,
-      }}
-    >
+    <section className="relative flex items-center overflow-hidden">
       <div className="relative z-10 max-container container-pad w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center py-20">
           <div>

@@ -9,16 +9,7 @@ const steps = [
 
 export default function IdentitySection() {
   return (
-    <section
-      className="section-pad relative"
-      style={{
-        background: `
-          radial-gradient(ellipse at 70% 40%, rgba(15,60,180,0.40) 0%, transparent 55%),
-          radial-gradient(ellipse at 20% 70%, rgba(20,140,180,0.22) 0%, transparent 50%),
-          #050d1f
-        `,
-      }}
-    >
+    <section className="section-pad relative">
       <div className="relative z-10 max-container container-pad">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Left: illustration */}

@@ -6,16 +6,7 @@ export default function EcosystemSection() {
   const products = PRODUCT_DATA.slice(0, 8);
 
   return (
-    <section
-      className="section-pad overflow-hidden relative"
-      style={{
-        background: `
-          radial-gradient(ellipse at 80% 50%, rgba(14,80,200,0.35) 0%, transparent 55%),
-          radial-gradient(ellipse at 15% 30%, rgba(80,30,200,0.25) 0%, transparent 50%),
-          #060e22
-        `,
-      }}
-    >
+    <section className="section-pad overflow-hidden relative">
       <div className="relative z-10 max-container container-pad">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           <div>

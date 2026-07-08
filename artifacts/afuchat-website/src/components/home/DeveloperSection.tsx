@@ -10,16 +10,7 @@ export default function DeveloperSection() {
   ];
 
   return (
-    <section
-      className="section-pad relative"
-      style={{
-        background: `
-          radial-gradient(ellipse at 60% 30%, rgba(10,80,40,0.50) 0%, transparent 55%),
-          radial-gradient(ellipse at 20% 70%, rgba(5,50,80,0.30) 0%, transparent 50%),
-          #04100a
-        `,
-      }}
-    >
+    <section className="section-pad relative">
       <div className="relative z-10 max-container container-pad">
         {/* Top illustration */}
         <motion.div

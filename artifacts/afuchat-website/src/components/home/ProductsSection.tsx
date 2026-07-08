@@ -6,16 +6,7 @@ export default function ProductsSection() {
   const products = PRODUCT_DATA.slice(0, 8);
 
   return (
-    <section
-      className="section-pad relative"
-      style={{
-        background: `
-          radial-gradient(ellipse at 25% 55%, rgba(100,30,200,0.32) 0%, transparent 50%),
-          radial-gradient(ellipse at 75% 30%, rgba(20,60,180,0.28) 0%, transparent 50%),
-          #07091e
-        `,
-      }}
-    >
+    <section className="section-pad relative">
       <div className="relative z-10 max-container container-pad">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start mb-20">
           <div>
