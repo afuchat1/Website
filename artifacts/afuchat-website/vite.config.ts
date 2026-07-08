@@ -20,6 +20,8 @@ const basePath = process.env.BASE_PATH ?? '/';
 
 export default defineConfig({
   base: basePath,
+  // Expose SUPABASE_* env vars to the client (in addition to the default VITE_* prefix)
+  envPrefix: ['VITE_', 'SUPABASE_'],
   plugins: [
     react(),
     tailwindcss(),

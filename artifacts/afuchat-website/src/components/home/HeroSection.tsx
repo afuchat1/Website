@@ -1,7 +1,14 @@
+import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'wouter';
 import { illSecHero } from '@/data/illustrations';
-import { useGetCommunityMembers, useGetCommunityStats } from '@workspace/api-client-react';
+import { supabase } from '@/lib/supabase';
+
+interface Member {
+  handle: string;
+  display_name: string;
+  avatar_url: string | null;
+}
 
 function initials(name: string) {
   return name
@@ -12,10 +19,33 @@ function initials(name: string) {
     .join('');
 }
 
+function useCommunity() {
+  const [members, setMembers] = useState<Member[]>([]);
+  const [totalMembers, setTotalMembers] = useState<number | null>(null);
+
+  useEffect(() => {
+    supabase
+      .from('public_profiles')
+      .select('handle, display_name, avatar_url')
+      .eq('is_private', false)
+      .eq('is_banned', false)
+      .order('created_at', { ascending: false })
+      .limit(4)
+      .then(({ data }) => { if (data) setMembers(data); });
+
+    supabase
+      .from('public_profiles')
+      .select('*', { count: 'exact', head: true })
+      .eq('is_private', false)
+      .eq('is_banned', false)
+      .then(({ count }) => { if (count !== null) setTotalMembers(count); });
+  }, []);
+
+  return { members, totalMembers };
+}
+
 export default function HeroSection() {
-  const { data: membersData } = useGetCommunityMembers({ limit: 4, sort: 'newest' });
-  const { data: stats } = useGetCommunityStats();
-  const members = membersData?.members ?? [];
+  const { members, totalMembers } = useCommunity();
 
   return (
     <section className="relative flex items-center overflow-hidden">
@@ -63,11 +93,11 @@ export default function HeroSection() {
               <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.25 }} className="flex items-center gap-3">
                 <div className="flex -space-x-2">
                   {members.map((member) =>
-                    member.avatarUrl ? (
+                    member.avatar_url ? (
                       <img
                         key={member.handle}
-                        src={member.avatarUrl}
-                        alt={member.displayName}
+                        src={member.avatar_url}
+                        alt={member.display_name}
                         className="w-6 h-6 sm:w-7 sm:h-7 rounded-full border-2 border-[#040c1e] object-cover bg-white/10"
                       />
                     ) : (
@@ -75,13 +105,15 @@ export default function HeroSection() {
                         key={member.handle}
                         className="w-6 h-6 sm:w-7 sm:h-7 rounded-full border-2 border-[#040c1e] bg-gradient-to-br from-[#1F7AFF] to-[#6C63FF] flex items-center justify-center text-white text-[9px] font-bold"
                       >
-                        {initials(member.displayName)}
+                        {initials(member.display_name)}
                       </div>
                     ),
                   )}
                 </div>
                 <span className="text-white/40 text-xs sm:text-sm">
-                  {stats ? `Trusted by ${stats.totalMembers.toLocaleString()}+ real members` : 'Trusted by real members'}
+                  {totalMembers !== null
+                    ? `Trusted by ${totalMembers.toLocaleString()}+ real members`
+                    : 'Trusted by real members'}
                 </span>
               </motion.div>
             )}
