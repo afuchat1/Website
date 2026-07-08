@@ -31,14 +31,14 @@ function useCommunity() {
       .eq('is_banned', false)
       .order('created_at', { ascending: false })
       .limit(4)
-      .then(({ data }) => { if (data) setMembers(data); });
+      .then(({ data, error }) => { if (!error && data) setMembers(data); });
 
     supabase
       .from('public_profiles')
       .select('*', { count: 'exact', head: true })
       .eq('is_private', false)
       .eq('is_banned', false)
-      .then(({ count }) => { if (count !== null) setTotalMembers(count); });
+      .then(({ count, error }) => { if (!error && count !== null) setTotalMembers(count); });
   }, []);
 
   return { members, totalMembers };
