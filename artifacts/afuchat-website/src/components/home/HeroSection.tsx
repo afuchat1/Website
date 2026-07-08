@@ -92,7 +92,7 @@ export default function HeroSection() {
           </motion.div>
         </div>
 
-        {/* ── RIGHT: AfuChat screenshot — floats on the same sky-blue bg ── */}
+        {/* ── RIGHT: hero image masked so edges dissolve into the page gradient ── */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -105,7 +105,21 @@ export default function HeroSection() {
             alt="AfuChat app"
             className="w-full max-w-[400px] sm:max-w-[480px] lg:max-w-none lg:w-full
                        object-contain object-bottom"
-            style={{ display: 'block' }}
+            style={{
+              display: 'block',
+              maskImage: [
+                'linear-gradient(to right,  transparent 0%, black 18%)',
+                'linear-gradient(to bottom, transparent 0%, black 8% 88%, transparent 100%)',
+                'linear-gradient(to left,   black 70%, transparent 100%)',
+              ].join(', '),
+              maskComposite: 'intersect',
+              WebkitMaskImage: [
+                'linear-gradient(to right,  transparent 0%, black 18%)',
+                'linear-gradient(to bottom, transparent 0%, black 8% 88%, transparent 100%)',
+                'linear-gradient(to left,   black 70%, transparent 100%)',
+              ].join(', '),
+              WebkitMaskComposite: 'source-in',
+            }}
           />
         </motion.div>
 
