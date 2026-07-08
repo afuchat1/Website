@@ -3,9 +3,9 @@ import { motion } from 'framer-motion';
 import { Mail, ShieldCheck, LayoutGrid } from 'lucide-react';
 
 const steps = [
-  { id: 1, title: 'Create your AfuMail', desc: 'One simple sign-up establishes your primary digital identity across the entire ecosystem.', icon: Mail, color: '#1F95FF' },
-  { id: 2, title: 'Identity verified instantly', desc: 'Bank-grade two-factor authentication and AES-256 encryption keep every account protected.', icon: ShieldCheck, color: '#16C784' },
-  { id: 3, title: 'All services unlocked', desc: 'Chat, cloud storage, AI, entertainment and more — all open without another login or password.', icon: LayoutGrid, color: '#6C63FF' },
+  { id: 1, title: 'Create your AfuMail', desc: 'A fast, secure, beautiful email experience that stands perfectly on its own.', icon: Mail, color: '#1F95FF' },
+  { id: 2, title: 'Bank-grade security', desc: 'Two-factor authentication and AES-256 encryption keep your communications strictly private.', icon: ShieldCheck, color: '#16C784' },
+  { id: 3, title: 'Optional SSO', desc: 'If you want to use other AfuChat products, your AfuMail serves as a frictionless, secure login.', icon: LayoutGrid, color: '#6C63FF' },
 ];
 
 export default function IdentitySection() {
@@ -33,18 +33,18 @@ export default function IdentitySection() {
             <motion.p
               initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
               className="text-blue-400 font-semibold text-[10px] sm:text-xs uppercase tracking-widest mb-3"
-            >AfuMail Identity</motion.p>
+            >AfuMail</motion.p>
             <motion.h2
               initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.05 }}
               className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 tracking-tight leading-tight"
             >
-              Sign up once.<br />Access everything.
+              Secure email.<br />Seamless access.
             </motion.h2>
             <motion.p
               initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}
               className="text-base sm:text-lg text-white/55 mb-10 sm:mb-12 leading-relaxed"
             >
-              AfuMail is your universal key. Create it once and every product in the AfuChat ecosystem unlocks automatically.
+              AfuMail is a world-class email service. And if you choose to explore our other tools, it acts as a secure, universal key to sign in instantly.
             </motion.p>
 
             <div className="flex flex-col gap-8 sm:gap-10">

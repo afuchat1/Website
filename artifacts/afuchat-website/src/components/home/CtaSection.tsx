@@ -39,7 +39,7 @@ export default function CtaSection() {
             transition={{ delay: 0.1 }}
             className="text-base sm:text-lg text-white/60 mb-8 leading-relaxed"
           >
-            Create your free AfuMail account in 30 seconds and unlock the entire ecosystem instantly — no credit card required.
+            Create your free account today and start using any of our products instantly — no credit card required.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 16 }}
@@ -55,10 +55,10 @@ export default function CtaSection() {
               Create free account →
             </Link>
             <Link
-              href="/ecosystem"
+              href="/products"
               className="px-9 py-4 bg-white/10 border border-white/22 text-white text-base font-medium rounded-full hover:bg-white/18 transition-colors w-full sm:w-auto text-center"
             >
-              See how it works
+              Explore Products
             </Link>
           </motion.div>
           <motion.p

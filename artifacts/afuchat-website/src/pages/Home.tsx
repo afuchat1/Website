@@ -1,6 +1,6 @@
 import HeroSection from '@/components/home/HeroSection';
 import ProductsSection from '@/components/home/ProductsSection';
-import EcosystemSection from '@/components/home/EcosystemSection';
+import ReviewsSection from '@/components/home/ReviewsSection';
 import IdentitySection from '@/components/home/IdentitySection';
 import FeaturesSection from '@/components/home/FeaturesSection';
 import DeveloperSection from '@/components/home/DeveloperSection';
@@ -76,7 +76,7 @@ export default function Home() {
 
       <HeroSection />
       <ProductsSection />
-      <EcosystemSection />
+      <ReviewsSection />
       <IdentitySection />
       <FeaturesSection />
       <DeveloperSection />

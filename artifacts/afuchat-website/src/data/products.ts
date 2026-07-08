@@ -15,6 +15,7 @@ export interface ProductData {
   id: string;
   name: string;
   tagline: string;
+  category: string;
   description: string;
   features: string[];
   color: string;
@@ -30,7 +31,8 @@ export const PRODUCT_DATA: ProductData[] = [
     id: "afumail",
     name: "AfuMail",
     tagline: "Your identity. Your gateway.",
-    description: "The core of the AfuChat ecosystem. One secure identity for all your services.",
+    category: "Mail",
+    description: "A secure, feature-rich email service that also functions as an optional single sign-on across other AfuChat products.",
     features: ["Single Sign-On", "Advanced Anti-Spam", "Custom Domains"],
     color: "#1F95FF",
     bgColor: "#EBF5FF",
@@ -43,6 +45,7 @@ export const PRODUCT_DATA: ProductData[] = [
     id: "afuchat",
     name: "AfuChat",
     tagline: "Connect. Share. Belong.",
+    category: "Social",
     description: "Lightning-fast messaging with end-to-end encryption and rich media sharing.",
     features: ["HD Video Calls", "Group Channels", "Instant Translation"],
     color: "#6C63FF",
@@ -56,6 +59,7 @@ export const PRODUCT_DATA: ProductData[] = [
     id: "afuai",
     name: "AfuAI",
     tagline: "Intelligence, built in.",
+    category: "AI",
     description: "Your personal smart assistant, context-aware and deeply integrated.",
     features: ["Contextual Help", "Automated Workflows", "Voice Recognition"],
     color: "#F59E0B",
@@ -69,6 +73,7 @@ export const PRODUCT_DATA: ProductData[] = [
     id: "afucloud",
     name: "AfuCloud",
     tagline: "Your files, everywhere.",
+    category: "Cloud",
     description: "Secure, reliable, and blazingly fast cloud storage for all your devices.",
     features: ["Auto-Sync", "Zero-Knowledge Encryption", "Smart Organization"],
     color: "#0EA5E9",
@@ -82,6 +87,7 @@ export const PRODUCT_DATA: ProductData[] = [
     id: "afumovies",
     name: "AfuMovies",
     tagline: "Watch anything, anywhere.",
+    category: "Movies & discovery",
     description: "Stream the latest blockbusters and indie classics in pristine 4K HDR.",
     features: ["4K HDR Streaming", "Offline Viewing", "Personalized Recommendations"],
     color: "#EF4444",
@@ -95,6 +101,7 @@ export const PRODUCT_DATA: ProductData[] = [
     id: "afumall",
     name: "AfuMall",
     tagline: "Shop smarter.",
+    category: "Shopping",
     description: "A curated marketplace featuring premium brands and seamless checkout.",
     features: ["One-Click Checkout", "Verified Sellers", "Global Shipping"],
     color: "#F97316",
@@ -108,6 +115,7 @@ export const PRODUCT_DATA: ProductData[] = [
     id: "afunews",
     name: "AfuNews",
     tagline: "Stay informed.",
+    category: "News",
     description: "Personalized news feed aggregating top global publishers.",
     features: ["Real-Time Alerts", "Unbiased Reporting", "Read Offline"],
     color: "#10B981",
@@ -121,6 +129,7 @@ export const PRODUCT_DATA: ProductData[] = [
     id: "afublog",
     name: "AfuBlog",
     tagline: "Write your story.",
+    category: "Blogging & writing",
     description: "A distraction-free publishing platform for creators and thinkers.",
     features: ["Beautiful Typography", "Audience Analytics", "Monetization Options"],
     color: "#8B5CF6",

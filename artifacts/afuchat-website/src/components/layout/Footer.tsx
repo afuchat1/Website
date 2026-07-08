@@ -19,7 +19,7 @@ export default function Footer() {
               <span className="text-white font-bold text-lg">AfuChat</span>
             </Link>
             <p className="text-white/40 text-sm leading-relaxed mb-5">
-              One identity. Eight powerful<br />services. Zero friction.
+              Independent products.<br />Built for the world.
             </p>
             <p className="text-white/22 text-xs">AfuChat Technologies Limited</p>
           </div>
@@ -73,8 +73,8 @@ export default function Footer() {
               {[
                 { label: 'About',      href: '/about' },
                 { label: 'Developers', href: '/developers' },
-                { label: 'Ecosystem',  href: '/ecosystem' },
-                { label: 'Blog',       href: '/blog' },
+                { label: 'Partners',   href: '/partners' },
+                { label: 'Reviews',    href: '/reviews' },
                 { label: 'Careers',    href: '/about/careers' },
               ].map(l => (
                 <li key={l.href}>

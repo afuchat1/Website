@@ -38,7 +38,7 @@ export default function Navbar() {
   }, [productsOpen]);
 
   const navLinks = [
-    { label: 'Ecosystem',  href: '/ecosystem' },
+    { label: 'Partners',   href: '/partners' },
     { label: 'Developers', href: '/developers' },
     { label: 'Company',    href: '/about' },
   ];

@@ -10,12 +10,12 @@ export default function Products() {
       <div className="max-container container-pad pt-8 pb-10 sm:pt-20 sm:pb-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">
           <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }}>
-            <p className="text-purple-400 font-semibold text-[10px] sm:text-xs uppercase tracking-widest mb-3">The Full Suite</p>
+            <p className="text-purple-400 font-semibold text-[10px] sm:text-xs uppercase tracking-widest mb-3">Our Products</p>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white mb-4 sm:mb-5 tracking-tight leading-[1.1]">
-              Eight products.<br />One account.
+              Eight products.<br />Infinite possibilities.
             </h1>
             <p className="text-base sm:text-lg text-white/55 max-w-xl leading-relaxed mb-6 sm:mb-0">
-              Every AfuChat product is crafted to stand on its own — and to become dramatically more powerful when combined. Your single AfuMail account unlocks all of them.
+              Every AfuChat product is crafted to stand on its own, delivering a world-class experience in its category. Use one, use them all — the choice is yours.
             </p>
           </motion.div>
           <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.1 }}>
@@ -38,11 +38,13 @@ export default function Products() {
                     <img src={product.icon3d} alt={`${product.name} icon`} className="w-12 h-12 sm:w-16 sm:h-16 object-contain flex-shrink-0" />
                     <div className="sm:hidden block">
                       <h2 className="text-lg font-bold text-white mb-0.5">{product.name}</h2>
+                      <p className="text-[10px] uppercase tracking-wide font-semibold text-white/40 mb-1">{product.category}</p>
                       <p className="text-xs font-medium" style={{ color: product.color }}>{product.tagline}</p>
                     </div>
                   </div>
                   <div className="hidden sm:block md:col-span-2">
-                    <h2 className="text-xl font-bold text-white mb-1">{product.name}</h2>
+                    <h2 className="text-xl font-bold text-white mb-0.5">{product.name}</h2>
+                    <p className="text-[10px] uppercase tracking-wide font-semibold text-white/40 mb-2">{product.category}</p>
                     <p className="text-sm font-medium" style={{ color: product.color }}>{product.tagline}</p>
                   </div>
                   <p className="md:col-span-5 text-sm text-white/60 sm:text-white/50 leading-relaxed">{product.description}</p>
@@ -61,9 +63,9 @@ export default function Products() {
       {/* Bottom CTA */}
       <div className="max-container container-pad py-16 sm:py-20">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center sm:text-left">
-          <h2 className="text-3xl font-bold text-white mb-4 tracking-tight leading-tight">One account. All products.<br className="sm:hidden" /> Forever free.</h2>
+          <h2 className="text-3xl font-bold text-white mb-4 tracking-tight leading-tight">Start using our<br className="sm:hidden" /> products today.</h2>
           <p className="text-white/55 sm:text-white/50 text-base sm:text-lg mb-8 max-w-xl leading-relaxed mx-auto sm:mx-0">
-            Create your AfuMail account in under 30 seconds and unlock every product in the ecosystem at no cost.
+            Create an account in under 30 seconds and gain instant access to world-class tools. No credit card required.
           </p>
           <Link href="/signup" className="inline-block px-8 py-4 sm:px-7 sm:py-3.5 bg-gradient-to-r from-[#1F7AFF] to-[#6C63FF] text-white font-bold text-sm rounded-full hover:opacity-90 transition-opacity w-full sm:w-auto">
             Get started free →

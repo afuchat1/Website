@@ -22,44 +22,35 @@ const PAGE_CONTENT: Record<string, {
     accent: '#1F95FF',
     illustration: illSecAbout,
     sections: [
-      { heading: 'Who we are', body: 'AfuChat Technologies Limited is a technology company founded with a single belief: your digital life should feel like one continuous experience, not a fragmented collection of disconnected apps. We build products that share a single identity, a single intelligence layer, and a single purpose — to make the digital world effortless for everyone.' },
-      { heading: 'Our mission', body: "We believe that the future of the internet is unified. Too many platforms demand separate accounts, separate passwords, and separate subscriptions for services that should naturally work together. AfuChat exists to fix that. Our mission is to build the world's most connected digital ecosystem — one where communication, creativity, entertainment, and commerce flow without friction." },
-      { heading: 'How we build', body: 'Every product we ship starts with the same question: how does this make the ecosystem better as a whole? We think in terms of integration before isolation. When AfuAI learns something, every product benefits. When you upload to AfuCloud, AfuChat can access it instantly. This interconnected thinking is not an afterthought — it is the architecture.' },
-    ],
-  },
-  company: {
-    accent: '#6C63FF',
-    illustration: illSecLeadership,
-    sections: [
-      { heading: 'AfuChat Technologies Limited', body: 'We are a global technology company building the next generation of connected digital services. Our headquarters are in Hong Kong, with engineering and product teams distributed across Asia, Europe, and North America.' },
-      { heading: 'Leadership', body: 'Our leadership team brings together decades of experience in consumer internet, enterprise software, and applied AI. We are united by a shared vision: that people deserve a digital ecosystem as seamless and well-designed as the physical world they inhabit.' },
-      { heading: 'Our values', body: "Privacy is a right, not a feature. Speed is respect for the user's time. Security is the floor, not the ceiling. Simplicity is the hardest thing to build. We hold these values in every product decision, every API design, and every hire we make." },
+      { heading: 'Who we are', body: 'AfuChat Technologies Limited is a technology company founded with a single belief: powerful tools should be accessible to everyone. We build standalone products that excel in their respective categories — from intelligent assistants to seamless messaging.' },
+      { heading: 'Our mission', body: "We believe that the best software empowers people to do their best work and live their best lives. Our mission is to build tools that are intuitive, beautiful, and deeply useful. Each product we create is designed to solve a specific problem brilliantly, allowing anyone in the world to adopt what they need without friction." },
+      { heading: 'How we build', body: 'Every product we ship starts with a focus on craft and utility. While our products can work together seamlessly, each is designed to stand entirely on its own merit. This independent thinking ensures we never compromise on quality for the sake of forced integration.' },
     ],
   },
   leadership: {
     accent: '#6C63FF',
     illustration: illSecLeadership,
     sections: [
-      { heading: 'AfuChat Technologies Limited', body: 'We are a global technology company building the next generation of connected digital services. Our headquarters are in Hong Kong, with engineering and product teams distributed across Asia, Europe, and North America.' },
-      { heading: 'Leadership', body: 'Our leadership team brings together decades of experience in consumer internet, enterprise software, and applied AI. We are united by a shared vision: that people deserve a digital ecosystem as seamless and well-designed as the physical world they inhabit.' },
-      { heading: 'Our values', body: "Privacy is a right, not a feature. Speed is respect for the user's time. Security is the floor, not the ceiling. Simplicity is the hardest thing to build. We hold these values in every product decision, every API design, and every hire we make." },
+      { heading: 'Our philosophy', body: 'We structure our teams like independent startups. Each product has its own leadership, engineering, and design resources, giving them the autonomy to move fast and make the best decisions for their specific users.' },
+      { heading: 'Leadership team', body: 'Our leadership team brings together decades of experience in consumer internet, enterprise software, and applied AI. We are united by a shared vision: that people deserve digital tools as seamless and well-designed as the physical world they inhabit.' },
+      { heading: 'Our values', body: "Privacy is a right. Speed is respect for the user's time. Security is the floor, not the ceiling. We hold these values in every product decision, every API design, and every hire we make." },
     ],
   },
   enterprise: {
     accent: '#1F95FF',
     illustration: illSecEnterprise,
     sections: [
-      { heading: 'Enterprise-grade ecosystem', body: 'AfuChat offers dedicated enterprise plans with advanced security controls, custom domain support, audit logging, and dedicated infrastructure. Deploy the entire AfuChat ecosystem within your organization under your own brand with full administrative control.' },
+      { heading: 'Enterprise-grade products', body: 'AfuChat offers dedicated enterprise plans with advanced security controls, custom domain support, audit logging, and dedicated infrastructure. Deploy any combination of our products within your organization with full administrative control.' },
       { heading: 'Security & compliance', body: 'Enterprise accounts include SOC 2 Type II compliance reports, data residency options, single tenant deployments, and custom data retention policies. Our security team works directly with enterprise customers to meet their specific regulatory requirements.' },
-      { heading: 'Custom integrations', body: 'Our enterprise API gives your IT team the ability to connect AfuChat with your existing identity providers, HR systems, and business tools. SAML SSO, SCIM provisioning, and a full management API are all included.' },
+      { heading: 'Custom integrations', body: 'Our enterprise APIs give your IT team the ability to connect our products with your existing identity providers, HR systems, and business tools. SAML SSO, SCIM provisioning, and a full management API are all included.' },
     ],
   },
   security: {
     accent: '#16C784',
     illustration: illSecSecurity,
     sections: [
-      { heading: 'Security by design', body: 'Security is not an add-on at AfuChat — it is the foundation every product is built on. We use AES-256 encryption for data at rest, TLS 1.3 for data in transit, and zero-knowledge architecture for messages and files. This means even AfuChat employees cannot read your data.' },
-      { heading: 'Two-factor authentication', body: 'Every AfuMail account supports TOTP-based two-factor authentication and hardware security keys. We strongly recommend enabling 2FA. For enterprise accounts, 2FA can be enforced across the entire organization with a single policy change.' },
+      { heading: 'Security by design', body: 'Security is not an add-on at AfuChat — it is the foundation every product is built on. We use AES-256 encryption for data at rest, TLS 1.3 for data in transit, and zero-knowledge architecture where applicable. This means even AfuChat employees cannot read your private data.' },
+      { heading: 'Two-factor authentication', body: 'Every account supports TOTP-based two-factor authentication and hardware security keys. We strongly recommend enabling 2FA. For enterprise accounts, 2FA can be enforced across the entire organization with a single policy change.' },
       { heading: 'Vulnerability disclosure', body: 'We operate a responsible disclosure program for security researchers. If you discover a vulnerability in any AfuChat product, please contact our security team. We commit to acknowledging reports within 24 hours and providing a timeline for remediation.' },
     ],
   },
@@ -76,9 +67,9 @@ const PAGE_CONTENT: Record<string, {
     accent: '#16C784',
     illustration: illSecCareers,
     sections: [
-      { heading: 'Build the connected future', body: 'We are looking for people who want to build a digital ecosystem used by millions — engineers, designers, and operators who care about craft, speed, and the details that make software feel effortless.' },
+      { heading: 'Build the future', body: 'We are looking for people who want to build digital products used by millions — engineers, designers, and operators who care about craft, speed, and the details that make software feel effortless.' },
       { heading: 'How we work', body: 'Small autonomous teams own entire products end-to-end. We favor shipping over process, and we default to giving people real ownership early. Remote-friendly, with hubs in Hong Kong, Singapore, and London.' },
-      { heading: 'Benefits', body: 'Competitive pay and equity, fully covered health coverage, flexible time off, and a learning budget for every employee. We also give every team member free access to the entire AfuChat ecosystem.' },
+      { heading: 'Benefits', body: 'Competitive pay and equity, fully covered health coverage, flexible time off, and a learning budget for every employee. We also give every team member free access to all our premium products.' },
     ],
   },
   press: {
@@ -86,7 +77,7 @@ const PAGE_CONTENT: Record<string, {
     illustration: illSecPress,
     sections: [
       { heading: 'Media resources', body: 'Journalists and content creators can find our logo assets, product screenshots, and executive bios in our press kit. For interview requests or embargoed briefings, reach out to our communications team directly.' },
-      { heading: 'Recent coverage', body: 'AfuChat has been featured in leading technology and business publications covering our approach to unified digital identity and the rise of integrated service ecosystems.' },
+      { heading: 'Recent coverage', body: 'AfuChat has been featured in leading technology and business publications covering our approach to building fast, focused digital tools.' },
       { heading: 'Press contact', body: 'For all media inquiries, email press@afuchat.com. We aim to respond to journalists within one business day.' },
     ],
   },
@@ -94,7 +85,7 @@ const PAGE_CONTENT: Record<string, {
     accent: '#8B5CF6',
     illustration: illSecBrand,
     sections: [
-      { heading: 'Our visual identity', body: 'The AfuChat brand is built around a single idea — connection. Our logo, color palette, and typography are designed to feel consistent across all eight products while giving each one its own accent color.' },
+      { heading: 'Our visual identity', body: 'The AfuChat brand is built around a single idea — clarity. Our logo, color palette, and typography are designed to feel consistent across our product suite while giving each app its own distinct personality.' },
       { heading: 'Logo usage', body: 'Please do not alter, recolor, or distort the AfuChat logo. Maintain clear space around it equal to the height of the logomark, and always use the provided source files rather than recreating it.' },
       { heading: 'Download assets', body: 'Approved logos, color specifications, and typography guidelines are available for partners and press upon request at brand@afuchat.com.' },
     ],
@@ -103,7 +94,7 @@ const PAGE_CONTENT: Record<string, {
     accent: '#14B8A6',
     illustration: illSecHelp,
     sections: [
-      { heading: 'How can we help?', body: 'Our Help Center covers account setup, billing, security, and troubleshooting for all eight AfuChat products. Most answers are available instantly through search.' },
+      { heading: 'How can we help?', body: 'Our Help Center covers account setup, billing, security, and troubleshooting for all AfuChat products. Most answers are available instantly through search.' },
       { heading: 'Still stuck?', body: 'If you cannot find what you need, contact our support team from within any AfuChat product, or email support@afuchat.com. We respond within 4 hours on business days.' },
       { heading: 'Enterprise support', body: 'Enterprise customers have access to a dedicated support channel with a guaranteed 1-hour response SLA, available through your account administrator.' },
     ],
@@ -112,7 +103,7 @@ const PAGE_CONTENT: Record<string, {
     accent: '#1F95FF',
     illustration: illSecIdentity,
     sections: [
-      { heading: 'Welcome back', body: 'Sign in with your AfuMail address to access AfuChat, AfuCloud, AfuAI, and every other service in the ecosystem — all with the same secure identity.' },
+      { heading: 'Welcome back', body: 'Sign in to access your AfuChat products. If you use multiple products, your single account gives you seamless access to everything.' },
       { heading: 'Forgot your password?', body: 'Use the password recovery link on the sign-in screen. For accounts with two-factor authentication enabled, you will need access to your registered device.' },
     ],
   },
@@ -124,12 +115,36 @@ const PAGE_CONTENT: Record<string, {
       { heading: 'Need something else?', body: 'If you cannot find a page you are looking for, visit our Help Center or contact our team directly.' },
     ],
   },
+  privacy: {
+    accent: '#1F95FF',
+    sections: [
+      { heading: 'Information We Collect', body: 'We collect information to provide better services to all our users. This includes basic details like your account information, as well as usage data when you interact with our products.' },
+      { heading: 'How We Use Your Data', body: 'Your privacy is paramount. We use the information we collect strictly to operate, maintain, and improve our services. We do not sell your personal data to third parties.' },
+      { heading: 'Data Security', body: 'We implement industry-standard security measures, including end-to-end encryption where applicable, to protect your personal information against unauthorized access, alteration, or destruction.' },
+    ],
+  },
+  terms: {
+    accent: '#6C63FF',
+    sections: [
+      { heading: 'Acceptance of Terms', body: 'By accessing or using our products, you agree to be bound by these Terms of Service. If you do not agree to all the terms and conditions, you may not access our services.' },
+      { heading: 'User Responsibilities', body: 'You are responsible for your use of the services and for any content you provide. You must ensure your account information remains accurate and secure.' },
+      { heading: 'Service Modifications', body: 'We reserve the right to modify or discontinue any part of our services at any time. We will provide reasonable notice of significant changes whenever possible.' },
+    ],
+  },
+  cookies: {
+    accent: '#F59E0B',
+    sections: [
+      { heading: 'What Are Cookies', body: 'Cookies are small text files stored on your device when you visit our website. They help us recognize your device and remember your preferences.' },
+      { heading: 'How We Use Them', body: 'We use cookies for essential functions like authentication, as well as for analytics to understand how people interact with our site so we can improve it.' },
+      { heading: 'Your Choices', body: 'You can control cookie settings through your browser preferences. However, disabling certain cookies may limit your ability to use some features of our products.' },
+    ],
+  },
 };
 
 const fallback = {
   accent: '#1F95FF',
   sections: [
-    { heading: 'Overview', body: 'AfuChat Technologies Limited is committed to providing a secure, seamless, and integrated ecosystem for all your digital needs. This section covers important information relevant to our platform and its use.' },
+    { heading: 'Overview', body: 'AfuChat Technologies Limited is committed to providing secure, reliable, independent products for all your digital needs. This section covers important information relevant to our platform and its use.' },
     { heading: 'Our commitment', body: 'We are constantly updating our resources to provide the most accurate and complete information. Our terms, policies, and company information are structured to provide full transparency about how we operate and how we handle your data.' },
   ],
 };
@@ -176,11 +191,11 @@ export default function GenericPage({ title, type }: GenericPageProps) {
       </div>
 
       {/* Related products */}
-      {type !== 'legal' && (
+      {type !== 'legal' && type !== 'privacy' && type !== 'terms' && type !== 'cookies' && (
         <div className="max-container container-pad py-16">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-10">
             <p className="font-semibold text-xs uppercase tracking-widest mb-3" style={{ color: accent }}>Our Products</p>
-            <h2 className="text-2xl font-bold text-white tracking-tight">Explore the ecosystem</h2>
+            <h2 className="text-2xl font-bold text-white tracking-tight">Explore our products</h2>
           </motion.div>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-x-8 gap-y-6">
             {PRODUCT_DATA.slice(0, 4).map((p, i) => (
@@ -200,8 +215,8 @@ export default function GenericPage({ title, type }: GenericPageProps) {
       {/* Bottom CTA */}
       <div className="max-container container-pad py-16">
         <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-          <h2 className="text-2xl font-bold text-white mb-3 tracking-tight">Ready to join AfuChat?</h2>
-          <p className="text-white/40 text-sm mb-6">Create your free AfuMail account and access all eight services instantly.</p>
+          <h2 className="text-2xl font-bold text-white mb-3 tracking-tight">Ready to get started?</h2>
+          <p className="text-white/40 text-sm mb-6">Create your free account and start using any of our products instantly.</p>
           <Link
             href="/signup"
             className="inline-block px-6 py-3 text-white font-bold text-sm rounded-full hover:opacity-90 transition-opacity"

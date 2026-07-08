@@ -19,13 +19,13 @@ export default function ProductsSection() {
               initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.05 }}
               className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 sm:mb-5 tracking-tight leading-tight"
             >
-              Everything you need<br />in one ecosystem.
+              Eight products.<br />Infinite possibilities.
             </motion.h2>
             <motion.p
               initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}
               className="text-base sm:text-lg text-white/55 mb-6 leading-relaxed"
             >
-              Eight powerful services built to work together. One AfuMail account unlocks all of them — no passwords to juggle, no separate subscriptions.
+              Discover our lineup of world-class digital tools. Each is built to excel at its specific job, giving you the freedom to choose exactly what you need.
             </motion.p>
             <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.15 }} className="text-center sm:text-left">
               <Link href="/products" className="inline-block py-3 sm:py-0 text-purple-400 font-medium text-sm hover:text-purple-300 transition-colors">
@@ -52,7 +52,10 @@ export default function ProductsSection() {
                 <div className="group cursor-pointer bg-white/5 sm:bg-transparent p-5 sm:p-0 rounded-2xl sm:rounded-none hover:bg-white/10 sm:hover:bg-transparent transition-colors">
                   <div className="flex items-center gap-4 sm:gap-0 sm:block mb-3 sm:mb-0">
                     <img src={product.icon3d} alt={`${product.name} icon`} className="w-12 h-12 sm:w-14 sm:h-14 object-contain sm:mb-4" />
-                    <h3 className="text-base sm:text-sm font-bold text-white sm:mb-1.5">{product.name}</h3>
+                    <div>
+                      <h3 className="text-base sm:text-sm font-bold text-white sm:mb-0.5">{product.name}</h3>
+                      <p className="text-[11px] uppercase tracking-wide font-semibold text-white/30 sm:mb-2">{product.category}</p>
+                    </div>
                   </div>
                   <p className="text-sm sm:text-xs text-white/50 sm:text-white/40 leading-relaxed mb-4 sm:mb-3">{product.description}</p>
                   <span className="text-sm sm:text-xs font-medium group-hover:underline" style={{ color: product.color }}>Learn more →</span>

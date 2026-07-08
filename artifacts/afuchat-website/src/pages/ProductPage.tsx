@@ -24,10 +24,11 @@ export default function ProductPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-start">
             <div className="order-2 lg:order-1">
               <Icon className="hidden sm:block w-8 h-8 mb-6" style={{ color: product.color }} />
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white mb-3 tracking-tight">{product.name}</h1>
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white mb-1 tracking-tight">{product.name}</h1>
+              <p className="text-[11px] uppercase tracking-widest font-bold text-white/30 mb-4">{product.category}</p>
               <p className="text-lg sm:text-xl font-semibold mb-4 sm:mb-5" style={{ color: product.color }}>{product.tagline}</p>
               <p className="text-base sm:text-lg text-white/55 leading-relaxed mb-8 max-w-lg">
-                {product.description} Fully integrated with every other AfuChat service via your single AfuMail account.
+                {product.description} Experience a standalone tool engineered for absolute excellence.
               </p>
               <Link
                 href="/signup"
@@ -56,21 +57,21 @@ export default function ProductPage() {
               <span className="text-4xl font-extrabold text-white/10 block mb-3 sm:mb-4">0{i + 1}</span>
               <h3 className="text-base sm:text-lg font-bold text-white mb-2">{feature}</h3>
               <p className="text-[13px] sm:text-sm text-white/45 sm:text-white/40 leading-relaxed">
-                {feature} is built to work seamlessly within the AfuChat ecosystem, leveraging your unified AfuMail identity to deliver a frictionless experience.
+                {feature} is built to deliver a frictionless experience, focusing entirely on performance, reliability, and utility.
               </p>
             </motion.div>
           ))}
         </div>
       </div>
 
-      {/* Ecosystem integration */}
+      {/* Optional Integrations */}
       <div className="max-container container-pad py-12 sm:py-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-12 items-center">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-            <p className="text-blue-400 font-semibold text-[10px] sm:text-xs uppercase tracking-widest mb-3">Ecosystem Integration</p>
-            <h2 className="text-[28px] leading-[1.2] sm:text-3xl font-bold text-white mb-4 tracking-tight">{product.name} works better with everything else</h2>
+            <p className="text-blue-400 font-semibold text-[10px] sm:text-xs uppercase tracking-widest mb-3">Optional Integrations</p>
+            <h2 className="text-[28px] leading-[1.2] sm:text-3xl font-bold text-white mb-4 tracking-tight">Plays beautifully with others</h2>
             <p className="text-white/55 sm:text-white/50 text-[15px] sm:text-base leading-relaxed mb-8 sm:mb-6">
-              {product.name} is deeply integrated with the rest of AfuChat. Your identity, files, AI assistant, and contacts are all shared — so switching between services feels like using one powerful app, not eight separate ones.
+              While {product.name} stands entirely on its own, it also integrates effortlessly with other AfuChat products. Use AfuMail for quick single sign-on, or connect to our cloud infrastructure for instant access to your files — entirely up to you.
             </p>
             <div className="flex flex-col gap-3 sm:gap-4">
               {otherProducts.map(p => (
@@ -97,7 +98,7 @@ export default function ProductPage() {
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
           <h2 className="text-[28px] leading-[1.2] sm:text-3xl font-bold text-white mb-3 tracking-tight text-center sm:text-left">Ready to try {product.name}?</h2>
           <p className="text-white/55 sm:text-white/50 text-base mb-8 max-w-lg leading-relaxed text-center sm:text-left">
-            Get access to {product.name} and all 7 other AfuChat services with one free AfuMail account. No credit card required.
+            Get access to {product.name} in seconds. Create a free account to begin — no credit card required.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 items-center sm:justify-start">
             <Link href="/signup" className="inline-block w-full sm:w-auto text-center px-7 py-3.5 text-white font-bold text-sm rounded-full hover:opacity-90 transition-opacity" style={{ backgroundColor: product.color }}>

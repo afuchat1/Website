@@ -4,9 +4,9 @@ import { Link } from 'wouter';
 
 export default function DeveloperSection() {
   const points = [
-    "Unified Authentication SDK — one OAuth flow for all 8 services",
+    "Standalone APIs — Integrate only the services you need",
     "Real-time event subscriptions via WebSocket and webhooks",
-    "REST + GraphQL APIs across the full ecosystem",
+    "REST + GraphQL APIs for complete control",
     "Official SDKs for React, Node.js, Python, iOS, Android",
   ];
 
@@ -35,7 +35,7 @@ export default function DeveloperSection() {
             <motion.p
               initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}
               className="text-base sm:text-lg text-white/55 mb-8 sm:mb-10 leading-relaxed"
-            >Integrate with a single API to tap into millions of verified AfuMail users across the entire ecosystem.</motion.p>
+            >Integrate robust, standalone APIs to tap into our powerful infrastructure. Build alongside world-class tools.</motion.p>
 
             <motion.ul
               initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.15 }}
@@ -72,13 +72,13 @@ export default function DeveloperSection() {
             </div>
             <div className="p-4 sm:p-6 overflow-x-auto">
               <pre className="text-[11px] sm:text-sm font-mono leading-relaxed whitespace-pre-wrap sm:whitespace-pre"><code>
-<span className="text-[#FF7B72]">import</span>{' '}<span className="text-white">{'{ AfuAuth }'}</span>{' '}<span className="text-[#FF7B72]">from</span>{' '}<span className="text-[#A5D6FF]">'@afuchat/sdk'</span><span className="text-white">;</span>{'\n\n'}
-<span className="text-[#8B949E]">// One AfuMail login → all 8 services</span>{'\n'}
-<span className="text-[#FF7B72]">const</span>{' '}<span className="text-[#79C0FF]">auth</span>{' '}<span className="text-white">= </span><span className="text-[#FF7B72]">new</span>{' '}<span className="text-[#FFA657]">AfuAuth</span><span className="text-white">{'({'}</span>{' '}<span className="text-[#79C0FF]">appId</span><span className="text-white">: </span><span className="text-[#A5D6FF]">'your-app'</span>{' '}<span className="text-white">{'}'});</span>{'\n'}
-<span className="text-[#FF7B72]">const</span>{' '}<span className="text-[#79C0FF]">session</span>{' '}<span className="text-white">= </span><span className="text-[#FF7B72]">await</span>{' '}<span className="text-[#79C0FF]">auth</span><span className="text-white">.</span><span className="text-[#D2A8FF]">signIn</span><span className="text-white">();</span>{'\n\n'}
-<span className="text-[#8B949E]">// Access any service instantly</span>{'\n'}
-<span className="text-[#FF7B72]">const</span>{' '}<span className="text-[#79C0FF]">cloud</span>{' '}<span className="text-white">= </span><span className="text-[#FF7B72]">await</span>{' '}<span className="text-[#79C0FF]">auth</span><span className="text-white">.</span><span className="text-[#D2A8FF]">service</span><span className="text-white">(</span><span className="text-[#A5D6FF]">'afucloud'</span><span className="text-white">);</span>{'\n'}
-<span className="text-[#FF7B72]">const</span>{' '}<span className="text-[#79C0FF]">ai</span>{' '}<span className="text-white">= </span><span className="text-[#FF7B72]">await</span>{' '}<span className="text-[#79C0FF]">auth</span><span className="text-white">.</span><span className="text-[#D2A8FF]">service</span><span className="text-white">(</span><span className="text-[#A5D6FF]">'afuai'</span><span className="text-white">);</span>
+<span className="text-[#FF7B72]">import</span>{' '}<span className="text-white">{'{ AfuCloud, AfuChat }'}</span>{' '}<span className="text-[#FF7B72]">from</span>{' '}<span className="text-[#A5D6FF]">'@afuchat/sdk'</span><span className="text-white">;</span>{'\n\n'}
+<span className="text-[#8B949E]">// Initialize standalone clients</span>{'\n'}
+<span className="text-[#FF7B72]">const</span>{' '}<span className="text-[#79C0FF]">cloud</span>{' '}<span className="text-white">= </span><span className="text-[#FF7B72]">new</span>{' '}<span className="text-[#FFA657]">AfuCloud</span><span className="text-white">{'({'}</span>{' '}<span className="text-[#79C0FF]">apiKey</span><span className="text-white">: </span><span className="text-[#A5D6FF]">'sk_123...'</span>{' '}<span className="text-white">{'}'});</span>{'\n'}
+<span className="text-[#FF7B72]">const</span>{' '}<span className="text-[#79C0FF]">chat</span>{' '}<span className="text-white">= </span><span className="text-[#FF7B72]">new</span>{' '}<span className="text-[#FFA657]">AfuChat</span><span className="text-white">{'({'}</span>{' '}<span className="text-[#79C0FF]">apiKey</span><span className="text-white">: </span><span className="text-[#A5D6FF]">'sk_456...'</span>{' '}<span className="text-white">{'}'});</span>{'\n\n'}
+<span className="text-[#8B949E]">// Use exactly what you need</span>{'\n'}
+<span className="text-[#FF7B72]">const</span>{' '}<span className="text-[#79C0FF]">file</span>{' '}<span className="text-white">= </span><span className="text-[#FF7B72]">await</span>{' '}<span className="text-[#79C0FF]">cloud</span><span className="text-white">.</span><span className="text-[#D2A8FF]">upload</span><span className="text-white">(</span><span className="text-[#79C0FF]">data</span><span className="text-white">);</span>{'\n'}
+<span className="text-[#FF7B72]">await</span>{' '}<span className="text-[#79C0FF]">chat</span><span className="text-white">.</span><span className="text-[#D2A8FF]">sendMessage</span><span className="text-white">({'{'}</span>{' '}<span className="text-[#79C0FF]">text</span><span className="text-white">: </span><span className="text-[#A5D6FF]">'File ready!'</span><span className="text-white">, </span><span className="text-[#79C0FF]">attachments</span><span className="text-white">: [</span><span className="text-[#79C0FF]">file</span><span className="text-white">.</span><span className="text-[#79C0FF]">id</span><span className="text-white">] {'}'});</span>
               </code></pre>
             </div>
           </motion.div>

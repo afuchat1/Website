@@ -3,10 +3,10 @@ import { motion } from 'framer-motion';
 import { ShieldCheck, Lock, Sparkles, RefreshCw, Zap, Globe } from 'lucide-react';
 
 const features = [
-  { title: 'One Account Everywhere', desc: 'Move seamlessly between chat, cloud, and media without entering another password.', icon: ShieldCheck, color: '#1F95FF' },
+  { title: 'Independent Power', desc: 'Each product is designed to excel in its category without relying on other apps.', icon: ShieldCheck, color: '#1F95FF' },
   { title: 'End-to-End Security', desc: 'Your data is encrypted by default. We cannot read your messages, files, or searches.', icon: Lock, color: '#16C784' },
-  { title: 'AI-Powered Throughout', desc: 'AfuAI is woven into every product — write better, find files faster, work smarter.', icon: Sparkles, color: '#F59E0B' },
-  { title: 'Always in Sync', desc: 'Start on your phone, finish on desktop. Your whole ecosystem synchronises in real time.', icon: RefreshCw, color: '#6C63FF' },
+  { title: 'Focused Utility', desc: 'We build tools that solve specific problems brilliantly, without unnecessary bloat.', icon: Sparkles, color: '#F59E0B' },
+  { title: 'Always in Sync', desc: 'Start on your phone, finish on desktop. Seamless synchronization across all platforms.', icon: RefreshCw, color: '#6C63FF' },
   { title: 'Blazing Fast', desc: 'Global infrastructure delivers sub-100ms response times anywhere in the world.', icon: Zap, color: '#EC4899' },
   { title: 'Global Reach', desc: 'Available in 50+ countries with localised content, multilingual support, and regional CDNs.', icon: Globe, color: '#14B8A6' },
 ];

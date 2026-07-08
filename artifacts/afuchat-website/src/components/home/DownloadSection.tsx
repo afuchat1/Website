@@ -11,7 +11,7 @@ export default function DownloadSection() {
           className="text-center md:text-left text-white"
         >
           <h2 className="text-[26px] leading-tight sm:text-3xl lg:text-4xl font-bold mb-2 text-white">Available everywhere.</h2>
-          <p className="text-white/55 text-base sm:text-lg">Take your ecosystem on the go.</p>
+          <p className="text-white/55 text-base sm:text-lg">Take your favorite products on the go.</p>
         </motion.div>
 
         <motion.div

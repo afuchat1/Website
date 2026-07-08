@@ -12,18 +12,18 @@ export default function Signup() {
 
           {/* Left: what you get */}
           <motion.div initial={{ opacity: 0, x: -24 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.5 }} className="order-2 lg:order-1">
-            <p className="text-blue-400 font-semibold text-[10px] sm:text-xs uppercase tracking-widest mb-3 sm:mb-4">One account for everything</p>
+            <p className="text-blue-400 font-semibold text-[10px] sm:text-xs uppercase tracking-widest mb-3 sm:mb-4">Get Started</p>
             <h2 className="text-[28px] leading-[1.2] sm:text-4xl font-bold text-white mb-4 sm:mb-5 tracking-tight">
-              Your AfuMail is<br />your digital key.
+              Sign up once.<br />Use what you need.
             </h2>
             <p className="text-white/50 text-[15px] sm:text-base leading-relaxed mb-8 sm:mb-10">
-              Millions of people use a single AfuMail account to access all eight AfuChat services without juggling passwords, switching apps, or managing separate subscriptions.
+              Create a free account to start using world-class tools. Whether you want an intelligent assistant, secure cloud storage, or blazing fast chat — the choice is yours.
             </p>
             <div className="flex flex-col gap-6">
               {[
-                { title: 'One login, eight services', body: 'AfuChat, AfuCloud, AfuAI, AfuMovies, AfuMall, AfuNews, AfuBlog — all opened with a single sign-in.' },
+                { title: 'Independent products', body: 'Use one app or use them all. No forced bundles or mandatory dependencies.' },
                 { title: 'End-to-end encrypted', body: 'Your messages, files, and searches are encrypted by default. We cannot read them — ever.' },
-                { title: 'Free forever, no card needed', body: 'The core tier of every AfuChat service is free. No trial period, no hidden fees, no expiry.' },
+                { title: 'Free forever, no card needed', body: 'The core tier of every AfuChat product is free. No trial period, no hidden fees, no expiry.' },
               ].map((item, i) => (
                 <div key={i} className="flex items-start gap-4">
                   <Check className="w-5 h-5 text-[#16C784] flex-shrink-0 mt-0.5" />
@@ -40,7 +40,7 @@ export default function Signup() {
           <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: 0.1 }} className="order-1 lg:order-2 bg-white/5 sm:bg-transparent p-6 sm:p-0 rounded-3xl sm:rounded-none">
             <img src={illSecIdentity} alt="Create your AfuMail identity" className="w-20 h-20 sm:w-28 sm:h-28 object-contain mb-4 sm:mb-5 mx-auto sm:mx-0" />
             <h1 className="text-2xl font-bold text-white mb-2 tracking-tight text-center sm:text-left">Create your AfuMail</h1>
-            <p className="text-white/45 mb-8 text-[13px] sm:text-sm text-center sm:text-left">Fill in your details below and join millions of people already in the ecosystem.</p>
+            <p className="text-white/45 mb-8 text-[13px] sm:text-sm text-center sm:text-left">Fill in your details below and join millions of people already using AfuMail.</p>
 
             <div className="flex flex-col gap-4">
               <div>
