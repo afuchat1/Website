@@ -7,40 +7,40 @@ interface GenericPageProps {
   type: string;
 }
 
-// Content map for well-detailed pages
-const PAGE_CONTENT: Record<string, { gradient: string; accent: string; sections: { heading: string; body: string }[]; illustration?: string }> = {
+
+const PAGE_CONTENT: Record<string, {
+  accent: string;
+  sections: { heading: string; body: string }[];
+  illustration?: string;
+}> = {
   about: {
-    gradient: `radial-gradient(ellipse at 70% 20%, rgba(14,80,200,0.40) 0%, transparent 55%), radial-gradient(ellipse at 20% 70%, rgba(80,30,200,0.25) 0%, transparent 50%), #060e22`,
     accent: '#1F95FF',
     illustration: '/illustrations/ill-sec-about.png',
     sections: [
       { heading: 'Who we are', body: 'AfuChat Technologies Limited is a technology company founded with a single belief: your digital life should feel like one continuous experience, not a fragmented collection of disconnected apps. We build products that share a single identity, a single intelligence layer, and a single purpose — to make the digital world effortless for everyone.' },
-      { heading: 'Our mission', body: 'We believe that the future of the internet is unified. Too many platforms demand separate accounts, separate passwords, and separate subscriptions for services that should naturally work together. AfuChat exists to fix that. Our mission is to build the world\'s most connected digital ecosystem — one where communication, creativity, entertainment, and commerce flow without friction.' },
+      { heading: 'Our mission', body: "We believe that the future of the internet is unified. Too many platforms demand separate accounts, separate passwords, and separate subscriptions for services that should naturally work together. AfuChat exists to fix that. Our mission is to build the world's most connected digital ecosystem — one where communication, creativity, entertainment, and commerce flow without friction." },
       { heading: 'How we build', body: 'Every product we ship starts with the same question: how does this make the ecosystem better as a whole? We think in terms of integration before isolation. When AfuAI learns something, every product benefits. When you upload to AfuCloud, AfuChat can access it instantly. This interconnected thinking is not an afterthought — it is the architecture.' },
     ],
   },
   company: {
-    gradient: `radial-gradient(ellipse at 70% 20%, rgba(14,80,200,0.40) 0%, transparent 55%), radial-gradient(ellipse at 20% 70%, rgba(80,30,200,0.25) 0%, transparent 50%), #060e22`,
     accent: '#6C63FF',
     illustration: '/illustrations/ill-sec-leadership.png',
     sections: [
       { heading: 'AfuChat Technologies Limited', body: 'We are a global technology company building the next generation of connected digital services. Our headquarters are in Hong Kong, with engineering and product teams distributed across Asia, Europe, and North America.' },
       { heading: 'Leadership', body: 'Our leadership team brings together decades of experience in consumer internet, enterprise software, and applied AI. We are united by a shared vision: that people deserve a digital ecosystem as seamless and well-designed as the physical world they inhabit.' },
-      { heading: 'Our values', body: 'Privacy is a right, not a feature. Speed is respect for the user\'s time. Security is the floor, not the ceiling. Simplicity is the hardest thing to build. We hold these values in every product decision, every API design, and every hire we make.' },
+      { heading: 'Our values', body: "Privacy is a right, not a feature. Speed is respect for the user's time. Security is the floor, not the ceiling. Simplicity is the hardest thing to build. We hold these values in every product decision, every API design, and every hire we make." },
     ],
   },
   leadership: {
-    gradient: `radial-gradient(ellipse at 70% 20%, rgba(14,80,200,0.40) 0%, transparent 55%), radial-gradient(ellipse at 20% 70%, rgba(80,30,200,0.25) 0%, transparent 50%), #060e22`,
     accent: '#6C63FF',
     illustration: '/illustrations/ill-sec-leadership.png',
     sections: [
       { heading: 'AfuChat Technologies Limited', body: 'We are a global technology company building the next generation of connected digital services. Our headquarters are in Hong Kong, with engineering and product teams distributed across Asia, Europe, and North America.' },
       { heading: 'Leadership', body: 'Our leadership team brings together decades of experience in consumer internet, enterprise software, and applied AI. We are united by a shared vision: that people deserve a digital ecosystem as seamless and well-designed as the physical world they inhabit.' },
-      { heading: 'Our values', body: 'Privacy is a right, not a feature. Speed is respect for the user\'s time. Security is the floor, not the ceiling. Simplicity is the hardest thing to build. We hold these values in every product decision, every API design, and every hire we make.' },
+      { heading: 'Our values', body: "Privacy is a right, not a feature. Speed is respect for the user's time. Security is the floor, not the ceiling. Simplicity is the hardest thing to build. We hold these values in every product decision, every API design, and every hire we make." },
     ],
   },
   enterprise: {
-    gradient: `radial-gradient(ellipse at 30% 20%, rgba(100,30,200,0.35) 0%, transparent 50%), radial-gradient(ellipse at 80% 60%, rgba(20,60,180,0.28) 0%, transparent 50%), #07091e`,
     accent: '#1F95FF',
     illustration: '/illustrations/ill-sec-enterprise.png',
     sections: [
@@ -50,7 +50,6 @@ const PAGE_CONTENT: Record<string, { gradient: string; accent: string; sections:
     ],
   },
   security: {
-    gradient: `radial-gradient(ellipse at 70% 40%, rgba(15,60,180,0.40) 0%, transparent 55%), radial-gradient(ellipse at 20% 70%, rgba(20,140,180,0.22) 0%, transparent 50%), #050d1f`,
     accent: '#16C784',
     illustration: '/illustrations/ill-sec-security.png',
     sections: [
@@ -60,17 +59,15 @@ const PAGE_CONTENT: Record<string, { gradient: string; accent: string; sections:
     ],
   },
   contact: {
-    gradient: `radial-gradient(ellipse at 55% 90%, rgba(0,180,170,0.25) 0%, transparent 45%), radial-gradient(ellipse at 15% 65%, rgba(90,40,200,0.35) 0%, transparent 52%), #060d24`,
     accent: '#14B8A6',
     illustration: '/illustrations/ill-sec-contact.png',
     sections: [
-      { heading: 'Get in touch', body: 'We\'d love to hear from you. Whether you have a question about a product, a partnership inquiry, a press request, or just want to say hello — our team is here.' },
+      { heading: 'Get in touch', body: "We'd love to hear from you. Whether you have a question about a product, a partnership inquiry, a press request, or just want to say hello — our team is here." },
       { heading: 'Support', body: 'For product support, please visit our Help Center. Our support team responds within 4 hours on business days and within 24 hours on weekends. Enterprise customers have access to dedicated support with a guaranteed 1-hour SLA.' },
       { heading: 'Business inquiries', body: 'For partnership, enterprise, and media inquiries, please reach out to us at business@afuchat.com. We typically respond within one business day.' },
     ],
   },
   careers: {
-    gradient: `radial-gradient(ellipse at 70% 20%, rgba(14,140,200,0.40) 0%, transparent 55%), radial-gradient(ellipse at 20% 70%, rgba(20,160,140,0.22) 0%, transparent 50%), #04101c`,
     accent: '#16C784',
     illustration: '/illustrations/ill-sec-careers.png',
     sections: [
@@ -80,7 +77,6 @@ const PAGE_CONTENT: Record<string, { gradient: string; accent: string; sections:
     ],
   },
   press: {
-    gradient: `radial-gradient(ellipse at 70% 20%, rgba(16,160,120,0.35) 0%, transparent 55%), radial-gradient(ellipse at 20% 70%, rgba(14,80,200,0.25) 0%, transparent 50%), #04141a`,
     accent: '#3B82F6',
     illustration: '/illustrations/ill-sec-press.png',
     sections: [
@@ -90,7 +86,6 @@ const PAGE_CONTENT: Record<string, { gradient: string; accent: string; sections:
     ],
   },
   brand: {
-    gradient: `radial-gradient(ellipse at 70% 20%, rgba(140,60,220,0.35) 0%, transparent 55%), radial-gradient(ellipse at 20% 70%, rgba(220,60,150,0.22) 0%, transparent 50%), #10061c`,
     accent: '#8B5CF6',
     illustration: '/illustrations/ill-sec-brand.png',
     sections: [
@@ -100,7 +95,6 @@ const PAGE_CONTENT: Record<string, { gradient: string; accent: string; sections:
     ],
   },
   help: {
-    gradient: `radial-gradient(ellipse at 70% 20%, rgba(15,120,200,0.40) 0%, transparent 55%), radial-gradient(ellipse at 20% 70%, rgba(20,160,180,0.25) 0%, transparent 50%), #05141f`,
     accent: '#14B8A6',
     illustration: '/illustrations/ill-sec-help.png',
     sections: [
@@ -110,7 +104,6 @@ const PAGE_CONTENT: Record<string, { gradient: string; accent: string; sections:
     ],
   },
   login: {
-    gradient: `radial-gradient(ellipse at 70% 20%, rgba(14,80,200,0.40) 0%, transparent 55%), radial-gradient(ellipse at 20% 70%, rgba(80,30,200,0.25) 0%, transparent 50%), #060e22`,
     accent: '#1F95FF',
     illustration: '/illustrations/ill-sec-identity.png',
     sections: [
@@ -119,7 +112,6 @@ const PAGE_CONTENT: Record<string, { gradient: string; accent: string; sections:
     ],
   },
   sitemap: {
-    gradient: `radial-gradient(ellipse at 70% 20%, rgba(90,100,120,0.30) 0%, transparent 55%), radial-gradient(ellipse at 20% 70%, rgba(60,40,180,0.18) 0%, transparent 50%), #0a0e17`,
     accent: '#64748B',
     illustration: '/illustrations/ill-sec-sitemap.png',
     sections: [
@@ -130,7 +122,6 @@ const PAGE_CONTENT: Record<string, { gradient: string; accent: string; sections:
 };
 
 const fallback = {
-  gradient: `radial-gradient(ellipse at 60% 30%, rgba(14,80,200,0.40) 0%, transparent 55%), #060e22`,
   accent: '#1F95FF',
   sections: [
     { heading: 'Overview', body: 'AfuChat Technologies Limited is committed to providing a secure, seamless, and integrated ecosystem for all your digital needs. This section covers important information relevant to our platform and its use.' },
@@ -139,34 +130,36 @@ const fallback = {
 };
 
 export default function GenericPage({ title, type }: GenericPageProps) {
-  const content = PAGE_CONTENT[type.toLowerCase()] || PAGE_CONTENT[title.toLowerCase().replace(/\s+/g, '')] || fallback;
+  const content = PAGE_CONTENT[type.toLowerCase()] ?? PAGE_CONTENT[title.toLowerCase().replace(/\s+/g, '')] ?? fallback;
+  const accent = content.accent;
 
   return (
-    <div
-      className="w-full min-h-screen"
-      style={{ background: content.gradient }}
-    >
+    <div className="w-full min-h-screen">
       {/* Hero */}
       <div className="max-container container-pad pt-20 pb-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }}>
-            <p className="font-semibold text-xs uppercase tracking-widest mb-3" style={{ color: content.accent }}>AfuChat</p>
+            <p className="font-semibold text-xs uppercase tracking-widest mb-3" style={{ color: accent }}>AfuChat</p>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white mb-5 tracking-tight leading-tight">{title}</h1>
             <p className="text-lg text-white/50 max-w-xl leading-relaxed">
               {content.sections[0]?.body}
             </p>
           </motion.div>
-          {content.illustration && (
+          {'illustration' in content && content.illustration && (
             <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.1 }}>
-              <img src={content.illustration} alt={title} className="w-full rounded-3xl shadow-2xl"
-                onError={(e)=>{(e.target as HTMLImageElement).style.display='none';}} />
+              <img
+                src={content.illustration}
+                alt={title}
+                className="w-full rounded-3xl shadow-2xl"
+                onError={e => { (e.target as HTMLImageElement).style.display = 'none'; }}
+              />
             </motion.div>
           )}
         </div>
       </div>
 
       {/* Detailed sections */}
-      <div className="max-container container-pad py-16 border-t border-white/8">
+      <div className="max-container container-pad py-16">
         <div className="flex flex-col gap-16 max-w-3xl">
           {content.sections.slice(1).map((s, i) => (
             <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}>
@@ -179,9 +172,9 @@ export default function GenericPage({ title, type }: GenericPageProps) {
 
       {/* Related products */}
       {type !== 'legal' && (
-        <div className="max-container container-pad py-16 border-t border-white/8">
+        <div className="max-container container-pad py-16">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-10">
-            <p className="font-semibold text-xs uppercase tracking-widest mb-3" style={{ color: content.accent }}>Our Products</p>
+            <p className="font-semibold text-xs uppercase tracking-widest mb-3" style={{ color: accent }}>Our Products</p>
             <h2 className="text-2xl font-bold text-white tracking-tight">Explore the ecosystem</h2>
           </motion.div>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-x-8 gap-y-6">
@@ -200,12 +193,15 @@ export default function GenericPage({ title, type }: GenericPageProps) {
       )}
 
       {/* Bottom CTA */}
-      <div className="max-container container-pad py-16 border-t border-white/8">
+      <div className="max-container container-pad py-16">
         <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
           <h2 className="text-2xl font-bold text-white mb-3 tracking-tight">Ready to join AfuChat?</h2>
           <p className="text-white/40 text-sm mb-6">Create your free AfuMail account and access all eight services instantly.</p>
-          <Link href="/signup" className="inline-block px-6 py-3 text-white font-bold text-sm rounded-xl hover:opacity-90 transition-opacity"
-            style={{ backgroundColor: content.accent }}>
+          <Link
+            href="/signup"
+            className="inline-block px-6 py-3 text-white font-bold text-sm rounded-full hover:opacity-90 transition-opacity"
+            style={{ backgroundColor: accent }}
+          >
             Create free account →
           </Link>
         </motion.div>

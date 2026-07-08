@@ -17,16 +17,7 @@ const capabilities = [
 
 export default function Developers() {
   return (
-    <div
-      className="w-full min-h-screen"
-      style={{
-        background: `
-          radial-gradient(ellipse at 60% 20%, rgba(10,80,40,0.50) 0%, transparent 55%),
-          radial-gradient(ellipse at 20% 70%, rgba(5,50,80,0.30) 0%, transparent 50%),
-          #04100a
-        `,
-      }}
-    >
+    <div className="w-full min-h-screen">
       {/* Hero */}
       <div className="max-container container-pad pt-20 pb-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -38,9 +29,13 @@ export default function Developers() {
             <p className="text-lg text-white/55 max-w-xl leading-relaxed mb-8">
               The AfuChat developer platform gives you a single API to access millions of verified AfuMail users — along with their identity, preferences, files, and AI context — all with explicit consent.
             </p>
-            <div className="flex gap-6">
-              <Link href="#" className="text-green-400 font-semibold text-sm hover:text-green-300 transition-colors">Read documentation →</Link>
-              <Link href="#" className="text-white/40 font-medium text-sm hover:text-white/70 transition-colors">View on GitHub →</Link>
+            <div className="flex gap-4">
+              <Link href="#" className="px-6 py-3 bg-[#16C784] text-white font-semibold text-sm rounded-full hover:bg-[#12b070] transition-colors">
+                Read documentation
+              </Link>
+              <Link href="#" className="px-6 py-3 border border-white/15 text-white/60 font-medium text-sm rounded-full hover:border-white/30 hover:text-white transition-colors">
+                View on GitHub
+              </Link>
             </div>
           </motion.div>
           <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.1 }}>
@@ -49,8 +44,8 @@ export default function Developers() {
         </div>
       </div>
 
-      {/* Resources — flat, no cards */}
-      <div className="max-container container-pad py-20 border-t border-white/8">
+      {/* Resources */}
+      <div className="max-container container-pad py-20">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-14">
           <p className="text-green-400 font-semibold text-xs uppercase tracking-widest mb-3">Documentation</p>
           <h2 className="text-3xl font-bold text-white tracking-tight">Everything you need to build</h2>
@@ -71,7 +66,7 @@ export default function Developers() {
       </div>
 
       {/* Platform capabilities */}
-      <div className="max-container container-pad py-20 border-t border-white/8">
+      <div className="max-container container-pad py-20">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-14">
           <p className="text-green-400 font-semibold text-xs uppercase tracking-widest mb-3">Platform Capabilities</p>
           <h2 className="text-3xl font-bold text-white tracking-tight">What you get access to</h2>
@@ -93,8 +88,8 @@ export default function Developers() {
       {/* Code section */}
       <DeveloperSection />
 
-      {/* Quickstart steps */}
-      <div className="max-container container-pad py-20 border-t border-white/8">
+      {/* Quickstart */}
+      <div className="max-container container-pad py-20">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-14">
           <p className="text-green-400 font-semibold text-xs uppercase tracking-widest mb-3">Quickstart</p>
           <h2 className="text-3xl font-bold text-white tracking-tight">From zero to production in 4 steps</h2>

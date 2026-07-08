@@ -1,36 +1,10 @@
 import { motion } from 'framer-motion';
 import { Link } from 'wouter';
-import { Mail, ArrowRight, Check } from 'lucide-react';
+import { ArrowRight, Check } from 'lucide-react';
 
 export default function Signup() {
   return (
-    <div
-      className="min-h-screen flex flex-col"
-      style={{
-        background: `
-          radial-gradient(ellipse at 15% 65%, rgba(90,40,200,0.40) 0%, transparent 52%),
-          radial-gradient(ellipse at 80% 30%, rgba(0,140,210,0.35) 0%, transparent 50%),
-          radial-gradient(ellipse at 50% 90%, rgba(0,180,170,0.20) 0%, transparent 45%),
-          #060d24
-        `,
-      }}
-    >
-      {/* Header */}
-      <header className="px-4 py-4 flex items-center justify-between max-w-7xl mx-auto w-full border-b border-white/8">
-        <Link href="/">
-          <div className="flex items-center gap-2 cursor-pointer">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#1F7AFF] to-[#6C63FF] flex items-center justify-center">
-              <span className="text-white font-extrabold text-xs">A</span>
-            </div>
-            <span className="font-bold text-white text-lg">AfuChat</span>
-          </div>
-        </Link>
-        <span className="text-sm text-white/40">
-          Already have an account?{' '}
-          <Link href="/login" className="text-[#1F95FF] font-medium hover:underline">Log in</Link>
-        </span>
-      </header>
-
+    <div className="min-h-screen flex flex-col">
       {/* Main */}
       <main className="flex-1 flex items-center justify-center px-4 py-16">
         <div className="w-full max-w-5xl grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -73,8 +47,8 @@ export default function Signup() {
                 <input
                   type="text"
                   placeholder="Your full name"
-                  className="w-full px-4 py-3 rounded-xl text-white placeholder-white/25 text-sm focus:outline-none focus:ring-1 focus:ring-[#1F95FF] transition"
-                  style={{ background: 'rgba(255,255,255,0.07)', border: '1px solid rgba(255,255,255,0.12)' }}
+                  className="w-full px-4 py-3 rounded-2xl text-white placeholder-white/25 text-sm focus:outline-none focus:ring-1 focus:ring-[#1F95FF] transition"
+                  style={{ background: 'rgba(255,255,255,0.07)', border: '1px solid rgba(255,255,255,0.10)' }}
                 />
               </div>
               <div>
@@ -83,10 +57,10 @@ export default function Signup() {
                   <input
                     type="text"
                     placeholder="yourname"
-                    className="flex-1 px-4 py-3 rounded-l-xl text-white placeholder-white/25 text-sm focus:outline-none focus:ring-1 focus:ring-[#1F95FF] transition"
-                    style={{ background: 'rgba(255,255,255,0.07)', border: '1px solid rgba(255,255,255,0.12)' }}
+                    className="flex-1 px-4 py-3 rounded-l-2xl text-white placeholder-white/25 text-sm focus:outline-none focus:ring-1 focus:ring-[#1F95FF] transition"
+                    style={{ background: 'rgba(255,255,255,0.07)', border: '1px solid rgba(255,255,255,0.10)' }}
                   />
-                  <span className="px-4 py-3 text-white/35 text-sm flex items-center rounded-r-xl"
+                  <span className="px-4 py-3 text-white/35 text-sm flex items-center rounded-r-2xl"
                     style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', borderLeft: 'none' }}>
                     @afumail.com
                   </span>
@@ -97,13 +71,13 @@ export default function Signup() {
                 <input
                   type="password"
                   placeholder="Create a strong password"
-                  className="w-full px-4 py-3 rounded-xl text-white placeholder-white/25 text-sm focus:outline-none focus:ring-1 focus:ring-[#1F95FF] transition"
-                  style={{ background: 'rgba(255,255,255,0.07)', border: '1px solid rgba(255,255,255,0.12)' }}
+                  className="w-full px-4 py-3 rounded-2xl text-white placeholder-white/25 text-sm focus:outline-none focus:ring-1 focus:ring-[#1F95FF] transition"
+                  style={{ background: 'rgba(255,255,255,0.07)', border: '1px solid rgba(255,255,255,0.10)' }}
                 />
               </div>
               <button
                 type="button"
-                className="w-full px-6 py-3.5 bg-[#1F95FF] hover:bg-[#0F7AE0] text-white font-bold rounded-xl transition-colors flex items-center justify-center gap-2 text-sm mt-2"
+                className="w-full px-6 py-3.5 bg-[#1F95FF] hover:bg-[#0F7AE0] text-white font-bold rounded-full transition-colors flex items-center justify-center gap-2 text-sm mt-2"
               >
                 Create AfuMail account
                 <ArrowRight className="w-4 h-4" />
@@ -111,10 +85,14 @@ export default function Signup() {
             </div>
 
             <p className="text-xs text-white/25 text-center mt-5">
+              Already have an account?{' '}
+              <Link href="/login" className="text-[#1F95FF] font-medium hover:underline">Log in</Link>
+            </p>
+            <p className="text-xs text-white/20 text-center mt-2">
               By creating an account you agree to our{' '}
-              <Link href="/legal/terms" className="underline hover:text-white/50">Terms of Service</Link>{' '}
+              <Link href="/legal/terms" className="underline hover:text-white/40">Terms of Service</Link>{' '}
               and{' '}
-              <Link href="/legal/privacy" className="underline hover:text-white/50">Privacy Policy</Link>.
+              <Link href="/legal/privacy" className="underline hover:text-white/40">Privacy Policy</Link>.
             </p>
           </motion.div>
         </div>

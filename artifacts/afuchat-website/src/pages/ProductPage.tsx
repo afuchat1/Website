@@ -12,16 +12,7 @@ export default function ProductPage() {
   const otherProducts = PRODUCT_DATA.filter(p => p.id !== product.id).slice(0, 4);
 
   return (
-    <div
-      className="w-full min-h-screen"
-      style={{
-        background: `
-          radial-gradient(ellipse at 70% 20%, ${product.color}22 0%, transparent 55%),
-          radial-gradient(ellipse at 20% 70%, rgba(14,40,120,0.30) 0%, transparent 50%),
-          #060c1e
-        `,
-      }}
-    >
+    <div className="w-full min-h-screen">
       {/* Hero */}
       <div className="max-container container-pad pt-14 pb-16">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
@@ -39,7 +30,7 @@ export default function ProductPage() {
               </p>
               <Link
                 href="/signup"
-                className="inline-block px-7 py-3.5 text-white font-bold text-sm rounded-xl hover:opacity-90 transition-opacity"
+                className="inline-block px-7 py-3.5 text-white font-bold text-sm rounded-full hover:opacity-90 transition-opacity"
                 style={{ backgroundColor: product.color }}
               >
                 Get started free →
@@ -53,7 +44,7 @@ export default function ProductPage() {
       </div>
 
       {/* Key features */}
-      <div className="max-container container-pad py-16 border-t border-white/8">
+      <div className="max-container container-pad py-16">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-12">
           <p className="font-semibold text-xs uppercase tracking-widest mb-3" style={{ color: product.color }}>Key Features</p>
           <h2 className="text-3xl font-bold text-white tracking-tight">What {product.name} can do</h2>
@@ -72,7 +63,7 @@ export default function ProductPage() {
       </div>
 
       {/* Ecosystem integration */}
-      <div className="max-container container-pad py-16 border-t border-white/8">
+      <div className="max-container container-pad py-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
             <p className="text-blue-400 font-semibold text-xs uppercase tracking-widest mb-3">Ecosystem Integration</p>
@@ -81,7 +72,7 @@ export default function ProductPage() {
               {product.name} is deeply integrated with the rest of AfuChat. Your identity, files, AI assistant, and contacts are all shared — so switching between services feels like using one powerful app, not eight separate ones.
             </p>
             <div className="flex flex-col gap-4">
-              {otherProducts.map((p) => (
+              {otherProducts.map(p => (
                 <Link key={p.id} href={p.path}>
                   <div className="flex items-center gap-3 group">
                     <img src={p.icon3d} alt="" className="w-7 h-7 object-contain flex-shrink-0" />
@@ -99,14 +90,14 @@ export default function ProductPage() {
       </div>
 
       {/* Get started */}
-      <div className="max-container container-pad py-16 border-t border-white/8">
+      <div className="max-container container-pad py-16">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
           <h2 className="text-3xl font-bold text-white mb-3 tracking-tight">Ready to try {product.name}?</h2>
           <p className="text-white/50 text-base mb-8 max-w-lg leading-relaxed">
             Get access to {product.name} and all 7 other AfuChat services with one free AfuMail account. No credit card required.
           </p>
-          <div className="flex gap-4 items-center">
-            <Link href="/signup" className="inline-block px-7 py-3.5 text-white font-bold text-sm rounded-xl hover:opacity-90 transition-opacity" style={{ backgroundColor: product.color }}>
+          <div className="flex gap-4 items-center flex-wrap">
+            <Link href="/signup" className="inline-block px-7 py-3.5 text-white font-bold text-sm rounded-full hover:opacity-90 transition-opacity" style={{ backgroundColor: product.color }}>
               Create free account →
             </Link>
             <Link href="/products" className="text-white/40 text-sm font-medium hover:text-white/70 transition-colors">

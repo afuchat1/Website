@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'wouter';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import logo from '@assets/afuchat_logo_transparent.png';
@@ -10,75 +10,153 @@ export default function Navbar() {
   const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [location] = useLocation();
+  const productsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 10);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    const onScroll = () => setScrolled(window.scrollY > 10);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  useEffect(() => { setIsOpen(false); setMobileProductsOpen(false); setProductsOpen(false); }, [location]);
+  // Close everything on route change
+  useEffect(() => {
+    setIsOpen(false);
+    setMobileProductsOpen(false);
+    setProductsOpen(false);
+  }, [location]);
+
+  // Close products dropdown when clicking outside
+  useEffect(() => {
+    if (!productsOpen) return;
+    const onPointerDown = (e: PointerEvent) => {
+      if (productsRef.current && !productsRef.current.contains(e.target as Node)) {
+        setProductsOpen(false);
+      }
+    };
+    document.addEventListener('pointerdown', onPointerDown);
+    return () => document.removeEventListener('pointerdown', onPointerDown);
+  }, [productsOpen]);
 
   const navLinks = [
-    { label: 'Ecosystem',   href: '/ecosystem' },
-    { label: 'Developers',  href: '/developers' },
-    { label: 'Company',     href: '/about' },
+    { label: 'Ecosystem',  href: '/ecosystem' },
+    { label: 'Developers', href: '/developers' },
+    { label: 'Company',    href: '/about' },
   ];
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300
-        border-b border-white/8
-        ${scrolled
-          ? 'bg-[#040c1e]/80 backdrop-blur-xl'
-          : 'bg-transparent'
-        }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled ? 'bg-[#040c1e]/85 backdrop-blur-xl' : 'bg-transparent'
+      }`}
     >
       <div className="max-container container-pad h-16 flex items-center justify-between">
 
-        {/* Logo */}
+        {/* ── Logo ── */}
         <Link href="/" className="flex items-center gap-2 flex-shrink-0">
-          <img src={logo} alt="AfuChat Logo" className="h-8 w-auto" />
+          <img src={logo} alt="AfuChat" className="h-8 w-auto" />
           <span className="font-bold text-white text-lg">AfuChat</span>
         </Link>
 
-        {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-8">
+        {/* ── Desktop Nav ── */}
+        <nav className="hidden md:flex items-center gap-7">
+
+          {/* Products mega-dropdown — mouse hover + click/keyboard */}
           <div
+            ref={productsRef}
             className="relative"
             onMouseEnter={() => setProductsOpen(true)}
             onMouseLeave={() => setProductsOpen(false)}
-            onFocus={() => setProductsOpen(true)}
-            onBlur={(e) => { if (!e.currentTarget.contains(e.relatedTarget as Node)) setProductsOpen(false); }}
           >
             <button
-              className="flex items-center gap-1 text-sm font-medium text-white/70 hover:text-white transition-colors"
-              aria-expanded={productsOpen}
+              id="products-btn"
               aria-haspopup="true"
+              aria-expanded={productsOpen}
+              aria-controls="products-panel"
+              className="flex items-center gap-1.5 text-sm font-medium text-white/70 hover:text-white transition-colors"
               onClick={() => setProductsOpen(v => !v)}
-              onKeyDown={(e) => { if (e.key === 'Escape') setProductsOpen(false); }}
+              onKeyDown={e => {
+                if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setProductsOpen(v => !v); }
+                if (e.key === 'Escape') setProductsOpen(false);
+              }}
             >
               Products
-              <ChevronDown className={`w-3.5 h-3.5 transition-transform ${productsOpen ? 'rotate-180' : ''}`} />
+              <ChevronDown
+                className={`w-3.5 h-3.5 transition-transform duration-200 ${productsOpen ? 'rotate-180' : ''}`}
+              />
             </button>
+
             {productsOpen && (
-              <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 w-[560px] z-50">
-                <div className="bg-white/95 backdrop-blur-xl border border-black/5 rounded-2xl shadow-xl shadow-blue-900/10 p-5 grid grid-cols-2 gap-1">
-                  {PRODUCT_DATA.map(p => (
-                    <Link key={p.id} href={p.path}>
-                      <div className="flex items-center gap-3 p-2.5 rounded-xl hover:bg-black/[0.03] transition-colors group">
-                        <img src={p.icon3d} alt="" className="w-9 h-9 object-contain flex-shrink-0" />
-                        <div>
-                          <p className="text-sm font-semibold text-[#0A2540] group-hover:text-black">{p.name}</p>
-                          <p className="text-xs text-[#5B7A94]">{p.tagline}</p>
-                        </div>
-                      </div>
+              <div
+                id="products-panel"
+                role="region"
+                aria-label="Products menu"
+                className="absolute top-full left-1/2 -translate-x-1/2 pt-3 w-[620px] z-50"
+              >
+                <div className="bg-[#050d1f]/98 backdrop-blur-2xl border border-white/10 rounded-2xl shadow-2xl shadow-black/60 p-5">
+                  <div className="grid grid-cols-2 gap-0">
+                    {/* Left column */}
+                    <div className="pr-5">
+                      <p className="text-white/28 font-semibold text-[10px] uppercase tracking-widest mb-3 px-2">
+                        Products
+                      </p>
+                      {PRODUCT_DATA.slice(0, 4).map(p => (
+                        <Link key={p.id} href={p.path} onClick={() => setProductsOpen(false)}>
+                          <div className="flex items-center gap-3 px-2 py-2.5 rounded-xl hover:bg-white/6 transition-colors group">
+                            <img src={p.icon3d} alt="" className="w-8 h-8 object-contain flex-shrink-0" />
+                            <div>
+                              <p className="text-sm font-semibold text-white/85 group-hover:text-white leading-none mb-0.5">
+                                {p.name}
+                              </p>
+                              <p className="text-xs text-white/32 leading-none">{p.tagline}</p>
+                            </div>
+                          </div>
+                        </Link>
+                      ))}
+                    </div>
+
+                    {/* Right column */}
+                    <div className="pl-5 border-l border-white/8">
+                      <p className="text-white/28 font-semibold text-[10px] uppercase tracking-widest mb-3 px-2">
+                        More
+                      </p>
+                      {PRODUCT_DATA.slice(4, 8).map(p => (
+                        <Link key={p.id} href={p.path} onClick={() => setProductsOpen(false)}>
+                          <div className="flex items-center gap-3 px-2 py-2.5 rounded-xl hover:bg-white/6 transition-colors group">
+                            <img src={p.icon3d} alt="" className="w-8 h-8 object-contain flex-shrink-0" />
+                            <div>
+                              <p className="text-sm font-semibold text-white/85 group-hover:text-white leading-none mb-0.5">
+                                {p.name}
+                              </p>
+                              <p className="text-xs text-white/32 leading-none">{p.tagline}</p>
+                            </div>
+                          </div>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Footer row — separator inside the popup only */}
+                  <div className="border-t border-white/8 mt-4 pt-4 flex items-center justify-between">
+                    <Link
+                      href="/products"
+                      onClick={() => setProductsOpen(false)}
+                      className="text-xs font-medium text-white/40 hover:text-white transition-colors"
+                    >
+                      See all products →
                     </Link>
-                  ))}
+                    <Link
+                      href="/signup"
+                      onClick={() => setProductsOpen(false)}
+                      className="text-xs font-semibold text-white bg-[#1F7AFF] px-4 py-2 rounded-full hover:bg-[#1468E0] transition-colors"
+                    >
+                      Get started free
+                    </Link>
+                  </div>
                 </div>
               </div>
             )}
           </div>
+
           {navLinks.map(link => (
             <Link
               key={link.label}
@@ -90,78 +168,82 @@ export default function Navbar() {
           ))}
         </nav>
 
-        {/* Desktop Actions */}
+        {/* ── Desktop actions ── */}
         <div className="hidden md:flex items-center gap-3">
           <Link
             href="/login"
-            className="text-sm font-medium text-white/80 border border-white/20 bg-white/8
-                       rounded-lg px-4 py-2 hover:bg-white/15 transition-colors backdrop-blur-sm"
+            className="text-sm font-medium text-white/75 border border-white/16 px-5 py-2 rounded-full hover:bg-white/6 hover:border-white/26 transition-colors"
           >
             Log in
           </Link>
           <Link
             href="/signup"
-            className="text-sm font-medium text-white bg-[#1F95FF] rounded-lg px-4 py-2
-                       hover:bg-[#0F7AE0] transition-colors shadow-md shadow-blue-500/25"
+            className="text-sm font-medium text-white bg-[#1F95FF] rounded-full px-5 py-2 hover:bg-[#0F7AE0] transition-colors"
           >
             Sign Up
           </Link>
         </div>
 
-        {/* Mobile Hamburger */}
+        {/* ── Mobile hamburger ── */}
         <button
-          className="md:hidden p-2 -mr-2 text-[#0A2540]"
+          className="md:hidden p-2 -mr-2 text-white/70 hover:text-white transition-colors"
           onClick={() => setIsOpen(!isOpen)}
-          aria-label="Toggle menu"
+          aria-label={isOpen ? 'Close menu' : 'Open menu'}
+          aria-expanded={isOpen}
         >
           {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
       </div>
 
-      {/* Mobile Menu */}
+      {/* ── Mobile menu ── */}
       {isOpen && (
-        <div className="md:hidden absolute top-16 left-0 right-0 border-b border-white/30
-                        bg-white/85 backdrop-blur-xl shadow-lg flex flex-col">
-          <div className="flex flex-col py-4">
+        <div className="md:hidden absolute top-16 left-0 right-0 bg-[#040c1e]/98 backdrop-blur-2xl shadow-2xl shadow-black/40">
+          <div className="flex flex-col py-3">
             <button
-              className="flex items-center justify-between px-4 py-3 text-base font-medium text-[#0A2540] hover:bg-white/40 w-full"
+              className="flex items-center justify-between px-5 py-3.5 text-sm font-medium text-white/70 hover:text-white hover:bg-white/4 w-full transition-colors"
               onClick={() => setMobileProductsOpen(v => !v)}
               aria-expanded={mobileProductsOpen}
             >
               Products
               <ChevronDown className={`w-4 h-4 transition-transform ${mobileProductsOpen ? 'rotate-180' : ''}`} />
             </button>
+
             {mobileProductsOpen && (
-              <div className="flex flex-col bg-white/40">
+              <div className="flex flex-col bg-white/3">
                 {PRODUCT_DATA.map(p => (
-                  <Link key={p.id} href={p.path} className="flex items-center gap-3 px-6 py-2.5 text-sm text-[#2D5A7A] hover:text-[#0A2540]">
+                  <Link
+                    key={p.id}
+                    href={p.path}
+                    className="flex items-center gap-3 px-7 py-3 text-sm text-white/55 hover:text-white transition-colors"
+                  >
                     <img src={p.icon3d} alt="" className="w-6 h-6 object-contain flex-shrink-0" />
                     {p.name}
                   </Link>
                 ))}
               </div>
             )}
+
             {navLinks.map(link => (
               <Link
                 key={link.label}
                 href={link.href}
-                className="px-4 py-3 text-base font-medium text-[#0A2540] hover:bg-white/40"
+                className="px-5 py-3.5 text-sm font-medium text-white/70 hover:text-white hover:bg-white/4 transition-colors"
               >
                 {link.label}
               </Link>
             ))}
           </div>
-          <div className="flex flex-col gap-3 px-4 pb-6">
+
+          <div className="flex flex-col gap-3 px-5 pb-5 pt-1">
             <Link
               href="/login"
-              className="text-center font-medium text-[#0A2540] border border-white/50
-                         bg-white/30 rounded-lg px-4 py-3"
+              className="text-center text-sm font-medium text-white/75 border border-white/15 rounded-full px-4 py-3 hover:bg-white/6 transition-colors"
             >
               Log in
             </Link>
             <Link
               href="/signup"
-              className="text-center font-medium text-white bg-[#1F95FF] rounded-lg px-4 py-3"
+              className="text-center text-sm font-medium text-white bg-[#1F95FF] rounded-full px-4 py-3 hover:bg-[#0F7AE0] transition-colors"
             >
               Sign Up
             </Link>

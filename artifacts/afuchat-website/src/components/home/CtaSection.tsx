@@ -49,13 +49,13 @@ export default function CtaSection() {
           >
             <Link
               href="/signup"
-              className="px-9 py-4 bg-white text-[#0F2CFF] text-base font-bold rounded-xl hover:bg-blue-50 transition-colors shadow-xl shadow-black/30"
+              className="px-9 py-4 bg-white text-[#0F2CFF] text-base font-bold rounded-full hover:bg-blue-50 transition-colors shadow-xl shadow-black/30"
             >
               Create free account →
             </Link>
             <Link
               href="/ecosystem"
-              className="px-9 py-4 bg-white/10 border border-white/22 text-white text-base font-medium rounded-xl hover:bg-white/18 transition-colors"
+              className="px-9 py-4 bg-white/10 border border-white/22 text-white text-base font-medium rounded-full hover:bg-white/18 transition-colors"
             >
               See how it works
             </Link>

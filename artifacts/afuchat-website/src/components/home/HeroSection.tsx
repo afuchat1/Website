@@ -37,7 +37,7 @@ export default function HeroSection() {
               transition={{ delay: 0.15 }}
               className="flex flex-wrap gap-3 mb-10"
             >
-              <Link href="/signup" className="px-7 py-3.5 bg-[#1F7AFF] text-white font-bold text-sm rounded-xl hover:bg-[#1468E0] transition-colors shadow-lg shadow-blue-500/25">
+              <Link href="/signup" className="px-7 py-3.5 bg-[#1F7AFF] text-white font-bold text-sm rounded-full hover:bg-[#1468E0] transition-colors shadow-lg shadow-blue-500/25">
                 Create AfuMail →
               </Link>
               <Link href="/ecosystem" className="px-7 py-3.5 text-white/70 font-medium text-sm hover:text-white transition-colors">
