@@ -5,6 +5,7 @@ import IdentitySection from '@/components/home/IdentitySection';
 import FeaturesSection from '@/components/home/FeaturesSection';
 import DeveloperSection from '@/components/home/DeveloperSection';
 import CtaSection from '@/components/home/CtaSection';
+import Footer from '@/components/layout/Footer';
 
 // Blob positions are calculated from real section heights at 1280 px:
 //   section-pad = py-28 = 224 px padding, total page ≈ 4 226 px
@@ -80,6 +81,7 @@ export default function Home() {
       <FeaturesSection />
       <DeveloperSection />
       <CtaSection />
+      <Footer />
     </div>
   );
 }

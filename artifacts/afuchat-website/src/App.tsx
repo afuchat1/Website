@@ -9,7 +9,6 @@ import GenericPage from '@/pages/GenericPage';
 import Signup from '@/pages/Signup';
 import NotFound from '@/pages/not-found';
 import Partners from '@/pages/Partners';
-import Reviews from '@/pages/Reviews';
 
 const queryClient = new QueryClient();
 
@@ -19,7 +18,6 @@ function Router() {
       <Switch>
         <Route path="/" component={Home} />
         <Route path="/partners" component={Partners} />
-        <Route path="/reviews" component={Reviews} />
         <Route path="/products" component={Products} />
         <Route path="/products/:id" component={ProductPage} />
         <Route path="/developers" component={Developers} />

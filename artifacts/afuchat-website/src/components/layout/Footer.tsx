@@ -110,7 +110,6 @@ export default function Footer() {
                 { label: 'About',      href: '/about' },
                 { label: 'Developers', href: '/developers' },
                 { label: 'Partners',   href: '/partners' },
-                { label: 'Reviews',    href: '/reviews' },
                 { label: 'Careers',    href: '/about/careers' },
               ].map(l => (
                 <li key={l.href}>

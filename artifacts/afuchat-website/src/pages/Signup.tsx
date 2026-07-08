@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'wouter';
 import { ArrowRight, Check } from 'lucide-react';
 import { illSecIdentity } from '@/data/illustrations';
+import Footer from '@/components/layout/Footer';
 
 export default function Signup() {
   return (
@@ -98,6 +99,7 @@ export default function Signup() {
           </motion.div>
         </div>
       </main>
+      <Footer />
     </div>
   );
 }

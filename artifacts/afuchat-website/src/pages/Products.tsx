@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { PRODUCT_DATA } from '@/data/products';
 import { Link } from 'wouter';
 import { illSecProducts } from '@/data/illustrations';
+import Footer from '@/components/layout/Footer';
 
 export default function Products() {
   return (
@@ -72,6 +73,7 @@ export default function Products() {
           </Link>
         </motion.div>
       </div>
+      <Footer />
     </div>
   );
 }

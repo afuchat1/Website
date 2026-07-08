@@ -3,6 +3,7 @@ import { Link } from 'wouter';
 import { Terminal, Book, Code2, Globe, Zap, Lock } from 'lucide-react';
 import DeveloperSection from '@/components/home/DeveloperSection';
 import { illSecDeveloper } from '@/data/illustrations';
+import Footer from '@/components/layout/Footer';
 
 const resources = [
   { icon: Terminal, color: '#6C63FF', title: 'API Reference', desc: 'Complete REST and GraphQL documentation for all our products with live code examples.', link: 'Read APIs →' },
@@ -110,6 +111,7 @@ export default function Developers() {
           ))}
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

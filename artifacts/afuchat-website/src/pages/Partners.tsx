@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { illSecEcosystem, illSecContact } from '@/data/illustrations';
 import { ShieldCheck, Target, Rocket, Users } from 'lucide-react';
 import { Link } from 'wouter';
+import Footer from '@/components/layout/Footer';
 
 export default function Partners() {
   return (
@@ -47,7 +48,7 @@ export default function Partners() {
             { title: "Technical Support", desc: "Get direct access to our engineering team and dedicated partner APIs.", icon: ShieldCheck },
             { title: "Revenue Share", desc: "Earn competitive commissions through our reseller and affiliate programs.", icon: Target }
           ].map((feature, i) => (
-            <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }} className="bg-white/5 border border-white/10 p-6 rounded-2xl">
+            <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }} className="bg-white/5 sm:bg-transparent p-5 sm:p-0 rounded-2xl sm:rounded-none">
               <feature.icon className="w-8 h-8 text-[#F59E0B] mb-4" />
               <h3 className="text-white font-bold mb-2">{feature.title}</h3>
               <p className="text-white/50 text-sm leading-relaxed">{feature.desc}</p>
@@ -69,12 +70,10 @@ export default function Partners() {
             { title: "Reseller Partners", color: "#16C784", desc: "Sell our enterprise products to your clients. Perfect for MSPs, IT consultancies, and system integrators." },
             { title: "Media Partners", color: "#EC4899", desc: "Collaborate on content distribution via AfuNews and AfuMovies. For publishers and creators." }
           ].map((track, i) => (
-            <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }} className="bg-gradient-to-b from-white/10 to-transparent p-[1px] rounded-3xl">
-              <div className="bg-[#0A1224] h-full p-8 rounded-[23px]">
-                <h3 className="text-xl font-bold text-white mb-4" style={{ color: track.color }}>{track.title}</h3>
-                <p className="text-white/60 text-sm leading-relaxed mb-8">{track.desc}</p>
-                <a href="#apply" className="text-sm font-semibold hover:underline" style={{ color: track.color }}>Apply now →</a>
-              </div>
+            <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}>
+              <h3 className="text-xl font-bold text-white mb-4" style={{ color: track.color }}>{track.title}</h3>
+              <p className="text-white/60 text-sm leading-relaxed mb-8">{track.desc}</p>
+              <a href="#apply" className="text-sm font-semibold hover:underline" style={{ color: track.color }}>Apply now →</a>
             </motion.div>
           ))}
         </div>
@@ -82,7 +81,7 @@ export default function Partners() {
 
       {/* CTA */}
       <div id="apply" className="max-container container-pad py-16 sm:py-24">
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-12 items-center bg-white/5 border border-white/10 rounded-3xl p-8 sm:p-12">
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-12 items-center">
           <div>
             <h2 className="text-[28px] leading-[1.2] sm:text-3xl font-bold text-white mb-4 tracking-tight">Ready to partner?</h2>
             <p className="text-white/55 text-base mb-8 leading-relaxed">Tell us about your organization and how we can work together. Our team will get back to you within 2 business days.</p>
@@ -106,6 +105,7 @@ export default function Partners() {
           </div>
         </motion.div>
       </div>
+      <Footer />
     </div>
   );
 }

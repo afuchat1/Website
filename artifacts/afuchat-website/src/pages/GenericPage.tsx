@@ -6,6 +6,7 @@ import {
   illSecEnterprise, illSecHelp, illSecIdentity, illSecLeadership,
   illSecPress, illSecSecurity, illSecSitemap,
 } from '@/data/illustrations';
+import Footer from '@/components/layout/Footer';
 
 interface GenericPageProps {
   title: string;
@@ -226,6 +227,7 @@ export default function GenericPage({ title, type }: GenericPageProps) {
           </Link>
         </motion.div>
       </div>
+      <Footer />
     </div>
   );
 }

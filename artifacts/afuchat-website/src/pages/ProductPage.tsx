@@ -4,6 +4,7 @@ import { PRODUCT_DATA } from '@/data/products';
 import NotFound from '@/pages/not-found';
 import { ArrowLeft } from 'lucide-react';
 import { illSecEcosystem } from '@/data/illustrations';
+import Footer from '@/components/layout/Footer';
 
 export default function ProductPage() {
   const params = useParams();
@@ -110,6 +111,7 @@ export default function ProductPage() {
           </div>
         </motion.div>
       </div>
+      <Footer />
     </div>
   );
 }
