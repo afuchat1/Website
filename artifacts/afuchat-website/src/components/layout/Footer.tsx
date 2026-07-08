@@ -2,6 +2,7 @@ import { Link } from 'wouter';
 import { PRODUCT_DATA } from '@/data/products';
 import { TRUSTPILOT_PROFILE_URL, TRUSTPILOT_SUMMARY } from '@/data/trustpilot';
 import logo from '@assets/afuchat_logo_transparent.png';
+import trustpilotLogo from '@assets/image_1783529159179.png';
 
 function TrustpilotBadge() {
   return (
@@ -11,7 +12,7 @@ function TrustpilotBadge() {
       rel="noopener noreferrer"
       className="inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-3.5 py-2 hover:bg-white/10 transition-colors w-fit"
     >
-      <svg viewBox="0 0 24 24" width="16" height="16" fill="#00b67a"><path d="M12 1.5l3.09 6.26L22 8.76l-5 4.87 1.18 6.87L12 17.27l-6.18 3.23L7 13.63 2 8.76l6.91-1L12 1.5z"/></svg>
+      <img src={trustpilotLogo} alt="Trustpilot" className="h-3.5 w-auto" />
       <span className="text-white font-bold text-xs">{TRUSTPILOT_SUMMARY.rating.toFixed(1)}</span>
       <span className="text-white/40 text-xs">· {TRUSTPILOT_SUMMARY.reviewCount} reviews on Trustpilot</span>
     </a>

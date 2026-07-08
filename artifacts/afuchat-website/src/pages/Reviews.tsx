@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'wouter';
 import { Star } from 'lucide-react';
 import { TRUSTPILOT_PROFILE_URL, TRUSTPILOT_REVIEWS, TRUSTPILOT_SUMMARY } from '@/data/trustpilot';
+import trustpilotLogo from '@assets/image_1783529159179.png';
 
 function initials(name: string) {
   return name
@@ -44,9 +45,8 @@ export default function Reviews() {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2.5 bg-white/5 border border-white/10 rounded-full px-4 py-2 hover:bg-white/10 transition-colors"
           >
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="#00b67a"><path d="M12 1.5l3.09 6.26L22 8.76l-5 4.87 1.18 6.87L12 17.27l-6.18 3.23L7 13.63 2 8.76l6.91-1L12 1.5z"/></svg>
+            <img src={trustpilotLogo} alt="Trustpilot" className="h-4 w-auto" />
             <span className="text-white font-bold text-sm">{TRUSTPILOT_SUMMARY.rating.toFixed(1)}</span>
-            <Stars rating={Math.round(TRUSTPILOT_SUMMARY.rating)} />
             <span className="text-white/40 text-xs">{TRUSTPILOT_SUMMARY.reviewCount} reviews on Trustpilot</span>
           </a>
         </motion.div>
