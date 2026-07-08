@@ -1,57 +1,50 @@
-import { DeveloperSection } from '@/components/home/DeveloperSection';
-import { motion } from 'framer-motion';
-import { Book, Code, Webhook, Box } from 'lucide-react';
+import DeveloperSection from '@/components/home/DeveloperSection';
+import { Terminal, Book, Code2 } from 'lucide-react';
 
 export default function Developers() {
-  const resources = [
-    { title: "Documentation", desc: "Complete guides for integrating AfuChat services.", icon: Book },
-    { title: "API Reference", desc: "Endpoints, request/response schemas, and errors.", icon: Code },
-    { title: "Webhooks", desc: "Real-time event streams for your applications.", icon: Webhook },
-    { title: "SDKs", desc: "Official libraries for JS, Python, Go, and Ruby.", icon: Box },
-  ];
-
   return (
-    <div className="pt-32 pb-20">
-      <div className="container mx-auto px-6 max-w-7xl mb-20">
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="max-w-3xl"
-        >
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.03)] mb-8">
-            <span className="text-xs font-semibold text-slate-300 uppercase tracking-wider">AfuChat Developer Platform</span>
-          </div>
-          <h1 className="hero-headline mb-6 text-white">Build the future.</h1>
-          <p className="subheadline">
-            Robust APIs and SDKs to build powerful applications on top of the AfuChat identity layer.
+    <div className="w-full pb-20">
+      <div className="bg-[#F8FAFC] border-b border-[#E2E8F0]">
+        <div className="max-container container-pad py-16 sm:py-24 text-center">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#0F172A] mb-6">Developer Platform</h1>
+          <p className="text-lg sm:text-xl text-[#64748B] max-w-3xl mx-auto">
+            Build applications on top of the AfuChat ecosystem. Access millions of users with a single OAuth integration.
           </p>
-        </motion.div>
+        </div>
+      </div>
+
+      <div className="max-container container-pad py-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
+          <div className="bg-white border border-[#E2E8F0] rounded-2xl p-8">
+            <div className="w-12 h-12 bg-[#F0EFFF] rounded-xl flex items-center justify-center mb-6">
+              <Terminal className="w-6 h-6 text-[#6C63FF]" />
+            </div>
+            <h3 className="text-xl font-bold text-[#0F172A] mb-3">API Reference</h3>
+            <p className="text-[#64748B] mb-4">Detailed documentation for REST and GraphQL endpoints across all 8 products.</p>
+            <a href="#" className="text-[#6C63FF] font-medium hover:underline">Read APIs →</a>
+          </div>
+
+          <div className="bg-white border border-[#E2E8F0] rounded-2xl p-8">
+            <div className="w-12 h-12 bg-[#EBF5FF] rounded-xl flex items-center justify-center mb-6">
+              <Book className="w-6 h-6 text-[#1F95FF]" />
+            </div>
+            <h3 className="text-xl font-bold text-[#0F172A] mb-3">Guides & Tutorials</h3>
+            <p className="text-[#64748B] mb-4">Step-by-step instructions for implementing SSO, payments, and data sync.</p>
+            <a href="#" className="text-[#1F95FF] font-medium hover:underline">View Guides →</a>
+          </div>
+
+          <div className="bg-white border border-[#E2E8F0] rounded-2xl p-8">
+            <div className="w-12 h-12 bg-[#D1FAE5] rounded-xl flex items-center justify-center mb-6">
+              <Code2 className="w-6 h-6 text-[#10B981]" />
+            </div>
+            <h3 className="text-xl font-bold text-[#0F172A] mb-3">SDKs & Libraries</h3>
+            <p className="text-[#64748B] mb-4">Official client libraries for React, Node.js, Python, iOS, and Android.</p>
+            <a href="#" className="text-[#10B981] font-medium hover:underline">Get SDKs →</a>
+          </div>
+        </div>
       </div>
 
       <DeveloperSection />
-
-      <div className="container mx-auto px-6 max-w-7xl pt-32">
-        <h2 className="text-3xl font-bold text-white mb-12">Resources</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {resources.map((res, i) => {
-            const Icon = res.icon;
-            return (
-              <motion.div 
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="glass-card p-6 cursor-pointer"
-              >
-                <Icon className="w-8 h-8 text-primary mb-4" />
-                <h3 className="text-lg font-bold text-white mb-2">{res.title}</h3>
-                <p className="text-slate-400 text-sm">{res.desc}</p>
-              </motion.div>
-            );
-          })}
-        </div>
-      </div>
     </div>
   );
 }

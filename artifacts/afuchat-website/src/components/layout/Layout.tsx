@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
-import { Navbar } from './Navbar';
-import { Footer } from './Footer';
+import Navbar from './Navbar';
+import Footer from './Footer';
 
 interface LayoutProps {
   children: ReactNode;
@@ -8,9 +8,9 @@ interface LayoutProps {
 
 export function Layout({ children }: LayoutProps) {
   return (
-    <div className="min-h-screen flex flex-col relative overflow-hidden bg-[#050A0F]">
+    <div className="min-h-[100dvh] flex flex-col bg-white">
       <Navbar />
-      <main className="flex-grow pt-[60px] relative z-10">
+      <main className="flex-1 pt-16">
         {children}
       </main>
       <Footer />

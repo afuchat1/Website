@@ -1,173 +1,107 @@
-import { motion, useReducedMotion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Link } from 'wouter';
-import { Mail } from 'lucide-react';
-import { PRODUCT_DATA } from '@/data/products';
+import heroImage from '@assets/AfuChat_1783469000333.png';
 
-export function HeroSection() {
-  const shouldReduceMotion = useReducedMotion();
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.1
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.2, 0.8, 0.2, 1] } }
-  };
-
-  // Filter products for the orbit rings
-  const innerRingProducts = PRODUCT_DATA.slice(1, 5);
-  const outerRingProducts = PRODUCT_DATA.slice(5, 9);
-
+export default function HeroSection() {
   return (
-    <section className="relative min-h-[90vh] flex items-center pt-20 pb-32 overflow-hidden section-bg-base">
-      {/* Ambient background glow */}
-      <div className="orb-primary w-[800px] h-[800px] top-1/4 right-[-20%]"></div>
-      <div className="orb-secondary w-[600px] h-[600px] bottom-[-10%] left-[-10%]"></div>
-      <div className="texture-grid opacity-[0.02]"></div>
+    <section className="relative bg-white overflow-hidden pt-12 sm:pt-20 lg:pt-28 pb-0">
+      {/* Subtle background tint only on right half */}
+      <div
+        className="absolute inset-y-0 right-0 w-full lg:w-1/2 pointer-events-none"
+        style={{ background: 'linear-gradient(135deg, #f0f7ff 0%, #e8f4ff 100%)' }}
+      />
 
-      <div className="container mx-auto px-6 max-w-7xl relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          
-          {/* Left Column: Text Content */}
-          <motion.div 
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-            className="flex flex-col items-start text-left max-w-2xl"
-          >
-            <motion.div variants={itemVariants} className="mb-8">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[rgba(31,149,255,0.3)] bg-[rgba(31,149,255,0.08)]">
-                <span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
-                <span className="text-xs font-semibold text-primary uppercase tracking-wider">Introducing the AfuChat Ecosystem</span>
-              </div>
+      <div className="max-container container-pad relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-6 items-end">
+
+          {/* ── Left column ── */}
+          <div className="flex flex-col items-start text-left pb-16 lg:pb-24">
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.45 }}
+              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#F0F7FF] border border-[#BFDBFE] mb-6"
+            >
+              <span className="text-[#1F95FF] text-xs">✦</span>
+              <span className="text-sm font-medium text-[#1F95FF]">One account. Everything connected.</span>
             </motion.div>
 
-            <motion.h1 variants={itemVariants} className="hero-headline mb-6 text-white whitespace-pre-line">
-              One identity.<br />Every service.
+            <motion.h1
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.45, delay: 0.08 }}
+              className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-[#0F172A] leading-[1.08] tracking-tight mb-5"
+            >
+              One identity.<br />
+              Every service.<br />
+              Zero friction.
             </motion.h1>
 
-            <motion.p variants={itemVariants} className="subheadline mb-10 max-w-xl">
-              Create one AfuMail account. Instantly unlock AfuChat, AfuAI, AfuCloud, AfuMovies, AfuMall, AfuNews, AfuBlog — every service, zero extra sign-ups.
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.45, delay: 0.16 }}
+              className="text-lg sm:text-xl text-[#64748B] max-w-md mb-8 leading-relaxed"
+            >
+              Create one AfuMail account and instantly access chat, cloud storage, AI, entertainment, and more — no separate sign-ups.
             </motion.p>
 
-            <motion.div variants={itemVariants} className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto mb-10">
-              <Link href="/products/mail" className="w-full sm:w-auto h-14 px-8 inline-flex items-center justify-center bg-primary text-white font-medium rounded-full hover:bg-[#3FA5FF] transition-all hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(31,149,255,0.3)]">
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.45, delay: 0.24 }}
+              className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto mb-10"
+            >
+              <Link
+                href="/signup"
+                className="px-7 py-3.5 bg-[#1F95FF] text-white text-base font-semibold rounded-xl hover:bg-[#0F7AE0] active:bg-[#0A65C2] transition-colors text-center"
+              >
                 Create AfuMail →
               </Link>
-              <Link href="/ecosystem" className="w-full sm:w-auto h-14 px-8 inline-flex items-center justify-center border border-[rgba(255,255,255,0.2)] text-white font-medium rounded-full hover:bg-[rgba(255,255,255,0.05)] transition-all">
-                Explore ecosystem
+              <Link
+                href="/ecosystem"
+                className="px-7 py-3.5 bg-white text-[#0F172A] text-base font-semibold rounded-xl border border-[#E2E8F0] hover:bg-[#F8FAFC] transition-colors text-center"
+              >
+                See how it works
               </Link>
             </motion.div>
 
-            <motion.div variants={itemVariants} className="flex items-center gap-4 text-sm text-slate-500">
-              <div className="flex -space-x-2">
-                {[...Array(4)].map((_, i) => (
-                  <div key={i} className="w-8 h-8 rounded-full border-2 border-[#050A0F] bg-[#1a2332] flex items-center justify-center overflow-hidden">
-                    <img src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${i}&backgroundColor=transparent`} alt="avatar" className="w-full h-full object-cover" />
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.45, delay: 0.32 }}
+              className="flex items-center gap-3"
+            >
+              <div className="flex -space-x-2.5">
+                {['#1F95FF','#6C63FF','#10B981','#F59E0B'].map((bg, i) => (
+                  <div
+                    key={i}
+                    className="w-9 h-9 rounded-full border-2 border-white flex items-center justify-center text-white text-xs font-bold shadow-sm"
+                    style={{ background: bg }}
+                  >
+                    {['A','J','M','S'][i]}
                   </div>
                 ))}
               </div>
-              <span>Trusted by millions worldwide</span>
+              <span className="text-sm font-medium text-[#64748B]">Trusted by millions globally</span>
             </motion.div>
-          </motion.div>
+          </div>
 
-          {/* Right Column: Visual Diagram */}
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, delay: 0.4 }}
-            className="relative hidden lg:flex items-center justify-center aspect-square"
+          {/* ── Right column — real AfuChat screenshot ── */}
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.18 }}
+            className="relative w-full flex items-end justify-center lg:justify-end"
           >
-            {/* Center Core: AfuMail */}
-            <div className="absolute z-30 flex flex-col items-center justify-center">
-              <div className="w-20 h-20 rounded-2xl bg-white flex items-center justify-center shadow-[0_0_40px_rgba(31,149,255,0.4)] relative">
-                <div className="absolute inset-0 rounded-2xl bg-primary opacity-20 blur-md animate-pulse-glow"></div>
-                <Mail className="w-10 h-10 text-primary relative z-10" />
-              </div>
-              <span className="mt-4 font-bold text-white tracking-tight">AfuMail Core</span>
-            </div>
-
-            {/* Inner Ring */}
-            <div className="absolute w-[280px] h-[280px] rounded-full border border-[rgba(31,149,255,0.15)] z-20">
-              {!shouldReduceMotion && (
-                <div className="absolute inset-0 animate-orbit">
-                  {innerRingProducts.map((product, i) => {
-                    const Icon = product.icon;
-                    const angle = (i * 360) / innerRingProducts.length;
-                    return (
-                      <div 
-                        key={product.id}
-                        className="absolute w-12 h-12 -ml-6 -mt-6 rounded-xl glass-card flex items-center justify-center"
-                        style={{ 
-                          left: '50%', top: '50%',
-                          transform: `rotate(${angle}deg) translateY(-140px) rotate(-${angle}deg)`
-                        }}
-                      >
-                        <Icon className="w-5 h-5 text-white" />
-                      </div>
-                    );
-                  })}
-                </div>
-              )}
-            </div>
-
-            {/* Outer Ring */}
-            <div className="absolute w-[440px] h-[440px] rounded-full border border-[rgba(255,255,255,0.05)] z-10">
-              {!shouldReduceMotion && (
-                <div className="absolute inset-0 animate-orbit-outer">
-                  {outerRingProducts.map((product, i) => {
-                    const Icon = product.icon;
-                    const angle = (i * 360) / outerRingProducts.length;
-                    return (
-                      <div 
-                        key={product.id}
-                        className="absolute w-14 h-14 -ml-7 -mt-7 rounded-xl glass-card flex items-center justify-center"
-                        style={{ 
-                          left: '50%', top: '50%',
-                          transform: `rotate(${angle}deg) translateY(-220px) rotate(-${angle}deg)`
-                        }}
-                      >
-                        <Icon className="w-6 h-6" style={{ color: product.accentHex }} />
-                      </div>
-                    );
-                  })}
-                </div>
-              )}
-            </div>
-
-            {/* Connecting lines for static view (fallback) */}
-            {shouldReduceMotion && (
-              <>
-                {innerRingProducts.map((product, i) => {
-                  const Icon = product.icon;
-                  const angle = (i * 360) / innerRingProducts.length;
-                  return (
-                    <div 
-                      key={product.id}
-                      className="absolute w-12 h-12 -ml-6 -mt-6 rounded-xl glass-card flex items-center justify-center z-30"
-                      style={{ 
-                        left: '50%', top: '50%',
-                        transform: `rotate(${angle}deg) translateY(-140px) rotate(-${angle}deg)`
-                      }}
-                    >
-                      <Icon className="w-5 h-5 text-white" />
-                    </div>
-                  );
-                })}
-              </>
-            )}
-
-            {/* Subtle glow behind the whole diagram */}
-            <div className="absolute inset-0 bg-primary opacity-[0.03] blur-[120px] rounded-full"></div>
+            <img
+              src={heroImage}
+              alt="AfuChat app screens"
+              className="w-full max-w-[420px] sm:max-w-[500px] lg:max-w-full object-contain object-bottom drop-shadow-2xl"
+              style={{ maxHeight: '580px' }}
+            />
           </motion.div>
+
         </div>
       </div>
     </section>

@@ -1,72 +1,72 @@
 import { motion } from 'framer-motion';
-import { Link } from 'wouter';
 import { PRODUCT_DATA } from '@/data/products';
+import { Link } from 'wouter';
 
-export function ProductsSection() {
+export default function ProductsSection() {
+  const featuredProducts = PRODUCT_DATA.slice(0, 5);
+
   return (
-    <section className="py-32 section-bg-dark relative">
-      <div className="container mx-auto px-6 max-w-7xl">
-        <div className="mb-20">
-          <motion.h2 
+    <section className="section-pad bg-white">
+      <div className="max-container container-pad">
+        <div className="mb-12 sm:mb-16 text-center sm:text-left">
+          <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            className="section-headline mb-6"
+            viewport={{ once: true, margin: '-50px' }}
+            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0F172A] mb-3 tracking-tight"
           >
-            Built for the<br />modern digital life.
+            Everything you need in one ecosystem.
           </motion.h2>
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: true, margin: '-50px' }}
             transition={{ delay: 0.1 }}
-            className="subheadline max-w-2xl"
+            className="text-lg text-[#64748B]"
           >
-            Nine distinct platforms. One cohesive experience. Each product is engineered to be world-class on its own, but magical when used together.
+            Eight services. One AfuMail account.
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {PRODUCT_DATA.map((product, i) => {
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 sm:gap-5">
+          {featuredProducts.map((product, index) => {
             const Icon = product.icon;
             return (
               <motion.div
                 key={product.id}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ delay: i * 0.1 }}
+                viewport={{ once: true, margin: '-50px' }}
+                transition={{ delay: index * 0.08 }}
               >
                 <Link href={product.path}>
-                  <div 
-                    className="glass-card h-full p-8 flex flex-col group cursor-pointer"
-                    style={{ '--color-border-hover': product.accentHex } as any}
+                  <div className="h-full bg-white border border-[#E2E8F0] rounded-2xl p-6 hover:border-[var(--p-color)] hover:shadow-md transition-all duration-200 group cursor-pointer"
+                    style={{ '--p-color': product.color } as React.CSSProperties}
                   >
-                    <div className="w-14 h-14 rounded-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.05)] flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300">
-                      <Icon className="w-7 h-7 text-white" />
-                    </div>
-                    
-                    <h3 className="text-2xl font-bold text-white mb-3 tracking-tight">
-                      {product.name}
-                    </h3>
-                    
-                    <p className="text-slate-400 text-sm mb-8 flex-grow leading-relaxed">
-                      {product.description}
-                    </p>
-                    
-                    <div className="flex flex-wrap gap-2 mt-auto">
-                      {product.features.slice(0, 2).map((feature, j) => (
-                        <span key={j} className="text-[11px] font-medium text-slate-300 px-3 py-1 rounded-full bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.05)]">
-                          {feature}
-                        </span>
-                      ))}
-                    </div>
+                    {/* Icon — no background box */}
+                    <Icon
+                      className="w-7 h-7 mb-5"
+                      style={{ color: product.color }}
+                    />
+                    <h3 className="text-base font-semibold text-[#0F172A] mb-1.5">{product.name}</h3>
+                    <p className="text-sm text-[#64748B] leading-relaxed">{product.description}</p>
                   </div>
                 </Link>
               </motion.div>
             );
           })}
         </div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          className="mt-10 text-center"
+        >
+          <Link href="/products" className="inline-flex items-center text-[#1F95FF] font-medium hover:underline">
+            View all products →
+          </Link>
+        </motion.div>
       </div>
     </section>
   );

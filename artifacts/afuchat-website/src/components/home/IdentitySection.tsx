@@ -1,115 +1,88 @@
 import { motion } from 'framer-motion';
-import { Mail, ShieldCheck, Zap } from 'lucide-react';
-import { PRODUCT_DATA } from '@/data/products';
+import { Mail, ShieldCheck, LayoutGrid } from 'lucide-react';
 
-export function IdentitySection() {
+const steps = [
+  {
+    id: 1,
+    title: 'Create your AfuMail',
+    desc: 'One simple sign-up process to establish your primary digital identity.',
+    icon: Mail,
+    color: '#1F95FF',
+  },
+  {
+    id: 2,
+    title: 'Identity verified',
+    desc: 'Bank-grade security and two-factor authentication keep your account safe.',
+    icon: ShieldCheck,
+    color: '#16C784',
+  },
+  {
+    id: 3,
+    title: 'All services unlocked',
+    desc: 'Instantly access chat, cloud storage, AI, entertainment and more without logging in again.',
+    icon: LayoutGrid,
+    color: '#6C63FF',
+  },
+];
+
+export default function IdentitySection() {
   return (
-    <section className="py-32 section-bg-base relative overflow-hidden">
-      <div className="orb-primary w-[600px] h-[600px] top-1/2 left-[-20%] opacity-50"></div>
-      
-      <div className="container mx-auto px-6 max-w-7xl relative z-10">
-        <div className="text-center max-w-3xl mx-auto mb-24">
-          <motion.h2 
+    <section className="section-pad bg-white">
+      <div className="max-container container-pad">
+        <div className="text-center mb-14 lg:mb-20">
+          <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            className="section-headline mb-6"
+            viewport={{ once: true, margin: '-50px' }}
+            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0F172A] mb-3 tracking-tight"
           >
-            Sign up once.<br />Access everything.
+            Sign up once. Access everything.
           </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-50px' }}
+            transition={{ delay: 0.1 }}
+            className="text-lg text-[#64748B] max-w-xl mx-auto"
+          >
+            AfuMail is your universal key. Create it once — every product in the ecosystem unlocks automatically.
+          </motion.p>
         </div>
 
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-4 relative">
-          {/* Connector Line (Desktop) */}
-          <div className="hidden lg:block absolute top-1/2 left-[10%] right-[10%] h-[2px] bg-[rgba(255,255,255,0.05)] -translate-y-1/2 z-0">
-            <motion.div 
-              className="h-full bg-primary"
-              initial={{ width: "0%" }}
-              whileInView={{ width: "100%" }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 1.5, ease: "easeInOut" }}
-            />
-          </div>
+        <div className="relative">
+          {/* connector line — desktop only */}
+          <div className="hidden lg:block absolute top-[52px] left-[calc(16.67%+32px)] right-[calc(16.67%+32px)] h-px bg-[#E2E8F0]" />
 
-          {/* Connector Line (Mobile) */}
-          <div className="block lg:hidden absolute top-[10%] bottom-[10%] left-1/2 w-[2px] bg-[rgba(255,255,255,0.05)] -translate-x-1/2 z-0">
-            <motion.div 
-              className="w-full bg-primary"
-              initial={{ height: "0%" }}
-              whileInView={{ height: "100%" }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 1.5, ease: "easeInOut" }}
-            />
-          </div>
-
-          {/* Step 1 */}
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, margin: "-100px" }}
-            className="z-10 flex flex-col items-center w-full lg:w-1/3"
-          >
-            <div className="w-24 h-24 rounded-2xl bg-[#030709] border border-[rgba(255,255,255,0.1)] flex items-center justify-center mb-6 shadow-xl relative">
-              <div className="absolute -inset-2 bg-primary opacity-20 blur-xl rounded-full"></div>
-              <Mail className="w-10 h-10 text-white relative z-10" />
-            </div>
-            <h3 className="text-2xl font-bold text-white mb-2">Create AfuMail</h3>
-            <p className="text-slate-400 text-center text-sm px-4">Claim your unique @afu.chat identity. Fast, secure, and permanently yours.</p>
-          </motion.div>
-
-          {/* Step 2 */}
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ delay: 0.5 }}
-            className="z-10 flex flex-col items-center w-full lg:w-1/3 mt-12 lg:mt-0"
-          >
-            <div className="w-24 h-24 rounded-2xl bg-[#030709] border border-primary flex items-center justify-center mb-6 shadow-[0_0_30px_rgba(31,149,255,0.2)] relative">
-              <ShieldCheck className="w-10 h-10 text-primary" />
-            </div>
-            <h3 className="text-2xl font-bold text-white mb-2">Identity Verified</h3>
-            <p className="text-slate-400 text-center text-sm px-4">Military-grade encryption locks in your identity across the entire network.</p>
-          </motion.div>
-
-          {/* Step 3 */}
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ delay: 1 }}
-            className="z-10 flex flex-col items-center w-full lg:w-1/3 mt-12 lg:mt-0"
-          >
-            <div className="w-32 h-32 relative mb-2 flex items-center justify-center">
-              <div className="absolute inset-0 bg-success opacity-20 blur-2xl rounded-full"></div>
-              <Zap className="w-12 h-12 text-success relative z-10" />
-              
-              {/* Mini icons exploding out */}
-              {PRODUCT_DATA.slice(1, 6).map((product, i) => {
-                const Icon = product.icon;
-                const angle = (i * 360) / 5;
-                const rad = angle * (Math.PI / 180);
-                return (
-                  <motion.div
-                    key={product.id}
-                    initial={{ opacity: 0, x: 0, y: 0 }}
-                    whileInView={{ 
-                      opacity: 1, 
-                      x: Math.sin(rad) * 60, 
-                      y: -Math.cos(rad) * 60 
-                    }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 1.2 + (i * 0.1) }}
-                    className="absolute w-8 h-8 rounded-lg bg-[#07101A] border border-[rgba(255,255,255,0.1)] flex items-center justify-center shadow-lg"
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-8">
+            {steps.map((step, i) => {
+              const Icon = step.icon;
+              return (
+                <motion.div
+                  key={step.id}
+                  initial={{ opacity: 0, y: 24 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: '-50px' }}
+                  transition={{ delay: i * 0.18 }}
+                  className="flex flex-col items-center text-center"
+                >
+                  {/* Step number badge with icon */}
+                  <div
+                    className="relative w-16 h-16 rounded-2xl flex items-center justify-center mb-6 border border-[#E2E8F0] bg-white shadow-sm z-10"
                   >
-                    <Icon className="w-4 h-4 text-white" />
-                  </motion.div>
-                );
-              })}
-            </div>
-            <h3 className="text-2xl font-bold text-white mb-2 mt-4">Everything Unlocked</h3>
-            <p className="text-slate-400 text-center text-sm px-4">Instant access to Chat, Cloud, AI, and every other AfuChat service.</p>
-          </motion.div>
+                    <Icon className="w-7 h-7" style={{ color: step.color }} />
+                    <span
+                      className="absolute -top-2 -right-2 w-5 h-5 rounded-full text-white text-[10px] font-bold flex items-center justify-center"
+                      style={{ background: step.color }}
+                    >
+                      {step.id}
+                    </span>
+                  </div>
+                  <h3 className="text-xl font-bold text-[#0F172A] mb-2">{step.title}</h3>
+                  <p className="text-[#64748B] leading-relaxed text-sm max-w-xs mx-auto">{step.desc}</p>
+                </motion.div>
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>

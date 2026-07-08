@@ -1,64 +1,43 @@
-import { motion } from 'framer-motion';
-import { Link } from 'wouter';
 import { PRODUCT_DATA } from '@/data/products';
+import { Link } from 'wouter';
 
 export default function Products() {
   return (
-    <div className="pt-32 pb-40">
-      <div className="container mx-auto px-6 max-w-7xl">
-        <motion.h1 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="section-headline mb-6"
-        >
-          Our Products
-        </motion.h1>
-        <motion.p 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1 }}
-          className="subheadline max-w-2xl mb-20"
-        >
-          Everything you need to communicate, create, and collaborate. Powered by the AfuMail identity system.
-        </motion.p>
+    <div className="w-full pb-20">
+      <div className="bg-[#F8FAFC] border-b border-[#E2E8F0]">
+        <div className="max-container container-pad py-16 sm:py-24 text-center">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#0F172A] mb-6">Our Products</h1>
+          <p className="text-lg sm:text-xl text-[#64748B] max-w-3xl mx-auto">
+            Explore the complete suite of AfuChat services, designed to work together seamlessly.
+          </p>
+        </div>
+      </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {PRODUCT_DATA.map((product, i) => {
+      <div className="max-container container-pad pt-16 sm:pt-20">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          {PRODUCT_DATA.map((product) => {
             const Icon = product.icon;
             return (
-              <motion.div
-                key={product.id}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.1 }}
-              >
-                <Link href={product.path}>
-                  <div 
-                    className="glass-card h-full p-8 flex flex-col group cursor-pointer"
-                    style={{ '--color-border-hover': product.accentHex } as any}
-                  >
-                    <div className="w-14 h-14 rounded-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.05)] flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300">
-                      <Icon className="w-7 h-7 text-white" />
-                    </div>
-                    
-                    <h3 className="text-2xl font-bold text-white mb-3 tracking-tight">
-                      {product.name}
-                    </h3>
-                    
-                    <p className="text-slate-400 text-sm mb-8 flex-grow leading-relaxed">
-                      {product.description}
-                    </p>
-                    
-                    <div className="flex flex-wrap gap-2 mt-auto">
-                      {product.features.map((feature, j) => (
-                        <span key={j} className="text-[11px] font-medium text-slate-300 px-3 py-1 rounded-full bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.05)]">
-                          {feature}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </Link>
-              </motion.div>
+              <Link key={product.id} href={product.path}>
+                <div 
+                  className="bg-white border border-[#E2E8F0] rounded-[20px] p-8 h-full hover:shadow-lg transition-all duration-300 group"
+                >
+                  <Icon className="w-8 h-8 mb-6" style={{ color: product.color }} />
+                  <h3 className="text-2xl font-bold text-[#0F172A] mb-2">{product.name}</h3>
+                  <p className="text-[#1F95FF] font-medium text-sm mb-4">{product.tagline}</p>
+                  <p className="text-[#64748B] mb-6">
+                    {product.description}
+                  </p>
+                  <ul className="space-y-2">
+                    {product.features.map((feature, i) => (
+                      <li key={i} className="text-sm text-[#0F172A] flex items-center gap-2">
+                        <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: product.color }} />
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </Link>
             );
           })}
         </div>

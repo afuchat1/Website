@@ -1,23 +1,23 @@
-import { HeroSection } from '@/components/home/HeroSection';
-import { EcosystemSection } from '@/components/home/EcosystemSection';
-import { IdentitySection } from '@/components/home/IdentitySection';
-import { ProductsSection } from '@/components/home/ProductsSection';
-import { DeveloperSection } from '@/components/home/DeveloperSection';
-import { SecuritySection } from '@/components/home/SecuritySection';
-import { FutureSection } from '@/components/home/FutureSection';
-import { CtaSection } from '@/components/home/CtaSection';
+import HeroSection from '@/components/home/HeroSection';
+import ProductsSection from '@/components/home/ProductsSection';
+import EcosystemSection from '@/components/home/EcosystemSection';
+import IdentitySection from '@/components/home/IdentitySection';
+import FeaturesSection from '@/components/home/FeaturesSection';
+import DeveloperSection from '@/components/home/DeveloperSection';
+import DownloadSection from '@/components/home/DownloadSection';
+import CtaSection from '@/components/home/CtaSection';
 
 export default function Home() {
   return (
-    <>
+    <div className="flex flex-col w-full">
       <HeroSection />
-      <IdentitySection />
-      <EcosystemSection />
       <ProductsSection />
-      <SecuritySection />
+      <EcosystemSection />
+      <IdentitySection />
+      <FeaturesSection />
       <DeveloperSection />
-      <FutureSection />
+      <DownloadSection />
       <CtaSection />
-    </>
+    </div>
   );
 }

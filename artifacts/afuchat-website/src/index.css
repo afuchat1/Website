@@ -1,155 +1,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
-
 @import 'tailwindcss';
 
 @theme inline {
-  --color-background: #050A0F;
-  --color-foreground: #ffffff;
-  --color-surface: rgba(255, 255, 255, 0.03);
-  --color-surface-hover: rgba(255, 255, 255, 0.05);
-  --color-border: rgba(255, 255, 255, 0.08);
-  --color-border-hover: rgba(31, 149, 255, 0.3);
-  
+  --color-background: #ffffff;
+  --color-surface: #F8FAFC;
+  --color-border: #E2E8F0;
   --color-primary: #1F95FF;
-  --color-primary-glow: rgba(31, 149, 255, 0.3);
+  --color-primary-dark: #0F7AE0;
   --color-secondary: #6C63FF;
-  --color-accent: #00D4FF;
-  --color-success: #16C784;
-
-  --color-text-muted: #94A3B8;
-  
+  --color-text: #0F172A;
+  --color-text-secondary: #64748B;
   --font-sans: 'Inter', sans-serif;
 }
 
 @layer base {
-  * {
-    border-color: var(--color-border);
-  }
-
+  * { box-sizing: border-box; }
   body {
     font-family: var(--font-sans);
-    background-color: var(--color-background);
-    color: var(--color-foreground);
+    background: white;
+    color: #0F172A;
     -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-
-  h1, h2, h3, h4, h5, h6 {
-    letter-spacing: -0.02em;
   }
 }
 
 @layer utilities {
-  .hero-headline {
-    font-size: clamp(56px, 8vw, 96px);
-    font-weight: 800;
-    line-height: 1.05;
-    letter-spacing: -0.03em;
-  }
-
-  .section-headline {
-    font-size: clamp(40px, 5vw, 64px);
-    font-weight: 700;
-    line-height: 1.1;
-    letter-spacing: -0.02em;
-  }
-
-  .subheadline {
-    font-size: clamp(18px, 2vw, 24px);
-    font-weight: 400;
-    line-height: 1.6;
-    color: var(--color-text-muted);
-  }
-
-  .glass-card {
-    background-color: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-radius: 16px;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.05), 0 4px 32px rgba(0, 0, 0, 0.4);
-    transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
-  }
-
-  .glass-card:hover {
-    border-color: var(--color-border-hover);
-    background-color: rgba(31, 149, 255, 0.04);
-    transform: translateY(-2px);
-    box-shadow: 0 0 0 1px var(--color-primary-glow), 0 8px 40px rgba(0, 0, 0, 0.5);
-  }
-
-  .section-bg-dark {
-    background-color: #030709;
-  }
-
-  .section-bg-base {
-    background-color: #050A0F;
-  }
-
-  .section-bg-light {
-    background-color: #07101A;
-  }
-
-  .orb-primary {
-    position: absolute;
-    border-radius: 50%;
-    background: rgba(31, 149, 255, 0.07);
-    filter: blur(100px);
-    pointer-events: none;
-    z-index: 0;
-  }
-
-  .orb-secondary {
-    position: absolute;
-    border-radius: 50%;
-    background: rgba(108, 99, 255, 0.05);
-    filter: blur(100px);
-    pointer-events: none;
-    z-index: 0;
-  }
-
-  .texture-grid {
-    background-size: 32px 32px;
-    background-image: radial-gradient(circle, rgba(255,255,255,0.03) 1px, transparent 1px);
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    z-index: 0;
-  }
-}
-
-@keyframes orbit {
-  from { transform: rotate(0deg) translateX(140px) rotate(0deg); }
-  to   { transform: rotate(360deg) translateX(140px) rotate(-360deg); }
-}
-
-@keyframes orbit-outer {
-  from { transform: rotate(360deg) translateX(220px) rotate(-360deg); }
-  to   { transform: rotate(0deg) translateX(220px) rotate(0deg); }
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-}
-
-@keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 0 20px rgba(31, 149, 255, 0.2); }
-  50% { box-shadow: 0 0 40px rgba(31, 149, 255, 0.5); }
-}
-
-.animate-orbit {
-  animation: orbit 30s linear infinite;
-}
-
-.animate-orbit-outer {
-  animation: orbit-outer 40s linear infinite;
-}
-
-.animate-float {
-  animation: float 6s ease-in-out infinite;
-}
-
-.animate-pulse-glow {
-  animation: pulse-glow 3s ease-in-out infinite;
+  .container-pad { @apply px-4 sm:px-6 lg:px-8; }
+  .section-pad { @apply py-16 sm:py-20 lg:py-28; }
+  .max-container { @apply max-w-7xl mx-auto; }
 }
