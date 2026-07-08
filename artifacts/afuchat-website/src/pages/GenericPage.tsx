@@ -81,7 +81,7 @@ const PAGE_CONTENT: Record<string, { gradient: string; accent: string; sections:
   },
   press: {
     gradient: `radial-gradient(ellipse at 70% 20%, rgba(16,160,120,0.35) 0%, transparent 55%), radial-gradient(ellipse at 20% 70%, rgba(14,80,200,0.25) 0%, transparent 50%), #04141a`,
-    accent: '#10B981',
+    accent: '#3B82F6',
     illustration: '/illustrations/ill-sec-press.png',
     sections: [
       { heading: 'Media resources', body: 'Journalists and content creators can find our logo assets, product screenshots, and executive bios in our press kit. For interview requests or embargoed briefings, reach out to our communications team directly.' },
@@ -119,8 +119,8 @@ const PAGE_CONTENT: Record<string, { gradient: string; accent: string; sections:
     ],
   },
   sitemap: {
-    gradient: `radial-gradient(ellipse at 70% 20%, rgba(14,80,200,0.35) 0%, transparent 55%), radial-gradient(ellipse at 20% 70%, rgba(60,40,180,0.22) 0%, transparent 50%), #070c1e`,
-    accent: '#1F95FF',
+    gradient: `radial-gradient(ellipse at 70% 20%, rgba(90,100,120,0.30) 0%, transparent 55%), radial-gradient(ellipse at 20% 70%, rgba(60,40,180,0.18) 0%, transparent 50%), #0a0e17`,
+    accent: '#64748B',
     illustration: '/illustrations/ill-sec-sitemap.png',
     sections: [
       { heading: 'Find your way around', body: 'A complete directory of every page across the AfuChat corporate site — products, company information, developer resources, and legal documentation.' },
@@ -185,19 +185,16 @@ export default function GenericPage({ title, type }: GenericPageProps) {
             <h2 className="text-2xl font-bold text-white tracking-tight">Explore the ecosystem</h2>
           </motion.div>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-x-8 gap-y-6">
-            {PRODUCT_DATA.slice(0, 4).map((p, i) => {
-              const Icon = p.icon;
-              return (
-                <motion.div key={p.id} initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.07 }}>
-                  <Link href={p.path}>
-                    <div className="flex items-center gap-3 group">
-                      <img src={p.illustration} alt={`${p.name} illustration`} className="w-10 h-10 object-contain flex-shrink-0" />
-                      <span className="text-sm text-white/50 group-hover:text-white transition-colors">{p.name}</span>
-                    </div>
-                  </Link>
-                </motion.div>
-              );
-            })}
+            {PRODUCT_DATA.slice(0, 4).map((p, i) => (
+              <motion.div key={p.id} initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.07 }}>
+                <Link href={p.path}>
+                  <div className="flex items-center gap-3 group">
+                    <img src={p.icon3d} alt={`${p.name} icon`} className="w-9 h-9 object-contain flex-shrink-0" />
+                    <span className="text-sm text-white/50 group-hover:text-white transition-colors">{p.name}</span>
+                  </div>
+                </Link>
+              </motion.div>
+            ))}
           </div>
         </div>
       )}

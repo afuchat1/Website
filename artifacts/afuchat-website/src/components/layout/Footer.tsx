@@ -34,10 +34,13 @@ export default function Footer() {
           {/* Products */}
           <div>
             <h4 className="text-white/70 font-semibold text-xs uppercase tracking-widest mb-4">Products</h4>
-            <ul className="flex flex-col gap-2.5">
+            <ul className="flex flex-col gap-3">
               {PRODUCT_DATA.slice(0, 4).map((p) => (
                 <li key={p.id}>
-                  <Link href={p.path} className="text-white/40 hover:text-white text-sm transition-colors">{p.name}</Link>
+                  <Link href={p.path} className="flex items-center gap-2 text-white/40 hover:text-white text-sm transition-colors">
+                    <img src={p.icon3d} alt="" className="w-5 h-5 object-contain flex-shrink-0" />
+                    {p.name}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -46,10 +49,13 @@ export default function Footer() {
           {/* More Products */}
           <div>
             <h4 className="text-white/70 font-semibold text-xs uppercase tracking-widest mb-4">More</h4>
-            <ul className="flex flex-col gap-2.5">
+            <ul className="flex flex-col gap-3">
               {PRODUCT_DATA.slice(4, 8).map((p) => (
                 <li key={p.id}>
-                  <Link href={p.path} className="text-white/40 hover:text-white text-sm transition-colors">{p.name}</Link>
+                  <Link href={p.path} className="flex items-center gap-2 text-white/40 hover:text-white text-sm transition-colors">
+                    <img src={p.icon3d} alt="" className="w-5 h-5 object-contain flex-shrink-0" />
+                    {p.name}
+                  </Link>
                 </li>
               ))}
             </ul>

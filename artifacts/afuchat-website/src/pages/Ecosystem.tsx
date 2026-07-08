@@ -72,16 +72,14 @@ export default function Ecosystem() {
         </motion.div>
 
         <div className="flex flex-col">
-          {PRODUCT_DATA.map((product, i) => {
-            const Icon = product.icon;
-            return (
+          {PRODUCT_DATA.map((product, i) => (
               <motion.div
                 key={product.id}
                 initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.04 }}
                 className="grid grid-cols-1 md:grid-cols-4 gap-6 py-8 border-t border-white/8 items-center"
               >
                 <div className="flex items-center gap-4">
-                  <img src={product.illustration} alt={`${product.name} illustration`} className="w-14 h-14 object-contain flex-shrink-0" />
+                  <img src={product.icon3d} alt={`${product.name} icon`} className="w-12 h-12 object-contain flex-shrink-0" />
                   <div>
                     <h3 className="text-base font-bold text-white">{product.name}</h3>
                     <p className="text-xs font-medium mt-0.5" style={{ color: product.color }}>{product.tagline}</p>
@@ -92,8 +90,7 @@ export default function Ecosystem() {
                   Learn more →
                 </Link>
               </motion.div>
-            );
-          })}
+          ))}
           <div className="border-t border-white/8" />
         </div>
       </div>

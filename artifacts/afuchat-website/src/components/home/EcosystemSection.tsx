@@ -39,19 +39,16 @@ export default function EcosystemSection() {
               initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.15 }}
               className="grid grid-cols-2 gap-y-5 gap-x-8"
             >
-              {products.map((product, i) => {
-                const Icon = product.icon;
-                return (
-                  <motion.div key={product.id} initial={{ opacity: 0, x: -10 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.05 }}>
-                    <Link href={product.path}>
-                      <div className="flex items-center gap-3 group cursor-pointer">
-                        <Icon className="w-5 h-5 flex-shrink-0" style={{ color: product.color }} />
-                        <span className="text-sm font-medium text-white/65 group-hover:text-white transition-colors">{product.name}</span>
-                      </div>
-                    </Link>
-                  </motion.div>
-                );
-              })}
+              {products.map((product, i) => (
+                <motion.div key={product.id} initial={{ opacity: 0, x: -10 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.05 }}>
+                  <Link href={product.path}>
+                    <div className="flex items-center gap-3 group cursor-pointer">
+                      <img src={product.icon3d} alt="" className="w-8 h-8 object-contain flex-shrink-0" />
+                      <span className="text-sm font-medium text-white/65 group-hover:text-white transition-colors">{product.name}</span>
+                    </div>
+                  </Link>
+                </motion.div>
+              ))}
             </motion.div>
             <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.4 }} className="mt-10">
               <Link href="/ecosystem" className="text-blue-400 font-medium text-sm hover:text-blue-300 transition-colors">

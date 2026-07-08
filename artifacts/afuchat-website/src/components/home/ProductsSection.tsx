@@ -50,24 +50,21 @@ export default function ProductsSection() {
 
         {/* Flat product grid — no cards, no borders */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-10 gap-y-10">
-          {products.map((product, i) => {
-            const Icon = product.icon;
-            return (
-              <motion.div
-                key={product.id}
-                initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-50px' }} transition={{ delay: i * 0.06 }}
-              >
-                <Link href={product.path}>
-                  <div className="group cursor-pointer">
-                    <img src={product.illustration} alt={`${product.name} illustration`} className="w-16 h-16 object-contain mb-4" />
-                    <h3 className="text-sm font-bold text-white mb-1.5">{product.name}</h3>
-                    <p className="text-xs text-white/40 leading-relaxed mb-3">{product.description}</p>
-                    <span className="text-xs font-medium group-hover:underline" style={{ color: product.color }}>Learn more →</span>
-                  </div>
-                </Link>
-              </motion.div>
-            );
-          })}
+          {products.map((product, i) => (
+            <motion.div
+              key={product.id}
+              initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-50px' }} transition={{ delay: i * 0.06 }}
+            >
+              <Link href={product.path}>
+                <div className="group cursor-pointer">
+                  <img src={product.icon3d} alt={`${product.name} icon`} className="w-14 h-14 object-contain mb-4" />
+                  <h3 className="text-sm font-bold text-white mb-1.5">{product.name}</h3>
+                  <p className="text-xs text-white/40 leading-relaxed mb-3">{product.description}</p>
+                  <span className="text-xs font-medium group-hover:underline" style={{ color: product.color }}>Learn more →</span>
+                </div>
+              </Link>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>

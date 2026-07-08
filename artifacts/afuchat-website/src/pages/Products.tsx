@@ -35,9 +35,7 @@ export default function Products() {
       {/* Products flat list */}
       <div className="max-container container-pad py-10">
         <div className="flex flex-col">
-          {PRODUCT_DATA.map((product, i) => {
-            const Icon = product.icon;
-            return (
+          {PRODUCT_DATA.map((product, i) => (
               <motion.div
                 key={product.id}
                 initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.05 }}
@@ -46,7 +44,7 @@ export default function Products() {
                 <Link href={product.path}>
                   <div className="grid grid-cols-1 md:grid-cols-12 gap-6 py-8 items-center group cursor-pointer">
                     <div className="md:col-span-2 flex items-center gap-3">
-                      <img src={product.illustration} alt={`${product.name} illustration`} className="w-20 h-20 object-contain flex-shrink-0" />
+                      <img src={product.icon3d} alt={`${product.name} icon`} className="w-16 h-16 object-contain flex-shrink-0" />
                     </div>
                     <div className="md:col-span-2">
                       <h2 className="text-xl font-bold text-white group-hover:text-white mb-1">{product.name}</h2>
@@ -61,8 +59,7 @@ export default function Products() {
                   </div>
                 </Link>
               </motion.div>
-            );
-          })}
+          ))}
           <div className="border-t border-white/8" />
         </div>
       </div>

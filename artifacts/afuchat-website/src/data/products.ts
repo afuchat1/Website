@@ -16,6 +16,7 @@ export interface ProductData {
   path: string;
   icon: ProductIcon;
   illustration: string;
+  icon3d: string;
 }
 
 export const PRODUCT_DATA: ProductData[] = [
@@ -29,7 +30,8 @@ export const PRODUCT_DATA: ProductData[] = [
     bgColor: "#EBF5FF",
     path: "/products/afumail",
     icon: Mail,
-    illustration: "/illustrations/ill-svc-afumail.png"
+    illustration: "/illustrations/ill-svc-afumail.png",
+    icon3d: "/illustrations/icon3d-afumail.png"
   },
   {
     id: "afuchat",
@@ -41,7 +43,8 @@ export const PRODUCT_DATA: ProductData[] = [
     bgColor: "#F0EFFF",
     path: "/products/afuchat",
     icon: MessageCircle,
-    illustration: "/illustrations/ill-svc-afuchat.png"
+    illustration: "/illustrations/ill-svc-afuchat.png",
+    icon3d: "/illustrations/icon3d-afuchat.png"
   },
   {
     id: "afuai",
@@ -53,7 +56,8 @@ export const PRODUCT_DATA: ProductData[] = [
     bgColor: "#FEF3C7",
     path: "/products/afuai",
     icon: Sparkles,
-    illustration: "/illustrations/ill-svc-afuai.png"
+    illustration: "/illustrations/ill-svc-afuai.png",
+    icon3d: "/illustrations/icon3d-afuai.png"
   },
   {
     id: "afucloud",
@@ -65,7 +69,8 @@ export const PRODUCT_DATA: ProductData[] = [
     bgColor: "#E0F2FE",
     path: "/products/afucloud",
     icon: Cloud,
-    illustration: "/illustrations/ill-svc-afucloud.png"
+    illustration: "/illustrations/ill-svc-afucloud.png",
+    icon3d: "/illustrations/icon3d-afucloud.png"
   },
   {
     id: "afumovies",
@@ -77,7 +82,8 @@ export const PRODUCT_DATA: ProductData[] = [
     bgColor: "#FEE2E2",
     path: "/products/afumovies",
     icon: Play,
-    illustration: "/illustrations/ill-svc-afumovies.png"
+    illustration: "/illustrations/ill-svc-afumovies.png",
+    icon3d: "/illustrations/icon3d-afumovies.png"
   },
   {
     id: "afumall",
@@ -89,7 +95,8 @@ export const PRODUCT_DATA: ProductData[] = [
     bgColor: "#FFEDD5",
     path: "/products/afumall",
     icon: ShoppingBag,
-    illustration: "/illustrations/ill-svc-afumall.png"
+    illustration: "/illustrations/ill-svc-afumall.png",
+    icon3d: "/illustrations/icon3d-afumall.png"
   },
   {
     id: "afunews",
@@ -101,7 +108,8 @@ export const PRODUCT_DATA: ProductData[] = [
     bgColor: "#D1FAE5",
     path: "/products/afunews",
     icon: Newspaper,
-    illustration: "/illustrations/ill-svc-afunews.png"
+    illustration: "/illustrations/ill-svc-afunews.png",
+    icon3d: "/illustrations/icon3d-afunews.png"
   },
   {
     id: "afublog",
@@ -113,6 +121,7 @@ export const PRODUCT_DATA: ProductData[] = [
     bgColor: "#EDE9FE",
     path: "/products/afublog",
     icon: PenLine,
-    illustration: "/illustrations/ill-svc-afublog.png"
+    illustration: "/illustrations/ill-svc-afublog.png",
+    icon3d: "/illustrations/icon3d-afublog.png"
   }
 ];
