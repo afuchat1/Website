@@ -35,7 +35,7 @@ function Router() {
         <Route path="/legal/cookies" component={() => <GenericPage title="Cookie Policy" type="cookies" />} />
         <Route path="/sitemap" component={() => <GenericPage title="Sitemap" type="sitemap" />} />
         <Route path="/signup" component={Signup} />
-        <Route path="/login" component={() => <GenericPage title="Log In" type="login" />} />
+        <Route path="/login" component={() => { window.location.replace('https://web.afuchat.com/login'); return null; }} />
         <Route component={NotFound} />
       </Switch>
     </Layout>
