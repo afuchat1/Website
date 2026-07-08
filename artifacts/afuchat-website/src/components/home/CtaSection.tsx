@@ -61,15 +61,6 @@ export default function CtaSection() {
               Explore Products
             </Link>
           </motion.div>
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="text-xs sm:text-sm text-white/35"
-          >
-            No credit card required. Free forever.
-          </motion.p>
         </div>
       </div>
     </section>
