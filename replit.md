@@ -1,19 +1,29 @@
-# [Project name]
+# AfuChat Technologies Limited — Corporate Website
 
-_Replace the heading above with the project's name, and this line with one sentence describing what this app does for users._
+A production-ready multi-page corporate website for AfuChat Technologies Limited, built on a pnpm monorepo. The site presents AfuChat as a connected digital ecosystem anchored by AfuMail as the single identity provider across all products.
 
 ## Run & Operate
 
-- `pnpm --filter @workspace/api-server run dev` — run the API server (port 5000)
+- `pnpm --filter @workspace/afuchat-website run dev` — run the website (port 18182, preview at `/`)
+- `pnpm --filter @workspace/api-server run dev` — run the API server (port 8080, preview at `/api`)
 - `pnpm run typecheck` — full typecheck across all packages
 - `pnpm run build` — typecheck + build all packages
 - `pnpm --filter @workspace/api-spec run codegen` — regenerate API hooks and Zod schemas from the OpenAPI spec
 - `pnpm --filter @workspace/db run push` — push DB schema changes (dev only)
-- Required env: `DATABASE_URL` — Postgres connection string
+
+## Required env vars
+
+| Variable | Where used | Notes |
+|---|---|---|
+| `DATABASE_URL` | `artifacts/api-server`, `lib/db` | Postgres connection string |
+| `SESSION_SECRET` | `artifacts/api-server` | Session signing secret |
+| `PORT` | Both artifacts | Injected automatically by artifact.toml (18182 for web, 8080 for API) |
+| `BASE_PATH` | `artifacts/afuchat-website` | Injected automatically by artifact.toml (`/` for web) |
 
 ## Stack
 
 - pnpm workspaces, Node.js 24, TypeScript 5.9
+- Frontend: React 19 + Vite 7 + Tailwind CSS 4 + shadcn/ui
 - API: Express 5
 - DB: PostgreSQL + Drizzle ORM
 - Validation: Zod (`zod/v4`), `drizzle-zod`
@@ -22,15 +32,30 @@ _Replace the heading above with the project's name, and this line with one sente
 
 ## Where things live
 
-_Populate as you build — short repo map plus pointers to the source-of-truth file for DB schema, API contracts, theme files, etc._
+- `artifacts/afuchat-website/` — React/Vite corporate website
+  - `src/App.tsx` — router and top-level layout
+  - `src/components/home/` — homepage section components
+  - `src/components/layout/` — Navbar, Footer, Layout wrapper
+  - `src/components/ui/` — shadcn/ui primitives
+- `artifacts/api-server/` — Express 5 API server
+  - `src/app.ts` — Express app setup, middleware, routes
+  - `src/index.ts` — server entry point (reads `PORT`)
+- `lib/db/` — Drizzle ORM schema and client
+- `lib/api-spec/` — OpenAPI specification (source of truth for API contracts)
+- `lib/api-zod/` — Zod schemas generated from OpenAPI spec
+- `lib/api-client-react/` — React Query hooks generated from OpenAPI spec
+- `attached_assets/` — logo, screenshots, and original design brief
 
 ## Architecture decisions
 
-_Populate as you build — non-obvious choices a reader couldn't infer from the code (3-5 bullets)._
+- **AfuMail as universal identity** — one account unlocks all AfuChat services; no per-product sign-ups.
+- **Artifact.toml-injected env** — `PORT` and `BASE_PATH` are required and injected by artifact.toml for both dev and prod; the app throws on startup if missing (intentional, not a bug).
+- **OpenAPI-first API** — `lib/api-spec` is the contract; client hooks and Zod schemas are generated, never hand-written.
+- **Monorepo sharing** — `lib/` packages are workspace dependencies shared between frontend and backend.
 
 ## Product
 
-_Describe the high-level user-facing capabilities of this app once they exist._
+AfuChat Technologies Limited's public-facing corporate site. Covers the product ecosystem (AfuChat, AfuMail, AfuAI, AfuCloud, AfuMovies, AfuMall, AfuNews, AfuBlog), developer platform, enterprise offering, and company pages (About, Careers, Press, Security, Legal).
 
 ## User preferences
 
@@ -38,7 +63,9 @@ _Populate as you build — explicit user instructions worth remembering across s
 
 ## Gotchas
 
-_Populate as you build — sharp edges, "always run X before Y" rules._
+- `PORT` and `BASE_PATH` must be set before starting either artifact — the app throws intentionally if missing. Artifact.toml handles this automatically; set them manually when running outside Replit.
+- Use `pnpm --filter` to target a specific package rather than running workspace-root scripts for individual services.
+- API codegen must be re-run after any change to `lib/api-spec`.
 
 ## Pointers
 
