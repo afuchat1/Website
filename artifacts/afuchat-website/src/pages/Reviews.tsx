@@ -43,11 +43,10 @@ export default function Reviews() {
             href={TRUSTPILOT_PROFILE_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2.5 bg-white/5 border border-white/10 rounded-full px-4 py-2 hover:bg-white/10 transition-colors"
+            aria-label={`${TRUSTPILOT_SUMMARY.rating.toFixed(1)} stars on Trustpilot, ${TRUSTPILOT_SUMMARY.reviewCount} reviews`}
+            className="inline-flex items-center rounded-2xl bg-white p-3 sm:p-3.5 shadow-lg shadow-black/20 transition-all hover:shadow-xl hover:scale-[1.04]"
           >
-            <img src={trustpilotLogo} alt="Trustpilot" className="h-4 w-auto" />
-            <span className="text-white font-bold text-sm">{TRUSTPILOT_SUMMARY.rating.toFixed(1)}</span>
-            <span className="text-white/40 text-xs">{TRUSTPILOT_SUMMARY.reviewCount} reviews on Trustpilot</span>
+            <img src={trustpilotLogo} alt="Trustpilot" className="h-8 sm:h-10 w-auto" />
           </a>
         </motion.div>
       </div>

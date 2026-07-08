@@ -11,25 +11,25 @@ function TrustpilotBadge() {
       href={TRUSTPILOT_PROFILE_URL}
       target="_blank"
       rel="noopener noreferrer"
-      className="inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-3.5 py-2 hover:bg-white/10 transition-colors w-fit"
+      aria-label={`${TRUSTPILOT_SUMMARY.rating.toFixed(1)} stars on Trustpilot, ${TRUSTPILOT_SUMMARY.reviewCount} reviews`}
+      className="inline-flex items-center rounded-xl bg-white px-3 py-2 shadow-md shadow-black/20 transition-transform hover:scale-[1.04]"
     >
-      <img src={trustpilotLogo} alt="Trustpilot" className="h-3.5 w-auto" />
-      <span className="text-white font-bold text-xs">{TRUSTPILOT_SUMMARY.rating.toFixed(1)}</span>
-      <span className="text-white/40 text-xs">· {TRUSTPILOT_SUMMARY.reviewCount} reviews on Trustpilot</span>
+      <img src={trustpilotLogo} alt="Trustpilot" className="h-6 w-auto" />
     </a>
   );
 }
 
 function StoreButtons() {
   return (
-    <div className="flex flex-col sm:flex-row gap-3">
+    <div className="flex items-center gap-3">
+      <TrustpilotBadge />
       <a
         href="https://play.google.com"
         target="_blank"
         rel="noopener noreferrer"
         className="inline-block w-fit"
       >
-        <img src={googlePlayBadge} alt="Get it on Google Play" className="h-11 w-auto" />
+        <img src={googlePlayBadge} alt="Get it on Google Play" className="h-10 w-auto" />
       </a>
     </div>
   );
@@ -54,9 +54,6 @@ export default function Footer() {
             <p className="text-white/40 text-sm leading-relaxed mb-5">
               Independent products.<br />Built for the world.
             </p>
-            <div className="mb-5">
-              <TrustpilotBadge />
-            </div>
             <div className="mb-5">
               <StoreButtons />
             </div>
