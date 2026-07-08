@@ -4,7 +4,6 @@ import ReviewsSection from '@/components/home/ReviewsSection';
 import IdentitySection from '@/components/home/IdentitySection';
 import FeaturesSection from '@/components/home/FeaturesSection';
 import DeveloperSection from '@/components/home/DeveloperSection';
-import DownloadSection from '@/components/home/DownloadSection';
 import CtaSection from '@/components/home/CtaSection';
 
 // Blob positions are calculated from real section heights at 1280 px:
@@ -80,7 +79,6 @@ export default function Home() {
       <IdentitySection />
       <FeaturesSection />
       <DeveloperSection />
-      <DownloadSection />
       <CtaSection />
     </div>
   );
