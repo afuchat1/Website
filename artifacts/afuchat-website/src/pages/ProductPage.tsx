@@ -2,7 +2,6 @@ import { motion } from 'framer-motion';
 import { useParams, Link } from 'wouter';
 import { PRODUCT_DATA } from '@/data/products';
 import NotFound from '@/pages/not-found';
-import { ArrowLeft } from 'lucide-react';
 import { illSecEcosystem } from '@/data/illustrations';
 import Footer from '@/components/layout/Footer';
 
@@ -18,10 +17,6 @@ export default function ProductPage() {
       {/* Hero */}
       <div className="max-container container-pad pt-6 pb-12 sm:pt-14 sm:pb-16">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-          <Link href="/products" className="inline-flex items-center gap-2 text-white/40 hover:text-white/70 font-medium text-[13px] sm:text-sm mb-8 sm:mb-10 transition-colors">
-            <ArrowLeft className="w-4 h-4" />
-            All products
-          </Link>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-start">
             <div className="order-2 lg:order-1">
               <Icon className="hidden sm:block w-8 h-8 mb-6" style={{ color: product.color }} />
