@@ -1,58 +1,52 @@
 # AfuChat Technologies Limited — Corporate Website
 
-A production-ready multi-page corporate website for AfuChat Technologies Limited, built on a pnpm monorepo. The site presents AfuChat as a connected digital ecosystem anchored by AfuMail as the single identity provider across all products.
+A production-ready multi-page corporate website for AfuChat Technologies Limited, built on a pnpm monorepo. Deployed to Vercel at `https://afuchat.com`. The site presents AfuChat's eight independent products (AfuMail, AfuChat, AfuAI, AfuCloud, AfuMovies, AfuMall, AfuNews, AfuBlog) as standalone tools that also work great together.
 
 ## Run & Operate
 
-- `pnpm --filter @workspace/afuchat-website run dev` — run the website (port 18182, preview at `/`)
-- `pnpm --filter @workspace/api-server run dev` — run the API server (port 8080, preview at `/api`)
-- `pnpm run typecheck` — full typecheck across all packages
-- `pnpm run build` — typecheck + build all packages
-- `pnpm --filter @workspace/api-spec run codegen` — regenerate API hooks and Zod schemas from the OpenAPI spec
-- `pnpm --filter @workspace/db run push` — push DB schema changes (dev only)
+- `pnpm --filter @workspace/afuchat-website run dev` — run the website (Next.js, preview at `/`)
+- `pnpm --filter @workspace/afuchat-website run typecheck` — typecheck the website
+- `pnpm --filter @workspace/afuchat-website run build` — production build (what Vercel runs)
 
-## Required env vars
+## Required env vars / secrets
 
 | Variable | Where used | Notes |
 |---|---|---|
-| `DATABASE_URL` | `lib/db` | Postgres connection string; used by Drizzle tooling (`db push`) and any DB-backed routes |
-| `SUPABASE_URL` / `SUPABASE_ANON_KEY` | `artifacts/api-server` (`src/lib/supabase.ts`) | Read-only anon-key client for live AfuChat community/profile data; the API throws on startup of that path if missing |
-| `SESSION_SECRET` | Reserved, not yet consumed by API code | Set for future session signing use |
-| `PORT` | Both artifacts | Injected automatically by artifact.toml (18182 for web, 8080 for API) |
-| `BASE_PATH` | `artifacts/afuchat-website` | Injected automatically by artifact.toml (`/` for web) |
+| `SESSION_SECRET` | Reserved, not currently consumed by any code | Present as an environment secret for future use |
+| `PORT` | `artifacts/afuchat-website` | Injected automatically by artifact.toml |
+
+Supabase connects with a public anon key hardcoded in `src/lib/supabase.ts` — intentional, since it's gated by Row Level Security and safe to ship in the client bundle. It is not a secret and does not need an env var.
 
 ## Stack
 
-- pnpm workspaces, Node.js 24, TypeScript 5.9
-- Frontend: React 19 + Vite 7 + Tailwind CSS 4 + shadcn/ui
-- API: Express 5
-- DB: PostgreSQL + Drizzle ORM
-- Validation: Zod (`zod/v4`), `drizzle-zod`
-- API codegen: Orval (from OpenAPI spec)
-- Build: esbuild (CJS bundle)
+- pnpm workspaces, Node.js, TypeScript
+- **Next.js 15 (App Router)**, React 19, Tailwind CSS 4, shadcn/ui, Framer Motion
+- **Supabase** — the only backend; queried directly from client components (no custom API server)
+- Hosting: Vercel
 
 ## Where things live
 
-- `artifacts/afuchat-website/` — React/Vite corporate website
-  - `src/App.tsx` — router and top-level layout
+- `artifacts/afuchat-website/` — the entire product (Next.js site)
+  - `src/app/` — App Router route segments; each `page.tsx` is a thin server component (metadata + render a view)
+  - `src/views/` — client (`'use client'`) page components with the actual UI/logic
   - `src/components/home/` — homepage section components
-  - `src/components/layout/` — Navbar, Footer, Layout wrapper
-  - `src/components/ui/` — shadcn/ui primitives
-- `artifacts/api-server/` — Express 5 API server
-  - `src/app.ts` — Express app setup, middleware, routes
-  - `src/index.ts` — server entry point (reads `PORT`)
-- `lib/db/` — Drizzle ORM schema and client
-- `lib/api-spec/` — OpenAPI specification (source of truth for API contracts)
-- `lib/api-zod/` — Zod schemas generated from OpenAPI spec
-- `lib/api-client-react/` — React Query hooks generated from OpenAPI spec
+  - `src/components/layout/` — Navbar, Footer
+  - `src/components/ui/` — shadcn/ui primitives (only ones actually used — dead ones get pruned)
+  - `src/data/` — static content: `products.ts`, `illustrations.ts`, `trustpilot.ts`
+  - `src/lib/supabase.ts` — the single Supabase client instance
+  - `public/illustrations/` — the only folder for illustration/background images
+  - `public/assets/` — logo, app store badges, Trustpilot logo
+  - `public/sitemap.xml`, `public/robots.txt` — manually maintained; domain must be `afuchat.com`
+  - `README.md` — full dev-facing setup and conventions doc; read before restructuring anything
 - `attached_assets/` — logo, screenshots, and original design brief
 
 ## Architecture decisions
 
+- **No backend of its own.** Supabase (anon key + RLS) is the only data layer. A previous `artifacts/api-server` (Express) existed unused and was deleted — do not recreate a custom API for this site.
+- **App Router split**: `src/app/*/page.tsx` (server, metadata only) → `src/views/*.tsx` (client, actual page). Keeps SSR meta tags while still allowing client-side animation/state.
+- **Domain is `afuchat.com`** (not `web.afuchat.com`) — must stay consistent across `metadataBase`, `sitemap.xml`, `robots.txt`, and every page's canonical URL.
+- **Images unoptimized** (`next.config.ts` → `images.unoptimized: true`) — plain `<img>` tags, no `next/image` pipeline, by deliberate choice from the original Vite migration.
 - **AfuMail as universal identity** — one account unlocks all AfuChat services; no per-product sign-ups.
-- **Artifact.toml-injected env** — `PORT` and `BASE_PATH` are required and injected by artifact.toml for both dev and prod; the app throws on startup if missing (intentional, not a bug).
-- **OpenAPI-first API** — `lib/api-spec` is the contract; client hooks and Zod schemas are generated, never hand-written.
-- **Monorepo sharing** — `lib/` packages are workspace dependencies shared between frontend and backend.
 
 ## Product
 
@@ -64,10 +58,11 @@ _Populate as you build — explicit user instructions worth remembering across s
 
 ## Gotchas
 
-- `PORT` and `BASE_PATH` must be set before starting either artifact — the app throws intentionally if missing. Artifact.toml handles this automatically; set them manually when running outside Replit.
-- Use `pnpm --filter` to target a specific package rather than running workspace-root scripts for individual services.
-- API codegen must be re-run after any change to `lib/api-spec`.
+- If the preview looks visually broken (missing styles, giant/misplaced images) right after a dependency or config change, it's almost always a stale `.next` cache — delete `artifacts/afuchat-website/.next` and restart the workflow before assuming the code is wrong.
+- Don't add server-side API routes (`src/app/api/**`) or a standalone backend — this site is Supabase-only by design.
+- Keep `public/illustrations/` as the only home for illustration/background assets; images dropped elsewhere in `public/` tend to go stale and get cleaned up.
 
 ## Pointers
 
-- See the `pnpm-workspace` skill for workspace structure, TypeScript setup, and package details
+- See the `pnpm-workspace` skill for workspace structure, TypeScript setup, and package details.
+- See `artifacts/afuchat-website/README.md` for the full setup/conventions doc devs should read before making structural changes.
