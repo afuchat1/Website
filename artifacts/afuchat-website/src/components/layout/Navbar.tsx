@@ -1,15 +1,18 @@
+'use client';
 import { useState, useEffect, useRef } from 'react';
-import { Link, useLocation } from 'wouter';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { Menu, X, ChevronDown } from 'lucide-react';
-import logo from '@assets/afuchat_logo_transparent.png';
 import { PRODUCT_DATA } from '@/data/products';
+
+const LOGO_SRC = '/assets/afuchat_logo_transparent.png';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [productsOpen, setProductsOpen] = useState(false);
   const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [location] = useLocation();
+  const pathname = usePathname();
   const productsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -23,7 +26,7 @@ export default function Navbar() {
     setIsOpen(false);
     setMobileProductsOpen(false);
     setProductsOpen(false);
-  }, [location]);
+  }, [pathname]);
 
   // Close products dropdown when clicking outside
   useEffect(() => {
@@ -53,14 +56,14 @@ export default function Navbar() {
 
         {/* ── Logo ── */}
         <Link href="/" className="flex items-center gap-2 flex-shrink-0">
-          <img src={logo} alt="AfuChat" className="h-8 w-auto" />
+          <img src={LOGO_SRC} alt="AfuChat" className="h-8 w-auto" />
           <span className="font-bold text-white text-lg">AfuChat</span>
         </Link>
 
         {/* ── Desktop Nav ── */}
         <nav className="hidden md:flex items-center gap-7">
 
-          {/* Products mega-dropdown — mouse hover + click/keyboard */}
+          {/* Products mega-dropdown */}
           <div
             ref={productsRef}
             className="relative"
@@ -80,9 +83,7 @@ export default function Navbar() {
               }}
             >
               Products
-              <ChevronDown
-                className={`w-3.5 h-3.5 transition-transform duration-200 ${productsOpen ? 'rotate-180' : ''}`}
-              />
+              <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${productsOpen ? 'rotate-180' : ''}`} />
             </button>
 
             {productsOpen && (
@@ -94,39 +95,28 @@ export default function Navbar() {
               >
                 <div className="bg-[#050d1f]/98 backdrop-blur-2xl border border-white/10 rounded-2xl shadow-2xl shadow-black/60 p-5">
                   <div className="grid grid-cols-2 gap-0">
-                    {/* Left column */}
                     <div className="pr-5">
-                      <p className="text-white/28 font-semibold text-[10px] uppercase tracking-widest mb-3 px-2">
-                        Products
-                      </p>
+                      <p className="text-white/28 font-semibold text-[10px] uppercase tracking-widest mb-3 px-2">Products</p>
                       {PRODUCT_DATA.slice(0, 4).map(p => (
                         <Link key={p.id} href={p.path} onClick={() => setProductsOpen(false)}>
                           <div className="flex items-center gap-3 px-2 py-2.5 rounded-xl hover:bg-white/6 transition-colors group">
                             <img src={p.icon3d} alt="" className="w-8 h-8 object-contain flex-shrink-0" />
                             <div>
-                              <p className="text-sm font-semibold text-white/85 group-hover:text-white leading-none mb-0.5">
-                                {p.name}
-                              </p>
+                              <p className="text-sm font-semibold text-white/85 group-hover:text-white leading-none mb-0.5">{p.name}</p>
                               <p className="text-xs text-white/32 leading-none">{p.tagline}</p>
                             </div>
                           </div>
                         </Link>
                       ))}
                     </div>
-
-                    {/* Right column */}
                     <div className="pl-5 border-l border-white/8">
-                      <p className="text-white/28 font-semibold text-[10px] uppercase tracking-widest mb-3 px-2">
-                        More
-                      </p>
+                      <p className="text-white/28 font-semibold text-[10px] uppercase tracking-widest mb-3 px-2">More</p>
                       {PRODUCT_DATA.slice(4, 8).map(p => (
                         <Link key={p.id} href={p.path} onClick={() => setProductsOpen(false)}>
                           <div className="flex items-center gap-3 px-2 py-2.5 rounded-xl hover:bg-white/6 transition-colors group">
                             <img src={p.icon3d} alt="" className="w-8 h-8 object-contain flex-shrink-0" />
                             <div>
-                              <p className="text-sm font-semibold text-white/85 group-hover:text-white leading-none mb-0.5">
-                                {p.name}
-                              </p>
+                              <p className="text-sm font-semibold text-white/85 group-hover:text-white leading-none mb-0.5">{p.name}</p>
                               <p className="text-xs text-white/32 leading-none">{p.tagline}</p>
                             </div>
                           </div>
@@ -134,21 +124,11 @@ export default function Navbar() {
                       ))}
                     </div>
                   </div>
-
-                  {/* Footer row — separator inside the popup only */}
                   <div className="border-t border-white/8 mt-4 pt-4 flex items-center justify-between">
-                    <Link
-                      href="/products"
-                      onClick={() => setProductsOpen(false)}
-                      className="text-xs font-medium text-white/40 hover:text-white transition-colors"
-                    >
+                    <Link href="/products" onClick={() => setProductsOpen(false)} className="text-xs font-medium text-white/40 hover:text-white transition-colors">
                       See all products →
                     </Link>
-                    <Link
-                      href="/signup"
-                      onClick={() => setProductsOpen(false)}
-                      className="text-xs font-semibold text-white bg-gradient-to-r from-[#1F7AFF] to-[#6C63FF] px-4 py-2 rounded-full hover:opacity-90 transition-opacity"
-                    >
+                    <Link href="/signup" onClick={() => setProductsOpen(false)} className="text-xs font-semibold text-white bg-gradient-to-r from-[#1F7AFF] to-[#6C63FF] px-4 py-2 rounded-full hover:opacity-90 transition-opacity">
                       Get started free
                     </Link>
                   </div>
@@ -158,11 +138,7 @@ export default function Navbar() {
           </div>
 
           {navLinks.map(link => (
-            <Link
-              key={link.label}
-              href={link.href}
-              className="text-sm font-medium text-white/70 hover:text-white transition-colors"
-            >
+            <Link key={link.label} href={link.href} className="text-sm font-medium text-white/70 hover:text-white transition-colors">
               {link.label}
             </Link>
           ))}
@@ -170,16 +146,10 @@ export default function Navbar() {
 
         {/* ── Desktop actions ── */}
         <div className="hidden md:flex items-center gap-3">
-          <Link
-            href="/login"
-            className="text-sm font-medium text-white/75 border border-white/16 px-5 py-2 rounded-full hover:bg-white/6 hover:border-white/26 transition-colors"
-          >
+          <Link href="/login" className="text-sm font-medium text-white/75 border border-white/16 px-5 py-2 rounded-full hover:bg-white/6 hover:border-white/26 transition-colors">
             Log in
           </Link>
-          <Link
-            href="/signup"
-            className="text-sm font-medium text-white bg-gradient-to-r from-[#1F7AFF] to-[#6C63FF] rounded-full px-5 py-2 hover:opacity-90 transition-opacity"
-          >
+          <Link href="/signup" className="text-sm font-medium text-white bg-gradient-to-r from-[#1F7AFF] to-[#6C63FF] rounded-full px-5 py-2 hover:opacity-90 transition-opacity">
             Sign Up
           </Link>
         </div>
@@ -207,44 +177,27 @@ export default function Navbar() {
               Products
               <ChevronDown className={`w-5 h-5 transition-transform ${mobileProductsOpen ? 'rotate-180' : ''}`} />
             </button>
-
             {mobileProductsOpen && (
               <div className="flex flex-col bg-white/5 py-2">
                 {PRODUCT_DATA.map(p => (
-                  <Link
-                    key={p.id}
-                    href={p.path}
-                    className="flex items-center gap-4 px-8 py-3.5 text-sm text-white/60 hover:text-white hover:bg-white/5 transition-colors"
-                  >
+                  <Link key={p.id} href={p.path} className="flex items-center gap-4 px-8 py-3.5 text-sm text-white/60 hover:text-white hover:bg-white/5 transition-colors">
                     <img src={p.icon3d} alt="" className="w-7 h-7 object-contain flex-shrink-0" />
                     <span className="font-medium">{p.name}</span>
                   </Link>
                 ))}
               </div>
             )}
-
             {navLinks.map(link => (
-              <Link
-                key={link.label}
-                href={link.href}
-                className="px-6 py-4 text-base font-medium text-white/80 hover:text-white hover:bg-white/4 transition-colors"
-              >
+              <Link key={link.label} href={link.href} className="px-6 py-4 text-base font-medium text-white/80 hover:text-white hover:bg-white/4 transition-colors">
                 {link.label}
               </Link>
             ))}
           </div>
-
           <div className="flex flex-col gap-3 px-6 pt-2">
-            <Link
-              href="/login"
-              className="flex items-center justify-center text-sm font-medium text-white/80 border border-white/15 rounded-full px-4 py-3.5 hover:bg-white/6 transition-colors"
-            >
+            <Link href="/login" className="flex items-center justify-center text-sm font-medium text-white/80 border border-white/15 rounded-full px-4 py-3.5 hover:bg-white/6 transition-colors">
               Log in
             </Link>
-            <Link
-              href="/signup"
-              className="flex items-center justify-center text-sm font-bold text-white bg-gradient-to-r from-[#1F7AFF] to-[#6C63FF] rounded-full px-4 py-3.5 hover:opacity-90 transition-opacity"
-            >
+            <Link href="/signup" className="flex items-center justify-center text-sm font-bold text-white bg-gradient-to-r from-[#1F7AFF] to-[#6C63FF] rounded-full px-4 py-3.5 hover:opacity-90 transition-opacity">
               Sign Up
             </Link>
           </div>

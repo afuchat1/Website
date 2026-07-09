@@ -1,24 +1,21 @@
+'use client';
 import { motion } from 'framer-motion';
 import { Star } from 'lucide-react';
 import { TRUSTPILOT_PROFILE_URL, TRUSTPILOT_REVIEWS, TRUSTPILOT_SUMMARY, type TrustpilotReview } from '@/data/trustpilot';
-import trustpilotLogo from '@assets/image_1783529159179.png';
+
+const TRUSTPILOT_LOGO = '/assets/trustpilot_logo.png';
 
 function initials(name: string) {
-  return name
-    .split(' ')
-    .filter(Boolean)
-    .slice(0, 2)
-    .map((part) => part[0]?.toUpperCase())
-    .join('');
+  return name.split(' ').filter(Boolean).slice(0, 2).map(p => p[0]?.toUpperCase()).join('');
 }
 
 function Stars({ rating }: { rating: number }) {
   return (
     <div className="flex gap-0.5">
-      {[1, 2, 3, 4, 5].map((star) => (
+      {[1, 2, 3, 4, 5].map(star => (
         <Star
           key={star}
-          className={`w-4 h-4 ${star <= rating ? 'text-[#00b67a] fill-[#00b67a]' : 'text-white/15 fill-white/15'}`}
+          className={`w-3.5 h-3.5 ${star <= rating ? 'fill-[#00B67A] text-[#00B67A]' : 'text-white/20'}`}
         />
       ))}
     </div>
@@ -27,72 +24,74 @@ function Stars({ rating }: { rating: number }) {
 
 function ReviewCard({ review }: { review: TrustpilotReview }) {
   return (
-    <a
-      href={review.url}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="shrink-0 w-[320px] sm:w-[360px] bg-white/5 border border-white/10 p-6 sm:p-7 rounded-3xl hover:bg-white/10 transition-colors flex flex-col"
-    >
-      <Stars rating={review.rating} />
-      <p className="text-white font-semibold text-[15px] mt-4 mb-2 leading-snug">{review.title}</p>
-      <p className="text-white/70 text-sm leading-relaxed mb-6 flex-1">"{review.quote}"</p>
-      <div className="flex items-center gap-3 mt-auto">
-        <div className="w-9 h-9 rounded-full shrink-0 bg-gradient-to-br from-[#1F7AFF] to-[#6C63FF] flex items-center justify-center text-white text-xs font-bold">
-          {initials(review.author)}
+    <div className="flex-shrink-0 w-[300px] sm:w-[340px] bg-white/4 rounded-2xl p-5 flex flex-col gap-3">
+      <div className="flex items-center justify-between">
+        <div className="flex items-center gap-2.5">
+          <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#1F7AFF] to-[#6C63FF] flex items-center justify-center text-white text-xs font-bold flex-shrink-0">
+            {initials(review.author)}
+          </div>
+          <div>
+            <p className="text-white/80 text-sm font-semibold leading-none mb-0.5">{review.author}</p>
+            <p className="text-white/30 text-xs leading-none">{review.date}</p>
+          </div>
         </div>
-        <div className="min-w-0">
-          <p className="text-white font-bold text-sm truncate">{review.author}</p>
-          <p className="text-white/40 text-xs mt-0.5">{review.country} · {review.date}</p>
-        </div>
+        <Stars rating={review.rating} />
       </div>
-    </a>
+      <p className="text-white/55 text-sm leading-relaxed">{review.quote}</p>
+    </div>
   );
 }
 
 export default function ReviewsSection() {
+  const doubled = [...TRUSTPILOT_REVIEWS, ...TRUSTPILOT_REVIEWS];
+
   return (
-    <section className="section-pad relative overflow-hidden">
-      <div className="relative z-10 max-container container-pad">
-        <div className="text-center mb-12 sm:mb-16">
-          <motion.p
-            initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-            className="text-pink-400 font-semibold text-[10px] sm:text-xs uppercase tracking-widest mb-3"
-          >Wall of Love</motion.p>
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.05 }}
-            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight mb-5"
-          >Loved by real people.</motion.h2>
+    <section className="py-16 sm:py-20 overflow-hidden">
+      <div className="max-container container-pad mb-8 sm:mb-12">
+        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
+          <div>
+            <motion.p
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-white/35 font-semibold text-[10px] sm:text-xs uppercase tracking-widest mb-3"
+            >
+              Reviews
+            </motion.p>
+            <motion.h2
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.05 }}
+              className="text-2xl sm:text-3xl font-bold text-white tracking-tight"
+            >
+              Loved by real users.
+            </motion.h2>
+          </div>
           <motion.a
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
             href={TRUSTPILOT_PROFILE_URL}
             target="_blank"
             rel="noopener noreferrer"
             aria-label={`${TRUSTPILOT_SUMMARY.rating.toFixed(1)} stars on Trustpilot, ${TRUSTPILOT_SUMMARY.reviewCount} reviews`}
-            initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.1 }}
-            whileHover={{ scale: 1.04 }}
-            className="inline-flex items-center rounded-2xl bg-white p-3 sm:p-3.5 shadow-lg shadow-black/20 transition-shadow hover:shadow-xl"
+            className="bg-white/8 hover:bg-white/12 transition-colors rounded-full px-4 py-2 flex items-center gap-2 self-start sm:self-auto"
           >
-            <img src={trustpilotLogo} alt="Trustpilot" className="h-8 sm:h-10 w-auto" />
+            <img src={TRUSTPILOT_LOGO} alt="Trustpilot" className="h-8 sm:h-10 w-auto" />
           </motion.a>
         </div>
       </div>
 
-      {/* Sliding marquee track — each half is an identical, self-contained flex
-          group (including its own right-side gap via padding) so translating
-          by exactly one half's width loops with zero pop. */}
-      <div className="relative z-10 w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
-        <motion.div
-          className="flex w-max"
-          animate={{ x: ['0%', '-50%'] }}
-          transition={{ duration: 28, repeat: Infinity, ease: 'linear' }}
-        >
-          {[0, 1].map((half) => (
-            <div key={half} className="flex shrink-0 pr-6 sm:pr-8 gap-6 sm:gap-8">
-              {TRUSTPILOT_REVIEWS.map((review, i) => (
-                <ReviewCard key={`${half}-${review.author}-${i}`} review={review} />
-              ))}
-            </div>
+      {/* Infinite marquee */}
+      <div className="relative">
+        <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-r from-[#040c1e] to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-l from-[#040c1e] to-transparent z-10 pointer-events-none" />
+        <div className="flex gap-4 animate-[marquee_40s_linear_infinite] w-max">
+          {doubled.map((review, i) => (
+            <ReviewCard key={i} review={review} />
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

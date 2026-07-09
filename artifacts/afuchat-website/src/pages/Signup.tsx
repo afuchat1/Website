@@ -1,52 +1,21 @@
+'use client';
 import { motion } from 'framer-motion';
-import { Link } from 'wouter';
+import Link from 'next/link';
 import { ArrowRight, Check } from 'lucide-react';
 import { illSecIdentity } from '@/data/illustrations';
 import Footer from '@/components/layout/Footer';
-import PageSEO from '@/components/seo/PageSEO';
 
 export default function Signup() {
   return (
     <div className="min-h-screen flex flex-col">
-      <PageSEO
-        title="Create Your Free Account — AfuChat"
-        description="Sign up for free and access every AfuChat product with a single account. One identity, zero friction — AfuMail, AfuChat, AfuAI, AfuCloud, and more."
-        canonical="/signup"
-      />
-      {/* Main */}
-      <main className="flex-1 flex items-center justify-center px-4 py-8 sm:py-16">
-        <div className="w-full max-w-5xl grid grid-cols-1 lg:grid-cols-2 gap-12 sm:gap-16 items-center">
-
-          {/* Left: what you get */}
-          <motion.div initial={{ opacity: 0, x: -24 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.5 }} className="order-2 lg:order-1">
-            <p className="text-blue-400 font-semibold text-[10px] sm:text-xs uppercase tracking-widest mb-3 sm:mb-4">Get Started</p>
-            <h2 className="text-[28px] leading-[1.2] sm:text-4xl font-bold text-white mb-4 sm:mb-5 tracking-tight">
-              Sign up once.<br />Use what you need.
-            </h2>
-            <p className="text-white/50 text-[15px] sm:text-base leading-relaxed mb-8 sm:mb-10">
-              Create a free account to start using world-class tools. Whether you want an intelligent assistant, secure cloud storage, or blazing fast chat — the choice is yours.
-            </p>
-            <div className="flex flex-col gap-6">
-              {[
-                { title: 'Independent products', body: 'Use one app or use them all. No forced bundles or mandatory dependencies.' },
-                { title: 'End-to-end encrypted', body: 'Your messages, files, and searches are encrypted by default. We cannot read them — ever.' },
-                { title: 'Free forever, no card needed', body: 'The core tier of every AfuChat product is free. No trial period, no hidden fees, no expiry.' },
-              ].map((item, i) => (
-                <div key={i} className="flex items-start gap-4">
-                  <Check className="w-5 h-5 text-[#16C784] flex-shrink-0 mt-0.5" />
-                  <div>
-                    <p className="text-white font-semibold text-[13px] sm:text-sm mb-0.5">{item.title}</p>
-                    <p className="text-white/40 text-[13px] sm:text-sm leading-relaxed">{item.body}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </motion.div>
-
-          {/* Right: form */}
-          <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: 0.1 }} className="order-1 lg:order-2 bg-white/5 sm:bg-transparent p-6 sm:p-0 rounded-3xl sm:rounded-none">
-            <img src={illSecIdentity} alt="Create your AfuMail identity" className="w-20 h-20 sm:w-28 sm:h-28 object-contain mb-4 sm:mb-5 mx-auto sm:mx-0" />
-            <h1 className="text-2xl font-bold text-white mb-2 tracking-tight text-center sm:text-left">Create your AfuMail</h1>
+      <div className="flex-1 max-container container-pad py-12 sm:py-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-16 items-center">
+          {/* Form side */}
+          <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }}>
+            <p className="text-blue-400 font-semibold text-[10px] sm:text-xs uppercase tracking-widest mb-3 sm:mb-4">Get started free</p>
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mb-3 sm:mb-4 tracking-tight leading-tight">
+              One account.<br />Every product.
+            </h1>
             <p className="text-white/45 mb-8 text-[13px] sm:text-sm text-center sm:text-left">Fill in your details below and join millions of people already using AfuMail.</p>
 
             <div className="flex flex-col gap-4">
@@ -92,19 +61,37 @@ export default function Signup() {
               </button>
             </div>
 
-            <p className="text-[11px] sm:text-xs text-white/35 sm:text-white/25 text-center mt-5 sm:mt-6">
+            <p className="text-white/25 text-xs text-center sm:text-left mt-4">
               Already have an account?{' '}
-              <Link href="/login" className="text-[#1F95FF] font-medium hover:underline">Log in</Link>
-            </p>
-            <p className="text-[10px] sm:text-xs text-white/20 text-center mt-2">
-              By creating an account you agree to our{' '}
-              <Link href="/legal/terms" className="underline hover:text-white/40">Terms of Service</Link>{' '}
-              and{' '}
-              <Link href="/legal/privacy" className="underline hover:text-white/40">Privacy Policy</Link>.
+              <Link href="/login" className="text-white/50 hover:text-white transition-colors underline underline-offset-2">Log in</Link>
             </p>
           </motion.div>
+
+          {/* Visual side */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.15 }}
+            className="hidden lg:flex flex-col items-center gap-8"
+          >
+            <img src={illSecIdentity} alt="AfuMail identity" className="w-full max-w-xs drop-shadow-2xl" />
+            <div className="flex flex-col gap-3 w-full max-w-xs">
+              {[
+                'Access every AfuChat product',
+                'End-to-end encrypted by default',
+                'No credit card required',
+              ].map((item, i) => (
+                <div key={i} className="flex items-center gap-3">
+                  <div className="w-5 h-5 rounded-full bg-green-500/20 flex items-center justify-center flex-shrink-0">
+                    <Check className="w-3 h-3 text-green-400" />
+                  </div>
+                  <span className="text-white/55 text-sm">{item}</span>
+                </div>
+              ))}
+            </div>
+          </motion.div>
         </div>
-      </main>
+      </div>
       <Footer />
     </div>
   );

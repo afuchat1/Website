@@ -1,6 +1,7 @@
+'use client';
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { Link } from 'wouter';
+import Link from 'next/link';
 import { illSecHero } from '@/data/illustrations';
 import { supabase } from '@/lib/supabase';
 
@@ -11,12 +12,7 @@ interface Member {
 }
 
 function initials(name: string) {
-  return name
-    .split(' ')
-    .filter(Boolean)
-    .slice(0, 2)
-    .map((part) => part[0]?.toUpperCase())
-    .join('');
+  return name.split(' ').filter(Boolean).slice(0, 2).map(p => p[0]?.toUpperCase()).join('');
 }
 
 function useCommunity() {
@@ -92,28 +88,18 @@ export default function HeroSection() {
             {members.length > 0 && (
               <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.25 }} className="flex items-center gap-3">
                 <div className="flex -space-x-2">
-                  {members.map((member) =>
+                  {members.map(member =>
                     member.avatar_url ? (
-                      <img
-                        key={member.handle}
-                        src={member.avatar_url}
-                        alt={member.display_name}
-                        className="w-6 h-6 sm:w-7 sm:h-7 rounded-full border-2 border-[#040c1e] object-cover bg-white/10"
-                      />
+                      <img key={member.handle} src={member.avatar_url} alt={member.display_name} className="w-6 h-6 sm:w-7 sm:h-7 rounded-full border-2 border-[#040c1e] object-cover bg-white/10" />
                     ) : (
-                      <div
-                        key={member.handle}
-                        className="w-6 h-6 sm:w-7 sm:h-7 rounded-full border-2 border-[#040c1e] bg-gradient-to-br from-[#1F7AFF] to-[#6C63FF] flex items-center justify-center text-white text-[9px] font-bold"
-                      >
+                      <div key={member.handle} className="w-6 h-6 sm:w-7 sm:h-7 rounded-full border-2 border-[#040c1e] bg-gradient-to-br from-[#1F7AFF] to-[#6C63FF] flex items-center justify-center text-white text-[9px] font-bold">
                         {initials(member.display_name)}
                       </div>
-                    ),
+                    )
                   )}
                 </div>
                 <span className="text-white/40 text-xs sm:text-sm">
-                  {totalMembers !== null
-                    ? `Trusted by ${totalMembers.toLocaleString()}+ real members`
-                    : 'Trusted by real members'}
+                  {totalMembers !== null ? `Trusted by ${totalMembers.toLocaleString()}+ real members` : 'Trusted by real members'}
                 </span>
               </motion.div>
             )}
@@ -124,11 +110,7 @@ export default function HeroSection() {
             transition={{ duration: 0.7, delay: 0.1 }}
             className="flex justify-center lg:justify-end mt-4 sm:mt-0"
           >
-            <img
-              src={illSecHero}
-              alt="AfuChat's independent products, connected"
-              className="w-full max-w-[280px] sm:max-w-md lg:max-w-lg drop-shadow-2xl"
-            />
+            <img src={illSecHero} alt="AfuChat's independent products, connected" className="w-full max-w-[280px] sm:max-w-md lg:max-w-lg drop-shadow-2xl" />
           </motion.div>
         </div>
       </div>

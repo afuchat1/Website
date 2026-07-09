@@ -1,116 +1,77 @@
+'use client';
 import { motion } from 'framer-motion';
-import { useParams, Link } from 'wouter';
+import Link from 'next/link';
 import { PRODUCT_DATA } from '@/data/products';
-import NotFound from '@/pages/not-found';
 import { illSecEcosystem } from '@/data/illustrations';
 import Footer from '@/components/layout/Footer';
-import PageSEO from '@/components/seo/PageSEO';
+import { notFound } from 'next/navigation';
 
-export default function ProductPage() {
-  const params = useParams();
-  const product = PRODUCT_DATA.find(p => p.id === params.id);
-  if (!product) return <NotFound />;
-  const Icon = product.icon;
-  const otherProducts = PRODUCT_DATA.filter(p => p.id !== product.id).slice(0, 4);
+export default function ProductPage({ id }: { id: string }) {
+  const product = PRODUCT_DATA.find(p => p.id === id);
+  if (!product) notFound();
+  const Icon = product!.icon;
+  const otherProducts = PRODUCT_DATA.filter(p => p.id !== product!.id).slice(0, 4);
 
   return (
     <div className="w-full min-h-screen">
-      <PageSEO
-        title={`${product.name} — ${product.tagline} | AfuChat`}
-        description={`${product.description} ${product.features.join(', ')}. Part of the AfuChat product ecosystem.`}
-        canonical={product.path}
-      />
       {/* Hero */}
       <div className="max-container container-pad pt-6 pb-12 sm:pt-14 sm:pb-16">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-start">
             <div className="order-2 lg:order-1">
-              <Icon className="hidden sm:block w-8 h-8 mb-6" style={{ color: product.color }} />
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white mb-1 tracking-tight">{product.name}</h1>
-              <p className="text-[11px] uppercase tracking-widest font-bold text-white/30 mb-4">{product.category}</p>
-              <p className="text-lg sm:text-xl font-semibold mb-4 sm:mb-5" style={{ color: product.color }}>{product.tagline}</p>
-              <p className="text-base sm:text-lg text-white/55 leading-relaxed mb-8 max-w-lg">
-                {product.description} Experience a standalone tool engineered for absolute excellence.
-              </p>
+              <Icon className="hidden sm:block w-8 h-8 mb-6" style={{ color: product!.color }} />
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white mb-1 tracking-tight">{product!.name}</h1>
+              <p className="text-[11px] uppercase tracking-widest font-bold text-white/30 mb-4">{product!.category}</p>
+              <p className="text-lg sm:text-xl font-semibold mb-4 leading-snug" style={{ color: product!.color }}>{product!.tagline}</p>
+              <p className="text-white/55 text-base sm:text-lg leading-relaxed mb-8 max-w-md">{product!.description}</p>
+              <div className="flex flex-wrap gap-2 mb-8">
+                {product!.features.map(f => (
+                  <span key={f} className="px-3 py-1.5 rounded-full text-xs font-semibold text-white/70 bg-white/8">{f}</span>
+                ))}
+              </div>
               <Link
                 href="/signup"
-                className="inline-block w-full sm:w-auto text-center px-7 py-3.5 text-white font-bold text-sm rounded-full hover:opacity-90 transition-opacity"
-                style={{ backgroundColor: product.color }}
+                className="inline-flex items-center gap-2 px-7 py-3.5 text-white font-bold text-sm rounded-full hover:opacity-90 transition-opacity"
+                style={{ background: `linear-gradient(135deg, ${product!.color}, #6C63FF)` }}
               >
                 Get started free →
               </Link>
             </div>
-            <div className="order-1 lg:order-2 flex items-start justify-center sm:justify-end mb-4 sm:mb-0">
-              <img src={product.illustration} alt={`${product.name} illustration`} className="w-full max-w-[280px] sm:max-w-sm drop-shadow-2xl" />
+            <div className="order-1 lg:order-2 flex justify-center">
+              <motion.img
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.1, duration: 0.6 }}
+                src={product!.illustration}
+                alt={product!.name}
+                className="w-full max-w-sm drop-shadow-2xl"
+              />
             </div>
           </div>
         </motion.div>
       </div>
 
-      {/* Key features */}
-      <div className="max-container container-pad py-12 sm:py-16">
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-10 sm:mb-12">
-          <p className="font-semibold text-[10px] sm:text-xs uppercase tracking-widest mb-3" style={{ color: product.color }}>Key Features</p>
-          <h2 className="text-[28px] leading-[1.2] sm:text-3xl font-bold text-white tracking-tight">What {product.name} can do</h2>
+      {/* Other products */}
+      <div className="max-container container-pad py-16">
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-10">
+          <p className="font-semibold text-xs uppercase tracking-widest mb-3 text-white/40">Ecosystem</p>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            <h2 className="text-2xl font-bold text-white tracking-tight">Works even better together.</h2>
+            <img src={illSecEcosystem} alt="AfuChat ecosystem" className="w-full max-w-xs drop-shadow-2xl hidden lg:block" />
+          </div>
         </motion.div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-12">
-          {product.features.map((feature, i) => (
-            <motion.div key={i} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}>
-              <span className="text-4xl font-extrabold text-white/10 block mb-3 sm:mb-4">0{i + 1}</span>
-              <h3 className="text-base sm:text-lg font-bold text-white mb-2">{feature}</h3>
-              <p className="text-[13px] sm:text-sm text-white/45 sm:text-white/40 leading-relaxed">
-                {feature} is built to deliver a frictionless experience, focusing entirely on performance, reliability, and utility.
-              </p>
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-x-8 gap-y-6">
+          {otherProducts.map((p, i) => (
+            <motion.div key={p.id} initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.07 }}>
+              <Link href={p.path}>
+                <div className="flex items-center gap-3 group">
+                  <img src={p.icon3d} alt={`${p.name} icon`} className="w-9 h-9 object-contain flex-shrink-0" />
+                  <span className="text-sm text-white/50 group-hover:text-white transition-colors">{p.name}</span>
+                </div>
+              </Link>
             </motion.div>
           ))}
         </div>
-      </div>
-
-      {/* Optional Integrations */}
-      <div className="max-container container-pad py-12 sm:py-16">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-12 items-center">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-            <p className="text-blue-400 font-semibold text-[10px] sm:text-xs uppercase tracking-widest mb-3">Optional Integrations</p>
-            <h2 className="text-[28px] leading-[1.2] sm:text-3xl font-bold text-white mb-4 tracking-tight">Plays beautifully with others</h2>
-            <p className="text-white/55 sm:text-white/50 text-[15px] sm:text-base leading-relaxed mb-8 sm:mb-6">
-              While {product.name} stands entirely on its own, it also integrates effortlessly with other AfuChat products. Use AfuMail for quick single sign-on, or connect to our cloud infrastructure for instant access to your files — entirely up to you.
-            </p>
-            <div className="flex flex-col gap-3 sm:gap-4">
-              {otherProducts.map(p => (
-                <Link key={p.id} href={p.path}>
-                  <div className="flex items-center gap-3 sm:gap-3 group bg-white/5 sm:bg-transparent p-3 sm:p-0 rounded-xl sm:rounded-none">
-                    <img src={p.icon3d} alt="" className="w-8 h-8 sm:w-7 sm:h-7 object-contain flex-shrink-0" />
-                    <span className="text-sm text-white/80 sm:text-white/50 group-hover:text-white/80 transition-colors leading-snug">
-                      <span className="font-semibold text-white/90 sm:font-normal">{p.name}</span> — {p.tagline}
-                    </span>
-                  </div>
-                </Link>
-              ))}
-            </div>
-          </motion.div>
-          <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="mt-4 sm:mt-0">
-            <img src={illSecEcosystem} alt="Platform integration" className="w-full max-w-[260px] sm:max-w-sm mx-auto drop-shadow-2xl"
-              style={{ filter: `drop-shadow(0 20px 40px ${product.color}30)` }} />
-          </motion.div>
-        </div>
-      </div>
-
-      {/* Get started */}
-      <div className="max-container container-pad py-16">
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-          <h2 className="text-[28px] leading-[1.2] sm:text-3xl font-bold text-white mb-3 tracking-tight text-center sm:text-left">Ready to try {product.name}?</h2>
-          <p className="text-white/55 sm:text-white/50 text-base mb-8 max-w-lg leading-relaxed text-center sm:text-left">
-            Get access to {product.name} in seconds. Create a free account to begin — no credit card required.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 items-center sm:justify-start">
-            <Link href="/signup" className="inline-block w-full sm:w-auto text-center px-7 py-3.5 text-white font-bold text-sm rounded-full hover:opacity-90 transition-opacity" style={{ backgroundColor: product.color }}>
-              Create free account →
-            </Link>
-            <Link href="/products" className="text-white/50 sm:text-white/40 text-sm font-medium hover:text-white/70 transition-colors py-2 sm:py-0">
-              View all products →
-            </Link>
-          </div>
-        </motion.div>
       </div>
       <Footer />
     </div>
