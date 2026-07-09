@@ -11,7 +11,7 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   return {
     title: `${product.name} — ${product.tagline} | AfuChat`,
     description: `${product.description} Features: ${product.features.join(', ')}. Part of the AfuChat product ecosystem.`,
-    alternates: { canonical: `https://web.afuchat.com${product.path}` },
+    alternates: { canonical: `https://afuchat.com${product.path}` },
   };
 }
 

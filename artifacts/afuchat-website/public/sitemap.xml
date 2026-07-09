@@ -3,19 +3,19 @@
 
   <!-- Core pages -->
   <url>
-    <loc>https://web.afuchat.com/</loc>
+    <loc>https://afuchat.com/</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://web.afuchat.com/products</loc>
+    <loc>https://afuchat.com/products</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://web.afuchat.com/signup</loc>
+    <loc>https://afuchat.com/signup</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -23,49 +23,49 @@
 
   <!-- Product pages -->
   <url>
-    <loc>https://web.afuchat.com/products/afumail</loc>
+    <loc>https://afuchat.com/products/afumail</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://web.afuchat.com/products/afuchat</loc>
+    <loc>https://afuchat.com/products/afuchat</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://web.afuchat.com/products/afuai</loc>
+    <loc>https://afuchat.com/products/afuai</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://web.afuchat.com/products/afucloud</loc>
+    <loc>https://afuchat.com/products/afucloud</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://web.afuchat.com/products/afumovies</loc>
+    <loc>https://afuchat.com/products/afumovies</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://web.afuchat.com/products/afumall</loc>
+    <loc>https://afuchat.com/products/afumall</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://web.afuchat.com/products/afunews</loc>
+    <loc>https://afuchat.com/products/afunews</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://web.afuchat.com/products/afublog</loc>
+    <loc>https://afuchat.com/products/afublog</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -73,19 +73,19 @@
 
   <!-- Platform pages -->
   <url>
-    <loc>https://web.afuchat.com/developers</loc>
+    <loc>https://afuchat.com/developers</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://web.afuchat.com/partners</loc>
+    <loc>https://afuchat.com/partners</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
-    <loc>https://web.afuchat.com/enterprise</loc>
+    <loc>https://afuchat.com/enterprise</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
@@ -93,49 +93,49 @@
 
   <!-- Company pages -->
   <url>
-    <loc>https://web.afuchat.com/about</loc>
+    <loc>https://afuchat.com/about</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://web.afuchat.com/about/leadership</loc>
+    <loc>https://afuchat.com/about/leadership</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://web.afuchat.com/about/careers</loc>
+    <loc>https://afuchat.com/about/careers</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.65</priority>
   </url>
   <url>
-    <loc>https://web.afuchat.com/about/press</loc>
+    <loc>https://afuchat.com/about/press</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://web.afuchat.com/about/brand</loc>
+    <loc>https://afuchat.com/about/brand</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://web.afuchat.com/security</loc>
+    <loc>https://afuchat.com/security</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://web.afuchat.com/contact</loc>
+    <loc>https://afuchat.com/contact</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
   </url>
   <url>
-    <loc>https://web.afuchat.com/help</loc>
+    <loc>https://afuchat.com/help</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.65</priority>
@@ -143,19 +143,19 @@
 
   <!-- Legal pages -->
   <url>
-    <loc>https://web.afuchat.com/legal/privacy</loc>
+    <loc>https://afuchat.com/legal/privacy</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://web.afuchat.com/legal/terms</loc>
+    <loc>https://afuchat.com/legal/terms</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://web.afuchat.com/legal/cookies</loc>
+    <loc>https://afuchat.com/legal/cookies</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -163,7 +163,7 @@
 
   <!-- Sitemap page -->
   <url>
-    <loc>https://web.afuchat.com/sitemap</loc>
+    <loc>https://afuchat.com/sitemap</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
@@ -171,7 +171,7 @@
 
   <!-- Auth pages -->
   <url>
-    <loc>https://web.afuchat.com/login</loc>
+    <loc>https://afuchat.com/login</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>

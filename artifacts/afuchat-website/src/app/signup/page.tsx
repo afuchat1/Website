@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: 'Create Your Free Account — AfuChat',
   description:
     'Sign up for free and access every AfuChat product with a single account. One identity, zero friction — AfuMail, AfuChat, AfuAI, AfuCloud, and more.',
-  alternates: { canonical: 'https://web.afuchat.com/signup' },
+  alternates: { canonical: 'https://afuchat.com/signup' },
 };
 
 export default function Page() {
