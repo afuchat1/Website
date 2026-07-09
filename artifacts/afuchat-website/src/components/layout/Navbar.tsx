@@ -34,7 +34,7 @@ function GithubStarBadge({ className = '' }: { className?: string }) {
       href={GITHUB_REPO_URL}
       target="_blank"
       rel="noopener noreferrer"
-      className={`flex items-center gap-1.5 text-sm font-medium text-white/70 hover:text-white border border-white/16 rounded-full px-3.5 py-2 hover:bg-white/6 hover:border-white/26 transition-colors ${className}`}
+      className={`flex items-center gap-1.5 text-sm font-medium text-white/70 hover:text-white px-3.5 py-2 transition-colors ${className}`}
     >
       <Github className="w-4 h-4" />
       {stars && <span className="text-xs font-semibold text-white/85">{stars}</span>}
