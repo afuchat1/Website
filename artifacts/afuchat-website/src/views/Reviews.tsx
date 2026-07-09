@@ -106,7 +106,7 @@ export default function Reviews() {
           >
             <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3">Join millions of happy users.</h2>
             <p className="text-white/60 mb-8 max-w-md mx-auto">Create an account in 30 seconds and start using any of our standalone products today.</p>
-            <a href="https://app.afuchat.com/signup" className="btn-primary inline-flex">Create free account →</a>
+            <a href="https://web.afuchat.com/signup" className="btn-primary inline-flex">Create free account →</a>
           </motion.div>
         </div>
       </section>
