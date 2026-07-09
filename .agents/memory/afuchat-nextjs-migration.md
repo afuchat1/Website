@@ -3,11 +3,27 @@ name: AfuChat Next.js migration
 description: Key decisions and gotchas from the Vite+wouter → Next.js 15 App Router migration of the AfuChat marketing website.
 ---
 
-## Architecture decisions
+## Directory structure (IMPORTANT)
 
-- **App Router at root** (`app/`), not `src/app/`, to avoid Next.js treating `src/pages/` as a Pages Router directory. `src/pages/*.tsx` = client-side page components (not Next.js router entries).
-- **Page pattern**: `app/*/page.tsx` = server component that exports `metadata` + renders the corresponding `src/pages/*.tsx` client component as a child. This gives SSR for meta tags + text content in HTML while keeping framer-motion animations.
-- **ProductPage** receives `id` as a prop from the server `app/products/[id]/page.tsx` (Next.js 15 style: `params` is a `Promise<{ id: string }>`).
+- **App Router lives at `src/app/`** (not root `app/`). Next.js 15 infers the source root from tsconfig `paths: { "@/*": ["./src/*"] }` and generates validator type paths as `../../src/app/...`. If `app/` is at root, the generated `.next/types/validator.ts` points to `../../src/app/...` which doesn't exist → build type error. Solution: keep App Router in `src/app/`.
+- **Client page components live at `src/views/`** (NOT `src/pages/`). Next.js detects any `src/pages/` directory as a Pages Router and generates stale route types for those files. Renamed to `src/views/` to avoid this.
+- **Page pattern**: `src/app/*/page.tsx` = server component that exports `metadata` + renders the corresponding `src/views/*.tsx` client component. This gives SSR for meta tags while keeping framer-motion animations.
+
+## Vercel deployment config (vercel.json)
+
+```json
+{
+  "installCommand": "cd ../.. && pnpm install",
+  "buildCommand": "pnpm run build",
+  "framework": "nextjs"
+}
+```
+
+Do NOT use `build:ssg`, `outputDirectory: "dist/public"`, or SPA rewrites — those are from the old Vite config.
+
+## Other architecture decisions
+
+- **ProductPage** receives `id` as a prop from the server `src/app/products/[id]/page.tsx` (Next.js 15 style: `params` is a `Promise<{ id: string }>`).
 - **`generateStaticParams`** added to product detail page so Next.js knows all valid product ids at build time.
 - **Login redirect** = server page with metadata + `LoginRedirect` client child that calls `window.location.replace`.
 
@@ -32,7 +48,22 @@ description: Key decisions and gotchas from the Vite+wouter → Next.js 15 App R
 
 **Why:** These caused typecheck failures blocking `next build`.
 
-## Dev server port
+## View layout pattern
+
+Views in `src/views/` do NOT use a Layout wrapper component. They include `<Footer />` directly and rely on the app-level `src/app/layout.tsx` for the Navbar. Pattern:
+
+```tsx
+export default function MyPage() {
+  return (
+    <div className="relative flex flex-col w-full">
+      {/* page sections */}
+      <Footer />
+    </div>
+  );
+}
+```
+
+## Dev server
 
 Script: `next dev -p ${PORT:-3000} -H 0.0.0.0` — PORT env var set by Replit.
 

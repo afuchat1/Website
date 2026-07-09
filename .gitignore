@@ -47,3 +47,6 @@ Thumbs.db
 # Replit
 .cache/
 .local/
+
+# Next.js build output
+artifacts/afuchat-website/.next/

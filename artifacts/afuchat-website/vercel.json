@@ -1,11 +1,5 @@
 {
   "installCommand": "cd ../.. && pnpm install",
-  "buildCommand": "pnpm run build:ssg",
-  "outputDirectory": "dist/public",
-  "framework": null,
-  "cleanUrls": true,
-  "trailingSlash": false,
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
-  ]
+  "buildCommand": "pnpm run build",
+  "framework": "nextjs"
 }
