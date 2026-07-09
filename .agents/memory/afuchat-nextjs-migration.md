@@ -70,3 +70,21 @@ Script: `next dev -p ${PORT:-3000} -H 0.0.0.0` — PORT env var set by Replit.
 ## allowedDevOrigins
 
 `next.config.ts` has `allowedDevOrigins: ['*']` to suppress cross-origin warning in the Replit proxy iframe.
+
+## No backend — Supabase only
+
+This site intentionally has zero custom server/API routes; all dynamic data goes through `src/lib/supabase.ts` (client-side, anon key + RLS). An orphaned `artifacts/api-server` (dist + node_modules, no source, unreferenced) existed from an earlier iteration and was deleted — don't recreate a backend for this site without an explicit decision to do so.
+
+**Why:** avoids duplicate/confusing data paths and keeps deploy simple (static/SSR only, no server process to run in prod).
+
+## Domain
+
+Production domain is `afuchat.com` (not `web.afuchat.com`). Must stay consistent across `metadataBase` (layout.tsx), `public/sitemap.xml`, `public/robots.txt`, and every page's `alternates.canonical`.
+
+## Asset hygiene
+
+Only `public/illustrations/` should hold illustration/background images referenced via `src/data/illustrations.ts`. A stray root-level `/home/runner/workspace/public/` (pre-migration Vite leftover, own `index.html` with hashed asset refs) and various unreferenced `bg-*`/`ill-*` files in the artifact's own `public/` were found and deleted — check for unreferenced images periodically since they silently accumulate.
+
+Favicon is PNG-only (`public/favicon.png`) — SVG was intentionally dropped for consistent rendering; see `layout.tsx` `metadata.icons`.
+
+See `artifacts/afuchat-website/README.md` for the full dev-facing setup/conventions doc.
