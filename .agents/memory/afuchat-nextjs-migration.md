@@ -79,7 +79,7 @@ This site intentionally has zero custom server/API routes; all dynamic data goes
 
 ## Domain
 
-Production domain is `afuchat.com` (not `web.afuchat.com`). Must stay consistent across `metadataBase` (layout.tsx), `public/sitemap.xml`, `public/robots.txt`, and every page's `alternates.canonical`.
+Production domain is `afuchat.com`. Must stay consistent across `metadataBase` (layout.tsx), `public/sitemap.xml`, `public/robots.txt`, and every page's `alternates.canonical`.
 
 ## Asset hygiene
 
