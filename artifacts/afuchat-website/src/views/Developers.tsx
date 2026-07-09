@@ -33,7 +33,7 @@ export default function Developers() {
               <a href="https://developers.afuchat.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center px-7 py-3.5 bg-gradient-to-r from-green-500 to-teal-500 text-white font-bold text-sm rounded-full hover:opacity-90 transition-opacity">
                 Read documentation
               </a>
-              <a href="https://github.com/afuchat" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center px-7 py-3.5 text-white/60 font-medium text-sm border border-white/10 rounded-full hover:text-white transition-colors">
+              <a href="https://github.com/afuchat1/website" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center px-7 py-3.5 text-white/60 font-medium text-sm border border-white/10 rounded-full hover:text-white transition-colors">
                 View on GitHub
               </a>
             </div>
