@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "vite --config vite.config.ts --host 0.0.0.0",
     "build": "vite build --config vite.config.ts",
+    "build:server": "BUILD_SSR=1 vite build --config vite.config.ts",
+    "build:ssg": "pnpm run build && pnpm run build:server && node scripts/prerender.mjs",
     "serve": "vite preview --config vite.config.ts --host 0.0.0.0",
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
