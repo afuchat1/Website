@@ -13,10 +13,7 @@ export const metadata: Metadata = {
   openGraph: { siteName: 'AfuChat', type: 'website', images: [{ url: '/og-default.png' }] },
   twitter: { card: 'summary_large_image' },
   icons: {
-    icon: [
-      { url: '/favicon.svg', type: 'image/svg+xml' },
-      { url: '/favicon.png', type: 'image/png' },
-    ],
+    icon: [{ url: '/favicon.png', type: 'image/png' }],
     shortcut: '/favicon.png',
     apple: '/favicon.png',
   },
