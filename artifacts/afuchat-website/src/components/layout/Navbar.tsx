@@ -2,10 +2,45 @@
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import { Menu, X, ChevronDown, Github } from 'lucide-react';
 import { PRODUCT_DATA } from '@/data/products';
 
 const LOGO_SRC = '/assets/afuchat_logo_transparent.png';
+const GITHUB_REPO_URL = 'https://github.com/afuchat1/Website';
+
+function formatStars(count: number) {
+  if (count >= 1000) return `${(count / 1000).toFixed(1)}K`;
+  return `${count}`;
+}
+
+function GithubStarBadge({ className = '' }: { className?: string }) {
+  const [stars, setStars] = useState<string | null>(null);
+
+  useEffect(() => {
+    let cancelled = false;
+    fetch('https://api.github.com/repos/afuchat1/Website')
+      .then(res => (res.ok ? res.json() : null))
+      .then(data => {
+        if (!cancelled && data && typeof data.stargazers_count === 'number') {
+          setStars(formatStars(data.stargazers_count));
+        }
+      })
+      .catch(() => {});
+    return () => { cancelled = true; };
+  }, []);
+
+  return (
+    <a
+      href={GITHUB_REPO_URL}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={`flex items-center gap-1.5 text-sm font-medium text-white/70 hover:text-white border border-white/16 rounded-full px-3.5 py-2 hover:bg-white/6 hover:border-white/26 transition-colors ${className}`}
+    >
+      <Github className="w-4 h-4" />
+      {stars && <span className="text-xs font-semibold text-white/85">{stars}</span>}
+    </a>
+  );
+}
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -146,6 +181,7 @@ export default function Navbar() {
 
         {/* ── Desktop actions ── */}
         <div className="hidden md:flex items-center gap-3">
+          <GithubStarBadge />
           <Link href="/login" className="text-sm font-medium text-white/75 border border-white/16 px-5 py-2 rounded-full hover:bg-white/6 hover:border-white/26 transition-colors">
             Log in
           </Link>
@@ -194,6 +230,7 @@ export default function Navbar() {
             ))}
           </div>
           <div className="flex flex-col gap-3 px-6 pt-2">
+            <GithubStarBadge className="justify-center py-3.5" />
             <Link href="/login" className="flex items-center justify-center text-sm font-medium text-white/80 border border-white/15 rounded-full px-4 py-3.5 hover:bg-white/6 transition-colors">
               Log in
             </Link>
