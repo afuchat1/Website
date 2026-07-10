@@ -4,9 +4,12 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Menu, X, ChevronDown, Github } from 'lucide-react';
 import { PRODUCT_DATA } from '@/data/products';
+import { supabase } from '@/lib/supabase';
 
 const LOGO_SRC = '/assets/afuchat_logo_transparent.png';
 const GITHUB_REPO_URL = 'https://github.com/afuchat1/Website';
+// Where "Open App" / "Dashboard" sends a logged-in visitor.
+const APP_URL = 'https://web.afuchat.com';
 
 function formatStars(count: number) {
   if (count >= 1000) return `${(count / 1000).toFixed(1)}K`;
@@ -49,11 +52,25 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
   const productsRef = useRef<HTMLDivElement>(null);
+  // `null` = auth state not yet known (avoids flashing Login/Sign Up before
+  // the session check resolves); `true`/`false` once resolved.
+  const [isLoggedIn, setIsLoggedIn] = useState<boolean | null>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10);
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  // Detect an existing session shared via the .afuchat.com cookie — this is
+  // what lets someone already logged into web.afuchat.com see "Open App"
+  // here instead of Login/Sign Up, without logging in twice.
+  useEffect(() => {
+    supabase.auth.getSession().then(({ data }) => setIsLoggedIn(!!data.session));
+    const { data: subscription } = supabase.auth.onAuthStateChange((_event, session) => {
+      setIsLoggedIn(!!session);
+    });
+    return () => subscription.subscription.unsubscribe();
   }, []);
 
   // Close everything on route change
@@ -182,12 +199,24 @@ export default function Navbar() {
         {/* ── Desktop actions ── */}
         <div className="hidden md:flex items-center gap-3">
           <GithubStarBadge />
-          <Link href="/login" className="text-sm font-medium text-white/75 border border-white/16 px-5 py-2 rounded-full hover:bg-white/6 hover:border-white/26 transition-colors">
-            Log in
-          </Link>
-          <Link href="/signup" className="text-sm font-medium text-white bg-gradient-to-r from-[#1F7AFF] to-[#6C63FF] rounded-full px-5 py-2 hover:opacity-90 transition-opacity">
-            Sign Up
-          </Link>
+          {isLoggedIn === null ? (
+            // Auth state not resolved yet — reserve the space without
+            // rendering either CTA so we don't flash the wrong one.
+            <div className="w-[148px] h-9" aria-hidden="true" />
+          ) : isLoggedIn ? (
+            <a href={APP_URL} className="text-sm font-medium text-white bg-gradient-to-r from-[#1F7AFF] to-[#6C63FF] rounded-full px-5 py-2 hover:opacity-90 transition-opacity">
+              Open App →
+            </a>
+          ) : (
+            <>
+              <Link href="/login" className="text-sm font-medium text-white/75 border border-white/16 px-5 py-2 rounded-full hover:bg-white/6 hover:border-white/26 transition-colors">
+                Log in
+              </Link>
+              <Link href="/signup" className="text-sm font-medium text-white bg-gradient-to-r from-[#1F7AFF] to-[#6C63FF] rounded-full px-5 py-2 hover:opacity-90 transition-opacity">
+                Sign Up
+              </Link>
+            </>
+          )}
         </div>
 
         {/* ── Mobile hamburger ── */}
@@ -231,12 +260,24 @@ export default function Navbar() {
           </div>
           <div className="flex flex-col gap-3 px-6 pt-2">
             <GithubStarBadge className="justify-center py-3.5" />
-            <Link href="/login" className="flex items-center justify-center text-sm font-medium text-white/80 border border-white/15 rounded-full px-4 py-3.5 hover:bg-white/6 transition-colors">
-              Log in
-            </Link>
-            <Link href="/signup" className="flex items-center justify-center text-sm font-bold text-white bg-gradient-to-r from-[#1F7AFF] to-[#6C63FF] rounded-full px-4 py-3.5 hover:opacity-90 transition-opacity">
-              Sign Up
-            </Link>
+            {isLoggedIn === null ? (
+              // Auth state not resolved yet — reserve the space without
+              // rendering either CTA so we don't flash the wrong one.
+              <div className="h-[52px]" aria-hidden="true" />
+            ) : isLoggedIn ? (
+              <a href={APP_URL} className="flex items-center justify-center text-sm font-bold text-white bg-gradient-to-r from-[#1F7AFF] to-[#6C63FF] rounded-full px-4 py-3.5 hover:opacity-90 transition-opacity">
+                Open App →
+              </a>
+            ) : (
+              <>
+                <Link href="/login" className="flex items-center justify-center text-sm font-medium text-white/80 border border-white/15 rounded-full px-4 py-3.5 hover:bg-white/6 transition-colors">
+                  Log in
+                </Link>
+                <Link href="/signup" className="flex items-center justify-center text-sm font-bold text-white bg-gradient-to-r from-[#1F7AFF] to-[#6C63FF] rounded-full px-4 py-3.5 hover:opacity-90 transition-opacity">
+                  Sign Up
+                </Link>
+              </>
+            )}
           </div>
         </div>
       )}
