@@ -87,4 +87,12 @@ Only `public/illustrations/` should hold illustration/background images referenc
 
 Favicon is PNG-only (`public/favicon.png`) — SVG was intentionally dropped for consistent rendering; see `layout.tsx` `metadata.icons`.
 
+## Image weight (perf)
+
+Because `images.unoptimized: true` means plain `<img>` tags with zero server-side resizing/compression, every file in `public/illustrations/` must already be sized/compressed for its actual max display width before being committed — Next.js will not shrink or compress it for you. AI-generated illustrations especially tend to land at full-resolution (e.g. 1024x1024, ~1MB+ each); resize them (sharp: `.resize({width}).png({compressionLevel:9, quality:80, palette:true})`) to their real rendered size (icons ~256px, hero illustrations ~900px) right after generating them, not as an afterthought.
+
+**Why:** 32 illustration files at ~1MB each (34MB total) caused visibly slow page loads, especially for images — this wasn't a code bug, just unoptimized asset weight. Resizing to actual display dimensions cut it to ~2.5MB with no visual quality loss.
+
+**How to apply:** whenever new illustrations/icons are added to this site, immediately compress/resize them to display size before wiring them in. `sharp` is available in the workspace via `node_modules/.pnpm/sharp@<version>/node_modules/sharp` even when not a direct dependency of the artifact — if a plain `require('sharp')`/`import sharp from 'sharp'` fails with MODULE_NOT_FOUND, resolve it via that `.pnpm` store path directly, or add `sharp` to `pnpm-workspace.yaml`'s `onlyBuiltDependencies` and reinstall if its native build script was ignored.
+
 See `artifacts/afuchat-website/README.md` for the full dev-facing setup/conventions doc.
