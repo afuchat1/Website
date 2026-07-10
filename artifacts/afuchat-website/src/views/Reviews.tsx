@@ -30,15 +30,11 @@ function Stars({ rating }: { rating: number }) {
 
 function ReviewCard({ review, index }: { review: TrustpilotReview; index: number }) {
   return (
-    <motion.a
+    <a
       href={review.url}
       target="_blank"
       rel="noopener noreferrer"
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ delay: index * 0.08 }}
-      className="bg-white/5 border border-white/10 rounded-3xl p-7 hover:bg-white/10 transition-colors flex flex-col group"
+      className="flex-shrink-0 w-[320px] sm:w-[360px] bg-white/5 border border-white/10 rounded-3xl p-7 hover:bg-white/10 transition-colors flex flex-col group"
     >
       <Stars rating={review.rating} />
       <p className="text-white font-semibold text-lg mt-4 mb-2 leading-snug">{review.title}</p>
@@ -55,11 +51,15 @@ function ReviewCard({ review, index }: { review: TrustpilotReview; index: number
         </div>
         <ExternalLink className="w-4 h-4 text-white/30 group-hover:text-white/60 transition-colors shrink-0" />
       </div>
-    </motion.a>
+    </a>
   );
 }
 
 export default function Reviews() {
+  const mid = Math.ceil(TRUSTPILOT_REVIEWS.length / 2);
+  const firstRow = TRUSTPILOT_REVIEWS.slice(0, mid);
+  const secondRow = TRUSTPILOT_REVIEWS.slice(mid);
+
   return (
     <div className="relative flex flex-col w-full">
       <section className="section-pad">
@@ -83,20 +83,35 @@ export default function Reviews() {
               target="_blank"
               rel="noopener noreferrer"
               initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.15 }}
-              className="inline-flex items-center gap-2.5 bg-white/5 border border-white/10 rounded-full px-4 py-2 hover:bg-white/10 transition-colors"
+              className="inline-flex items-center gap-2.5 bg-white rounded-full px-4 py-2 hover:bg-white/90 transition-colors"
             >
               <svg viewBox="0 0 24 24" width="18" height="18" fill="#00b67a"><path d="M12 1.5l3.09 6.26L22 8.76l-5 4.87 1.18 6.87L12 17.27l-6.18 3.23L7 13.63 2 8.76l6.91-1L12 1.5z"/></svg>
-              <span className="text-white font-bold text-sm">{TRUSTPILOT_SUMMARY.rating.toFixed(1)}</span>
+              <span className="text-[#0F172A] font-bold text-sm">{TRUSTPILOT_SUMMARY.rating.toFixed(1)}</span>
               <Stars rating={Math.round(TRUSTPILOT_SUMMARY.rating)} />
-              <span className="text-white/40 text-xs">{TRUSTPILOT_SUMMARY.reviewCount} reviews on Trustpilot</span>
+              <span className="text-[#0F172A]/50 text-xs">{TRUSTPILOT_SUMMARY.reviewCount} reviews on Trustpilot</span>
             </motion.a>
           </div>
 
-          {/* Review grid */}
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
-            {TRUSTPILOT_REVIEWS.map((review, i) => (
-              <ReviewCard key={review.author} review={review} index={i} />
-            ))}
+          {/* Sliding review rows — two rows drifting in opposite directions */}
+          <div className="flex flex-col gap-6 mb-20 -mx-4 sm:-mx-6 lg:-mx-8">
+            <div className="relative overflow-hidden">
+              <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-r from-[#040c1e] to-transparent z-10 pointer-events-none" />
+              <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-l from-[#040c1e] to-transparent z-10 pointer-events-none" />
+              <div className="flex gap-6 w-max animate-[marquee_50s_linear_infinite] px-4 sm:px-6 lg:px-8">
+                {[...firstRow, ...firstRow].map((review, i) => (
+                  <ReviewCard key={`row1-${i}`} review={review} index={i} />
+                ))}
+              </div>
+            </div>
+            <div className="relative overflow-hidden">
+              <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-r from-[#040c1e] to-transparent z-10 pointer-events-none" />
+              <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-l from-[#040c1e] to-transparent z-10 pointer-events-none" />
+              <div className="flex gap-6 w-max animate-[marquee-reverse_50s_linear_infinite] px-4 sm:px-6 lg:px-8">
+                {[...secondRow, ...secondRow].map((review, i) => (
+                  <ReviewCard key={`row2-${i}`} review={review} index={i} />
+                ))}
+              </div>
+            </div>
           </div>
 
           {/* CTA */}

@@ -37,6 +37,16 @@
   }
 }
 
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@keyframes marquee-reverse {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
+
 @layer utilities {
   .container-pad { @apply px-4 sm:px-6 lg:px-8; }
   .section-pad   { @apply py-12 sm:py-20 lg:py-28; }

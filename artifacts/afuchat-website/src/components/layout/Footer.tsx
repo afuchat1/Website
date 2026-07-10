@@ -15,7 +15,7 @@ function StoreButtons() {
         target="_blank"
         rel="noopener noreferrer"
         aria-label={`${TRUSTPILOT_SUMMARY.rating.toFixed(1)} stars on Trustpilot`}
-        className="bg-white/10 hover:bg-white/15 transition-colors rounded-full px-3 py-1.5 flex items-center"
+        className="bg-white hover:bg-white/90 transition-colors rounded-full px-3 py-1.5 flex items-center"
       >
         <img src={TRUSTPILOT_LOGO} alt="Trustpilot" className="h-5 w-auto" loading="lazy" decoding="async" />
       </a>
