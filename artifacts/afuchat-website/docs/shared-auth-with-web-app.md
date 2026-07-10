@@ -78,3 +78,37 @@ present, instead of Login/Sign Up.
 4. If it doesn't: check the cookie's `Domain` attribute in dev tools first —
    that's almost always the culprit (wrong domain, missing `Secure` over
    HTTP, or still using `localStorage`).
+
+## Bonus: sharing cookie-consent choices too
+
+The same `.afuchat.com` cookie-domain trick is also used for the cookie
+**consent** banner (Strictly Necessary / Functional / Performance /
+Targeting), so a choice made on one site doesn't have to be made again on
+the other.
+
+- **File:** `artifacts/afuchat-website/src/lib/cookieConsent.ts`
+- **Cookie name:** `afuchat_cookie_consent`
+- **Shape:** `{ prefs: { functional, performance, targeting }, decidedAt }`
+  as a JSON string, written with the exact same domain/secure/sameSite
+  rules as the Supabase auth cookie above (`.afuchat.com` + `Secure` on
+  real `afuchat.com` hosts, unset on localhost/preview), `path=/`,
+  `SameSite=Lax`, `max-age` of 180 days.
+- **UI:** `src/components/layout/CookieConsent.tsx` — shows the banner if
+  the cookie is missing/invalid, and can be reopened via
+  `openCookiePreferences()` from `cookieConsent.ts` (wired to a "Manage
+  Cookies" link in the footer).
+
+If `web.afuchat.com` wants to honor (or contribute to) the same consent
+decision instead of showing its own separate banner:
+
+1. Read/write the same cookie name (`afuchat_cookie_consent`) with the same
+   domain rules described above — copy the `readCookie` / `writeCookie`
+   helpers in `cookieConsent.ts` verbatim, they're framework-agnostic.
+2. Before initializing anything in the Functional / Performance / Targeting
+   categories (e.g. analytics, ad pixels, personalization), check the
+   parsed `prefs` from the cookie and skip initialization for any category
+   that's `false` or if no cookie exists yet (treat "no cookie" as "nothing
+   granted", same as this site does with `DEFAULT_PREFS`).
+3. Don't show a second banner if a valid `afuchat_cookie_consent` cookie
+   already exists when the visitor arrives — that means they already made a
+   choice on the other site.
