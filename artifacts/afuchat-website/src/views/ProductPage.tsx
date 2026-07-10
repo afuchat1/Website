@@ -57,7 +57,7 @@ export default function ProductPage({ id }: { id: string }) {
           <p className="font-semibold text-xs uppercase tracking-widest mb-3 text-white/40">Ecosystem</p>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             <h2 className="text-2xl font-bold text-white tracking-tight">Works even better together.</h2>
-            <img src={illSecEcosystem} alt="AfuChat ecosystem" className="w-full max-w-xs drop-shadow-2xl hidden lg:block" />
+            <img src={illSecEcosystem} alt="AfuChat ecosystem" className="w-full max-w-xs drop-shadow-2xl hidden lg:block" loading="lazy" decoding="async" />
           </div>
         </motion.div>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-x-8 gap-y-6">
@@ -65,7 +65,7 @@ export default function ProductPage({ id }: { id: string }) {
             <motion.div key={p.id} initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.07 }}>
               <Link href={p.path}>
                 <div className="flex items-center gap-3 group">
-                  <img src={p.icon3d} alt={`${p.name} icon`} className="w-9 h-9 object-contain flex-shrink-0" />
+                  <img src={p.icon3d} alt={`${p.name} icon`} className="w-9 h-9 object-contain flex-shrink-0" loading="lazy" decoding="async" />
                   <span className="text-sm text-white/50 group-hover:text-white transition-colors">{p.name}</span>
                 </div>
               </Link>

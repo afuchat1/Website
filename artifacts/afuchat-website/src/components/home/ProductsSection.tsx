@@ -17,7 +17,7 @@ export default function ProductsSection() {
             transition={{ duration: 0.6 }}
             className="order-2 lg:order-1 flex justify-center"
           >
-            <img src={illSecProducts} alt="AfuChat products" className="w-full max-w-[420px] drop-shadow-2xl" />
+            <img src={illSecProducts} alt="AfuChat products" className="w-full max-w-[420px] drop-shadow-2xl" loading="lazy" decoding="async" />
           </motion.div>
 
           {/* Content */}
@@ -61,7 +61,7 @@ export default function ProductsSection() {
                 >
                   <Link href={p.path}>
                     <div className="flex items-center gap-3 group">
-                      <img src={p.icon3d} alt={`${p.name} icon`} className="w-9 h-9 sm:w-10 sm:h-10 object-contain flex-shrink-0" />
+                      <img src={p.icon3d} alt={`${p.name} icon`} className="w-9 h-9 sm:w-10 sm:h-10 object-contain flex-shrink-0" loading="lazy" decoding="async" />
                       <div>
                         <p className="text-sm font-semibold text-white/70 group-hover:text-white transition-colors leading-none mb-0.5">{p.name}</p>
                         <p className="text-xs text-white/30 leading-none">{p.category}</p>

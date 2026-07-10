@@ -2,39 +2,39 @@
 // absolute paths so they work identically in Next.js and any CDN.
 
 // ── 3-D product icons ─────────────────────────────────────────────────────
-export const icon3dAfumail   = '/illustrations/icon3d-afumail.png';
-export const icon3dAfuchat   = '/illustrations/icon3d-afuchat.png';
-export const icon3dAfuai     = '/illustrations/icon3d-afuai.png';
-export const icon3dAfucloud  = '/illustrations/icon3d-afucloud.png';
-export const icon3dAfumovies = '/illustrations/icon3d-afumovies.png';
-export const icon3dAfumall   = '/illustrations/icon3d-afumall.png';
-export const icon3dAfunews   = '/illustrations/icon3d-afunews.png';
-export const icon3dAfublog   = '/illustrations/icon3d-afublog.png';
+export const icon3dAfumail   = '/illustrations/icon3d-afumail.webp';
+export const icon3dAfuchat   = '/illustrations/icon3d-afuchat.webp';
+export const icon3dAfuai     = '/illustrations/icon3d-afuai.webp';
+export const icon3dAfucloud  = '/illustrations/icon3d-afucloud.webp';
+export const icon3dAfumovies = '/illustrations/icon3d-afumovies.webp';
+export const icon3dAfumall   = '/illustrations/icon3d-afumall.webp';
+export const icon3dAfunews   = '/illustrations/icon3d-afunews.webp';
+export const icon3dAfublog   = '/illustrations/icon3d-afublog.webp';
 
 // ── Service / product illustrations ──────────────────────────────────────
-export const illSvcAfumail   = '/illustrations/ill-svc-afumail.png';
-export const illSvcAfuchat   = '/illustrations/ill-svc-afuchat.png';
-export const illSvcAfuai     = '/illustrations/ill-svc-afuai.png';
-export const illSvcAfucloud  = '/illustrations/ill-svc-afucloud.png';
-export const illSvcAfumovies = '/illustrations/ill-svc-afumovies.png';
-export const illSvcAfumall   = '/illustrations/ill-svc-afumall.png';
-export const illSvcAfunews   = '/illustrations/ill-svc-afunews.png';
-export const illSvcAfublog   = '/illustrations/ill-svc-afublog.png';
+export const illSvcAfumail   = '/illustrations/ill-svc-afumail.webp';
+export const illSvcAfuchat   = '/illustrations/ill-svc-afuchat.webp';
+export const illSvcAfuai     = '/illustrations/ill-svc-afuai.webp';
+export const illSvcAfucloud  = '/illustrations/ill-svc-afucloud.webp';
+export const illSvcAfumovies = '/illustrations/ill-svc-afumovies.webp';
+export const illSvcAfumall   = '/illustrations/ill-svc-afumall.webp';
+export const illSvcAfunews   = '/illustrations/ill-svc-afunews.webp';
+export const illSvcAfublog   = '/illustrations/ill-svc-afublog.webp';
 
 // ── Section illustrations ─────────────────────────────────────────────────
-export const illSecHero        = '/illustrations/ill-sec-hero.png';
-export const illSecProducts    = '/illustrations/ill-sec-products.png';
-export const illSecEcosystem   = '/illustrations/ill-sec-ecosystem.png';
-export const illSecIdentity    = '/illustrations/ill-sec-identity.png';
-export const illSecSecurity    = '/illustrations/ill-sec-security.png';
-export const illSecDeveloper   = '/illustrations/ill-sec-developer.png';
-export const illSecCta         = '/illustrations/ill-sec-cta.png';
-export const illSecAbout       = '/illustrations/ill-sec-about.png';
-export const illSecLeadership  = '/illustrations/ill-sec-leadership.png';
-export const illSecEnterprise  = '/illustrations/ill-sec-enterprise.png';
-export const illSecContact     = '/illustrations/ill-sec-contact.png';
-export const illSecCareers     = '/illustrations/ill-sec-careers.png';
-export const illSecPress       = '/illustrations/ill-sec-press.png';
-export const illSecBrand       = '/illustrations/ill-sec-brand.png';
-export const illSecHelp        = '/illustrations/ill-sec-help.png';
-export const illSecSitemap     = '/illustrations/ill-sec-sitemap.png';
+export const illSecHero        = '/illustrations/ill-sec-hero.webp';
+export const illSecProducts    = '/illustrations/ill-sec-products.webp';
+export const illSecEcosystem   = '/illustrations/ill-sec-ecosystem.webp';
+export const illSecIdentity    = '/illustrations/ill-sec-identity.webp';
+export const illSecSecurity    = '/illustrations/ill-sec-security.webp';
+export const illSecDeveloper   = '/illustrations/ill-sec-developer.webp';
+export const illSecCta         = '/illustrations/ill-sec-cta.webp';
+export const illSecAbout       = '/illustrations/ill-sec-about.webp';
+export const illSecLeadership  = '/illustrations/ill-sec-leadership.webp';
+export const illSecEnterprise  = '/illustrations/ill-sec-enterprise.webp';
+export const illSecContact     = '/illustrations/ill-sec-contact.webp';
+export const illSecCareers     = '/illustrations/ill-sec-careers.webp';
+export const illSecPress       = '/illustrations/ill-sec-press.webp';
+export const illSecBrand       = '/illustrations/ill-sec-brand.webp';
+export const illSecHelp        = '/illustrations/ill-sec-help.webp';
+export const illSecSitemap     = '/illustrations/ill-sec-sitemap.webp';

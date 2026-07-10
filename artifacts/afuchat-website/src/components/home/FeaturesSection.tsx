@@ -75,7 +75,7 @@ export default function FeaturesSection() {
             transition={{ delay: 0.1 }}
             className="flex justify-center lg:justify-end mt-4 lg:mt-0"
           >
-            <img src={illSecSecurity} alt="AfuChat security" className="w-full max-w-sm drop-shadow-2xl" />
+            <img src={illSecSecurity} alt="AfuChat security" className="w-full max-w-sm drop-shadow-2xl" loading="lazy" decoding="async" />
           </motion.div>
         </div>
       </div>

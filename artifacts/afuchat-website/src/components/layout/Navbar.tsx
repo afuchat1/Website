@@ -135,7 +135,7 @@ export default function Navbar() {
                       {PRODUCT_DATA.slice(0, 4).map(p => (
                         <Link key={p.id} href={p.path} onClick={() => setProductsOpen(false)}>
                           <div className="flex items-center gap-3 px-2 py-2.5 rounded-xl hover:bg-white/6 transition-colors group">
-                            <img src={p.icon3d} alt="" className="w-8 h-8 object-contain flex-shrink-0" />
+                            <img src={p.icon3d} alt="" className="w-8 h-8 object-contain flex-shrink-0" loading="lazy" decoding="async" />
                             <div>
                               <p className="text-sm font-semibold text-white/85 group-hover:text-white leading-none mb-0.5">{p.name}</p>
                               <p className="text-xs text-white/32 leading-none">{p.tagline}</p>
@@ -149,7 +149,7 @@ export default function Navbar() {
                       {PRODUCT_DATA.slice(4, 8).map(p => (
                         <Link key={p.id} href={p.path} onClick={() => setProductsOpen(false)}>
                           <div className="flex items-center gap-3 px-2 py-2.5 rounded-xl hover:bg-white/6 transition-colors group">
-                            <img src={p.icon3d} alt="" className="w-8 h-8 object-contain flex-shrink-0" />
+                            <img src={p.icon3d} alt="" className="w-8 h-8 object-contain flex-shrink-0" loading="lazy" decoding="async" />
                             <div>
                               <p className="text-sm font-semibold text-white/85 group-hover:text-white leading-none mb-0.5">{p.name}</p>
                               <p className="text-xs text-white/32 leading-none">{p.tagline}</p>
@@ -217,7 +217,7 @@ export default function Navbar() {
               <div className="flex flex-col bg-white/5 py-2">
                 {PRODUCT_DATA.map(p => (
                   <Link key={p.id} href={p.path} className="flex items-center gap-4 px-8 py-3.5 text-sm text-white/60 hover:text-white hover:bg-white/5 transition-colors">
-                    <img src={p.icon3d} alt="" className="w-7 h-7 object-contain flex-shrink-0" />
+                    <img src={p.icon3d} alt="" className="w-7 h-7 object-contain flex-shrink-0" loading="lazy" decoding="async" />
                     <span className="font-medium">{p.name}</span>
                   </Link>
                 ))}

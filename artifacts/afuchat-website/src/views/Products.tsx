@@ -39,7 +39,7 @@ export default function Products() {
             >
               <Link href={p.path} className="block group">
                 <div className="flex flex-col items-start gap-4 p-5 rounded-2xl hover:bg-white/4 transition-colors">
-                  <img src={p.icon3d} alt={`${p.name} icon`} className="w-14 h-14 object-contain" />
+                  <img src={p.icon3d} alt={`${p.name} icon`} className="w-14 h-14 object-contain" loading="lazy" decoding="async" />
                   <div>
                     <p className="text-white font-bold text-base mb-1 group-hover:text-white/90 transition-colors">{p.name}</p>
                     <p className="text-white/35 text-xs uppercase tracking-widest font-semibold mb-2">{p.category}</p>

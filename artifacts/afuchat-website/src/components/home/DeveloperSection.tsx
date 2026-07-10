@@ -29,7 +29,7 @@ export default function DeveloperSection() {
             transition={{ delay: 0.1 }}
             className="flex justify-center"
           >
-            <img src={illSecDeveloper} alt="AfuChat developer platform" className="w-full max-w-sm drop-shadow-2xl" />
+            <img src={illSecDeveloper} alt="AfuChat developer platform" className="w-full max-w-sm drop-shadow-2xl" loading="lazy" decoding="async" />
           </motion.div>
         </div>
       </div>

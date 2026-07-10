@@ -99,7 +99,7 @@ export default function Partners() {
             </form>
           </div>
           <div className="hidden lg:flex justify-center">
-            <img src={illSecContact} alt="Contact us" className="w-full max-w-[300px] drop-shadow-2xl" />
+            <img src={illSecContact} alt="Contact us" className="w-full max-w-[300px] drop-shadow-2xl" loading="lazy" decoding="async" />
           </div>
         </motion.div>
       </div>

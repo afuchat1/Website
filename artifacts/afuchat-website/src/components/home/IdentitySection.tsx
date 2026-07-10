@@ -20,7 +20,7 @@ export default function IdentitySection() {
             viewport={{ once: true }}
             className="flex justify-center"
           >
-            <img src={illSecIdentity} alt="AfuMail identity" className="w-full max-w-sm drop-shadow-2xl" />
+            <img src={illSecIdentity} alt="AfuMail identity" className="w-full max-w-sm drop-shadow-2xl" loading="lazy" decoding="async" />
           </motion.div>
           <div>
             <motion.p

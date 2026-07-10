@@ -74,7 +74,7 @@ export default function Signup() {
             transition={{ delay: 0.15 }}
             className="hidden lg:flex flex-col items-center gap-8"
           >
-            <img src={illSecIdentity} alt="AfuMail identity" className="w-full max-w-xs drop-shadow-2xl" />
+            <img src={illSecIdentity} alt="AfuMail identity" className="w-full max-w-xs drop-shadow-2xl" loading="lazy" decoding="async" />
             <div className="flex flex-col gap-3 w-full max-w-xs">
               {[
                 'Access every AfuChat product',

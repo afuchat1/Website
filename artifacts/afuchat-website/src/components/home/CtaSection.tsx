@@ -32,7 +32,7 @@ export default function CtaSection() {
             transition={{ delay: 0.1 }}
             className="flex justify-center"
           >
-            <img src={illSecCta} alt="Get started with AfuChat" className="w-full max-w-sm drop-shadow-2xl" />
+            <img src={illSecCta} alt="Get started with AfuChat" className="w-full max-w-sm drop-shadow-2xl" loading="lazy" decoding="async" />
           </motion.div>
         </div>
       </div>
