@@ -180,9 +180,9 @@ export default function Navbar() {
                     <Link href="/products" onClick={() => setProductsOpen(false)} className="text-xs font-medium text-white/40 hover:text-white transition-colors">
                       See all products →
                     </Link>
-                    <Link href="/signup" onClick={() => setProductsOpen(false)} className="text-xs font-semibold text-white bg-gradient-to-r from-[#1F7AFF] to-[#6C63FF] px-4 py-2 rounded-full hover:opacity-90 transition-opacity">
+                    <a href="https://web.afuchat.com/register" onClick={() => setProductsOpen(false)} className="text-xs font-semibold text-white bg-gradient-to-r from-[#1F7AFF] to-[#6C63FF] px-4 py-2 rounded-full hover:opacity-90 transition-opacity">
                       Get started free
-                    </Link>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -209,12 +209,12 @@ export default function Navbar() {
             </a>
           ) : (
             <>
-              <Link href="/login" className="text-sm font-medium text-white/75 border border-white/16 px-5 py-2 rounded-full hover:bg-white/6 hover:border-white/26 transition-colors">
+              <a href="https://web.afuchat.com/login" className="text-sm font-medium text-white/75 border border-white/16 px-5 py-2 rounded-full hover:bg-white/6 hover:border-white/26 transition-colors">
                 Log in
-              </Link>
-              <Link href="/signup" className="text-sm font-medium text-white bg-gradient-to-r from-[#1F7AFF] to-[#6C63FF] rounded-full px-5 py-2 hover:opacity-90 transition-opacity">
+              </a>
+              <a href="https://web.afuchat.com/register" className="text-sm font-medium text-white bg-gradient-to-r from-[#1F7AFF] to-[#6C63FF] rounded-full px-5 py-2 hover:opacity-90 transition-opacity">
                 Sign Up
-              </Link>
+              </a>
             </>
           )}
         </div>
@@ -270,12 +270,12 @@ export default function Navbar() {
               </a>
             ) : (
               <>
-                <Link href="/login" className="flex items-center justify-center text-sm font-medium text-white/80 border border-white/15 rounded-full px-4 py-3.5 hover:bg-white/6 transition-colors">
+                <a href="https://web.afuchat.com/login" className="flex items-center justify-center text-sm font-medium text-white/80 border border-white/15 rounded-full px-4 py-3.5 hover:bg-white/6 transition-colors">
                   Log in
-                </Link>
-                <Link href="/signup" className="flex items-center justify-center text-sm font-bold text-white bg-gradient-to-r from-[#1F7AFF] to-[#6C63FF] rounded-full px-4 py-3.5 hover:opacity-90 transition-opacity">
+                </a>
+                <a href="https://web.afuchat.com/register" className="flex items-center justify-center text-sm font-bold text-white bg-gradient-to-r from-[#1F7AFF] to-[#6C63FF] rounded-full px-4 py-3.5 hover:opacity-90 transition-opacity">
                   Sign Up
-                </Link>
+                </a>
               </>
             )}
           </div>

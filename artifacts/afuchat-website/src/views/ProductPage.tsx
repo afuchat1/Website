@@ -29,13 +29,13 @@ export default function ProductPage({ id }: { id: string }) {
                   <span key={f} className="px-3 py-1.5 rounded-full text-xs font-semibold text-white/70 bg-white/8">{f}</span>
                 ))}
               </div>
-              <Link
-                href="/signup"
+              <a
+                href="https://web.afuchat.com/register"
                 className="inline-flex items-center gap-2 px-7 py-3.5 text-white font-bold text-sm rounded-full hover:opacity-90 transition-opacity"
                 style={{ background: `linear-gradient(135deg, ${product!.color}, #6C63FF)` }}
               >
                 Get started free →
-              </Link>
+              </a>
             </div>
             <div className="order-1 lg:order-2 flex justify-center">
               <motion.img

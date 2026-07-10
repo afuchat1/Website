@@ -190,9 +190,9 @@ export default function GenericPage({ title, type }: GenericPageProps) {
         <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
           <h2 className="text-2xl font-bold text-white mb-3 tracking-tight">Ready to get started?</h2>
           <p className="text-white/40 text-sm mb-6">Create your free account and start using any of our products instantly.</p>
-          <Link href="/signup" className="inline-block px-6 py-3 text-white font-bold text-sm rounded-full hover:opacity-90 transition-opacity" style={{ backgroundColor: accent }}>
+          <a href="https://web.afuchat.com/register" className="inline-block px-6 py-3 text-white font-bold text-sm rounded-full hover:opacity-90 transition-opacity" style={{ backgroundColor: accent }}>
             Create free account →
-          </Link>
+          </a>
         </motion.div>
       </div>
       <Footer />

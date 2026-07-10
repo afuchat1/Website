@@ -17,9 +17,9 @@ export default function CtaSection() {
               Create one free account and access every AfuChat product instantly. No bundles, no forced upgrades — just the tools you actually want.
             </p>
             <div className="flex flex-col sm:flex-row gap-3">
-              <Link href="/signup" className="inline-flex items-center justify-center px-7 py-3.5 bg-gradient-to-r from-[#1F7AFF] to-[#6C63FF] text-white font-bold text-sm rounded-full hover:opacity-90 transition-opacity">
+              <a href="https://web.afuchat.com/register" className="inline-flex items-center justify-center px-7 py-3.5 bg-gradient-to-r from-[#1F7AFF] to-[#6C63FF] text-white font-bold text-sm rounded-full hover:opacity-90 transition-opacity">
                 Create free account →
-              </Link>
+              </a>
               <Link href="/products" className="inline-flex items-center justify-center px-7 py-3.5 text-white/60 font-medium text-sm border border-white/10 rounded-full hover:text-white hover:border-white/20 transition-colors">
                 Browse products
               </Link>
