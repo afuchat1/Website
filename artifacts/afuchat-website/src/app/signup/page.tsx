@@ -1,13 +1,11 @@
 import type { Metadata } from 'next';
-import SignupClient from '@/views/Signup';
+import SignupRedirect from './SignupRedirect';
 
 export const metadata: Metadata = {
   title: 'Create Your Free Account — AfuChat',
-  description:
-    'Sign up for free and access every AfuChat product with a single account. One identity, zero friction — AfuMail, AfuChat, AfuAI, AfuCloud, and more.',
-  alternates: { canonical: 'https://afuchat.com/signup' },
+  robots: { index: false },
 };
 
-export default function Page() {
-  return <SignupClient />;
+export default function SignupPage() {
+  return <SignupRedirect />;
 }
