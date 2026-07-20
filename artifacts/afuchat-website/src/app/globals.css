@@ -11,7 +11,7 @@
   --color-secondary: #6C63FF;
   --color-text: #0F172A;
   --color-text-secondary: #2D5A7A;
-  --font-sans: var(--font-inter), 'Inter', sans-serif;
+  --font-sans: 'Inter', sans-serif;
 }
 
 @layer base {

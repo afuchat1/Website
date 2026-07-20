@@ -16,3 +16,6 @@ run = "pnpm --filter @workspace/afuchat-website run dev"
 [services.production]
 build = [ "pnpm", "--filter", "@workspace/afuchat-website", "run", "build" ]
 run = "pnpm --filter @workspace/afuchat-website run start"
+
+[services.env]
+PORT = "18182"

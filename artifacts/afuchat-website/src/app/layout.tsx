@@ -1,15 +1,7 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
 import Navbar from '@/components/layout/Navbar';
 import CookieConsent from '@/components/layout/CookieConsent';
 import '@/app/globals.css';
-
-const inter = Inter({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700', '800', '900'],
-  display: 'swap',
-  variable: '--font-inter',
-});
 
 const BASE_URL = 'https://afuchat.com';
 
@@ -113,8 +105,16 @@ const websiteJsonLd = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={inter.variable} style={{ background: '#040c1e' }}>
+    <html lang="en" suppressHydrationWarning style={{ background: '#040c1e' }}>
       <head>
+        {/* Inter font via Google Fonts — no next/font/google to avoid SSR Suspense boundary */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        {/* eslint-disable-next-line @next/next/no-page-custom-font */}
+        <link
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+          rel="stylesheet"
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
@@ -124,7 +124,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
         />
       </head>
-      <body className={inter.className}>
+      <body suppressHydrationWarning>
         <Navbar />
         <main className="pt-16">{children}</main>
         <CookieConsent />
