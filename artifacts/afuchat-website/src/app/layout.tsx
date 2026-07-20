@@ -106,15 +106,10 @@ const websiteJsonLd = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning style={{ background: '#040c1e' }}>
-      <head>
-        {/* Inter font via Google Fonts — no next/font/google to avoid SSR Suspense boundary */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        {/* eslint-disable-next-line @next/next/no-page-custom-font */}
-        <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
-          rel="stylesheet"
-        />
+      <body suppressHydrationWarning>
+        {/* JSON-LD structured data — intentionally in <body> so that
+            Replit's devtools <script> injection into <head> cannot cause
+            a hydration mismatch. JSON-LD is valid anywhere in the document. */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
@@ -123,8 +118,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
         />
-      </head>
-      <body suppressHydrationWarning>
         <Navbar />
         <main className="pt-16">{children}</main>
         <CookieConsent />

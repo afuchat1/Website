@@ -2,6 +2,7 @@
   "name": "@workspace/afuchat-website",
   "version": "0.0.0",
   "private": true,
+  "packageManager": "pnpm@10",
   "scripts": {
     "dev": "next dev -p ${PORT:-3000} -H 0.0.0.0",
     "build": "next build",

@@ -11,17 +11,13 @@ Do NOT use `next/font/google` in Next.js 15 + React 19 projects running on Repli
 
 **How to apply:**
 1. Remove `import { Inter } from 'next/font/google'` and the font config from layout.tsx.
-2. Replace with preconnect + stylesheet link tags in the `<head>`:
-   ```tsx
-   <link rel="preconnect" href="https://fonts.googleapis.com" />
-   <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-   <link
-     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
-     rel="stylesheet"
-   />
+2. Do NOT use `<link rel="stylesheet">` in `<head>` for Google Fonts — Replit devtools injects a `<script>` into `<head>` at runtime, which shifts the link's DOM position and causes another hydration mismatch (`+<link> -<script>`).
+3. Instead, load the font via CSS `@import` at the top of `globals.css`:
+   ```css
+   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
    ```
-3. In globals.css change `--font-sans: var(--font-inter), 'Inter', sans-serif` → `--font-sans: 'Inter', sans-serif`.
-4. Add `suppressHydrationWarning` to `<html>` and `<body>` to handle any residual proxy-injected attribute differences.
+4. In globals.css change `--font-sans: var(--font-inter), 'Inter', sans-serif` → `--font-sans: 'Inter', sans-serif`.
+5. Add `suppressHydrationWarning` to `<html>` and `<body>` to handle any residual proxy-injected attribute differences.
 
 **Diagnostic tip:**
 The Replit browser console log capture truncates around 600 bytes. To see the full hydration error component stack: add a `window.addEventListener('error', ...)` + POST to `/api/dev-log` API route, or look at S:0 in the server HTML (empty S:0 = `useServerInsertedHTML` producing nothing = likely cause).
