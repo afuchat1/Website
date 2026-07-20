@@ -1,0 +1,1 @@
+- [Vite config env fallbacks](vite-config-env.md) — scaffold vite.config throws on missing PORT/BASE_PATH; use graceful fallbacks when artifact.toml has no [services.env] block.

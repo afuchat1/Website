@@ -14,5 +14,5 @@ localPort = 18183
 run = "echo 'backup - not intended to run'"
 
 [services.env]
-PORT = "18183"
-BASE_PATH = "/__migration-backup-afuchat"
+PORT = "18182"
+BASE_PATH = "/"

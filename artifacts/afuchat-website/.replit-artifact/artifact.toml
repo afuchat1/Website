@@ -14,13 +14,10 @@ localPort = 18182
 run = "pnpm --filter @workspace/afuchat-website run dev"
 
 [services.production]
+build = [ "pnpm", "--filter", "@workspace/afuchat-website", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/afuchat-website/dist/public"
 
-[services.production.build]
-args = ["pnpm", "--filter", "@workspace/afuchat-website", "run", "build"]
-
-[services.production.run]
-args = ["pnpm", "--filter", "@workspace/afuchat-website", "run", "start"]
-
-[services.env]
-PORT = "18182"
-BASE_PATH = "/"
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
