@@ -1,7 +1,5 @@
-'use client';
 import { useState, useEffect, useRef } from 'react';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { Link, useLocation } from 'wouter';
 import { Menu, X, ChevronDown, Github } from 'lucide-react';
 import { PRODUCT_DATA } from '@/data/products';
 import { supabase } from '@/lib/supabase';
@@ -50,7 +48,7 @@ export default function Navbar() {
   const [productsOpen, setProductsOpen] = useState(false);
   const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const pathname = usePathname();
+  const [pathname] = useLocation();
   const productsRef = useRef<HTMLDivElement>(null);
   // `null` = auth state not yet known (avoids flashing Login/Sign Up before
   // the session check resolves); `true`/`false` once resolved.

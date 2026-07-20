@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import { Link } from 'wouter';
 import { PRODUCT_DATA } from '@/data/products';
 import { TRUSTPILOT_PROFILE_URL, TRUSTPILOT_SUMMARY } from '@/data/trustpilot';
 import { openCookiePreferences } from '@/lib/cookieConsent';

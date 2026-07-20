@@ -1,6 +1,6 @@
-'use client';
+
 import { motion } from 'framer-motion';
-import Link from 'next/link';
+import { Link } from 'wouter';
 import { useState, useEffect, useCallback } from 'react';
 import { Globe, MessageSquare, Zap, Copy, Check, ArrowRight, Github } from 'lucide-react';
 import { PRODUCT_DATA } from '@/data/products';

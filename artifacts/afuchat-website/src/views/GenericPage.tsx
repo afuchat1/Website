@@ -1,63 +1,12 @@
-'use client';
 import { motion } from 'framer-motion';
-import Link from 'next/link';
+import { Link } from 'wouter';
 import { PRODUCT_DATA } from '@/data/products';
 import {
   illSecAbout, illSecBrand, illSecCareers, illSecContact,
   illSecEnterprise, illSecHelp, illSecIdentity, illSecLeadership,
   illSecPress, illSecSecurity, illSecSitemap,
 } from '@/data/illustrations';
-import { openCookiePreferences } from '@/lib/cookieConsent';
-
-const _FL = '/assets/afuchat_logo_transparent.png';
-const _FT = '/assets/trustpilot_logo.png';
-const _FG = '/assets/google_play_badge.png';
-const _FP = [
-  { n: 'AfuMail',   p: '/products/afumail',   i: '/illustrations/icon3d-afumail.webp' },
-  { n: 'AfuChat',   p: '/products/afuchat',   i: '/illustrations/icon3d-afuchat.webp' },
-  { n: 'AfuAI',     p: '/products/afuai',     i: '/illustrations/icon3d-afuai.webp' },
-  { n: 'AfuCloud',  p: '/products/afucloud',  i: '/illustrations/icon3d-afucloud.webp' },
-  { n: 'AfuMovies', p: '/products/afumovies', i: '/illustrations/icon3d-afumovies.webp' },
-  { n: 'AfuMall',   p: '/products/afumall',   i: '/illustrations/icon3d-afumall.webp' },
-  { n: 'AfuNews',   p: '/products/afunews',   i: '/illustrations/icon3d-afunews.webp' },
-  { n: 'AfuBlog',   p: '/products/afublog',   i: '/illustrations/icon3d-afublog.webp' },
-];
-function PageFooter() {
-  const yr = new Date().getFullYear();
-  return (
-    <footer className="relative">
-      <div className="max-container container-pad pt-16 pb-8">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 mb-10 md:mb-14">
-          <div className="col-span-1 sm:col-span-2 md:col-span-1">
-            <Link href="/" className="flex items-center gap-2.5 mb-5"><img src={_FL} alt="AfuChat" className="h-8 w-auto" /><span className="text-white font-bold text-lg">AfuChat</span></Link>
-            <p className="text-white/40 text-sm leading-relaxed mb-5">Independent products.<br />Built for the world.</p>
-            <div className="flex items-center gap-3 flex-wrap mb-5">
-              <a href="https://www.trustpilot.com/review/afuchat.com" target="_blank" rel="noopener noreferrer" className="bg-white hover:bg-white/90 transition-colors rounded-full px-3 py-1.5 flex items-center"><img src={_FT} alt="Trustpilot" className="h-5 w-auto" loading="lazy" /></a>
-              <a href="https://play.google.com/store" target="_blank" rel="noopener noreferrer"><img src={_FG} alt="Get it on Google Play" className="h-10 w-auto" loading="lazy" /></a>
-            </div>
-            <p className="text-white/22 text-xs">AfuChat Technologies Limited</p>
-          </div>
-          <div>
-            <h4 className="text-white/50 font-semibold text-xs uppercase tracking-widest mb-5">Products</h4>
-            <ul className="flex flex-col gap-3.5">{_FP.slice(0,4).map(p=><li key={p.n}><Link href={p.p} className="flex items-center gap-2.5 text-white/38 hover:text-white text-sm transition-colors"><img src={p.i} alt="" className="w-5 h-5 object-contain" loading="lazy"/>{p.n}</Link></li>)}</ul>
-          </div>
-          <div>
-            <h4 className="text-white/50 font-semibold text-xs uppercase tracking-widest mb-5">More</h4>
-            <ul className="flex flex-col gap-3.5">{_FP.slice(4).map(p=><li key={p.n}><Link href={p.p} className="flex items-center gap-2.5 text-white/38 hover:text-white text-sm transition-colors"><img src={p.i} alt="" className="w-5 h-5 object-contain" loading="lazy"/>{p.n}</Link></li>)}</ul>
-          </div>
-          <div>
-            <h4 className="text-white/50 font-semibold text-xs uppercase tracking-widest mb-5">Company</h4>
-            <ul className="flex flex-col gap-3">{[{l:'About',h:'/about'},{l:'Developers',h:'/developers'},{l:'Partners',h:'/partners'},{l:'Careers',h:'/about/careers'}].map(x=><li key={x.h}><Link href={x.h} className="text-white/38 hover:text-white text-sm transition-colors">{x.l}</Link></li>)}</ul>
-          </div>
-        </div>
-        <div className="border-t border-white/8 pt-7 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-white/22 text-xs">© {yr} AfuChat Technologies Limited. All rights reserved.</p>
-          <div className="flex items-center gap-5">{[{l:'Privacy Policy',h:'/legal/privacy'},{l:'Terms of Service',h:'/legal/terms'},{l:'Cookie Policy',h:'/legal/cookies'}].map(x=><Link key={x.h} href={x.h} className="text-white/28 hover:text-white/60 text-xs transition-colors">{x.l}</Link>)}<button onClick={openCookiePreferences} className="text-white/28 hover:text-white/60 text-xs transition-colors">Manage Cookies</button></div>
-        </div>
-      </div>
-    </footer>
-  );
-}
+import Footer from '@/components/layout/Footer';
 
 interface GenericPageProps { title: string; type: string; }
 
@@ -94,16 +43,16 @@ const PAGE_CONTENT: Record<string, {
     accent: '#16C784', illustration: illSecSecurity,
     sections: [
       { heading: 'Security by design', body: 'Security is not an add-on at AfuChat — it is the foundation every product is built on. We use AES-256 encryption for data at rest, TLS 1.3 for data in transit, and zero-knowledge architecture where applicable.' },
-      { heading: 'Two-factor authentication', body: 'Every account supports TOTP-based two-factor authentication and hardware security keys. For enterprise accounts, 2FA can be enforced across the entire organization with a single policy change.' },
-      { heading: 'Vulnerability disclosure', body: 'We operate a responsible disclosure program for security researchers. If you discover a vulnerability in any AfuChat product, please contact our security team. We commit to acknowledging reports within 24 hours.' },
+      { heading: 'Responsible disclosure', body: 'We maintain a public responsible disclosure program. If you discover a security vulnerability in any AfuChat product, please report it to security@afuchat.com. We respond within 24 hours and provide a full resolution timeline.' },
+      { heading: 'Certifications', body: 'AfuChat maintains SOC 2 Type II certification across all products. Enterprise customers can request our full compliance documentation through their account administrator.' },
     ],
   },
-  contact: {
-    accent: '#14B8A6', illustration: illSecContact,
+  identity: {
+    accent: '#8B5CF6', illustration: illSecIdentity,
     sections: [
-      { heading: 'Get in touch', body: "We'd love to hear from you. Whether you have a question about a product, a partnership inquiry, a press request, or just want to say hello — our team is here." },
-      { heading: 'Support', body: 'For product support, please visit our Help Center. Our support team responds within 4 hours on business days and within 24 hours on weekends. Enterprise customers have access to dedicated support with a guaranteed 1-hour SLA.' },
-      { heading: 'Business inquiries', body: 'For partnership, enterprise, and media inquiries, please reach out to us at business@afuchat.com. We typically respond within one business day.' },
+      { heading: 'Your digital identity', body: 'AfuMail is more than email — it is a portable identity layer that connects you to every AfuChat product without a separate account for each one.' },
+      { heading: 'How it works', body: 'Sign in once with your AfuMail address and access AfuCloud, AfuChat, AfuAI, and more — all without re-entering credentials. Your identity stays yours, and you control exactly which products can access it.' },
+      { heading: 'Privacy by design', body: 'We do not sell identity data. Your AfuMail address is never shared with advertisers, and cross-product login is handled with encrypted tokens that you can revoke at any time.' },
     ],
   },
   careers: {
@@ -143,6 +92,14 @@ const PAGE_CONTENT: Record<string, {
     sections: [
       { heading: 'Find your way around', body: 'A complete directory of every page across the AfuChat corporate site — products, company information, developer resources, and legal documentation.' },
       { heading: 'Need something else?', body: 'If you cannot find a page you are looking for, visit our Help Center or contact our team directly.' },
+    ],
+  },
+  contact: {
+    accent: '#1F95FF', illustration: illSecContact,
+    sections: [
+      { heading: 'Get in touch', body: 'We would love to hear from you. Whether you have a question about our products, pricing, enterprise needs, or just want to say hello — our team is ready to answer.' },
+      { heading: 'Support', body: 'For product support, email support@afuchat.com or reach out from within any AfuChat product. We respond within 4 hours on business days.' },
+      { heading: 'Partnerships', body: 'Interested in partnering with AfuChat? Visit our partners page or email partnerships@afuchat.com.' },
     ],
   },
   privacy: {
@@ -245,7 +202,7 @@ export default function GenericPage({ title, type }: GenericPageProps) {
           </a>
         </motion.div>
       </div>
-      <PageFooter />
+      <Footer />
     </div>
   );
 }

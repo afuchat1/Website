@@ -1,8 +1,8 @@
-'use client';
+
 
 import { motion } from 'framer-motion';
 import { Star, ExternalLink } from 'lucide-react';
-import Link from 'next/link';
+import { Link } from 'wouter';
 import { openCookiePreferences } from '@/lib/cookieConsent';
 
 const _FL = '/assets/afuchat_logo_transparent.png';

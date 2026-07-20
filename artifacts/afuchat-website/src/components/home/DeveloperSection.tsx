@@ -1,7 +1,7 @@
-'use client';
+
 import { illSecDeveloper } from '@/data/illustrations';
 import { motion } from 'framer-motion';
-import Link from 'next/link';
+import { Link } from 'wouter';
 
 export default function DeveloperSection() {
   return (
