@@ -1,6 +1,6 @@
 {
   "buildCommand": "pnpm --filter @workspace/afuchat-website run build",
-  "outputDirectory": "artifacts/afuchat-website/dist",
+  "outputDirectory": "dist",
   "framework": null,
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
