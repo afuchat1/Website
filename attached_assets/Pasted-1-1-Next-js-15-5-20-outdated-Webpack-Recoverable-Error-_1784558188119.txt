@@ -1,0 +1,67 @@
+1/1
+
+Next.js 15.5.20 (outdated)
+Webpack
+Recoverable Error
+
+Hydration failed because the server rendered HTML didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+See more info here: https://nextjs.org/docs/messages/react-hydration-error
+
+
+  ...
+    <HotReload assetPrefix="" globalError={[...]}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/products" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.tsx">
+                      <SegmentTrieNode>
+                      <link>
+                      <RootLayout>
+                        <html lang="en" suppressHydrationWarning={true} style={{...}}>
+                          <head>
+                            <link>
+                            <link>
++                           <link
++                             href={"https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&disp..."}
++                             rel="stylesheet"
++                           >
+-                           <script
+-                             src="/__replco/static/devtools/injected.js"
+-                             onerror={"parent.postMessage({event:'error',payload:'script.onerror: Failed to load '+e..."}
+-                           >
+                            ...
+                          ...
+                  ...
+src/app/layout.tsx (114:9) @ RootLayout
+
+
+  112 |         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+  113 |         {/* eslint-disable-next-line @next/next/no-page-custom-font */}
+> 114 |         <link
+      |         ^
+  115 |           href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+  116 |           rel="stylesheet"
+  117 |         />
+Call Stack
+12
+
+Show 10 ignore-listed frame(s)
+link
+<anonymous>
+RootLayout
+src/app/layout.tsx (114:9)

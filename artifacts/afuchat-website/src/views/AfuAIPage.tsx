@@ -47,14 +47,22 @@ function useEngageraStatus() {
   // countdown tick every second
   useEffect(() => { const id = setInterval(() => setTick(t => t + 1), 1_000); return () => clearInterval(id); }, []);
 
-  const resetIn = pool ? (() => {
-    const ms = new Date(pool.pool_end).getTime() - Date.now();
-    if (ms <= 0) return '—';
-    const h = Math.floor(ms / 3_600_000);
-    const m = Math.floor((ms % 3_600_000) / 60_000);
-    const s = Math.floor((ms % 60_000) / 1_000);
-    return `${h}h ${String(m).padStart(2,'0')}m ${String(s).padStart(2,'0')}s`;
-  })() : null;
+  const [resetIn, setResetIn] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (!pool) { setResetIn(null); return; }
+    const compute = () => {
+      const ms = new Date(pool.pool_end).getTime() - Date.now();
+      if (ms <= 0) { setResetIn('—'); return; }
+      const h = Math.floor(ms / 3_600_000);
+      const m = Math.floor((ms % 3_600_000) / 60_000);
+      const s = Math.floor((ms % 60_000) / 1_000);
+      setResetIn(`${h}h ${String(m).padStart(2,'0')}m ${String(s).padStart(2,'0')}s`);
+    };
+    compute();
+    const id = setInterval(compute, 1_000);
+    return () => clearInterval(id);
+  }, [pool]);
 
   return { pool, tokens, resetIn };
 }
