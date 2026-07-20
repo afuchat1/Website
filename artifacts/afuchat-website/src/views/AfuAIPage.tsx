@@ -5,6 +5,7 @@ import { useState, useEffect, useCallback } from 'react';
 import { Globe, MessageSquare, Zap, Copy, Check, ArrowRight, Github } from 'lucide-react';
 import { PRODUCT_DATA } from '@/data/products';
 import { supabase } from '@/lib/supabase';
+import { fetchTokenStats, type TokenStats } from '@/lib/engagera';
 import { openCookiePreferences } from '@/lib/cookieConsent';
 
 /* ─────────────────────────────────────────────
@@ -16,14 +17,6 @@ interface PoolStatus {
   current_time: string;
   is_pool_active: boolean;
   timezone: string;
-}
-
-interface TokenStats {
-  total_tokens: number;
-  input_tokens: number;
-  output_tokens: number;
-  request_count: number;
-  fetched_at: string;
 }
 
 /** Format a raw token count → human-readable (e.g. 3.66M, 12.4K) */
@@ -39,14 +32,12 @@ function useEngageraStatus() {
   const [tick,   setTick]   = useState(0);
 
   const refresh = useCallback(async () => {
-    const [{ data: poolData }, statsRes] = await Promise.all([
+    const [{ data: poolData }, stats] = await Promise.all([
       supabase.rpc('get_pool_status'),
-      fetch('/api/engagera/stats')
-        .then(r => r.ok ? (r.json() as Promise<{ ok: boolean; data: TokenStats }>) : null)
-        .catch(() => null),
+      fetchTokenStats().catch(() => null),
     ]);
     if (poolData) setPool(poolData as PoolStatus);
-    if (statsRes?.ok && statsRes?.data) setTokens(statsRes.data);
+    if (stats) setTokens(stats);
   }, []);
 
   useEffect(() => { refresh(); }, [refresh]);
@@ -105,7 +96,7 @@ function NpmIcon({ className = 'h-3.5 w-auto' }: { className?: string }) {
   );
 }
 function EngageraIcon({ className = 'w-4 h-4 rounded' }: { className?: string }) {
-  return <img src="/assets/engagera-favicon.svg" alt="Engagera" className={className} />;
+  return <img src="/assets/engagera-favicon.png" alt="Engagera" className={className} />;
 }
 function GithubIcon({ className = 'w-4 h-4' }: { className?: string }) {
   return <Github className={className} />;
