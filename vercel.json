@@ -1,0 +1,6 @@
+{
+  "framework": null,
+  "buildCommand": "pnpm --filter @workspace/afuchat-website run build",
+  "outputDirectory": "artifacts/afuchat-website/dist",
+  "installCommand": "pnpm install"
+}
