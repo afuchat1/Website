@@ -18,23 +18,40 @@ interface PoolStatus {
   timezone: string;
 }
 
+interface TokenStats {
+  total_tokens: number;
+  input_tokens: number;
+  output_tokens: number;
+  request_count: number;
+  fetched_at: string;
+}
+
+/** Format a raw token count → human-readable (e.g. 3.66M, 12.4K) */
+function fmtTokens(n: number): string {
+  if (n >= 1_000_000) return `${(n / 1_000_000).toFixed(2)}M`;
+  if (n >= 1_000)     return `${(n / 1_000).toFixed(1)}K`;
+  return n.toLocaleString();
+}
+
 function useEngageraStatus() {
-  const [pool, setPool]   = useState<PoolStatus | null>(null);
-  const [users, setUsers] = useState<number | null>(null);
-  const [tick, setTick]   = useState(0);
+  const [pool,   setPool]   = useState<PoolStatus | null>(null);
+  const [tokens, setTokens] = useState<TokenStats | null>(null);
+  const [tick,   setTick]   = useState(0);
 
   const refresh = useCallback(async () => {
-    const [{ data: poolData }, { count }] = await Promise.all([
+    const [{ data: poolData }, statsRes] = await Promise.all([
       supabase.rpc('get_pool_status'),
-      supabase.from('profiles').select('*', { count: 'exact', head: true }),
+      fetch('/api/engagera/stats')
+        .then(r => r.ok ? (r.json() as Promise<{ ok: boolean; data: TokenStats }>) : null)
+        .catch(() => null),
     ]);
     if (poolData) setPool(poolData as PoolStatus);
-    if (typeof count === 'number') setUsers(count);
+    if (statsRes?.ok && statsRes?.data) setTokens(statsRes.data);
   }, []);
 
   useEffect(() => { refresh(); }, [refresh]);
-  // poll every 30 s
-  useEffect(() => { const id = setInterval(() => { refresh(); setTick(t => t + 1); }, 30_000); return () => clearInterval(id); }, [refresh]);
+  // poll every 60 s — token stats update slowly
+  useEffect(() => { const id = setInterval(() => { refresh(); setTick(t => t + 1); }, 60_000); return () => clearInterval(id); }, [refresh]);
   // countdown tick every second
   useEffect(() => { const id = setInterval(() => setTick(t => t + 1), 1_000); return () => clearInterval(id); }, []);
 
@@ -47,7 +64,7 @@ function useEngageraStatus() {
     return `${h}h ${String(m).padStart(2,'0')}m ${String(s).padStart(2,'0')}s`;
   })() : null;
 
-  return { pool, users, resetIn };
+  return { pool, tokens, resetIn };
 }
 
 /* ─────────────────────────────────────────────
@@ -88,7 +105,7 @@ function NpmIcon({ className = 'h-3.5 w-auto' }: { className?: string }) {
   );
 }
 function EngageraIcon({ className = 'w-4 h-4 rounded' }: { className?: string }) {
-  return <img src="/assets/engagera-32.png" alt="Engagera" className={className} />;
+  return <img src="/assets/engagera-favicon.svg" alt="Engagera" className={className} />;
 }
 function GithubIcon({ className = 'w-4 h-4' }: { className?: string }) {
   return <Github className={className} />;
@@ -207,7 +224,7 @@ function PageFooter() {
 ───────────────────────────────────────────── */
 export default function AfuAIPage() {
   const [tab, setTab] = useState('search');
-  const { pool, users, resetIn } = useEngageraStatus();
+  const { pool, tokens, resetIn } = useEngageraStatus();
   const product = PRODUCT_DATA.find(p => p.id === 'afuai')!;
   const others  = PRODUCT_DATA.filter(p => p.id !== 'afuai').slice(0, 6);
 
@@ -242,7 +259,7 @@ export default function AfuAIPage() {
                 <NpmIcon className="h-3 w-auto" />
                 SDK
               </a>
-              <a href="https://github.com/afuchat1/sdk" target="_blank" rel="noopener noreferrer"
+              <a href="https://github.com/afuchat1/EngageraAi" target="_blank" rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-white/40 hover:text-white/70 font-medium text-sm transition-colors">
                 <GithubIcon className="w-3.5 h-3.5" />
                 Source
@@ -262,7 +279,12 @@ export default function AfuAIPage() {
                   <span className="text-white/15">·</span>
                   <span>Resets {resetIn ?? '…'}</span>
                   <span className="text-white/15">·</span>
-                  {users !== null && <span>{users.toLocaleString()} users</span>}
+                  {tokens !== null && (
+                    <span className="flex items-center gap-1.5">
+                      <span className="text-[#1F95FF]/80 font-semibold tabular-nums">{fmtTokens(tokens.total_tokens)}</span>
+                      <span className="text-white/20">tokens used</span>
+                    </span>
+                  )}
                 </>
               ) : (
                 <span className="text-white/20">Fetching live status…</span>
@@ -386,12 +408,29 @@ export default function AfuAIPage() {
                     <span className="text-white/55">Resets in</span>
                     <span className="text-white/55 font-mono">{resetIn ?? '—'}</span>
                   </div>
-                  {users !== null && (
-                    <div className="flex items-center gap-3">
-                      <span className="w-1.5 shrink-0" />
-                      <span className="text-white/55">Registered users</span>
-                      <span className="text-white/55">{users.toLocaleString()}</span>
-                    </div>
+                  {tokens !== null && (
+                    <>
+                      <div className="flex items-center gap-3">
+                        <span className="w-1.5 shrink-0" />
+                        <span className="text-white/55">Tokens used</span>
+                        <span className="text-[#1F95FF]/80 font-mono font-semibold tabular-nums">{fmtTokens(tokens.total_tokens)}</span>
+                      </div>
+                      <div className="flex items-center gap-3 pl-4">
+                        <span className="w-1.5 shrink-0" />
+                        <span className="text-white/30 text-[12px]">↳ Input</span>
+                        <span className="text-white/38 font-mono tabular-nums text-[12px]">{fmtTokens(tokens.input_tokens)}</span>
+                      </div>
+                      <div className="flex items-center gap-3 pl-4">
+                        <span className="w-1.5 shrink-0" />
+                        <span className="text-white/30 text-[12px]">↳ Output</span>
+                        <span className="text-white/38 font-mono tabular-nums text-[12px]">{fmtTokens(tokens.output_tokens)}</span>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <span className="w-1.5 shrink-0" />
+                        <span className="text-white/35 text-[12px]">API requests</span>
+                        <span className="text-white/40 font-mono tabular-nums text-[12px]">{tokens.request_count.toLocaleString()}</span>
+                      </div>
+                    </>
                   )}
                 </div>
               ) : (
@@ -416,10 +455,10 @@ export default function AfuAIPage() {
                 <NpmIcon className="h-2.5 w-auto" />
                 @afuchat1/engagera
               </a>
-              <a href="https://github.com/afuchat1/sdk" target="_blank" rel="noopener noreferrer"
+              <a href="https://github.com/afuchat1/EngageraAi" target="_blank" rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 text-white/28 hover:text-white/60 text-xs transition-colors">
                 <GithubIcon className="w-3 h-3" />
-                afuchat1/sdk
+                afuchat1/EngageraAi
               </a>
             </div>
           </div>
