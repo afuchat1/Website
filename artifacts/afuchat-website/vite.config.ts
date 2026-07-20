@@ -11,9 +11,7 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
-  build: {
-    outDir: process.env.VERCEL ? '../../dist' : 'dist',
-  },
+
   resolve: {
     alias: {
       '@': path.join(import.meta.dirname, 'src'),

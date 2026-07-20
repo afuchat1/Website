@@ -1,5 +1,5 @@
 {
-  "buildCommand": "pnpm --filter @workspace/afuchat-website run build",
+  "buildCommand": "pnpm --filter @workspace/afuchat-website run build && cp -r artifacts/afuchat-website/dist ./dist",
   "outputDirectory": "dist",
   "framework": null,
   "rewrites": [
