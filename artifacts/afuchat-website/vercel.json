@@ -1,5 +1,5 @@
 {
-  "buildCommand": "pnpm --filter @workspace/afuchat-website exec vite build --outDir ../../dist",
+  "buildCommand": "pnpm run build",
   "outputDirectory": "dist",
   "framework": null,
   "rewrites": [
