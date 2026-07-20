@@ -1,27 +1,18 @@
 kind = "web"
-previewPath = "/"
-title = "AfuChat Website"
+previewPath = "/__migration-backup-afuchat"
+title = "AfuChat Website (backup)"
 version = "1.0.0"
 id = "artifacts/afuchat-website"
 router = "path"
 
 [[services]]
 name = "web"
-paths = [ "/" ]
-localPort = 18182
+paths = [ "/__migration-backup-afuchat" ]
+localPort = 18183
 
 [services.development]
-run = "pnpm --filter @workspace/afuchat-website run dev"
-
-[services.production]
-build = [ "pnpm", "--filter", "@workspace/afuchat-website", "run", "build" ]
-serve = "static"
-publicDir = "artifacts/afuchat-website/dist/public"
-
-[[services.production.rewrites]]
-from = "/*"
-to = "/index.html"
+run = "echo 'backup - not intended to run'"
 
 [services.env]
-PORT = "18182"
-BASE_PATH = "/"
+PORT = "18183"
+BASE_PATH = "/__migration-backup-afuchat"

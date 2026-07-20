@@ -1,0 +1,26 @@
+kind = "web"
+previewPath = "/"
+title = "AfuChat Website"
+version = "1.0.0"
+id = "artifacts/afuchat-website"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 18182
+
+[services.development]
+run = "pnpm --filter @workspace/afuchat-website run dev"
+
+[services.production]
+
+[services.production.build]
+args = ["pnpm", "--filter", "@workspace/afuchat-website", "run", "build"]
+
+[services.production.run]
+args = ["pnpm", "--filter", "@workspace/afuchat-website", "run", "start"]
+
+[services.env]
+PORT = "18182"
+BASE_PATH = "/"

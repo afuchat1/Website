@@ -1,0 +1,142 @@
+import {
+  Mail, MessageCircle, Sparkles, Cloud, Play, ShoppingBag, Newspaper, PenLine,
+  LucideIcon
+} from 'lucide-react';
+import {
+  icon3dAfumail, icon3dAfuchat, icon3dAfuai, icon3dAfucloud,
+  icon3dAfumovies, icon3dAfumall, icon3dAfunews, icon3dAfublog,
+  illSvcAfumail, illSvcAfuchat, illSvcAfuai, illSvcAfucloud,
+  illSvcAfumovies, illSvcAfumall, illSvcAfunews, illSvcAfublog,
+} from './illustrations';
+
+export type ProductIcon = LucideIcon;
+
+export interface ProductData {
+  id: string;
+  name: string;
+  tagline: string;
+  category: string;
+  description: string;
+  features: string[];
+  color: string;
+  bgColor: string;
+  path: string;
+  icon: ProductIcon;
+  illustration: string;
+  icon3d: string;
+}
+
+export const PRODUCT_DATA: ProductData[] = [
+  {
+    id: "afumail",
+    name: "AfuMail",
+    tagline: "Your identity. Your gateway.",
+    category: "Mail",
+    description: "A secure, feature-rich email service that also functions as an optional single sign-on across other AfuChat products.",
+    features: ["Single Sign-On", "Advanced Anti-Spam", "Custom Domains"],
+    color: "#1F95FF",
+    bgColor: "#EBF5FF",
+    path: "/products/afumail",
+    icon: Mail,
+    illustration: illSvcAfumail,
+    icon3d: icon3dAfumail,
+  },
+  {
+    id: "afuchat",
+    name: "AfuChat",
+    tagline: "Connect. Share. Belong.",
+    category: "Social",
+    description: "Lightning-fast messaging with end-to-end encryption and rich media sharing.",
+    features: ["HD Video Calls", "Group Channels", "Instant Translation"],
+    color: "#6C63FF",
+    bgColor: "#F0EFFF",
+    path: "/products/afuchat",
+    icon: MessageCircle,
+    illustration: illSvcAfuchat,
+    icon3d: icon3dAfuchat,
+  },
+  {
+    id: "afuai",
+    name: "AfuAI",
+    tagline: "Intelligence, built in.",
+    category: "AI",
+    description: "Your personal smart assistant, context-aware and deeply integrated.",
+    features: ["Contextual Help", "Automated Workflows", "Voice Recognition"],
+    color: "#F59E0B",
+    bgColor: "#FEF3C7",
+    path: "/products/afuai",
+    icon: Sparkles,
+    illustration: illSvcAfuai,
+    icon3d: icon3dAfuai,
+  },
+  {
+    id: "afucloud",
+    name: "AfuCloud",
+    tagline: "Your files, everywhere.",
+    category: "Cloud",
+    description: "Secure, reliable, and blazingly fast cloud storage for all your devices.",
+    features: ["Auto-Sync", "Zero-Knowledge Encryption", "Smart Organization"],
+    color: "#0EA5E9",
+    bgColor: "#E0F2FE",
+    path: "/products/afucloud",
+    icon: Cloud,
+    illustration: illSvcAfucloud,
+    icon3d: icon3dAfucloud,
+  },
+  {
+    id: "afumovies",
+    name: "AfuMovies",
+    tagline: "Watch anything, anywhere.",
+    category: "Movies & discovery",
+    description: "Stream the latest blockbusters and indie classics in pristine 4K HDR.",
+    features: ["4K HDR Streaming", "Offline Viewing", "Personalized Recommendations"],
+    color: "#EF4444",
+    bgColor: "#FEE2E2",
+    path: "/products/afumovies",
+    icon: Play,
+    illustration: illSvcAfumovies,
+    icon3d: icon3dAfumovies,
+  },
+  {
+    id: "afumall",
+    name: "AfuMall",
+    tagline: "Shop smarter.",
+    category: "Shopping",
+    description: "A curated marketplace featuring premium brands and seamless checkout.",
+    features: ["One-Click Checkout", "Verified Sellers", "Global Shipping"],
+    color: "#F97316",
+    bgColor: "#FFEDD5",
+    path: "/products/afumall",
+    icon: ShoppingBag,
+    illustration: illSvcAfumall,
+    icon3d: icon3dAfumall,
+  },
+  {
+    id: "afunews",
+    name: "AfuNews",
+    tagline: "Stay informed.",
+    category: "News",
+    description: "Personalized news feed aggregating top global publishers.",
+    features: ["Real-Time Alerts", "Unbiased Reporting", "Read Offline"],
+    color: "#10B981",
+    bgColor: "#D1FAE5",
+    path: "/products/afunews",
+    icon: Newspaper,
+    illustration: illSvcAfunews,
+    icon3d: icon3dAfunews,
+  },
+  {
+    id: "afublog",
+    name: "AfuBlog",
+    tagline: "Write your story.",
+    category: "Blogging & writing",
+    description: "A distraction-free publishing platform for creators and thinkers.",
+    features: ["Beautiful Typography", "Audience Analytics", "Monetization Options"],
+    color: "#8B5CF6",
+    bgColor: "#EDE9FE",
+    path: "/products/afublog",
+    icon: PenLine,
+    illustration: illSvcAfublog,
+    icon3d: icon3dAfublog,
+  }
+];
