@@ -1,7 +1,7 @@
-
+'use client';
 import { illSecCta } from '@/data/illustrations';
 import { motion } from 'framer-motion';
-import { Link } from 'wouter';
+import Link from 'next/link';
 
 export default function CtaSection() {
   return (

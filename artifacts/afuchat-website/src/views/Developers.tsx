@@ -1,3 +1,4 @@
+'use client';
 import { motion } from 'framer-motion';
 import { Terminal, Book, Code2, Globe, Zap, Lock } from 'lucide-react';
 import DeveloperSection from '@/components/home/DeveloperSection';

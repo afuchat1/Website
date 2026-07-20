@@ -1,7 +1,8 @@
+'use client';
 import { motion } from 'framer-motion';
 import { illSecEcosystem, illSecContact } from '@/data/illustrations';
 import { ShieldCheck, Target, Rocket, Users } from 'lucide-react';
-import { Link } from 'wouter';
+import Link from 'next/link';
 import Footer from '@/components/layout/Footer';
 
 export default function Partners() {

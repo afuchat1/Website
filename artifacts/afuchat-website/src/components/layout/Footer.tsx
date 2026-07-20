@@ -1,4 +1,5 @@
-import { Link } from 'wouter';
+'use client';
+import Link from 'next/link';
 import { PRODUCT_DATA } from '@/data/products';
 import { TRUSTPILOT_PROFILE_URL, TRUSTPILOT_SUMMARY } from '@/data/trustpilot';
 import { openCookiePreferences } from '@/lib/cookieConsent';

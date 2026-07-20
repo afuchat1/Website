@@ -1,1 +1,2 @@
 - [Vite config env fallbacks](vite-config-env.md) — scaffold vite.config throws on missing PORT/BASE_PATH; use graceful fallbacks when artifact.toml has no [services.env] block.
+- [Next.js on Replit dev setup](nextjs-replit-dev.md) — key quirks for running Next.js App Router in Replit's proxied iframe environment.

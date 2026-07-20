@@ -1,7 +1,7 @@
-
+'use client';
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { Link } from 'wouter';
+import Link from 'next/link';
 import { illSecHero } from '@/data/illustrations';
 import { supabase } from '@/lib/supabase';
 

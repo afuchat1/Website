@@ -1,6 +1,7 @@
+'use client';
 import { motion } from 'framer-motion';
 import { PRODUCT_DATA } from '@/data/products';
-import { Link } from 'wouter';
+import Link from 'next/link';
 import { illSecProducts } from '@/data/illustrations';
 import Footer from '@/components/layout/Footer';
 

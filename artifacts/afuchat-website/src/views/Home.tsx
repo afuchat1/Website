@@ -1,5 +1,6 @@
 
-import { Link } from 'wouter';
+'use client';
+import Link from 'next/link';
 import HeroSection from '@/components/home/HeroSection';
 import ProductsSection from '@/components/home/ProductsSection';
 import ReviewsSection from '@/components/home/ReviewsSection';

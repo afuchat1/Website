@@ -1,8 +1,8 @@
-
+'use client';
 import { illSecProducts } from '@/data/illustrations';
 import { motion } from 'framer-motion';
 import { PRODUCT_DATA } from '@/data/products';
-import { Link } from 'wouter';
+import Link from 'next/link';
 
 export default function ProductsSection() {
   return (

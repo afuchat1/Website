@@ -1,4 +1,5 @@
-import { Link } from 'wouter';
+'use client';
+import Link from 'next/link';
 import Footer from '@/components/layout/Footer';
 
 export default function NotFoundPage() {

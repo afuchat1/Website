@@ -1,0 +1,66 @@
+@import 'tailwindcss';
+
+/* ── Sky-blue palette from the AfuChat brand image ── */
+@theme inline {
+  --color-background: #A8D4F0;
+  --color-surface: rgba(255,255,255,0.70);
+  --color-border: rgba(255,255,255,0.45);
+  --color-border-strong: rgba(255,255,255,0.65);
+  --color-primary: #1F95FF;
+  --color-primary-dark: #0F7AE0;
+  --color-secondary: #6C63FF;
+  --color-text: #0F172A;
+  --color-text-secondary: #2D5A7A;
+  --font-sans: var(--font-inter), 'Inter', sans-serif;
+}
+
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; }
+
+  html {
+    background: #040c1e;
+    min-height: 100%;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background: transparent;
+    color: #0F172A;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    letter-spacing: -0.02em;
+  }
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@keyframes marquee-reverse {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
+
+@layer utilities {
+  .container-pad { @apply px-4 sm:px-6 lg:px-8; }
+  .section-pad   { @apply py-12 sm:py-20 lg:py-28; }
+  .max-container { @apply max-w-7xl mx-auto; }
+
+  .glass-card {
+    background: rgba(255,255,255,0.82);
+    border: 1px solid rgba(255,255,255,0.65);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  .tint-card {
+    background: rgba(255,255,255,0.18);
+    border: 1px solid rgba(255,255,255,0.35);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+}
