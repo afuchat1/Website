@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { PRODUCT_DATA } from '@/data/products';
 import ProductPageClient from '@/views/ProductPage';
+import AfuAIPage from '@/views/AfuAIPage';
 
 type Params = Promise<{ id: string }>;
 
@@ -21,5 +22,6 @@ export function generateStaticParams() {
 
 export default async function Page({ params }: { params: Params }) {
   const { id } = await params;
+  if (id === 'afuai') return <AfuAIPage />;
   return <ProductPageClient id={id} />;
 }
