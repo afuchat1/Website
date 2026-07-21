@@ -3,10 +3,10 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { useState, useEffect, useCallback } from 'react';
-import { Globe, MessageSquare, Zap, Copy, Check, ArrowRight, Github } from 'lucide-react';
+import { ScanSearch, BrainCircuit, Activity, Copy, Check, ArrowRight, Github } from 'lucide-react';
 import { PRODUCT_DATA } from '@/data/products';
 import { supabase } from '@/lib/supabase';
-import { fetchTokenStats, type TokenStats } from '@/lib/engagera';
+import { fetchTokenStats, subscribeToTokenInserts, type TokenStats } from '@/lib/engagera';
 import { openCookiePreferences } from '@/lib/cookieConsent';
 
 /* ─────────────────────────────────────────────
@@ -30,25 +30,50 @@ function fmtTokens(n: number): string {
 function useEngageraStatus() {
   const [pool,   setPool]   = useState<PoolStatus | null>(null);
   const [tokens, setTokens] = useState<TokenStats | null>(null);
-  const [tick,   setTick]   = useState(0);
 
-  const refresh = useCallback(async () => {
+  // ── Initial load + periodic full reconciliation (every 5 min) ──────────
+  const fetchAll = useCallback(async () => {
     const [{ data: poolData }, stats] = await Promise.all([
       supabase.rpc('get_pool_status'),
       fetchTokenStats().catch(() => null),
     ]);
     if (poolData) setPool(poolData as PoolStatus);
-    if (stats) setTokens(stats);
+    if (stats)    setTokens(stats);
   }, []);
 
-  useEffect(() => { refresh(); }, [refresh]);
-  // poll every 60 s — token stats update slowly
-  useEffect(() => { const id = setInterval(() => { refresh(); setTick(t => t + 1); }, 60_000); return () => clearInterval(id); }, [refresh]);
-  // countdown tick every second
-  useEffect(() => { const id = setInterval(() => setTick(t => t + 1), 1_000); return () => clearInterval(id); }, []);
+  useEffect(() => { fetchAll(); }, [fetchAll]);
+  useEffect(() => {
+    const id = setInterval(fetchAll, 5 * 60_000); // reconcile every 5 min
+    return () => clearInterval(id);
+  }, [fetchAll]);
 
+  // ── Pool status refresh every 30 s to catch pool resets ────────────────
+  useEffect(() => {
+    const id = setInterval(async () => {
+      const { data } = await supabase.rpc('get_pool_status');
+      if (data) setPool(data as PoolStatus);
+    }, 30_000);
+    return () => clearInterval(id);
+  }, []);
+
+  // ── Real-time: apply each INSERT delta immediately ─────────────────────
+  useEffect(() => {
+    const unsub = subscribeToTokenInserts((delta) => {
+      setTokens(prev => prev
+        ? {
+            total_tokens:  prev.total_tokens  + delta.total_tokens,
+            input_tokens:  prev.input_tokens  + delta.input_tokens,
+            output_tokens: prev.output_tokens + delta.output_tokens,
+            request_count: prev.request_count + 1,
+          }
+        : delta
+      );
+    });
+    return unsub;
+  }, []);
+
+  // ── Countdown: recompute every second from pool_end ───────────────────
   const [resetIn, setResetIn] = useState<string | null>(null);
-
   useEffect(() => {
     if (!pool) { setResetIn(null); return; }
     const compute = () => {
@@ -97,6 +122,20 @@ function Code({ code, lang = 'typescript' }: { code: string; lang?: string }) {
 }
 
 /* ─────────────────────────────────────────────
+   DYNAMIC NPM VERSION
+───────────────────────────────────────────── */
+function useNpmVersion() {
+  const [version, setVersion] = useState<string | null>(null);
+  useEffect(() => {
+    fetch('/api/npm-version')
+      .then(r => r.json())
+      .then(d => { if (d.version) setVersion(d.version); })
+      .catch(() => null);
+  }, []);
+  return version;
+}
+
+/* ─────────────────────────────────────────────
    BRAND ICONS (inline SVG / img)
 ───────────────────────────────────────────── */
 function NpmIcon({ className = 'h-3.5 w-auto' }: { className?: string }) {
@@ -115,9 +154,9 @@ function GithubIcon({ className = 'w-4 h-4' }: { className?: string }) {
    CODE EXAMPLES
 ───────────────────────────────────────────── */
 const TABS = [
-  { id: 'search', label: 'Web Search', icon: Globe },
-  { id: 'chat',   label: 'AI Chat',    icon: MessageSquare },
-  { id: 'stream', label: 'Streaming',  icon: Zap },
+  { id: 'search', label: 'Web Search', icon: ScanSearch },
+  { id: 'chat',   label: 'AI Chat',    icon: BrainCircuit },
+  { id: 'stream', label: 'Streaming',  icon: Activity },
 ];
 const CODE: Record<string, string> = {
   search:
@@ -225,6 +264,7 @@ function PageFooter() {
 export default function AfuAIPage() {
   const [tab, setTab] = useState('search');
   const { pool, tokens, resetIn } = useEngageraStatus();
+  const npmVersion = useNpmVersion();
   const product = PRODUCT_DATA.find(p => p.id === 'afuai')!;
   const others  = PRODUCT_DATA.filter(p => p.id !== 'afuai').slice(0, 6);
 
@@ -266,29 +306,38 @@ export default function AfuAIPage() {
               </a>
             </div>
 
-            {/* Live status strip */}
-            <div className="flex flex-wrap items-center gap-5 text-xs text-white/30 font-mono">
-              {pool ? (
-                <>
-                  <span className="flex items-center gap-1.5">
-                    <span className={`w-1.5 h-1.5 rounded-full ${pool.is_pool_active ? 'bg-green-400 animate-pulse' : 'bg-red-400'}`} />
-                    <span className={pool.is_pool_active ? 'text-green-400/80' : 'text-red-400/80'}>
-                      Pool {pool.is_pool_active ? 'active' : 'inactive'}
-                    </span>
-                  </span>
-                  <span className="text-white/15">·</span>
-                  <span>Resets {resetIn ?? '…'}</span>
-                  <span className="text-white/15">·</span>
-                  {tokens !== null && (
-                    <span className="flex items-center gap-1.5">
-                      <span className="text-[#1F95FF]/80 font-semibold tabular-nums">{fmtTokens(tokens.total_tokens)}</span>
-                      <span className="text-white/20">tokens used</span>
-                    </span>
-                  )}
-                </>
-              ) : (
-                <span className="text-white/20">Fetching live status…</span>
-              )}
+            {/* Live status — big numbers */}
+            <div className="flex flex-wrap items-end gap-8">
+              {/* pool state */}
+              <div>
+                <div className="flex items-center gap-2 mb-1">
+                  <span className={`w-2 h-2 rounded-full shrink-0 ${pool?.is_pool_active ? 'bg-green-400 animate-pulse' : 'bg-white/20'}`} />
+                  <span className="text-white/30 text-[11px] uppercase tracking-widest font-semibold">Pool</span>
+                </div>
+                <p className={`text-2xl font-extrabold tracking-tight ${pool?.is_pool_active ? 'text-green-400' : 'text-white/30'}`}>
+                  {pool ? (pool.is_pool_active ? 'Active' : 'Inactive') : '—'}
+                </p>
+              </div>
+
+              <div className="w-px h-8 bg-white/8 self-center" />
+
+              {/* reset countdown */}
+              <div>
+                <p className="text-white/30 text-[11px] uppercase tracking-widest font-semibold mb-1">Resets in</p>
+                <p className="text-2xl font-extrabold tracking-tight text-white/70 font-mono tabular-nums">
+                  {resetIn ?? '—'}
+                </p>
+              </div>
+
+              <div className="w-px h-8 bg-white/8 self-center" />
+
+              {/* total tokens */}
+              <div>
+                <p className="text-white/30 text-[11px] uppercase tracking-widest font-semibold mb-1">Tokens used</p>
+                <p className="text-2xl font-extrabold tracking-tight text-[#1F95FF] tabular-nums">
+                  {tokens !== null ? fmtTokens(tokens.total_tokens) : '—'}
+                </p>
+              </div>
             </div>
           </div>
 
@@ -324,16 +373,16 @@ export default function AfuAIPage() {
             </p>
             <div className="flex flex-col gap-7">
               {[
-                { icon: Globe,         color: '#F59E0B', title: 'AfuBot — Live Web Crawler',
+                { icon: ScanSearch,   color: '#F59E0B', title: 'AfuBot — Live Web Crawler',
                   desc: 'Spiders live pages in real-time. Extracts og:images, titles, and text snippets. Returns structured citations in every response — no hallucinated URLs.' },
-                { icon: MessageSquare, color: '#60A5FA', title: 'AI Completions',
+                { icon: BrainCircuit, color: '#60A5FA', title: 'AI Completions',
                   desc: 'Multi-turn conversations across all supported models. AfuBot is invoked automatically when the query needs fresh web context, with zero configuration.' },
-                { icon: Zap,           color: '#A78BFA', title: 'Token-by-token Streaming',
+                { icon: Activity,     color: '#A78BFA', title: 'Token-by-token Streaming',
                   desc: 'Full SSE streaming. Tokens arrive as they are generated. Source citations appended on the done event so UI can render results progressively.' },
               ].map((c, i) => (
                 <motion.div key={c.title} initial={{ opacity: 0, y: 8 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.07 }}
-                  className="flex gap-4">
-                  <c.icon className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: c.color }} />
+                  className="flex gap-5 items-start">
+                  <c.icon className="w-7 h-7 shrink-0 mt-0.5" style={{ color: c.color }} strokeWidth={1.75} />
                   <div>
                     <p className="text-white text-sm font-semibold mb-1">{c.title}</p>
                     <p className="text-white/38 text-[13px] leading-relaxed">{c.desc}</p>
@@ -391,50 +440,59 @@ export default function AfuAIPage() {
               </div>
             </div>
 
-            {/* live pool status panel */}
+            {/* live token stats — big numbers */}
             <div>
-              <p className="text-white/20 text-[10px] uppercase tracking-widest font-semibold mb-3">Live status</p>
-              {pool ? (
-                <div className="flex flex-col gap-2 text-[13px]">
-                  <div className="flex items-center gap-3">
-                    <span className={`w-1.5 h-1.5 rounded-full shrink-0 ${pool.is_pool_active ? 'bg-green-400 animate-pulse' : 'bg-white/25'}`} />
-                    <span className="text-white/55">Token pool</span>
-                    <span className={pool.is_pool_active ? 'text-green-400 font-medium' : 'text-white/30'}>
-                      {pool.is_pool_active ? 'active' : 'inactive'}
-                    </span>
+              <div className="flex items-center gap-2 mb-4">
+                <p className="text-white/20 text-[10px] uppercase tracking-widest font-semibold">Live token usage</p>
+                {pool && (
+                  <span className={`flex items-center gap-1 text-[10px] font-semibold uppercase tracking-wide ${pool.is_pool_active ? 'text-green-400' : 'text-white/25'}`}>
+                    <span className={`w-1.5 h-1.5 rounded-full ${pool.is_pool_active ? 'bg-green-400 animate-pulse' : 'bg-white/20'}`} />
+                    {pool.is_pool_active ? 'live' : 'inactive'}
+                  </span>
+                )}
+              </div>
+
+              {tokens !== null ? (
+                <div className="flex flex-col gap-5">
+                  {/* total — hero number */}
+                  <div>
+                    <p className="text-[2.6rem] font-extrabold tracking-tight text-white leading-none tabular-nums">
+                      {fmtTokens(tokens.total_tokens)}
+                    </p>
+                    <p className="text-white/35 text-sm mt-1">total tokens processed</p>
                   </div>
-                  <div className="flex items-center gap-3">
-                    <span className="w-1.5 shrink-0" />
-                    <span className="text-white/55">Resets in</span>
-                    <span className="text-white/55 font-mono">{resetIn ?? '—'}</span>
+
+                  {/* input / output breakdown */}
+                  <div className="grid grid-cols-2 gap-4">
+                    <div>
+                      <p className="text-xl font-bold text-white/70 tabular-nums">{fmtTokens(tokens.input_tokens)}</p>
+                      <p className="text-white/30 text-xs mt-0.5">input tokens</p>
+                    </div>
+                    <div>
+                      <p className="text-xl font-bold text-white/70 tabular-nums">{fmtTokens(tokens.output_tokens)}</p>
+                      <p className="text-white/30 text-xs mt-0.5">output tokens</p>
+                    </div>
                   </div>
-                  {tokens !== null && (
-                    <>
-                      <div className="flex items-center gap-3">
-                        <span className="w-1.5 shrink-0" />
-                        <span className="text-white/55">Tokens used</span>
-                        <span className="text-[#1F95FF]/80 font-mono font-semibold tabular-nums">{fmtTokens(tokens.total_tokens)}</span>
+
+                  {/* requests + reset */}
+                  <div className="grid grid-cols-2 gap-4 pt-1 border-t border-white/6">
+                    <div>
+                      <p className="text-lg font-bold text-white/55 tabular-nums">{tokens.request_count.toLocaleString()}</p>
+                      <p className="text-white/25 text-xs mt-0.5">API requests</p>
+                    </div>
+                    {pool && (
+                      <div>
+                        <p className="text-lg font-bold text-white/55 font-mono">{resetIn ?? '—'}</p>
+                        <p className="text-white/25 text-xs mt-0.5">resets in</p>
                       </div>
-                      <div className="flex items-center gap-3 pl-4">
-                        <span className="w-1.5 shrink-0" />
-                        <span className="text-white/30 text-[12px]">↳ Input</span>
-                        <span className="text-white/38 font-mono tabular-nums text-[12px]">{fmtTokens(tokens.input_tokens)}</span>
-                      </div>
-                      <div className="flex items-center gap-3 pl-4">
-                        <span className="w-1.5 shrink-0" />
-                        <span className="text-white/30 text-[12px]">↳ Output</span>
-                        <span className="text-white/38 font-mono tabular-nums text-[12px]">{fmtTokens(tokens.output_tokens)}</span>
-                      </div>
-                      <div className="flex items-center gap-3">
-                        <span className="w-1.5 shrink-0" />
-                        <span className="text-white/35 text-[12px]">API requests</span>
-                        <span className="text-white/40 font-mono tabular-nums text-[12px]">{tokens.request_count.toLocaleString()}</span>
-                      </div>
-                    </>
-                  )}
+                    )}
+                  </div>
                 </div>
               ) : (
-                <p className="text-white/20 text-[13px]">Loading…</p>
+                <div className="flex flex-col gap-3">
+                  <div className="h-10 w-32 bg-white/5 rounded-lg animate-pulse" />
+                  <div className="h-4 w-24 bg-white/4 rounded animate-pulse" />
+                </div>
               )}
             </div>
           </motion.div>
@@ -501,7 +559,9 @@ export default function AfuAIPage() {
               <div className="text-[12px] space-y-1">
                 <div className="flex items-center gap-2">
                   <NpmIcon className="h-2.5 w-auto opacity-60" />
-                  <span className="text-white/35 font-mono">v0.1.2</span>
+                  <span className="text-white/35 font-mono">
+                    {npmVersion ? `v${npmVersion}` : '…'}
+                  </span>
                 </div>
                 <p className="text-white/25">MIT License · TypeScript</p>
                 <p className="text-white/25">ESM + CJS · Edge-compatible</p>
