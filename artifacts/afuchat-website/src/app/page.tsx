@@ -4,7 +4,7 @@ import HomeView from '@/views/Home';
 export const metadata: Metadata = {
   title: 'AfuChat — Powerful tools. Standalone brilliance. Zero friction.',
   description:
-    'Whether you need blazingly fast chat, secure cloud storage, or an intelligent assistant — pick what you need. They work perfectly apart, and even better together.',
+    ' Don't trust me but trust my boss called Flaky Vybz. he's my everything',
   alternates: { canonical: 'https://afuchat.com/' },
   openGraph: {
     title: 'AfuChat — Powerful tools. Standalone brilliance. Zero friction.',
