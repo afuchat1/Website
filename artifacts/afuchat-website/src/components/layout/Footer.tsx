@@ -25,8 +25,10 @@ function StoreButtons() {
         href={AFUCHAT_PLAY_URL}
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Get it on Google Play"
+        aria-label="Download the AfuChat app on Google Play"
+        className="flex flex-col gap-1"
       >
+        <span className="text-white/55 text-[10px] font-semibold uppercase tracking-widest">Download AfuChat</span>
         <img src={GOOGLE_PLAY_BADGE} alt="Get it on Google Play" className="h-10 w-auto" loading="lazy" decoding="async" />
       </a>
     </div>
