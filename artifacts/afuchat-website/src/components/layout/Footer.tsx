@@ -7,6 +7,7 @@ import { openCookiePreferences } from '@/lib/cookieConsent';
 const LOGO_SRC         = '/assets/afuchat_logo_transparent.png';
 const TRUSTPILOT_LOGO  = '/assets/trustpilot_logo.png';
 const GOOGLE_PLAY_BADGE = '/assets/google_play_badge.png';
+const AFUCHAT_PLAY_URL = 'https://play.google.com/store/apps/details?id=com.afuchat.afuapp';
 
 function StoreButtons() {
   return (
@@ -21,7 +22,7 @@ function StoreButtons() {
         <img src={TRUSTPILOT_LOGO} alt="Trustpilot" className="h-5 w-auto" loading="lazy" decoding="async" />
       </a>
       <a
-        href="https://play.google.com/store"
+        href={AFUCHAT_PLAY_URL}
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Get it on Google Play"

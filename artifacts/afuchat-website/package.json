@@ -10,8 +10,6 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@supabase/ssr": "^0.12.3",
-    "@supabase/supabase-js": "^2.110.1",
     "next": "^15.3.3"
   },
   "devDependencies": {

@@ -53,7 +53,7 @@ const PAGE_CONTENT: Record<string, {
     sections: [
       { heading: 'Your digital identity', body: 'AfuMail is more than email — it is a portable identity layer that connects you to every AfuChat product without a separate account for each one.' },
       { heading: 'How it works', body: 'Sign in once with your AfuMail address and access AfuCloud, AfuChat, AfuAI, and more — all without re-entering credentials. Your identity stays yours, and you control exactly which products can access it.' },
-      { heading: 'Privacy by design', body: 'We do not sell identity data. Your AfuMail address is never shared with advertisers, and cross-product login is handled with encrypted tokens that you can revoke at any time.' },
+      { heading: 'Privacy by design', body: 'We do not sell identity data. Information shared with AfuChat products is protected with privacy-first principles and clear controls.' },
     ],
   },
   careers: {
@@ -123,7 +123,7 @@ const PAGE_CONTENT: Record<string, {
     accent: '#F59E0B',
     sections: [
       { heading: 'What Are Cookies', body: 'Cookies are small text files stored on your device when you visit our website. They help us recognize your device and remember your preferences.' },
-      { heading: 'How We Use Them', body: 'We use cookies for essential functions like authentication, as well as for analytics to understand how people interact with our site so we can improve it.' },
+      { heading: 'How We Use Them', body: 'We use cookies for essential website functions and, when permitted, analytics to understand how people interact with our site so we can improve it.' },
       { heading: 'Your Choices', body: 'You can control cookie settings through your browser preferences. However, disabling certain cookies may limit your ability to use some features of our products.' },
     ],
   },
@@ -193,16 +193,6 @@ export default function GenericPage({ title, type }: GenericPageProps) {
         </div>
       )}
 
-      {/* CTA */}
-      <div className="max-container container-pad py-16">
-        <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-          <h2 className="text-2xl font-bold text-white mb-3 tracking-tight">Ready to get started?</h2>
-          <p className="text-white/40 text-sm mb-6">Create your free account and start using any of our products instantly.</p>
-          <a href="https://web.afuchat.com/register" className="inline-block px-6 py-3 text-white font-bold text-sm rounded-full hover:opacity-90 transition-opacity" style={{ backgroundColor: accent }}>
-            Create free account →
-          </a>
-        </motion.div>
-      </div>
       <Footer />
     </div>
   );

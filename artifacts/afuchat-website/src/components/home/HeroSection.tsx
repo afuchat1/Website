@@ -1,48 +1,9 @@
 'use client';
-import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { illSecHero } from '@/data/illustrations';
-import { supabase } from '@/lib/supabase';
-
-interface Member {
-  handle: string;
-  display_name: string;
-  avatar_url: string | null;
-}
-
-function initials(name: string) {
-  return name.split(' ').filter(Boolean).slice(0, 2).map(p => p[0]?.toUpperCase()).join('');
-}
-
-function useCommunity() {
-  const [members, setMembers] = useState<Member[]>([]);
-  const [totalMembers, setTotalMembers] = useState<number | null>(null);
-
-  useEffect(() => {
-    supabase
-      .from('public_profiles')
-      .select('handle, display_name, avatar_url')
-      .eq('is_private', false)
-      .eq('is_banned', false)
-      .order('created_at', { ascending: false })
-      .limit(4)
-      .then(({ data, error }) => { if (!error && data) setMembers(data); });
-
-    supabase
-      .from('public_profiles')
-      .select('*', { count: 'exact', head: true })
-      .eq('is_private', false)
-      .eq('is_banned', false)
-      .then(({ count, error }) => { if (!error && count !== null) setTotalMembers(count); });
-  }, []);
-
-  return { members, totalMembers };
-}
 
 export default function HeroSection() {
-  const { members, totalMembers } = useCommunity();
-
   return (
     <section className="relative flex items-center overflow-hidden">
       <div className="relative z-10 max-container container-pad w-full">
@@ -81,28 +42,18 @@ export default function HeroSection() {
               <Link href="/products" className="flex items-center justify-center px-7 py-3.5 bg-gradient-to-r from-[#1F7AFF] to-[#6C63FF] text-white font-bold text-sm rounded-full hover:opacity-90 transition-opacity shadow-lg shadow-blue-500/25">
                 Explore Products →
               </Link>
-              <a href="https://web.afuchat.com/register" className="flex items-center justify-center px-7 py-3.5 text-white/70 font-medium text-sm hover:text-white transition-colors border border-white/10 rounded-full sm:border-transparent sm:bg-transparent">
-                Create free account →
-              </a>
+              <Link href="/products" className="flex items-center justify-center px-7 py-3.5 text-white/70 font-medium text-sm hover:text-white transition-colors border border-white/10 rounded-full sm:border-transparent sm:bg-transparent">
+                View product lineup →
+              </Link>
             </motion.div>
-            {members.length > 0 && (
-              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.25 }} className="flex items-center gap-3">
-                <div className="flex -space-x-2">
-                  {members.map(member =>
-                    member.avatar_url ? (
-                      <img key={member.handle} src={member.avatar_url} alt={member.display_name} className="w-6 h-6 sm:w-7 sm:h-7 rounded-full border-2 border-[#040c1e] object-cover bg-white/10" />
-                    ) : (
-                      <div key={member.handle} className="w-6 h-6 sm:w-7 sm:h-7 rounded-full border-2 border-[#040c1e] bg-gradient-to-br from-[#1F7AFF] to-[#6C63FF] flex items-center justify-center text-white text-[9px] font-bold">
-                        {initials(member.display_name)}
-                      </div>
-                    )
-                  )}
-                </div>
-                <span className="text-white/40 text-xs sm:text-sm">
-                  {totalMembers !== null ? `Trusted by ${totalMembers.toLocaleString()}+ real members` : 'Trusted by real members'}
-                </span>
-              </motion.div>
-            )}
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.25 }}
+              className="text-white/40 text-xs sm:text-sm"
+            >
+              Eight independent products. One shared vision.
+            </motion.p>
           </div>
           <motion.div
             initial={{ opacity: 0, scale: 0.92, y: 20 }}

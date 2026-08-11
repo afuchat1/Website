@@ -28,7 +28,7 @@ const faqJsonLd = {
       name: 'How do I get started with AfuChat?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Create a free account at web.afuchat.com. One account gives you access to all eight AfuChat products instantly.',
+        text: 'Explore the AfuChat product showcase to learn about all eight independent products.',
       },
     },
     {
@@ -44,7 +44,7 @@ const faqJsonLd = {
       name: 'Is AfuChat free?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'AfuChat offers free accounts with access to all products. Premium plans are available with additional features.',
+        text: 'AfuChat presents eight independent products, each designed to work on its own.',
       },
     },
   ],

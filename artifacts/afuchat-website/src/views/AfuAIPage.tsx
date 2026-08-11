@@ -2,95 +2,10 @@
 'use client';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect } from 'react';
 import { ScanSearch, BrainCircuit, Activity, Copy, Check, ArrowRight, Github } from 'lucide-react';
 import { PRODUCT_DATA } from '@/data/products';
-import { supabase } from '@/lib/supabase';
-import { fetchTokenStats, subscribeToTokenInserts, type TokenStats } from '@/lib/engagera';
 import { openCookiePreferences } from '@/lib/cookieConsent';
-
-/* ─────────────────────────────────────────────
-   SUPABASE LIVE DATA
-───────────────────────────────────────────── */
-interface PoolStatus {
-  pool_start: string;
-  pool_end: string;
-  current_time: string;
-  is_pool_active: boolean;
-  timezone: string;
-}
-
-/** Format a raw token count → human-readable (e.g. 3.66M, 12.4K) */
-function fmtTokens(n: number): string {
-  if (n >= 1_000_000) return `${(n / 1_000_000).toFixed(2)}M`;
-  if (n >= 1_000)     return `${(n / 1_000).toFixed(1)}K`;
-  return n.toLocaleString();
-}
-
-function useEngageraStatus() {
-  const [pool,   setPool]   = useState<PoolStatus | null>(null);
-  const [tokens, setTokens] = useState<TokenStats | null>(null);
-
-  // ── Initial load + periodic full reconciliation (every 5 min) ──────────
-  const fetchAll = useCallback(async () => {
-    const [{ data: poolData }, stats] = await Promise.all([
-      supabase.rpc('get_pool_status'),
-      fetchTokenStats().catch(() => null),
-    ]);
-    if (poolData) setPool(poolData as PoolStatus);
-    if (stats)    setTokens(stats);
-  }, []);
-
-  useEffect(() => { fetchAll(); }, [fetchAll]);
-  useEffect(() => {
-    const id = setInterval(fetchAll, 5 * 60_000); // reconcile every 5 min
-    return () => clearInterval(id);
-  }, [fetchAll]);
-
-  // ── Pool status refresh every 30 s to catch pool resets ────────────────
-  useEffect(() => {
-    const id = setInterval(async () => {
-      const { data } = await supabase.rpc('get_pool_status');
-      if (data) setPool(data as PoolStatus);
-    }, 30_000);
-    return () => clearInterval(id);
-  }, []);
-
-  // ── Real-time: apply each INSERT delta immediately ─────────────────────
-  useEffect(() => {
-    const unsub = subscribeToTokenInserts((delta) => {
-      setTokens(prev => prev
-        ? {
-            total_tokens:  prev.total_tokens  + delta.total_tokens,
-            input_tokens:  prev.input_tokens  + delta.input_tokens,
-            output_tokens: prev.output_tokens + delta.output_tokens,
-            request_count: prev.request_count + 1,
-          }
-        : delta
-      );
-    });
-    return unsub;
-  }, []);
-
-  // ── Countdown: recompute every second from pool_end ───────────────────
-  const [resetIn, setResetIn] = useState<string | null>(null);
-  useEffect(() => {
-    if (!pool) { setResetIn(null); return; }
-    const compute = () => {
-      const ms = new Date(pool.pool_end).getTime() - Date.now();
-      if (ms <= 0) { setResetIn('—'); return; }
-      const h = Math.floor(ms / 3_600_000);
-      const m = Math.floor((ms % 3_600_000) / 60_000);
-      const s = Math.floor((ms % 60_000) / 1_000);
-      setResetIn(`${h}h ${String(m).padStart(2,'0')}m ${String(s).padStart(2,'0')}s`);
-    };
-    compute();
-    const id = setInterval(compute, 1_000);
-    return () => clearInterval(id);
-  }, [pool]);
-
-  return { pool, tokens, resetIn };
-}
 
 /* ─────────────────────────────────────────────
    COPY BUTTON
@@ -211,6 +126,7 @@ for await (const event of client.chat.stream({
 const _FL = '/assets/afuchat_logo_transparent.png';
 const _FT = '/assets/trustpilot_logo.png';
 const _FG = '/assets/google_play_badge.png';
+const ENGagera_PLAY_URL = 'https://play.google.com/store/apps/details?id=com.engagera.mobile';
 const _FP = [
   { n: 'AfuMail',   p: '/products/afumail',   i: '/illustrations/icon3d-afumail.webp' },
   { n: 'AfuChat',   p: '/products/afuchat',   i: '/illustrations/icon3d-afuchat.webp' },
@@ -232,7 +148,7 @@ function PageFooter() {
             <p className="text-white/38 text-sm leading-relaxed mb-4">Independent products.<br />Built for the world.</p>
             <div className="flex items-center gap-3 flex-wrap mb-4">
               <a href="https://www.trustpilot.com/review/afuchat.com" target="_blank" rel="noopener noreferrer" className="bg-white hover:bg-white/90 transition-colors rounded-full px-3 py-1.5 flex items-center"><img src={_FT} alt="Trustpilot" className="h-4 w-auto" loading="lazy" /></a>
-              <a href="https://play.google.com/store" target="_blank" rel="noopener noreferrer"><img src={_FG} alt="Get it on Google Play" className="h-9 w-auto" loading="lazy" /></a>
+              <a href={ENGagera_PLAY_URL} target="_blank" rel="noopener noreferrer"><img src={_FG} alt="Get Engagera on Google Play" className="h-9 w-auto" loading="lazy" /></a>
             </div>
             <p className="text-white/20 text-xs">AfuChat Technologies Limited</p>
           </div>
@@ -263,7 +179,6 @@ function PageFooter() {
 ───────────────────────────────────────────── */
 export default function AfuAIPage() {
   const [tab, setTab] = useState('search');
-  const { pool, tokens, resetIn } = useEngageraStatus();
   const npmVersion = useNpmVersion();
   const product = PRODUCT_DATA.find(p => p.id === 'afuai')!;
   const others  = PRODUCT_DATA.filter(p => p.id !== 'afuai').slice(0, 6);
@@ -306,37 +221,28 @@ export default function AfuAIPage() {
               </a>
             </div>
 
-            {/* Live status — big numbers */}
+            {/* Showcase highlights */}
             <div className="flex flex-wrap items-end gap-8">
-              {/* pool state */}
               <div>
                 <div className="flex items-center gap-2 mb-1">
-                  <span className={`w-2 h-2 rounded-full shrink-0 ${pool?.is_pool_active ? 'bg-green-400 animate-pulse' : 'bg-white/20'}`} />
-                  <span className="text-white/30 text-[11px] uppercase tracking-widest font-semibold">Pool</span>
+                  <span className="w-2 h-2 rounded-full shrink-0 bg-green-400" />
+                  <span className="text-white/30 text-[11px] uppercase tracking-widest font-semibold">Platform</span>
                 </div>
-                <p className={`text-2xl font-extrabold tracking-tight ${pool?.is_pool_active ? 'text-green-400' : 'text-white/30'}`}>
-                  {pool ? (pool.is_pool_active ? 'Active' : 'Inactive') : '—'}
-                </p>
+                <p className="text-2xl font-extrabold tracking-tight text-green-400">Ready</p>
               </div>
 
               <div className="w-px h-8 bg-white/8 self-center" />
 
-              {/* reset countdown */}
               <div>
-                <p className="text-white/30 text-[11px] uppercase tracking-widest font-semibold mb-1">Resets in</p>
-                <p className="text-2xl font-extrabold tracking-tight text-white/70 font-mono tabular-nums">
-                  {resetIn ?? '—'}
-                </p>
+                <p className="text-white/30 text-[11px] uppercase tracking-widest font-semibold mb-1">Capabilities</p>
+                <p className="text-2xl font-extrabold tracking-tight text-white/70">3 core tools</p>
               </div>
 
               <div className="w-px h-8 bg-white/8 self-center" />
 
-              {/* total tokens */}
               <div>
-                <p className="text-white/30 text-[11px] uppercase tracking-widest font-semibold mb-1">Tokens used</p>
-                <p className="text-2xl font-extrabold tracking-tight text-[#1F95FF] tabular-nums">
-                  {tokens !== null ? fmtTokens(tokens.total_tokens) : '—'}
-                </p>
+                <p className="text-white/30 text-[11px] uppercase tracking-widest font-semibold mb-1">Experience</p>
+                <p className="text-2xl font-extrabold tracking-tight text-[#1F95FF]">Real time</p>
               </div>
             </div>
           </div>
@@ -440,60 +346,27 @@ export default function AfuAIPage() {
               </div>
             </div>
 
-            {/* live token stats — big numbers */}
+            {/* Product highlights */}
             <div>
               <div className="flex items-center gap-2 mb-4">
-                <p className="text-white/20 text-[10px] uppercase tracking-widest font-semibold">Live token usage</p>
-                {pool && (
-                  <span className={`flex items-center gap-1 text-[10px] font-semibold uppercase tracking-wide ${pool.is_pool_active ? 'text-green-400' : 'text-white/25'}`}>
-                    <span className={`w-1.5 h-1.5 rounded-full ${pool.is_pool_active ? 'bg-green-400 animate-pulse' : 'bg-white/20'}`} />
-                    {pool.is_pool_active ? 'live' : 'inactive'}
-                  </span>
-                )}
+                <p className="text-white/20 text-[10px] uppercase tracking-widest font-semibold">Built for modern AI</p>
               </div>
-
-              {tokens !== null ? (
-                <div className="flex flex-col gap-5">
-                  {/* total — hero number */}
+              <div className="flex flex-col gap-5">
+                <div>
+                  <p className="text-[2.6rem] font-extrabold tracking-tight text-white leading-none">Live web</p>
+                  <p className="text-white/35 text-sm mt-1">fresh context for every answer</p>
+                </div>
+                <div className="grid grid-cols-2 gap-4">
                   <div>
-                    <p className="text-[2.6rem] font-extrabold tracking-tight text-white leading-none tabular-nums">
-                      {fmtTokens(tokens.total_tokens)}
-                    </p>
-                    <p className="text-white/35 text-sm mt-1">total tokens processed</p>
+                    <p className="text-xl font-bold text-white/70">AI chat</p>
+                    <p className="text-white/30 text-xs mt-0.5">multi-turn conversations</p>
                   </div>
-
-                  {/* input / output breakdown */}
-                  <div className="grid grid-cols-2 gap-4">
-                    <div>
-                      <p className="text-xl font-bold text-white/70 tabular-nums">{fmtTokens(tokens.input_tokens)}</p>
-                      <p className="text-white/30 text-xs mt-0.5">input tokens</p>
-                    </div>
-                    <div>
-                      <p className="text-xl font-bold text-white/70 tabular-nums">{fmtTokens(tokens.output_tokens)}</p>
-                      <p className="text-white/30 text-xs mt-0.5">output tokens</p>
-                    </div>
-                  </div>
-
-                  {/* requests + reset */}
-                  <div className="grid grid-cols-2 gap-4 pt-1 border-t border-white/6">
-                    <div>
-                      <p className="text-lg font-bold text-white/55 tabular-nums">{tokens.request_count.toLocaleString()}</p>
-                      <p className="text-white/25 text-xs mt-0.5">API requests</p>
-                    </div>
-                    {pool && (
-                      <div>
-                        <p className="text-lg font-bold text-white/55 font-mono">{resetIn ?? '—'}</p>
-                        <p className="text-white/25 text-xs mt-0.5">resets in</p>
-                      </div>
-                    )}
+                  <div>
+                    <p className="text-xl font-bold text-white/70">Streaming</p>
+                    <p className="text-white/30 text-xs mt-0.5">responsive output</p>
                   </div>
                 </div>
-              ) : (
-                <div className="flex flex-col gap-3">
-                  <div className="h-10 w-32 bg-white/5 rounded-lg animate-pulse" />
-                  <div className="h-4 w-24 bg-white/4 rounded animate-pulse" />
-                </div>
-              )}
+              </div>
             </div>
           </motion.div>
         </div>

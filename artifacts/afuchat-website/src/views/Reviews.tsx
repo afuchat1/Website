@@ -9,6 +9,7 @@ import { openCookiePreferences } from '@/lib/cookieConsent';
 const _FL = '/assets/afuchat_logo_transparent.png';
 const _FT = '/assets/trustpilot_logo.png';
 const _FG = '/assets/google_play_badge.png';
+const _AFUCHAT_PLAY_URL = 'https://play.google.com/store/apps/details?id=com.afuchat.afuapp';
 const _FP = [
   { n: 'AfuMail',   p: '/products/afumail',   i: '/illustrations/icon3d-afumail.webp' },
   { n: 'AfuChat',   p: '/products/afuchat',   i: '/illustrations/icon3d-afuchat.webp' },
@@ -30,7 +31,7 @@ function PageFooter() {
             <p className="text-white/40 text-sm leading-relaxed mb-5">Independent products.<br />Built for the world.</p>
             <div className="flex items-center gap-3 flex-wrap mb-5">
               <a href="https://www.trustpilot.com/review/afuchat.com" target="_blank" rel="noopener noreferrer" className="bg-white hover:bg-white/90 transition-colors rounded-full px-3 py-1.5 flex items-center"><img src={_FT} alt="Trustpilot" className="h-5 w-auto" loading="lazy" /></a>
-              <a href="https://play.google.com/store" target="_blank" rel="noopener noreferrer"><img src={_FG} alt="Get it on Google Play" className="h-10 w-auto" loading="lazy" /></a>
+              <a href={_AFUCHAT_PLAY_URL} target="_blank" rel="noopener noreferrer"><img src={_FG} alt="Get AfuChat on Google Play" className="h-10 w-auto" loading="lazy" /></a>
             </div>
             <p className="text-white/22 text-xs">AfuChat Technologies Limited</p>
           </div>
@@ -166,15 +167,6 @@ export default function Reviews() {
             </div>
           </div>
 
-          {/* CTA */}
-          <motion.div
-            initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-            className="bg-white/5 border border-white/10 rounded-3xl p-10 sm:p-14 text-center"
-          >
-            <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3">Join millions of happy users.</h2>
-            <p className="text-white/60 mb-8 max-w-md mx-auto">Create an account in 30 seconds and start using any of our standalone products today.</p>
-            <a href="https://web.afuchat.com/register" className="btn-primary inline-flex">Create free account →</a>
-          </motion.div>
         </div>
       </section>
       <PageFooter />

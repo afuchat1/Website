@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     'AfuChat developer platform: REST API, GraphQL, WebSockets, SDKs for React, Node.js, Python, iOS, and Android. AfuMail SSO, webhooks, and real-time event streaming.',
   keywords: [
     'AfuChat API', 'developer platform', 'REST API', 'GraphQL', 'WebSockets',
-    'AfuMail SSO', 'OAuth', 'SAML', 'SDK', 'developer tools',
+    'SDK', 'developer tools', 'API platform', 'webhooks',
   ],
   alternates: { canonical: `${BASE_URL}/developers` },
   openGraph: {
