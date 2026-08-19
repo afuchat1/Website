@@ -61,7 +61,12 @@ export default function ProductsSection() {
                 >
                   <Link href={p.path}>
                     <div className="flex items-center gap-3 group">
-                      <img src={p.icon3d} alt={`${p.name} icon`} className="w-9 h-9 sm:w-10 sm:h-10 object-contain flex-shrink-0" loading="lazy" decoding="async" />
+                      <span
+                        className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center flex-shrink-0 transition-transform group-hover:scale-105"
+                        style={{ color: p.color, backgroundColor: `${p.color}18` }}
+                      >
+                        <p.icon className="w-5 h-5 sm:w-[22px] sm:h-[22px]" strokeWidth={1.8} aria-hidden="true" />
+                      </span>
                       <div>
                         <p className="text-sm font-semibold text-white/70 group-hover:text-white transition-colors leading-none mb-0.5">{p.name}</p>
                         <p className="text-xs text-white/30 leading-none">{p.category}</p>

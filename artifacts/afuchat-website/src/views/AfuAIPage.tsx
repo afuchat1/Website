@@ -482,7 +482,9 @@ export default function AfuAIPage() {
             {others.map((p, i) => (
               <motion.div key={p.id} initial={{ opacity: 0, y: 8 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.05 }}>
                 <Link href={p.path} className="flex items-center gap-2.5 group">
-                  <img src={p.icon3d} alt={p.name} className="w-8 h-8 object-contain shrink-0" loading="lazy" />
+                  <span className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0" style={{ color: p.color, backgroundColor: `${p.color}18` }}>
+                    <p.icon className="w-4 h-4" strokeWidth={1.8} aria-hidden="true" />
+                  </span>
                   <span className="text-[13px] text-white/38 group-hover:text-white transition-colors">{p.name}</span>
                 </Link>
               </motion.div>

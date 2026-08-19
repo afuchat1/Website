@@ -67,7 +67,9 @@ export default function Footer() {
               {PRODUCT_DATA.slice(0, 4).map(p => (
                 <li key={p.id}>
                   <Link href={p.path} className="flex items-center gap-2.5 text-white/38 hover:text-white text-sm transition-colors group">
-                    <img src={p.icon3d} alt="" className="w-5 h-5 object-contain flex-shrink-0" loading="lazy" decoding="async" />
+                    <span className="w-5 h-5 rounded-md flex items-center justify-center flex-shrink-0" style={{ color: p.color, backgroundColor: `${p.color}18` }}>
+                      <p.icon className="w-3 h-3" strokeWidth={1.8} aria-hidden="true" />
+                    </span>
                     {p.name}
                   </Link>
                 </li>
@@ -82,7 +84,9 @@ export default function Footer() {
               {PRODUCT_DATA.slice(4, 8).map(p => (
                 <li key={p.id}>
                   <Link href={p.path} className="flex items-center gap-2.5 text-white/38 hover:text-white text-sm transition-colors group">
-                    <img src={p.icon3d} alt="" className="w-5 h-5 object-contain flex-shrink-0" loading="lazy" decoding="async" />
+                    <span className="w-5 h-5 rounded-md flex items-center justify-center flex-shrink-0" style={{ color: p.color, backgroundColor: `${p.color}18` }}>
+                      <p.icon className="w-3 h-3" strokeWidth={1.8} aria-hidden="true" />
+                    </span>
                     {p.name}
                   </Link>
                 </li>

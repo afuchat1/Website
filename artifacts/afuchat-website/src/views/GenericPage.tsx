@@ -183,7 +183,12 @@ export default function GenericPage({ title, type }: GenericPageProps) {
               <motion.div key={p.id} initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.07 }}>
                 <Link href={p.path}>
                   <div className="flex items-center gap-3 group">
-                    <img src={p.icon3d} alt={`${p.name} icon`} className="w-9 h-9 object-contain flex-shrink-0" loading="lazy" decoding="async" />
+                    <span
+                      className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0"
+                      style={{ color: p.color, backgroundColor: `${p.color}18` }}
+                    >
+                      <p.icon className="w-[18px] h-[18px]" strokeWidth={1.8} aria-hidden="true" />
+                    </span>
                     <span className="text-sm text-white/50 group-hover:text-white transition-colors">{p.name}</span>
                   </div>
                 </Link>
