@@ -9,21 +9,13 @@ import FeaturesSection from '@/components/home/FeaturesSection';
 import DeveloperSection from '@/components/home/DeveloperSection';
 import CtaSection from '@/components/home/CtaSection';
 import { openCookiePreferences } from '@/lib/cookieConsent';
+import { PRODUCT_DATA } from '@/data/products';
 
 const _FL = '/assets/afuchat_logo_transparent.png';
 const _FT = '/assets/trustpilot_logo.png';
 const _FG = '/assets/google_play_badge.png';
 const _AFUCHAT_PLAY_URL = 'https://play.google.com/store/apps/details?id=com.afuchat.afuapp';
-const _FP = [
-  { n: 'AfuMail',   p: '/products/afumail',   i: '/illustrations/icon3d-afumail.webp' },
-  { n: 'AfuChat',   p: '/products/afuchat',   i: '/illustrations/icon3d-afuchat.webp' },
-  { n: 'AfuAI',     p: '/products/afuai',     i: '/illustrations/icon3d-afuai.webp' },
-  { n: 'AfuCloud',  p: '/products/afucloud',  i: '/illustrations/icon3d-afucloud.webp' },
-  { n: 'AfuMovies', p: '/products/afumovies', i: '/illustrations/icon3d-afumovies.webp' },
-  { n: 'AfuMall',   p: '/products/afumall',   i: '/illustrations/icon3d-afumall.webp' },
-  { n: 'AfuNews',   p: '/products/afunews',   i: '/illustrations/icon3d-afunews.webp' },
-  { n: 'AfuBlog',   p: '/products/afublog',   i: '/illustrations/icon3d-afublog.webp' },
-];
+const _FP = PRODUCT_DATA;
 function PageFooter() {
   const yr = new Date().getFullYear();
   return (
@@ -44,11 +36,11 @@ function PageFooter() {
           </div>
           <div>
             <h4 className="text-white/50 font-semibold text-xs uppercase tracking-widest mb-5">Products</h4>
-            <ul className="flex flex-col gap-3.5">{_FP.slice(0,4).map(p=><li key={p.n}><Link href={p.p} className="flex items-center gap-2.5 text-white/38 hover:text-white text-sm transition-colors"><img src={p.i} alt="" className="w-5 h-5 object-contain" loading="lazy"/>{p.n}</Link></li>)}</ul>
+            <ul className="flex flex-col gap-3.5">{_FP.slice(0,4).map(p=><li key={p.id}><Link href={p.path} className="flex items-center gap-2.5 text-white/38 hover:text-white text-sm transition-colors"><span className="w-5 h-5 rounded-md flex items-center justify-center flex-shrink-0" style={{ color: p.color, backgroundColor: `${p.color}18` }}><p.icon className="w-3 h-3" strokeWidth={1.8} aria-hidden="true" /></span>{p.name}</Link></li>)}</ul>
           </div>
           <div>
             <h4 className="text-white/50 font-semibold text-xs uppercase tracking-widest mb-5">More</h4>
-            <ul className="flex flex-col gap-3.5">{_FP.slice(4).map(p=><li key={p.n}><Link href={p.p} className="flex items-center gap-2.5 text-white/38 hover:text-white text-sm transition-colors"><img src={p.i} alt="" className="w-5 h-5 object-contain" loading="lazy"/>{p.n}</Link></li>)}</ul>
+            <ul className="flex flex-col gap-3.5">{_FP.slice(4).map(p=><li key={p.id}><Link href={p.path} className="flex items-center gap-2.5 text-white/38 hover:text-white text-sm transition-colors"><span className="w-5 h-5 rounded-md flex items-center justify-center flex-shrink-0" style={{ color: p.color, backgroundColor: `${p.color}18` }}><p.icon className="w-3 h-3" strokeWidth={1.8} aria-hidden="true" /></span>{p.name}</Link></li>)}</ul>
           </div>
           <div>
             <h4 className="text-white/50 font-semibold text-xs uppercase tracking-widest mb-5">Company</h4>
