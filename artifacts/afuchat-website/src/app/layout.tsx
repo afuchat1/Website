@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
-import Navbar from '@/components/layout/Navbar';
-import CookieConsent from '@/components/layout/CookieConsent';
+import SiteChrome from '@/components/layout/SiteChrome';
 import '@/app/globals.css';
 
 const BASE_URL = 'https://afuchat.com';
@@ -118,9 +117,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
         />
-        <Navbar />
-        <main className="pt-16">{children}</main>
-        <CookieConsent />
+        <SiteChrome>{children}</SiteChrome>
       </body>
     </html>
   );

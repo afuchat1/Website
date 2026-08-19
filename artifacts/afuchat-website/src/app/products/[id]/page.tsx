@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { PRODUCT_DATA } from '@/data/products';
 import ProductPageView from '@/views/ProductPage';
+import AfuMoviesPage from '@/views/AfuMoviesPage';
 
 const BASE_URL = 'https://afuchat.com';
 
@@ -70,7 +71,7 @@ export default async function ProductPage({ params }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }}
       />
-      <ProductPageView id={id} />
+      {id === 'afumovies' ? <AfuMoviesPage /> : <ProductPageView id={id} />}
     </>
   );
 }
