@@ -147,7 +147,7 @@ function PageFooter() {
             <Link href="/" className="flex items-center gap-2.5 mb-4"><img src={_FL} alt="AfuChat" className="h-7 w-auto" /><span className="text-white font-bold text-base">AfuChat</span></Link>
             <p className="text-white/38 text-sm leading-relaxed mb-4">Independent products.<br />Built for the world.</p>
             <div className="flex items-center gap-3 flex-wrap mb-4">
-              <a href="https://www.trustpilot.com/review/afuchat.com" target="_blank" rel="noopener noreferrer" className="bg-white hover:bg-white/90 transition-colors rounded-full px-3 py-1.5 flex items-center"><img src={_FT} alt="Trustpilot" className="h-4 w-auto" loading="lazy" /></a>
+              <a href="https://www.trustpilot.com/review/afuchat.com" target="_blank" rel="noopener noreferrer" className="bg-white hover:bg-white/90 transition-colors rounded-md px-3 py-1.5 flex items-center"><img src={_FT} alt="Trustpilot" className="h-4 w-auto" loading="lazy" /></a>
               <a href={ENGagera_PLAY_URL} target="_blank" rel="noopener noreferrer" aria-label="Download the Engagera app on Google Play" className="flex flex-col gap-1">
                 <span className="text-white/55 text-[10px] font-semibold uppercase tracking-widest">Download Engagera</span>
                 <img src={_FG} alt="Get the Engagera app on Google Play" className="h-9 w-auto" loading="lazy" />
