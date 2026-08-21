@@ -8,6 +8,7 @@ import IdentitySection from '@/components/home/IdentitySection';
 import FeaturesSection from '@/components/home/FeaturesSection';
 import DeveloperSection from '@/components/home/DeveloperSection';
 import CtaSection from '@/components/home/CtaSection';
+import DonationSection from '@/components/home/DonationSection';
 import { openCookiePreferences } from '@/lib/cookieConsent';
 import { PRODUCT_DATA } from '@/data/products';
 
@@ -74,6 +75,7 @@ export default function Home() {
       <FeaturesSection />
       <DeveloperSection />
       <CtaSection />
+      <DonationSection />
       <PageFooter />
     </div>
   );
