@@ -8,6 +8,8 @@ const LOGO_SRC         = '/assets/afuchat_logo_transparent.png';
 const TRUSTPILOT_LOGO  = '/assets/trustpilot_logo.png';
 const AFUCHAT_PLAY_URL = 'https://com-afuchat-afuapp.en.uptodown.com/android';
 const AFUCHAT_DOWNLOAD_BADGE = 'https://stc.utdstc.com/img/mediakit/download-gio-big-b.png';
+const GOOGLE_PLAY_URL = 'https://play.google.com/store/apps/details?id=com.afuchat.afuapp';
+const GOOGLE_PLAY_BADGE = '/assets/google_play_badge.png';
 
 function StoreButtons() {
   return (
@@ -30,6 +32,16 @@ function StoreButtons() {
       >
         <span className="text-white/55 text-[10px] font-semibold uppercase tracking-widest">Download AfuChat</span>
         <img src={AFUCHAT_DOWNLOAD_BADGE} alt="Download AfuChat from Uptodown" className="h-10 w-auto" loading="lazy" decoding="async" />
+      </a>
+      <a
+        href={GOOGLE_PLAY_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Download the AfuChat app on Google Play"
+        className="flex flex-col gap-1"
+      >
+        <span className="text-white/55 text-[10px] font-semibold uppercase tracking-widest">Google Play</span>
+        <img src={GOOGLE_PLAY_BADGE} alt="Get the AfuChat app on Google Play" className="h-10 w-auto" loading="lazy" decoding="async" />
       </a>
     </div>
   );

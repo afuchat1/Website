@@ -15,6 +15,8 @@ const _FL = '/assets/afuchat_logo_transparent.png';
 const _FT = '/assets/trustpilot_logo.png';
 const _AFUCHAT_PLAY_URL = 'https://com-afuchat-afuapp.en.uptodown.com/android';
 const _AFUCHAT_DOWNLOAD_BADGE = 'https://stc.utdstc.com/img/mediakit/download-gio-big-b.png';
+const _AFUCHAT_GOOGLE_PLAY_URL = 'https://play.google.com/store/apps/details?id=com.afuchat.afuapp';
+const _GOOGLE_PLAY_BADGE = '/assets/google_play_badge.png';
 const _FP = PRODUCT_DATA;
 function PageFooter() {
   const yr = new Date().getFullYear();
@@ -30,6 +32,10 @@ function PageFooter() {
               <a href={_AFUCHAT_PLAY_URL} target="_blank" rel="noopener noreferrer" aria-label="Download the AfuChat app on Uptodown" className="flex flex-col gap-1">
                 <span className="text-white/55 text-[10px] font-semibold uppercase tracking-widest">Download AfuChat</span>
                 <img src={_AFUCHAT_DOWNLOAD_BADGE} alt="Download AfuChat from Uptodown" className="h-10 w-auto" loading="lazy" />
+              </a>
+              <a href={_AFUCHAT_GOOGLE_PLAY_URL} target="_blank" rel="noopener noreferrer" aria-label="Download the AfuChat app on Google Play" className="flex flex-col gap-1">
+                <span className="text-white/55 text-[10px] font-semibold uppercase tracking-widest">Google Play</span>
+                <img src={_GOOGLE_PLAY_BADGE} alt="Get the AfuChat app on Google Play" className="h-10 w-auto" loading="lazy" />
               </a>
             </div>
             <p className="text-white/22 text-xs">AfuChat Technologies Limited</p>
