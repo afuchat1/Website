@@ -13,36 +13,26 @@ const GOOGLE_PLAY_BADGE = '/assets/google_play_badge.png';
 
 function StoreButtons() {
   return (
-    <div className="flex items-center gap-3 flex-wrap">
+    <div className="flex flex-col items-start gap-3">
       <a
         href={TRUSTPILOT_PROFILE_URL}
         target="_blank"
         rel="noopener noreferrer"
         aria-label={`${TRUSTPILOT_SUMMARY.rating.toFixed(1)} stars on Trustpilot`}
-        className="bg-white hover:bg-white/90 transition-colors rounded-full px-3 py-1.5 flex items-center"
+        className="hover:opacity-90 transition-opacity flex items-center"
       >
-        <img src={TRUSTPILOT_LOGO} alt="Trustpilot" className="h-5 w-auto" loading="lazy" decoding="async" />
+        <img src={TRUSTPILOT_LOGO} alt="Trustpilot" className="h-8 w-auto" loading="lazy" decoding="async" />
       </a>
-      <a
-        href={AFUCHAT_PLAY_URL}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Download the AfuChat app on Uptodown"
-        className="flex flex-col gap-1"
-      >
-        <span className="text-white/55 text-[10px] font-semibold uppercase tracking-widest">Download AfuChat</span>
-        <img src={AFUCHAT_DOWNLOAD_BADGE} alt="Download AfuChat from Uptodown" className="h-10 w-auto" loading="lazy" decoding="async" />
-      </a>
-      <a
-        href={GOOGLE_PLAY_URL}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Download the AfuChat app on Google Play"
-        className="flex flex-col gap-1"
-      >
-        <span className="text-white/55 text-[10px] font-semibold uppercase tracking-widest">Google Play</span>
-        <img src={GOOGLE_PLAY_BADGE} alt="Get the AfuChat app on Google Play" className="h-10 w-auto" loading="lazy" decoding="async" />
-      </a>
+      <div className="flex items-center gap-3 flex-wrap">
+        <a href={AFUCHAT_PLAY_URL} target="_blank" rel="noopener noreferrer" aria-label="Download the AfuChat app on Uptodown" className="flex flex-col gap-1">
+          <span className="text-white/55 text-[10px] font-semibold uppercase tracking-widest">Download AfuChat</span>
+          <img src={AFUCHAT_DOWNLOAD_BADGE} alt="Download AfuChat from Uptodown" className="h-10 w-auto" loading="lazy" decoding="async" />
+        </a>
+        <a href={GOOGLE_PLAY_URL} target="_blank" rel="noopener noreferrer" aria-label="Download the AfuChat app on Google Play" className="flex flex-col gap-1">
+          <span className="text-white/55 text-[10px] font-semibold uppercase tracking-widest">Google Play</span>
+          <img src={GOOGLE_PLAY_BADGE} alt="Get the AfuChat app on Google Play" className="h-10 w-auto" loading="lazy" decoding="async" />
+        </a>
+      </div>
     </div>
   );
 }

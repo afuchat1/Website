@@ -27,16 +27,18 @@ function PageFooter() {
           <div className="col-span-1 sm:col-span-2 md:col-span-1">
             <Link href="/" className="flex items-center gap-2.5 mb-5"><img src={_FL} alt="AfuChat" className="h-8 w-auto" /><span className="text-white font-bold text-lg">AfuChat</span></Link>
             <p className="text-white/40 text-sm leading-relaxed mb-5">Independent products.<br />Built for the world.</p>
-            <div className="flex items-center gap-3 flex-wrap mb-5">
-              <a href="https://www.trustpilot.com/review/afuchat.com" target="_blank" rel="noopener noreferrer" className="bg-white hover:bg-white/90 transition-colors rounded-full px-3 py-1.5 flex items-center"><img src={_FT} alt="Trustpilot" className="h-5 w-auto" loading="lazy" /></a>
-              <a href={_AFUCHAT_PLAY_URL} target="_blank" rel="noopener noreferrer" aria-label="Download the AfuChat app on Uptodown" className="flex flex-col gap-1">
-                <span className="text-white/55 text-[10px] font-semibold uppercase tracking-widest">Download AfuChat</span>
-                <img src={_AFUCHAT_DOWNLOAD_BADGE} alt="Download AfuChat from Uptodown" className="h-10 w-auto" loading="lazy" />
-              </a>
-              <a href={_AFUCHAT_GOOGLE_PLAY_URL} target="_blank" rel="noopener noreferrer" aria-label="Download the AfuChat app on Google Play" className="flex flex-col gap-1">
-                <span className="text-white/55 text-[10px] font-semibold uppercase tracking-widest">Google Play</span>
-                <img src={_GOOGLE_PLAY_BADGE} alt="Get the AfuChat app on Google Play" className="h-10 w-auto" loading="lazy" />
-              </a>
+            <div className="flex flex-col items-start gap-3 mb-5">
+              <a href="https://www.trustpilot.com/review/afuchat.com" target="_blank" rel="noopener noreferrer" className="hover:opacity-90 transition-opacity flex items-center"><img src={_FT} alt="Trustpilot" className="h-8 w-auto" loading="lazy" /></a>
+              <div className="flex items-center gap-3 flex-wrap">
+                <a href={_AFUCHAT_PLAY_URL} target="_blank" rel="noopener noreferrer" aria-label="Download the AfuChat app on Uptodown" className="flex flex-col gap-1">
+                  <span className="text-white/55 text-[10px] font-semibold uppercase tracking-widest">Download AfuChat</span>
+                  <img src={_AFUCHAT_DOWNLOAD_BADGE} alt="Download AfuChat from Uptodown" className="h-10 w-auto" loading="lazy" />
+                </a>
+                <a href={_AFUCHAT_GOOGLE_PLAY_URL} target="_blank" rel="noopener noreferrer" aria-label="Download the AfuChat app on Google Play" className="flex flex-col gap-1">
+                  <span className="text-white/55 text-[10px] font-semibold uppercase tracking-widest">Google Play</span>
+                  <img src={_GOOGLE_PLAY_BADGE} alt="Get the AfuChat app on Google Play" className="h-10 w-auto" loading="lazy" />
+                </a>
+              </div>
             </div>
             <p className="text-white/22 text-xs">AfuChat Technologies Limited</p>
           </div>
