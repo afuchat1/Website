@@ -9,8 +9,8 @@ import { PRODUCT_DATA } from '@/data/products';
 
 const _FL = '/assets/afuchat_logo_transparent.png';
 const _FT = '/assets/trustpilot_logo.png';
-const _FG = '/assets/google_play_badge.png';
-const _AFUCHAT_PLAY_URL = 'https://play.google.com/store/apps/details?id=com.afuchat.afuapp';
+const _AFUCHAT_PLAY_URL = 'https://com-afuchat-afuapp.en.uptodown.com/android';
+const _AFUCHAT_DOWNLOAD_BADGE = 'https://stc.utdstc.com/img/mediakit/download-gio-big-b.png';
 const _FP = PRODUCT_DATA;
 function PageFooter() {
   const yr = new Date().getFullYear();
@@ -23,9 +23,9 @@ function PageFooter() {
             <p className="text-white/40 text-sm leading-relaxed mb-5">Independent products.<br />Built for the world.</p>
             <div className="flex items-center gap-3 flex-wrap mb-5">
               <a href="https://www.trustpilot.com/review/afuchat.com" target="_blank" rel="noopener noreferrer" className="bg-white hover:bg-white/90 transition-colors rounded-full px-3 py-1.5 flex items-center"><img src={_FT} alt="Trustpilot" className="h-5 w-auto" loading="lazy" /></a>
-              <a href={_AFUCHAT_PLAY_URL} target="_blank" rel="noopener noreferrer" aria-label="Download the AfuChat app on Google Play" className="flex flex-col gap-1">
+              <a href={_AFUCHAT_PLAY_URL} target="_blank" rel="noopener noreferrer" aria-label="Download the AfuChat app on Uptodown" className="flex flex-col gap-1">
                 <span className="text-white/55 text-[10px] font-semibold uppercase tracking-widest">Download AfuChat</span>
-                <img src={_FG} alt="Get the AfuChat app on Google Play" className="h-10 w-auto" loading="lazy" />
+                <img src={_AFUCHAT_DOWNLOAD_BADGE} alt="Download AfuChat from Uptodown" className="h-10 w-auto" loading="lazy" />
               </a>
             </div>
             <p className="text-white/22 text-xs">AfuChat Technologies Limited</p>
