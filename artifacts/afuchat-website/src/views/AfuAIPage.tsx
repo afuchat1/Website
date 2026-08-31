@@ -122,19 +122,15 @@ for await (const event of client.chat.stream({
 /* ─────────────────────────────────────────────
    INLINE FOOTER
 ───────────────────────────────────────────── */
-const _FL = '/assets/afuchat_logo_transparent.png';
-const _FT = '/assets/trustpilot_logo.png';
-const _FG = '/assets/google_play_badge.png';
-const ENGagera_PLAY_URL = 'https://play.google.com/store/apps/details?id=com.engagera.mobile';
 const _FP = [
-  { n: 'AfuMail',   p: '/products/afumail',   i: '/illustrations/icon3d-afumail.webp' },
-  { n: 'AfuChat',   p: '/products/afuchat',   i: '/illustrations/icon3d-afuchat.webp' },
-  { n: 'AfuAI',     p: '/products/afuai',     i: '/illustrations/icon3d-afuai.webp' },
-  { n: 'AfuCloud',  p: '/products/afucloud',  i: '/illustrations/icon3d-afucloud.webp' },
-  { n: 'AfuMovies', p: '/products/afumovies', i: '/illustrations/icon3d-afumovies.webp' },
-  { n: 'AfuMall',   p: '/products/afumall',   i: '/illustrations/icon3d-afumall.webp' },
-  { n: 'AfuNews',   p: '/products/afunews',   i: '/illustrations/icon3d-afunews.webp' },
-  { n: 'AfuBlog',   p: '/products/afublog',   i: '/illustrations/icon3d-afublog.webp' },
+  { n: 'AfuMail',   p: '/products/afumail' },
+  { n: 'AfuChat',   p: '/products/afuchat' },
+  { n: 'AfuAI',     p: '/products/afuai' },
+  { n: 'AfuCloud',  p: '/products/afucloud' },
+  { n: 'AfuMovies', p: '/products/afumovies' },
+  { n: 'AfuMall',   p: '/products/afumall' },
+  { n: 'AfuNews',   p: '/products/afunews' },
+  { n: 'AfuBlog',   p: '/products/afublog' },
 ];
 function PageFooter() {
   const yr = new Date().getFullYear();
@@ -143,24 +139,17 @@ function PageFooter() {
       <div className="max-container container-pad pt-14 pb-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 mb-10 md:mb-12">
           <div className="col-span-1 sm:col-span-2 md:col-span-1">
-            <Link href="/" className="flex items-center gap-2.5 mb-4"><img src={_FL} alt="AfuChat" className="h-7 w-auto" /><span className="text-white font-bold text-base">AfuChat</span></Link>
+            <Link href="/" className="inline-flex items-center mb-4"><span className="text-white font-bold text-base">AfuChat</span></Link>
             <p className="text-white/38 text-sm leading-relaxed mb-4">Independent products.<br />Built for the world.</p>
-            <div className="flex items-center gap-3 flex-wrap mb-4">
-              <a href="https://www.trustpilot.com/review/afuchat.com" target="_blank" rel="noopener noreferrer" className="bg-white hover:bg-white/90 transition-colors rounded-md px-3 py-1.5 flex items-center"><img src={_FT} alt="Trustpilot" className="h-4 w-auto" loading="lazy" /></a>
-              <a href={ENGagera_PLAY_URL} target="_blank" rel="noopener noreferrer" aria-label="Download the Engagera app on Google Play" className="flex flex-col gap-1">
-                <span className="text-white/55 text-[10px] font-semibold uppercase tracking-widest">Download Engagera</span>
-                <img src={_FG} alt="Get the Engagera app on Google Play" className="h-9 w-auto" loading="lazy" />
-              </a>
-            </div>
             <p className="text-white/20 text-xs">AfuChat Technologies Limited</p>
           </div>
           <div>
             <h4 className="text-white/40 font-semibold text-[10px] uppercase tracking-widest mb-4">Products</h4>
-            <ul className="flex flex-col gap-3">{_FP.slice(0,4).map(p=><li key={p.n}><Link href={p.p} className="flex items-center gap-2 text-white/35 hover:text-white text-sm transition-colors"><img src={p.i} alt="" className="w-4 h-4 object-contain" loading="lazy"/>{p.n}</Link></li>)}</ul>
+            <ul className="flex flex-col gap-3">{_FP.slice(0,4).map(p=><li key={p.n}><Link href={p.p} className="text-white/35 hover:text-white text-sm transition-colors">{p.n}</Link></li>)}</ul>
           </div>
           <div>
             <h4 className="text-white/40 font-semibold text-[10px] uppercase tracking-widest mb-4">More</h4>
-            <ul className="flex flex-col gap-3">{_FP.slice(4).map(p=><li key={p.n}><Link href={p.p} className="flex items-center gap-2 text-white/35 hover:text-white text-sm transition-colors"><img src={p.i} alt="" className="w-4 h-4 object-contain" loading="lazy"/>{p.n}</Link></li>)}</ul>
+            <ul className="flex flex-col gap-3">{_FP.slice(4).map(p=><li key={p.n}><Link href={p.p} className="text-white/35 hover:text-white text-sm transition-colors">{p.n}</Link></li>)}</ul>
           </div>
           <div>
             <h4 className="text-white/40 font-semibold text-[10px] uppercase tracking-widest mb-4">Company</h4>
