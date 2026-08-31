@@ -1,6 +1,6 @@
 // Real reviews for AfuChat Technologies Limited, sourced from Trustpilot.
 // https://uk.trustpilot.com/review/afuchat.com
-// Do not fabricate additional entries here — only add reviews that actually
+// Do not fabricate additional entries here. Only add reviews that actually
 // exist on the Trustpilot profile above.
 
 export const TRUSTPILOT_PROFILE_URL = 'https://uk.trustpilot.com/review/afuchat.com';

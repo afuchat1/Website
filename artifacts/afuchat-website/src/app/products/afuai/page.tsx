@@ -4,13 +4,13 @@ import AfuAIView from '@/views/AfuAIPage';
 const BASE_URL = 'https://afuchat.com';
 
 export const metadata: Metadata = {
-  title: 'AfuAI — Intelligence, Built In',
+  title: 'AfuAI: Intelligence, Built In',
   description:
-    'AfuAI is your personal smart assistant — context-aware, deeply integrated, and powered by live web search. Automated workflows, voice recognition, and real-time AI at your fingertips.',
+    'AfuAI is your personal smart assistant, context aware, deeply integrated, and powered by live web search. Automated workflows, voice recognition, and real time AI at your fingertips.',
   keywords: ['AfuAI', 'AI assistant', 'artificial intelligence', 'AfuChat AI', 'smart assistant', 'voice recognition'],
   alternates: { canonical: `${BASE_URL}/products/afuai` },
   openGraph: {
-    title: 'AfuAI — Intelligence, Built In | AfuChat',
+      title: 'AfuAI: Intelligence, Built In | AfuChat',
     description:
       'Your personal smart assistant. Context-aware, deeply integrated, and powered by live web search.',
     url: `${BASE_URL}/products/afuai`,
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
         url: '/illustrations/ill-svc-afuai.webp',
         width: 1200,
         height: 630,
-        alt: 'AfuAI — your personal intelligent assistant',
+        alt: 'AfuAI, your personal intelligent assistant',
       },
     ],
   },

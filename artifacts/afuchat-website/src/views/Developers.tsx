@@ -8,8 +8,8 @@ import Footer from '@/components/layout/Footer';
 
 const resources = [
   { icon: Terminal, label: 'REST API',      desc: 'Full CRUD access to every AfuChat product. JSON responses, predictable error handling.',         color: '#16C784' },
-  { icon: Code2,    label: 'GraphQL',       desc: 'Flexible queries for complex data needs. Subscriptions for real-time feeds.',                     color: '#6C63FF' },
-  { icon: Globe,    label: 'WebSockets',    desc: 'Real-time event streaming for chat, notifications, and live data.',                               color: '#1F95FF' },
+  { icon: Code2,    label: 'GraphQL',       desc: 'Flexible queries for complex data needs. Subscriptions for real time feeds.',                     color: '#6C63FF' },
+  { icon: Globe,    label: 'WebSockets',    desc: 'Real time event streaming for chat, notifications, and live data.',                               color: '#1F95FF' },
   { icon: Book,     label: 'SDKs',          desc: 'Official client libraries for React, Node.js, Python, iOS, and Android.',                        color: '#F59E0B' },
   { icon: Lock,     label: 'AfuMail SSO',   desc: 'Let your users sign in with their AfuMail account. OAuth 2.0 and SAML 2.0 supported.',            color: '#EF4444' },
   { icon: Zap,      label: 'Webhooks',      desc: 'Push notifications to your server when events occur. Reliable delivery with retry logic.',        color: '#EC4899' },
@@ -27,7 +27,7 @@ export default function Developers() {
               Build for millions.<br />Ship in hours.
             </h1>
             <p className="text-white/55 text-base sm:text-lg leading-relaxed mb-8 max-w-md">
-              The AfuChat developer platform gives you flexible APIs to build on top of our standalone services — whether you need cloud storage, real-time messaging, or AI processing.
+              The AfuChat developer platform gives you flexible APIs to build on top of our standalone services, whether you need cloud storage, real time messaging, or AI processing.
             </p>
             <div className="flex flex-col sm:flex-row gap-3">
               <a href="https://developers.afuchat.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center px-7 py-3.5 bg-gradient-to-r from-green-500 to-teal-500 text-white font-bold text-sm rounded-full hover:opacity-90 transition-opacity">

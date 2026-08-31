@@ -5,8 +5,8 @@ import { Mail, ShieldCheck, LayoutGrid } from 'lucide-react';
 
 const steps = [
   { icon: Mail,        label: 'One AfuMail account',     desc: 'Your email is your identity across every AfuChat product.' },
-  { icon: ShieldCheck, label: 'End-to-end encrypted',    desc: 'Zero-knowledge security — even we cannot read your data.' },
-  { icon: LayoutGrid,  label: 'Access everything',       desc: 'AfuChat, AfuAI, AfuCloud and more — one login, all products.' },
+  { icon: ShieldCheck, label: 'End to end encrypted',    desc: 'Zero knowledge security. Even we cannot read your data.' },
+  { icon: LayoutGrid,  label: 'Access everything',       desc: 'AfuChat, AfuAI, AfuCloud and more. One login, all products.' },
 ];
 
 export default function IdentitySection() {

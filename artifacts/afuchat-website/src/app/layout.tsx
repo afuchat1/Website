@@ -6,9 +6,9 @@ import '@/index.css';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'AfuChat — Powerful tools. Standalone brilliance.',
+  title: 'AfuChat: Powerful tools. Standalone brilliance.',
   description:
-    'AfuChat Technologies builds eight independent digital products — AfuMail, AfuChat, AfuAI, AfuCloud, AfuMovies, AfuMall, AfuNews, and AfuBlog. Use one, use them all.',
+    'AfuChat Technologies builds eight independent digital products: AfuMail, AfuChat, AfuAI, AfuCloud, AfuMovies, AfuMall, AfuNews, and AfuBlog. Use one, use them all.',
   metadataBase: new URL('https://afuchat.com'),
   openGraph: { siteName: 'AfuChat', type: 'website', images: [{ url: '/og-default.png' }] },
   twitter: { card: 'summary_large_image' },

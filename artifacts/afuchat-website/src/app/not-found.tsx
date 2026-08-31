@@ -5,7 +5,7 @@ import Footer from '@/components/layout/Footer';
 import { illSecHelp } from '@/data/illustrations';
 
 export const metadata = {
-  title: 'Page Not Found — AfuChat',
+  title: 'Page Not Found: AfuChat',
   description: 'The AfuChat page you requested could not be found.',
 };
 

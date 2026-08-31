@@ -14,7 +14,7 @@ export default function CtaSection() {
               Everything you need.<br />Nothing you don&apos;t.
             </h2>
             <p className="text-white/50 text-base leading-relaxed mb-8 max-w-md">
-              Create one free account and access every AfuChat product instantly. No bundles, no forced upgrades — just the tools you actually want.
+              Create one free account and access every AfuChat product instantly. No bundles, no forced upgrades, just the tools you actually want.
             </p>
             <div className="flex flex-col sm:flex-row gap-3">
               <a href="https://web.afuchat.com/register" className="inline-flex items-center justify-center px-7 py-3.5 bg-gradient-to-r from-[#1F7AFF] to-[#6C63FF] text-white font-bold text-sm rounded-full hover:opacity-90 transition-opacity">

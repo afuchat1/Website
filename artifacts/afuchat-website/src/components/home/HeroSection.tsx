@@ -53,7 +53,6 @@ export default function HeroSection() {
               animate={{ opacity: 1, y: 0 }}
               className="text-blue-400 font-semibold text-[10px] sm:text-xs uppercase tracking-widest mb-3 sm:mb-5"
             >
-              Independent products. Built for you.
             </motion.p>
             <motion.h1
               initial={{ opacity: 0, y: 24 }}
@@ -70,7 +69,7 @@ export default function HeroSection() {
               transition={{ delay: 0.1 }}
               className="text-base sm:text-lg text-white/55 mb-6 sm:mb-8 max-w-md leading-relaxed"
             >
-              Whether you need blazingly fast chat, secure cloud storage, or an intelligent assistant — pick what you need. They work perfectly apart, and even better together.
+              Whether you need blazingly fast chat, secure cloud storage, or an intelligent assistant, pick what you need. They work perfectly apart, and even better together.
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 16 }}

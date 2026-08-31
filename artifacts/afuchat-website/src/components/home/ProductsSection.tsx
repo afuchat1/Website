@@ -46,10 +46,10 @@ export default function ProductsSection() {
               transition={{ delay: 0.1 }}
               className="text-white/50 text-base leading-relaxed mb-8 sm:mb-10 max-w-md"
             >
-              Each AfuChat product is designed to stand entirely on its own. Together, they form a seamless ecosystem — but you never have to use more than you need.
+              Each AfuChat product is designed to stand entirely on its own. Together, they form a seamless ecosystem, but you never have to use more than you need.
             </motion.p>
 
-            {/* Flat grid — no cards, no borders */}
+            {/* Flat grid with no cards or borders */}
             <div className="grid grid-cols-2 gap-x-6 gap-y-4 sm:gap-y-5 mb-8 sm:mb-10">
               {PRODUCT_DATA.map((p, i) => (
                 <motion.div

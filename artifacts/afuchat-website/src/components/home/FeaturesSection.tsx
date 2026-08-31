@@ -4,10 +4,10 @@ import { motion } from 'framer-motion';
 import { ShieldCheck, Lock, Sparkles, RefreshCw, Zap, Globe } from 'lucide-react';
 
 const features = [
-  { icon: ShieldCheck, label: 'Zero-Knowledge Security',  desc: 'Your data is encrypted before it ever leaves your device.' },
-  { icon: Lock,        label: 'End-to-End Encryption',    desc: 'Every message and file is protected with AES-256.' },
+  { icon: ShieldCheck, label: 'Zero Knowledge Security',  desc: 'Your data is encrypted before it ever leaves your device.' },
+  { icon: Lock,        label: 'End to End Encryption',    desc: 'Every message and file is protected with AES 256.' },
   { icon: Sparkles,    label: 'AI Built In',              desc: 'Smart suggestions and automation across every product.' },
-  { icon: RefreshCw,   label: 'Real-Time Sync',           desc: 'Instant updates across all your devices, always.' },
+  { icon: RefreshCw,   label: 'Real Time Sync',           desc: 'Instant updates across all your devices, always.' },
   { icon: Zap,         label: 'Blazing Fast',             desc: 'Sub-100ms response times, globally distributed.' },
   { icon: Globe,       label: 'Available Everywhere',     desc: 'Web, iOS, Android, macOS, and Windows.' },
 ];
@@ -42,10 +42,10 @@ export default function FeaturesSection() {
               transition={{ delay: 0.1 }}
               className="text-white/50 text-base leading-relaxed mb-10 max-w-md"
             >
-              Security, speed, and intelligence aren&apos;t add-ons at AfuChat — they&apos;re the foundation every product is built on.
+              Security, speed, and intelligence aren&apos;t add ons at AfuChat. They&apos;re the foundation every product is built on.
             </motion.p>
 
-            {/* Flat grid — no cards, no borders */}
+            {/* Flat grid with no cards or borders */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-7">
               {features.map((f, i) => (
                 <motion.div

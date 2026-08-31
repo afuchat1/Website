@@ -77,7 +77,7 @@ export default function Reviews() {
             <motion.p
               initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.1 }}
               className="text-white/60 max-w-lg mx-auto mb-6"
-            >We don't write these ourselves — every review below is public and verifiable on Trustpilot.</motion.p>
+            >We don't write these ourselves. Every review below is public and verifiable on Trustpilot.</motion.p>
             <motion.a
               href={TRUSTPILOT_PROFILE_URL}
               target="_blank"
@@ -92,7 +92,7 @@ export default function Reviews() {
             </motion.a>
           </div>
 
-          {/* Sliding review rows — two rows drifting in opposite directions */}
+          {/* Sliding review rows with two rows drifting in opposite directions */}
           <div className="flex flex-col gap-6 mb-20 -mx-4 sm:-mx-6 lg:-mx-8">
             <div className="relative overflow-hidden">
               <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-r from-[#040c1e] to-transparent z-10 pointer-events-none" />

@@ -109,7 +109,7 @@ console.log(reply.sources);  // live pages AfuBot crawled`,
 
 const client = new Engagera({ apiKey: "eng_..." });
 
-// Token-by-token SSE — build responsive streaming UIs
+// Token by token SSE for responsive streaming UIs
 for await (const event of client.chat.stream({
   messages: [{ role: "user", content: "Explain quantum computing" }],
   model: "engagera-pro",
@@ -200,10 +200,10 @@ export default function AfuAIPage() {
               Intelligence,<br /><span className="text-amber-400">built in.</span>
             </h1>
             <p className="text-white/45 text-base leading-relaxed mb-7 max-w-[420px]">
-              AfuAI powers a new generation of products that think, search, and respond in real time. Starting with Engagera — live AI chat, web search, and image generation.
+              AfuAI powers a new generation of products that think, search, and respond in real time. Starting with Engagera: live AI chat, web search, and image generation.
             </p>
 
-            {/* CTA row — favicon-only links */}
+            {/* CTA row with favicon only links */}
             <div className="flex flex-wrap items-center gap-5 mb-8">
               <a href="https://engagera.afuchat.com" target="_blank" rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-amber-400 hover:text-amber-300 font-semibold text-sm transition-colors">
@@ -274,18 +274,18 @@ export default function AfuAIPage() {
 
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-12 lg:gap-20">
 
-          {/* left — description + capabilities */}
+          {/* left: description and capabilities */}
           <motion.div initial={{ opacity: 0, x: -12 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
             <p className="text-white/42 text-sm leading-relaxed mb-10 max-w-md">
-              Engagera gives access to advanced AI models with live web search, image generation, and code execution — all in one clean interface. Powered by AfuBot, our proprietary web crawler that reads the live web so the AI is never working from stale data.
+              Engagera gives access to advanced AI models with live web search, image generation, and code execution, all in one clean interface. Powered by AfuBot, our proprietary web crawler that reads the live web so the AI is never working from stale data.
             </p>
             <div className="flex flex-col gap-7">
               {[
-                { icon: ScanSearch,   color: '#F59E0B', title: 'AfuBot — Live Web Crawler',
-                  desc: 'Spiders live pages in real-time. Extracts og:images, titles, and text snippets. Returns structured citations in every response — no hallucinated URLs.' },
+                { icon: ScanSearch,   color: '#F59E0B', title: 'AfuBot: Live Web Crawler',
+                  desc: 'Spiders live pages in real time. Extracts og:images, titles, and text snippets. Returns structured citations in every response. No hallucinated URLs.' },
                 { icon: BrainCircuit, color: '#60A5FA', title: 'AI Completions',
-                  desc: 'Multi-turn conversations across all supported models. AfuBot is invoked automatically when the query needs fresh web context, with zero configuration.' },
-                { icon: Activity,     color: '#A78BFA', title: 'Token-by-token Streaming',
+                  desc: 'Multi turn conversations across all supported models. AfuBot is invoked automatically when the query needs fresh web context, with zero configuration.' },
+                { icon: Activity,     color: '#A78BFA', title: 'Token by Token Streaming',
                   desc: 'Full SSE streaming. Tokens arrive as they are generated. Source citations appended on the done event so UI can render results progressively.' },
               ].map((c, i) => (
                 <motion.div key={c.title} initial={{ opacity: 0, y: 8 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.07 }}
@@ -300,7 +300,7 @@ export default function AfuAIPage() {
             </div>
           </motion.div>
 
-          {/* right — product spec */}
+          {/* right: product spec */}
           <motion.div initial={{ opacity: 0, x: 12 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: 0.08 }}
             className="flex flex-col gap-8">
 
@@ -396,9 +396,9 @@ export default function AfuAIPage() {
             </div>
           </div>
           <p className="text-white/38 text-sm leading-relaxed max-w-xl">
-            Official TypeScript SDK. Two primitives —{' '}
+            Official TypeScript SDK. Two primitives:{' '}
             <span className="text-white/60 font-medium">AfuBot</span> for live web search and{' '}
-            <span className="text-white/60 font-medium">Chat</span> for AI completions — built to compose.
+            <span className="text-white/60 font-medium">Chat</span> for AI completions, built to compose.
             Supports Node.js, Bun, Deno, and edge runtimes.
           </p>
         </motion.div>
@@ -444,22 +444,22 @@ export default function AfuAIPage() {
             </div>
           </motion.div>
 
-          {/* right — code */}
+          {/* right: code */}
           <motion.div key={tab} initial={{ opacity: 0, y: 5 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.15 }}>
             <Code code={CODE[tab]} lang="typescript" />
           </motion.div>
         </div>
 
-        {/* API quick-ref — developer detail */}
+        {/* API quick reference: developer detail */}
         <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
           className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-8">
           {[
             { ns: 'client.afubot.search(query)', ret: 'Promise<{ answer, searchQuery, sources[] }>',
               note: 'Synchronous web crawl. Returns a synthesised answer plus an array of cited sources with url, title, image, and snippet.' },
             { ns: 'client.chat.create({ messages })', ret: 'Promise<{ content, sources[] }>',
-              note: 'Non-streaming completion. Internally invokes AfuBot when the query needs live data. Accepts system/user/assistant turns.' },
+              note: 'Non streaming completion. Internally invokes AfuBot when the query needs live data. Accepts system/user/assistant turns.' },
             { ns: 'client.chat.stream({ messages })', ret: 'AsyncIterable<{ type, text, sources }>',
-              note: 'Token-by-token SSE. Yields delta events while generating and a final done event with the source citations.' },
+              note: 'Token by token SSE. Yields delta events while generating and a final done event with the source citations.' },
           ].map(r => (
             <div key={r.ns}>
               <p className="text-white/60 font-mono text-[11px] mb-1">{r.ns}</p>

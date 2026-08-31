@@ -3,7 +3,7 @@ import { NextResponse } from 'next/server';
 const PACKAGE = '@afuchat1/engagera';
 const NPM_URL = `https://registry.npmjs.org/${encodeURIComponent(PACKAGE)}/latest`;
 
-// Revalidate every hour — new releases are rare, no need to hit npm on every request.
+// Revalidate every hour. New releases are rare, so there is no need to hit npm on every request.
 export const revalidate = 3600;
 
 export async function GET() {

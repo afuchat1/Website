@@ -17,7 +17,7 @@ export default function Products() {
               Eight tools.<br />One vision.
             </h1>
             <p className="text-white/50 text-base sm:text-lg leading-relaxed max-w-md">
-              Every AfuChat product is built to stand on its own — no artificial dependencies, no forced bundles. Use one, use all, or mix and match.
+              Every AfuChat product is built to stand on its own. No artificial dependencies, no forced bundles. Use one, use all, or mix and match.
             </p>
           </motion.div>
           <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.1 }} className="flex justify-center">

@@ -14,7 +14,7 @@ export default function DeveloperSection() {
               Build on AfuChat.<br />Ship faster.
             </h2>
             <p className="text-white/50 text-base leading-relaxed mb-8 max-w-md">
-              REST and GraphQL APIs, real-time WebSocket events, and open-source SDKs for every major platform. Build integrations in hours, not weeks.
+              REST and GraphQL APIs, real time WebSocket events, and open source SDKs for every major platform. Build integrations in hours, not weeks.
             </p>
             <div className="flex flex-col sm:flex-row gap-3">
               <Link href="/developers" className="inline-flex items-center justify-center px-7 py-3.5 bg-gradient-to-r from-green-500 to-teal-500 text-white font-bold text-sm rounded-full hover:opacity-90 transition-opacity">

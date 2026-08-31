@@ -62,7 +62,7 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  // Detect an existing session shared via the .afuchat.com cookie — this is
+  // Detect an existing session shared via the .afuchat.com cookie. This is
   // what lets someone already logged into web.afuchat.com see "Open App"
   // here instead of Login/Sign Up, without logging in twice.
   useEffect(() => {
@@ -200,7 +200,7 @@ export default function Navbar() {
         <div className="hidden md:flex items-center gap-3">
           <GithubStarBadge />
           {isLoggedIn === null ? (
-            // Auth state not resolved yet — reserve the space without
+            // Auth state not resolved yet. Reserve the space without
             // rendering either CTA so we don't flash the wrong one.
             <div className="w-[148px] h-9" aria-hidden="true" />
           ) : isLoggedIn ? (
@@ -261,7 +261,7 @@ export default function Navbar() {
           <div className="flex flex-col gap-3 px-6 pt-2">
             <GithubStarBadge className="justify-center py-3.5" />
             {isLoggedIn === null ? (
-              // Auth state not resolved yet — reserve the space without
+              // Auth state not resolved yet. Reserve the space without
               // rendering either CTA so we don't flash the wrong one.
               <div className="h-[52px]" aria-hidden="true" />
             ) : isLoggedIn ? (
