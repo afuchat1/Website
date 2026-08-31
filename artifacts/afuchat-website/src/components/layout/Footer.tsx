@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import { PRODUCT_DATA } from '@/data/products';
 import { TRUSTPILOT_PROFILE_URL, TRUSTPILOT_SUMMARY } from '@/data/trustpilot';
-import { openCookiePreferences } from '@/lib/cookieConsent';
 
 const LOGO_SRC         = '/assets/afuchat_logo_transparent.png';
 const TRUSTPILOT_LOGO  = '/assets/trustpilot_logo.png';
@@ -115,18 +114,11 @@ export default function Footer() {
             {[
               { label: 'Privacy Policy',   href: '/legal/privacy' },
               { label: 'Terms of Service', href: '/legal/terms' },
-              { label: 'Cookie Policy',    href: '/legal/cookies' },
             ].map(l => (
               <Link key={l.href} href={l.href} className="text-white/28 hover:text-white/60 text-xs transition-colors">
                 {l.label}
               </Link>
             ))}
-            <button
-              onClick={openCookiePreferences}
-              className="text-white/28 hover:text-white/60 text-xs transition-colors"
-            >
-              Manage Cookies
-            </button>
           </div>
         </div>
       </div>

@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import Navbar from '@/components/layout/Navbar';
-import CookieConsent from '@/components/layout/CookieConsent';
 import '@/index.css';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -26,7 +25,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <Navbar />
         <main className="pt-16">{children}</main>
-        <CookieConsent />
       </body>
     </html>
   );

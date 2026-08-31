@@ -111,14 +111,6 @@ const PAGE_CONTENT: Record<string, {
       { heading: 'Service Modifications', body: 'We reserve the right to modify or discontinue any part of our services at any time. We will provide reasonable notice of significant changes whenever possible.' },
     ],
   },
-  cookies: {
-    accent: '#F59E0B',
-    sections: [
-      { heading: 'What Are Cookies', body: 'Cookies are small text files stored on your device when you visit our website. They help us recognize your device and remember your preferences.' },
-      { heading: 'How We Use Them', body: 'We use cookies for essential functions like authentication, as well as for analytics to understand how people interact with our site so we can improve it.' },
-      { heading: 'Your Choices', body: 'You can control cookie settings through your browser preferences. However, disabling certain cookies may limit your ability to use some features of our products.' },
-    ],
-  },
 };
 
 const fallback = {

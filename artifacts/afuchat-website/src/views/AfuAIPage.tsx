@@ -5,7 +5,6 @@ import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { ScanSearch, BrainCircuit, Activity, Copy, Check, ArrowRight, Github } from 'lucide-react';
 import { PRODUCT_DATA } from '@/data/products';
-import { openCookiePreferences } from '@/lib/cookieConsent';
 
 /* ─────────────────────────────────────────────
    COPY BUTTON
@@ -168,10 +167,10 @@ function PageFooter() {
             <ul className="flex flex-col gap-3">{[{l:'About',h:'/about'},{l:'Developers',h:'/developers'},{l:'Partners',h:'/partners'},{l:'Careers',h:'/about/careers'}].map(x=><li key={x.h}><Link href={x.h} className="text-white/35 hover:text-white text-sm transition-colors">{x.l}</Link></li>)}</ul>
           </div>
         </div>
-        <div className="border-t border-white/6 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="text-white/20 text-xs">© {yr} AfuChat Technologies Limited. All rights reserved.</p>
-          <div className="flex items-center gap-5">{[{l:'Privacy',h:'/legal/privacy'},{l:'Terms',h:'/legal/terms'},{l:'Cookies',h:'/legal/cookies'}].map(x=><Link key={x.h} href={x.h} className="text-white/22 hover:text-white/55 text-xs transition-colors">{x.l}</Link>)}<button onClick={openCookiePreferences} className="text-white/22 hover:text-white/55 text-xs transition-colors">Manage Cookies</button></div>
-        </div>
+          <div className="border-t border-white/6 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
+           <p className="text-white/20 text-xs">© {yr} AfuChat Technologies Limited. All rights reserved.</p>
+           <div className="flex items-center gap-5">{[{l:'Privacy',h:'/legal/privacy'},{l:'Terms',h:'/legal/terms'}].map(x=><Link key={x.h} href={x.h} className="text-white/22 hover:text-white/55 text-xs transition-colors">{x.l}</Link>)}</div>
+         </div>
       </div>
     </footer>
   );
