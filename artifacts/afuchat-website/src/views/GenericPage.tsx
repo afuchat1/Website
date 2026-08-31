@@ -44,16 +44,16 @@ const PAGE_CONTENT: Record<string, {
     accent: '#16C784', illustration: illSecSecurity,
     sections: [
       { heading: 'Security by design', body: 'Security is not an add-on at AfuChat — it is the foundation every product is built on. We use AES-256 encryption for data at rest, TLS 1.3 for data in transit, and zero-knowledge architecture where applicable.' },
-      { heading: 'Responsible disclosure', body: 'We maintain a public responsible disclosure program. If you discover a security vulnerability in any AfuChat product, please report it to security@afuchat.com. We respond within 24 hours and provide a full resolution timeline.' },
-      { heading: 'Certifications', body: 'AfuChat maintains SOC 2 Type II certification across all products. Enterprise customers can request our full compliance documentation through their account administrator.' },
+      { heading: 'Two-factor authentication', body: 'Every account supports TOTP-based two-factor authentication and hardware security keys. For enterprise accounts, 2FA can be enforced across the entire organization with a single policy change.' },
+      { heading: 'Vulnerability disclosure', body: 'We operate a responsible disclosure program for security researchers. If you discover a vulnerability in any AfuChat product, please contact our security team. We commit to acknowledging reports within 24 hours.' },
     ],
   },
-  identity: {
-    accent: '#8B5CF6', illustration: illSecIdentity,
+  contact: {
+    accent: '#14B8A6', illustration: illSecContact,
     sections: [
-      { heading: 'Your digital identity', body: 'AfuMail is more than email — it is a portable identity layer that connects you to every AfuChat product without a separate account for each one.' },
-      { heading: 'How it works', body: 'Sign in once with your AfuMail address and access AfuCloud, AfuChat, AfuAI, and more — all without re-entering credentials. Your identity stays yours, and you control exactly which products can access it.' },
-      { heading: 'Privacy by design', body: 'We do not sell identity data. Information shared with AfuChat products is protected with privacy-first principles and clear controls.' },
+      { heading: 'Get in touch', body: "We'd love to hear from you. Whether you have a question about a product, a partnership inquiry, a press request, or just want to say hello — our team is here." },
+      { heading: 'Support', body: 'For product support, please visit our Help Center. Our support team responds within 4 hours on business days and within 24 hours on weekends. Enterprise customers have access to dedicated support with a guaranteed 1-hour SLA.' },
+      { heading: 'Business inquiries', body: 'For partnership, enterprise, and media inquiries, please reach out to us at business@afuchat.com. We typically respond within one business day.' },
     ],
   },
   careers: {
@@ -95,14 +95,6 @@ const PAGE_CONTENT: Record<string, {
       { heading: 'Need something else?', body: 'If you cannot find a page you are looking for, visit our Help Center or contact our team directly.' },
     ],
   },
-  contact: {
-    accent: '#1F95FF', illustration: illSecContact,
-    sections: [
-      { heading: 'Get in touch', body: 'We would love to hear from you. Whether you have a question about our products, pricing, enterprise needs, or just want to say hello — our team is ready to answer.' },
-      { heading: 'Support', body: 'For product support, email support@afuchat.com or reach out from within any AfuChat product. We respond within 4 hours on business days.' },
-      { heading: 'Partnerships', body: 'Interested in partnering with AfuChat? Visit our partners page or email partnerships@afuchat.com.' },
-    ],
-  },
   privacy: {
     accent: '#1F95FF',
     sections: [
@@ -123,7 +115,7 @@ const PAGE_CONTENT: Record<string, {
     accent: '#F59E0B',
     sections: [
       { heading: 'What Are Cookies', body: 'Cookies are small text files stored on your device when you visit our website. They help us recognize your device and remember your preferences.' },
-      { heading: 'How We Use Them', body: 'We use cookies for essential website functions and, when permitted, analytics to understand how people interact with our site so we can improve it.' },
+      { heading: 'How We Use Them', body: 'We use cookies for essential functions like authentication, as well as for analytics to understand how people interact with our site so we can improve it.' },
       { heading: 'Your Choices', body: 'You can control cookie settings through your browser preferences. However, disabling certain cookies may limit your ability to use some features of our products.' },
     ],
   },
@@ -183,12 +175,7 @@ export default function GenericPage({ title, type }: GenericPageProps) {
               <motion.div key={p.id} initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.07 }}>
                 <Link href={p.path}>
                   <div className="flex items-center gap-3 group">
-                    <span
-                      className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0"
-                      style={{ color: p.color, backgroundColor: `${p.color}18` }}
-                    >
-                      <p.icon className="w-[18px] h-[18px]" strokeWidth={1.8} aria-hidden="true" />
-                    </span>
+                    <img src={p.icon3d} alt={`${p.name} icon`} className="w-9 h-9 object-contain flex-shrink-0" loading="lazy" decoding="async" />
                     <span className="text-sm text-white/50 group-hover:text-white transition-colors">{p.name}</span>
                   </div>
                 </Link>
@@ -198,6 +185,16 @@ export default function GenericPage({ title, type }: GenericPageProps) {
         </div>
       )}
 
+      {/* CTA */}
+      <div className="max-container container-pad py-16">
+        <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+          <h2 className="text-2xl font-bold text-white mb-3 tracking-tight">Ready to get started?</h2>
+          <p className="text-white/40 text-sm mb-6">Create your free account and start using any of our products instantly.</p>
+          <a href="https://web.afuchat.com/register" className="inline-block px-6 py-3 text-white font-bold text-sm rounded-full hover:opacity-90 transition-opacity" style={{ backgroundColor: accent }}>
+            Create free account →
+          </a>
+        </motion.div>
+      </div>
       <Footer />
     </div>
   );

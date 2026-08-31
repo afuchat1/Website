@@ -1,2 +1,29 @@
 User-agent: *
 Allow: /
+
+# AI crawlers — explicitly allowed to index and read all pages
+User-agent: GPTBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://afuchat.com/sitemap.xml

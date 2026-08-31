@@ -1,4 +1,3 @@
-'use client';
 import Link from 'next/link';
 import { PRODUCT_DATA } from '@/data/products';
 import { TRUSTPILOT_PROFILE_URL, TRUSTPILOT_SUMMARY } from '@/data/trustpilot';
@@ -6,33 +5,28 @@ import { openCookiePreferences } from '@/lib/cookieConsent';
 
 const LOGO_SRC         = '/assets/afuchat_logo_transparent.png';
 const TRUSTPILOT_LOGO  = '/assets/trustpilot_logo.png';
-const AFUCHAT_PLAY_URL = 'https://com-afuchat-afuapp.en.uptodown.com/android';
-const AFUCHAT_DOWNLOAD_BADGE = 'https://stc.utdstc.com/img/mediakit/download-gio-big-b.png';
-const GOOGLE_PLAY_URL = 'https://play.google.com/store/apps/details?id=com.afuchat.afuapp';
 const GOOGLE_PLAY_BADGE = '/assets/google_play_badge.png';
 
 function StoreButtons() {
   return (
-    <div className="flex flex-col items-start gap-3">
+    <div className="flex items-center gap-3 flex-wrap">
       <a
         href={TRUSTPILOT_PROFILE_URL}
         target="_blank"
         rel="noopener noreferrer"
         aria-label={`${TRUSTPILOT_SUMMARY.rating.toFixed(1)} stars on Trustpilot`}
-        className="bg-white hover:bg-white/90 transition-colors rounded-md px-3 py-1.5 flex items-center"
+        className="bg-white hover:bg-white/90 transition-colors rounded-full px-3 py-1.5 flex items-center"
       >
-        <img src={TRUSTPILOT_LOGO} alt="Trustpilot" className="h-8 w-auto" loading="lazy" decoding="async" />
+        <img src={TRUSTPILOT_LOGO} alt="Trustpilot" className="h-5 w-auto" loading="lazy" decoding="async" />
       </a>
-      <div className="flex items-center gap-3 flex-wrap">
-        <a href={AFUCHAT_PLAY_URL} target="_blank" rel="noopener noreferrer" aria-label="Download the AfuChat app on Uptodown" className="flex flex-col gap-1">
-          <span className="text-white/55 text-[10px] font-semibold uppercase tracking-widest">Download AfuChat</span>
-          <img src={AFUCHAT_DOWNLOAD_BADGE} alt="Download AfuChat from Uptodown" className="h-10 w-auto" loading="lazy" decoding="async" />
-        </a>
-        <a href={GOOGLE_PLAY_URL} target="_blank" rel="noopener noreferrer" aria-label="Download the AfuChat app on Google Play" className="flex flex-col gap-1">
-          <span className="text-white/55 text-[10px] font-semibold uppercase tracking-widest">Google Play</span>
-          <img src={GOOGLE_PLAY_BADGE} alt="Get the AfuChat app on Google Play" className="h-10 w-auto" loading="lazy" decoding="async" />
-        </a>
-      </div>
+      <a
+        href="https://play.google.com/store"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Get it on Google Play"
+      >
+        <img src={GOOGLE_PLAY_BADGE} alt="Get it on Google Play" className="h-10 w-auto" loading="lazy" decoding="async" />
+      </a>
     </div>
   );
 }
@@ -69,9 +63,7 @@ export default function Footer() {
               {PRODUCT_DATA.slice(0, 4).map(p => (
                 <li key={p.id}>
                   <Link href={p.path} className="flex items-center gap-2.5 text-white/38 hover:text-white text-sm transition-colors group">
-                    <span className="w-5 h-5 rounded-md flex items-center justify-center flex-shrink-0" style={{ color: p.color, backgroundColor: `${p.color}18` }}>
-                      <p.icon className="w-3 h-3" strokeWidth={1.8} aria-hidden="true" />
-                    </span>
+                    <img src={p.icon3d} alt="" className="w-5 h-5 object-contain flex-shrink-0" loading="lazy" decoding="async" />
                     {p.name}
                   </Link>
                 </li>
@@ -86,9 +78,7 @@ export default function Footer() {
               {PRODUCT_DATA.slice(4, 8).map(p => (
                 <li key={p.id}>
                   <Link href={p.path} className="flex items-center gap-2.5 text-white/38 hover:text-white text-sm transition-colors group">
-                    <span className="w-5 h-5 rounded-md flex items-center justify-center flex-shrink-0" style={{ color: p.color, backgroundColor: `${p.color}18` }}>
-                      <p.icon className="w-3 h-3" strokeWidth={1.8} aria-hidden="true" />
-                    </span>
+                    <img src={p.icon3d} alt="" className="w-5 h-5 object-contain flex-shrink-0" loading="lazy" decoding="async" />
                     {p.name}
                   </Link>
                 </li>

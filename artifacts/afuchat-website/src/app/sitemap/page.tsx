@@ -1,19 +1,9 @@
 import type { Metadata } from 'next';
-import GenericPageView from '@/views/GenericPage';
+import GenericPage from '@/views/GenericPage';
 
 export const metadata: Metadata = {
-  title: 'Site Map — AfuChat',
-  description:
-    'Browse all pages on the AfuChat website. Find products, company information, developer resources, legal documents, and more.',
+  title: 'Sitemap — AfuChat',
+  description: 'A complete directory of every page across the AfuChat corporate website — products, company information, developer resources, and legal documentation.',
   alternates: { canonical: 'https://afuchat.com/sitemap' },
-  openGraph: {
-    title: 'Site Map — AfuChat',
-    description: 'Find every page on the AfuChat website.',
-    url: 'https://afuchat.com/sitemap',
-    images: [{ url: '/illustrations/ill-sec-sitemap.webp', width: 1200, height: 630, alt: 'AfuChat site map' }],
-  },
 };
-
-export default function SitemapPage() {
-  return <GenericPageView title="Sitemap" type="sitemap" />;
-}
+export default function Page() { return <GenericPage title="Sitemap" type="sitemap" />; }

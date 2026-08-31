@@ -38,21 +38,16 @@ export default function Products() {
               transition={{ delay: i * 0.06 }}
             >
               <Link href={p.path} className="block group">
-                <div className="rounded-2xl border border-white/8 bg-white/4 hover:bg-white/7 transition-colors p-6">
-                  <div className="flex items-center gap-4 mb-5">
-                    <span
-                      className="w-12 h-12 rounded-2xl flex items-center justify-center flex-shrink-0"
-                      style={{ color: p.color, backgroundColor: `${p.color}18` }}
-                    >
-                      <p.icon className="w-6 h-6" strokeWidth={1.8} aria-hidden="true" />
-                    </span>
-                    <div>
-                      <p className="text-white font-bold text-sm">{p.name}</p>
-                      <p className="text-white/38 text-xs">{p.category}</p>
-                    </div>
+                <div className="flex flex-col items-start gap-4 p-5 rounded-2xl hover:bg-white/4 transition-colors">
+                  <img src={p.icon3d} alt={`${p.name} icon`} className="w-14 h-14 object-contain" loading="lazy" decoding="async" />
+                  <div>
+                    <p className="text-white font-bold text-base mb-1 group-hover:text-white/90 transition-colors">{p.name}</p>
+                    <p className="text-white/35 text-xs uppercase tracking-widest font-semibold mb-2">{p.category}</p>
+                    <p className="text-white/50 text-sm leading-relaxed">{p.description}</p>
                   </div>
-                  <p className="text-xs font-semibold mb-2 leading-snug" style={{ color: p.color }}>{p.tagline}</p>
-                  <p className="text-white/40 text-xs leading-relaxed line-clamp-3">{p.description}</p>
+                  <span className="text-xs font-semibold mt-auto" style={{ color: p.color }}>
+                    Learn more →
+                  </span>
                 </div>
               </Link>
             </motion.div>

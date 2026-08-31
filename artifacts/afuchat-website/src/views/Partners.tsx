@@ -36,29 +36,29 @@ export default function Partners() {
 
       {/* Why partner */}
       <div className="max-container container-pad py-16 sm:py-20">
-        <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-10">
-          <p className="text-[#F59E0B] font-semibold text-xs uppercase tracking-widest mb-3">Why Partner</p>
-          <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">Why build with us?</h2>
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-10">
+          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3 tracking-tight">Why partner with AfuChat?</h2>
+          <p className="text-white/55 text-base">We provide our partners with technical support, marketing resources, and revenue-sharing opportunities to build mutually beneficial relationships.</p>
         </motion.div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-10 gap-y-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-8">
           {[
-            { icon: Users,       color: '#1F95FF', title: 'Millions of users',    desc: 'Tap into our growing user base across eight standalone products.' },
-            { icon: ShieldCheck, color: '#16C784', title: 'Trusted platform',     desc: 'Our products are built with security and privacy at the core.' },
-            { icon: Rocket,      color: '#F59E0B', title: 'Fast go-to-market',    desc: 'Integration APIs and SDKs let you ship in days, not months.' },
-            { icon: Target,      color: '#EC4899', title: 'Dedicated support',    desc: 'A dedicated partner success manager for every approved partner.' },
+            { icon: Users,      color: '#F59E0B', label: 'Global Reach',       desc: 'Gain exposure to millions of verified users across our product portfolio.' },
+            { icon: Target,     color: '#1F95FF', label: 'Co-Marketing',       desc: 'Benefit from joint campaigns, case studies, and feature announcements.' },
+            { icon: ShieldCheck,color: '#16C784', label: 'Technical Support',  desc: 'Get direct access to our engineering team and dedicated partner APIs.' },
+            { icon: Rocket,     color: '#6C63FF', label: 'Revenue Share',      desc: 'Earn competitive commissions through our reseller and affiliate programs.' },
           ].map((item, i) => (
             <motion.div key={i} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.07 }}>
               <item.icon className="w-7 h-7 mb-3" style={{ color: item.color }} />
-              <p className="text-white font-semibold text-sm mb-2">{item.title}</p>
+              <p className="text-white font-semibold text-sm mb-2">{item.label}</p>
               <p className="text-white/40 text-sm leading-relaxed">{item.desc}</p>
             </motion.div>
           ))}
         </div>
       </div>
 
-      {/* Programs */}
+      {/* Partnership tracks */}
       <div className="max-container container-pad py-16 sm:py-20">
-        <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-10">
+        <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
           <p className="text-[#F59E0B] font-semibold text-xs uppercase tracking-widest mb-3">Programs</p>
           <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">Partnership Tracks</h2>
         </motion.div>

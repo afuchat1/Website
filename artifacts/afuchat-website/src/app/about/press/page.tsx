@@ -1,19 +1,9 @@
 import type { Metadata } from 'next';
-import GenericPageView from '@/views/GenericPage';
+import GenericPage from '@/views/GenericPage';
 
 export const metadata: Metadata = {
   title: 'Press — AfuChat',
-  description:
-    'Press resources, media kit, and news about AfuChat Technologies Limited. Download logos, brand guidelines, and get in touch with our communications team.',
+  description: 'AfuChat press resources — logo assets, product screenshots, executive bios, and media contact information for journalists and content creators.',
   alternates: { canonical: 'https://afuchat.com/about/press' },
-  openGraph: {
-    title: 'Press Resources — AfuChat',
-    description: 'Media kit, logos, brand guidelines, and press contact for AfuChat Technologies.',
-    url: 'https://afuchat.com/about/press',
-    images: [{ url: '/illustrations/ill-sec-press.webp', width: 1200, height: 630, alt: 'AfuChat press resources' }],
-  },
 };
-
-export default function PressPage() {
-  return <GenericPageView title="Press" type="press" />;
-}
+export default function Page() { return <GenericPage title="Press" type="press" />; }

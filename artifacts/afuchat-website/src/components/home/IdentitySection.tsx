@@ -4,9 +4,9 @@ import { motion } from 'framer-motion';
 import { Mail, ShieldCheck, LayoutGrid } from 'lucide-react';
 
 const steps = [
-  { icon: Mail,        label: 'A connected ecosystem',   desc: 'AfuMail is part of a growing family of independent AfuChat products.' },
+  { icon: Mail,        label: 'One AfuMail account',     desc: 'Your email is your identity across every AfuChat product.' },
   { icon: ShieldCheck, label: 'End-to-end encrypted',    desc: 'Zero-knowledge security — even we cannot read your data.' },
-  { icon: LayoutGrid,  label: 'Explore everything',      desc: 'Discover AfuChat, AfuAI, AfuCloud and more — each built for a different need.' },
+  { icon: LayoutGrid,  label: 'Access everything',       desc: 'AfuChat, AfuAI, AfuCloud and more — one login, all products.' },
 ];
 
 export default function IdentitySection() {

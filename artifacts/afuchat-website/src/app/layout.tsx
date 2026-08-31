@@ -1,123 +1,32 @@
 import type { Metadata } from 'next';
-import SiteChrome from '@/components/layout/SiteChrome';
-import '@/app/globals.css';
+import { Inter } from 'next/font/google';
+import Navbar from '@/components/layout/Navbar';
+import CookieConsent from '@/components/layout/CookieConsent';
+import '@/index.css';
 
-const BASE_URL = 'https://afuchat.com';
+const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(BASE_URL),
-  title: {
-    default: 'AfuChat — Powerful tools. Standalone brilliance.',
-    template: '%s | AfuChat',
-  },
+  title: 'AfuChat — Powerful tools. Standalone brilliance.',
   description:
     'AfuChat Technologies builds eight independent digital products — AfuMail, AfuChat, AfuAI, AfuCloud, AfuMovies, AfuMall, AfuNews, and AfuBlog. Use one, use them all.',
-  keywords: [
-    'AfuChat', 'AfuMail', 'AfuAI', 'AfuCloud', 'AfuMovies', 'AfuMall', 'AfuNews', 'AfuBlog',
-    'messaging', 'cloud storage', 'AI assistant', 'email', 'streaming', 'shopping',
-  ],
-  authors: [{ name: 'AfuChat Technologies Limited', url: BASE_URL }],
-  creator: 'AfuChat Technologies Limited',
-  publisher: 'AfuChat Technologies Limited',
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-    },
-  },
-  openGraph: {
-    type: 'website',
-    locale: 'en_US',
-    url: BASE_URL,
-    siteName: 'AfuChat',
-    title: 'AfuChat — Powerful tools. Standalone brilliance.',
-    description:
-      'Eight independent digital products that work perfectly apart and even better together.',
-    images: [
-      {
-        url: '/assets/afuchat_logo_transparent.png',
-        width: 1200,
-        height: 630,
-        alt: 'AfuChat — Independent tools for everyone',
-        type: 'image/png',
-      },
-    ],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    site: '@afuchat',
-    creator: '@afuchat',
-    title: 'AfuChat — Powerful tools. Standalone brilliance.',
-    description:
-      'Eight independent digital products that work perfectly apart and even better together.',
-    images: ['/assets/afuchat_logo_transparent.png'],
-  },
+  metadataBase: new URL('https://afuchat.com'),
+  openGraph: { siteName: 'AfuChat', type: 'website', images: [{ url: '/og-default.png' }] },
+  twitter: { card: 'summary_large_image' },
   icons: {
     icon: [{ url: '/favicon.png', type: 'image/png' }],
     shortcut: '/favicon.png',
     apple: '/favicon.png',
   },
-  alternates: { canonical: BASE_URL },
-  category: 'technology',
-};
-
-const orgJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'Organization',
-  name: 'AfuChat Technologies Limited',
-  url: BASE_URL,
-  logo: {
-    '@type': 'ImageObject',
-    url: `${BASE_URL}/assets/afuchat_logo_transparent.png`,
-    width: 512,
-    height: 512,
-  },
-  sameAs: [
-    'https://github.com/afuchat1/Website',
-    'https://uk.trustpilot.com/review/afuchat.com',
-  ],
-  contactPoint: {
-    '@type': 'ContactPoint',
-    contactType: 'customer support',
-    url: `${BASE_URL}/contact`,
-  },
-};
-
-const websiteJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'WebSite',
-  name: 'AfuChat',
-  url: BASE_URL,
-  description:
-    'Eight independent digital products: AfuMail, AfuChat, AfuAI, AfuCloud, AfuMovies, AfuMall, AfuNews, and AfuBlog.',
-  potentialAction: {
-    '@type': 'SearchAction',
-    target: { '@type': 'EntryPoint', urlTemplate: `${BASE_URL}/products/{search_term_string}` },
-    'query-input': 'required name=search_term_string',
-  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning style={{ background: '#040c1e' }}>
-      <body suppressHydrationWarning>
-        {/* JSON-LD structured data — intentionally in <body> so that
-            Replit's devtools <script> injection into <head> cannot cause
-            a hydration mismatch. JSON-LD is valid anywhere in the document. */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
-        />
-        <SiteChrome>{children}</SiteChrome>
+    <html lang="en" className={inter.className} style={{ background: '#040c1e' }}>
+      <body>
+        <Navbar />
+        <main className="pt-16">{children}</main>
+        <CookieConsent />
       </body>
     </html>
   );

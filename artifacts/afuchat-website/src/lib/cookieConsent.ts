@@ -25,6 +25,18 @@ export interface StoredConsent {
   decidedAt: string;
 }
 
+// Same shared-domain reasoning as src/lib/supabase.ts: on real afuchat.com
+// hosts, scope the cookie to the root domain so a choice made here is also
+// visible to web.afuchat.com (and vice versa) instead of asking twice. On
+// localhost/preview domains a `.afuchat.com` cookie domain is invalid, so we
+// fall back to a host-only cookie there.
+const SHARED_COOKIE_DOMAIN = '.afuchat.com';
+
+function isProdHost(): boolean {
+  if (typeof window === 'undefined') return false;
+  return window.location.hostname.endsWith('afuchat.com');
+}
+
 function readCookie(name: string): string | null {
   if (typeof document === 'undefined') return null;
   const match = document.cookie.match(new RegExp(`(?:^|; )${name}=([^;]*)`));
@@ -34,7 +46,9 @@ function readCookie(name: string): string | null {
 function writeCookie(name: string, value: string, maxAgeDays: number) {
   if (typeof document === 'undefined') return;
   const maxAge = maxAgeDays * 24 * 60 * 60;
-  document.cookie = `${name}=${encodeURIComponent(value)}; path=/; max-age=${maxAge}; SameSite=Lax`;
+  const domainPart = isProdHost() ? `; domain=${SHARED_COOKIE_DOMAIN}` : '';
+  const securePart = isProdHost() ? '; Secure' : '';
+  document.cookie = `${name}=${encodeURIComponent(value)}; path=/; max-age=${maxAge}; SameSite=Lax${domainPart}${securePart}`;
 }
 
 export function getStoredConsent(): StoredConsent | null {

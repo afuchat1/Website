@@ -1,6 +1,7 @@
 'use client';
 import { motion } from 'framer-motion';
-import { Terminal, Book, Code2, Globe, Zap, ShieldCheck } from 'lucide-react';
+import Link from 'next/link';
+import { Terminal, Book, Code2, Globe, Zap, Lock } from 'lucide-react';
 import DeveloperSection from '@/components/home/DeveloperSection';
 import { illSecDeveloper } from '@/data/illustrations';
 import Footer from '@/components/layout/Footer';
@@ -10,7 +11,7 @@ const resources = [
   { icon: Code2,    label: 'GraphQL',       desc: 'Flexible queries for complex data needs. Subscriptions for real-time feeds.',                     color: '#6C63FF' },
   { icon: Globe,    label: 'WebSockets',    desc: 'Real-time event streaming for chat, notifications, and live data.',                               color: '#1F95FF' },
   { icon: Book,     label: 'SDKs',          desc: 'Official client libraries for React, Node.js, Python, iOS, and Android.',                        color: '#F59E0B' },
-  { icon: ShieldCheck, label: 'Security',   desc: 'Build with clear security practices and dependable controls across your integrations.',           color: '#EF4444' },
+  { icon: Lock,     label: 'AfuMail SSO',   desc: 'Let your users sign in with their AfuMail account. OAuth 2.0 and SAML 2.0 supported.',            color: '#EF4444' },
   { icon: Zap,      label: 'Webhooks',      desc: 'Push notifications to your server when events occur. Reliable delivery with retry logic.',        color: '#EC4899' },
 ];
 

@@ -18,7 +18,7 @@ const CATEGORIES: {
     key: 'functional',
     label: 'Functional Cookies',
     description:
-      'Remember choices you make to give you a more personalized experience on this website.',
+      'Remember choices you make (like your signed-in session across afuchat.com and web.afuchat.com) to give you a more personalized experience.',
   },
   {
     key: 'performance',
@@ -199,7 +199,8 @@ function CookiePreferencesPanel({
       </div>
       {expanded === 'necessary' && (
         <p className="text-xs text-white/45 leading-relaxed px-1 pt-3 pb-1">
-           Required for the website to work correctly. These cannot be switched off.
+          Required for the site and sign-in to work — like keeping you logged in across afuchat.com and
+          web.afuchat.com. These cannot be switched off.
         </p>
       )}
 

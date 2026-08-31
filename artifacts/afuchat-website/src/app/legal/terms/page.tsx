@@ -1,19 +1,9 @@
 import type { Metadata } from 'next';
-import GenericPageView from '@/views/GenericPage';
+import GenericPage from '@/views/GenericPage';
 
 export const metadata: Metadata = {
   title: 'Terms of Service — AfuChat',
-  description:
-    'AfuChat Technologies Limited terms of service. Your rights, responsibilities, and our obligations when you use any of our eight products.',
+  description: 'AfuChat Terms of Service — the rules and responsibilities that govern your use of our products and platform.',
   alternates: { canonical: 'https://afuchat.com/legal/terms' },
-  robots: { index: true, follow: true },
-  openGraph: {
-    title: 'Terms of Service — AfuChat Technologies Limited',
-    description: 'Your rights and responsibilities when using AfuChat products.',
-    url: 'https://afuchat.com/legal/terms',
-  },
 };
-
-export default function TermsPage() {
-  return <GenericPageView title="Terms of Service" type="terms" />;
-}
+export default function Page() { return <GenericPage title="Terms of Service" type="terms" />; }
