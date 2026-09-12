@@ -89,7 +89,7 @@ export default function Products() {
         <img src={illSecProducts} alt="AfuChat product suite" className="max-h-[190px] w-full object-contain drop-shadow-2xl sm:max-h-[300px]" />
       </motion.div>
     </section>
-    <section className="max-container pb-24">
+    <section className="max-container pb-16 sm:pb-20">
       <div className="mb-7 flex items-end justify-between gap-5 sm:mb-10">
         <div>
           <h2 className="text-3xl font-semibold tracking-tight text-[#e6f1ff] sm:text-4xl">Explore the products.</h2>

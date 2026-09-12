@@ -8,7 +8,7 @@ import { PROJECTS } from '@/data/projects';
 export default function Work() {
   return (
     <div className="min-h-screen">
-      <section className="max-container container-pad py-16 sm:py-24">
+      <section className="max-container container-pad py-14 sm:py-20">
         <motion.div initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} className="max-w-3xl">
           <h1 className="text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-6xl">Digital experiences built for real organizations.</h1>
           <p className="mt-6 max-w-2xl text-base leading-relaxed text-white/50 sm:text-lg">
@@ -17,7 +17,7 @@ export default function Work() {
         </motion.div>
       </section>
 
-       <section className="max-container container-pad pb-20 sm:pb-28">
+       <section className="max-container container-pad pb-16 sm:pb-20">
          <div aria-label="Selected client projects" className="mobile-rail flex snap-x snap-mandatory gap-4 overflow-x-auto pb-3 md:grid md:grid-cols-2 md:gap-5 md:overflow-visible">
           {PROJECTS.map((project, index) => {
             const Icon = project.icon;
@@ -56,7 +56,7 @@ export default function Work() {
         </div>
       </section>
 
-      <section className="max-container container-pad pb-20 sm:pb-28">
+      <section className="max-container container-pad pb-16 sm:pb-20">
         <div className="rounded-[2rem] border border-white/10 bg-[#0b1b31] px-6 py-10 sm:px-10">
           <div className="mt-3 flex flex-col justify-between gap-6 md:flex-row md:items-end">
             <h2 className="max-w-2xl text-3xl font-bold tracking-tight text-white sm:text-4xl">Have a product, website, or app to build?</h2>

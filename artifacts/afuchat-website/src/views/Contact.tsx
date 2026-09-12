@@ -6,7 +6,7 @@ import Footer from '@/components/layout/Footer';
 
 export default function Contact() {
   return <div className="studio-shell">
-    <section className="max-container studio-section grid gap-12 lg:grid-cols-[.8fr_1.2fr] lg:gap-24">
+    <section className="max-container studio-section grid gap-10 lg:grid-cols-[.8fr_1.2fr] lg:gap-16">
       <motion.div initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }}>
         <p className="studio-kicker mb-6">Start a project / 01</p>
         <h1 className="max-w-2xl text-[clamp(3.5rem,7vw,7rem)] font-semibold leading-[.88] tracking-[-.075em] text-[#e6f1ff]">Tell us what<br />you&apos;re <span className="text-[#4da8ff]">building.</span></h1>

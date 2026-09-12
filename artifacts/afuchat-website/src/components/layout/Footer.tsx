@@ -7,7 +7,7 @@ export default function Footer() {
       <div className="max-container container-pad pt-16 pb-8">
 
         {/* ── Main grid ── */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 mb-10 md:mb-14">
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 mb-8 md:mb-12">
 
           {/* Brand */}
           <div className="col-span-1 sm:col-span-2 md:col-span-1">
@@ -24,20 +24,6 @@ export default function Footer() {
             <h4 className="text-white/50 font-semibold text-xs uppercase tracking-widest mb-5">Products</h4>
             <ul className="flex flex-col gap-3.5">
               {PRODUCT_DATA.slice(0, 4).map(p => (
-                <li key={p.id}>
-                  <Link href={p.path} className="text-white/38 hover:text-white text-sm transition-colors">
-                    {p.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* More */}
-          <div>
-            <h4 className="text-white/50 font-semibold text-xs uppercase tracking-widest mb-5">More</h4>
-            <ul className="flex flex-col gap-3.5">
-              {PRODUCT_DATA.slice(4, 8).map(p => (
                 <li key={p.id}>
                   <Link href={p.path} className="text-white/38 hover:text-white text-sm transition-colors">
                     {p.name}
