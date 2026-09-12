@@ -2,20 +2,20 @@
 @import 'tailwindcss';
 
 @theme inline {
-  --color-background: #ffffff;
-  --color-surface: #f6faff;
-  --color-border: rgba(18, 59, 122, 0.14);
-  --color-primary: #2b5ea4;
-  --color-primary-dark: #123b7a;
-  --color-text: #102f53;
-  --color-text-secondary: #5c7590;
+  --color-background: var(--page-bg);
+  --color-surface: var(--page-surface);
+  --color-border: var(--line);
+  --color-primary: var(--blue);
+  --color-primary-dark: var(--blue-deep);
+  --color-text: var(--ink);
+  --color-text-secondary: var(--muted);
   --font-sans: 'Space Grotesk', sans-serif;
 }
 
-:root { --ink:#102f53; --muted:#5c7590; --dim:#7890a7; --navy:#ffffff; --navy-soft:#f3f8fd; --panel:#ffffff; --line:rgba(18,59,122,.14); --line-bright:rgba(18,59,122,.28); --blue:#2b5ea4; --blue-deep:#123b7a; --mint:#2b5ea4; --violet:#356fc0; --display:'Space Grotesk',sans-serif; --mono:'DM Mono',monospace; --header-height:72px; }
+:root { color-scheme:light; --page-bg:#ffffff; --page-surface:#f7fbff; --ink:#102f53; --muted:#5c7590; --dim:#7890a7; --navy:#ffffff; --navy-soft:#f3f8fd; --panel:#ffffff; --line:rgba(18,59,122,.14); --line-bright:rgba(18,59,122,.28); --blue:#2b5ea4; --blue-deep:#123b7a; --mint:#2b5ea4; --violet:#356fc0; --display:'Space Grotesk',sans-serif; --mono:'DM Mono',monospace; --header-height:72px; }
 * { box-sizing:border-box; }
-html { background:#fff; min-height:100%; scroll-behavior:smooth; }
-body { margin:0; min-height:100vh; color:var(--ink); background:#fff; font-family:var(--display); -webkit-font-smoothing:antialiased; }
+html { background:var(--page-bg); min-height:100%; scroll-behavior:smooth; }
+body { margin:0; min-height:100vh; color:var(--ink); background:var(--page-bg); font-family:var(--display); -webkit-font-smoothing:antialiased; }
 body::before { display:none; }
 h1,h2,h3,h4,h5,h6 { margin:0; font-family:var(--display); letter-spacing:-.045em; }
 a { color:inherit; } button,input,textarea,select { font:inherit; } ::selection { color:var(--navy); background:var(--blue); }
@@ -26,71 +26,109 @@ a { color:inherit; } button,input,textarea,select { font:inherit; } ::selection 
 button,[role="button"],.studio-button,a[class*="rounded"]{border-radius:999px!important;transition:transform .2s ease,background-color .2s ease,border-color .2s ease,color .2s ease,box-shadow .2s ease,opacity .2s ease}button:hover:not(:disabled),[role="button"]:hover,.studio-button:hover,a[class*="rounded"]:hover{transform:translateY(-2px) scale(1.015)}button:active:not(:disabled),[role="button"]:active,.studio-button:active,a[class*="rounded"]:active{transform:translateY(0) scale(.97)}button:focus-visible,[role="button"]:focus-visible,.studio-button:focus-visible,a[class*="rounded"]:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
 @media(max-width:767px){.max-container{width:min(100% - 32px,1220px)}.container-pad{padding-inline:0}.studio-section{padding-block:3.75rem}.studio-section-tight{padding-block:3rem}.legal-hero{padding-bottom:2.5rem}.legal-body{padding-bottom:4.5rem}body::before{background-size:48px 48px}}@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}}
 
-/* White platform theme: keep legacy page classes consistent with the
-   logo's white/navy/blue identity while older screens use these utilities. */
-[class*="bg-[#040c1e]"],
-[class*="bg-[#050d1f]"],
-[class*="bg-[#06101f]"],
-[class*="bg-[#071531]"],
-[class*="bg-[#081529]"],
-[class*="bg-[#09172a]"],
-[class*="bg-[#0b1b31]"],
-[class*="bg-[#0b1b3b]"],
-[class*="bg-[#0d1117]"],
-[class*="bg-[#101010]"],
-[class*="bg-[#111]"],
-[class*="bg-[#161616]"] {
-  background-color: #f7fbff !important;
+@media (prefers-color-scheme: light) {
+  /* Keep legacy page classes aligned with the light ATL platform theme. */
+  [class*="bg-[#040c1e]"],
+  [class*="bg-[#050d1f]"],
+  [class*="bg-[#06101f]"],
+  [class*="bg-[#071531]"],
+  [class*="bg-[#081529]"],
+  [class*="bg-[#09172a]"],
+  [class*="bg-[#0b1b31]"],
+  [class*="bg-[#0b1b3b]"],
+  [class*="bg-[#0d1117]"],
+  [class*="bg-[#101010]"],
+  [class*="bg-[#111]"],
+  [class*="bg-[#161616]"] {
+    background-color: #f7fbff !important;
+  }
+
+  [class*="text-[#e6f1ff]"],
+  [class*="text-white"] {
+    color: #102f53 !important;
+  }
+
+  [class*="text-[#91a8c4]"] { color: #5c7590 !important; }
+  [class*="text-[#6f89a7]"] { color: #6b8298 !important; }
+  [class*="text-[#5d7694]"] { color: #7890a7 !important; }
+
+  [class*="border-white"],
+  [class*="border-[#06101f]"],
+  [class*="border-[#0b1b31]"] {
+    border-color: rgba(18, 59, 122, 0.14) !important;
+  }
+
+  [class*="bg-white"] {
+    background-color: rgba(43, 94, 164, 0.055) !important;
+  }
+
+  .studio-button-primary,
+  a[class*="bg-gradient"],
+  button[class*="bg-gradient"] {
+    color: #fff !important;
+  }
+
+  .studio-button-primary {
+    background: #2b5ea4 !important;
+  }
+
+  .studio-button-primary:hover {
+    background: #123b7a !important;
+  }
+
+  .studio-button-ghost {
+    color: #123b7a !important;
+    background: #fff !important;
+    border-color: rgba(18, 59, 122, 0.28) !important;
+  }
+
+  .studio-button-ghost:hover {
+    background: #f1f6fc !important;
+    border-color: #2b5ea4 !important;
+  }
+
+  header[class*="bg-[#06101f]"],
+  header[class*="bg-[#040c1e]"] {
+    background-color: rgba(255, 255, 255, 0.92) !important;
+    border-color: rgba(18, 59, 122, 0.12) !important;
+  }
 }
 
-[class*="text-[#e6f1ff]"],
-[class*="text-white"] {
-  color: #102f53 !important;
-}
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --page-bg:#06101f;
+    --page-surface:#0b1b31;
+    --ink:#e6f1ff;
+    --muted:#91a8c4;
+    --dim:#5d7694;
+    --navy:#06101f;
+    --navy-soft:#0b1b31;
+    --panel:#0b1b31;
+    --line:rgba(255,255,255,.12);
+    --line-bright:rgba(255,255,255,.22);
+    --blue:#4da8ff;
+    --blue-deep:#1f7aff;
+    --mint:#8be7c4;
+    --violet:#9d8cff;
+  }
 
-[class*="text-[#91a8c4]"] { color: #5c7590 !important; }
-[class*="text-[#6f89a7]"] { color: #6b8298 !important; }
-[class*="text-[#5d7694]"] { color: #7890a7 !important; }
+  [class*="bg-[#f5f9fe]"],
+  [class*="bg-[#f6faff]"],
+  [class*="bg-[#f7fbff]"] {
+    background-color:#0b1b31 !important;
+  }
 
-[class*="border-white"],
-[class*="border-[#06101f]"],
-[class*="border-[#0b1b31]"] {
-  border-color: rgba(18, 59, 122, 0.14) !important;
-}
+  [class*="bg-white"] {
+    background-color:rgba(255,255,255,.06) !important;
+  }
 
-[class*="bg-white"] {
-  background-color: rgba(43, 94, 164, 0.055) !important;
-}
-
-.studio-button-primary,
-a[class*="bg-gradient"],
-button[class*="bg-gradient"] {
-  color: #fff !important;
-}
-
-.studio-button-primary {
-  background: #2b5ea4 !important;
-}
-
-.studio-button-primary:hover {
-  background: #123b7a !important;
-}
-
-.studio-button-ghost {
-  color: #123b7a !important;
-  background: #fff !important;
-  border-color: rgba(18, 59, 122, 0.28) !important;
-}
-
-.studio-button-ghost:hover {
-  background: #f1f6fc !important;
-  border-color: #2b5ea4 !important;
-}
-
-header[class*="bg-[#06101f]"],
-header[class*="bg-[#040c1e]"] {
-  background-color: rgba(255, 255, 255, 0.92) !important;
-  border-color: rgba(18, 59, 122, 0.12) !important;
+  .studio-panel,
+  .glass-card,
+  .tint-card {
+    background:var(--panel);
+    border-color:var(--line);
+  }
 }
 
 .mobile-rail {
