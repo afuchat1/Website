@@ -20,13 +20,13 @@ function ProductCard({ product, index }: { product: (typeof PRODUCT_DATA)[number
       transition={{ delay: index * 0.06 }}
       className="group flex flex-col overflow-hidden bg-transparent transition-transform hover:-translate-y-1"
     >
-      <div className="relative flex min-h-[190px] items-center justify-center overflow-hidden sm:min-h-[220px]">
+      <div className="relative flex min-h-[240px] items-center justify-center overflow-hidden sm:min-h-[300px]">
         <img
           src={product.illustration}
           alt={`${product.name} product artwork`}
           loading={index > 1 ? 'lazy' : 'eager'}
           decoding="async"
-          className="max-h-[170px] w-full object-contain transition-transform duration-500 group-hover:scale-105 sm:max-h-[195px]"
+          className="max-h-[225px] w-full scale-[1.08] object-contain transition-transform duration-500 group-hover:scale-[1.14] sm:max-h-[285px]"
         />
       </div>
 
@@ -86,7 +86,7 @@ export default function Products() {
         <p className="mt-8 max-w-xl text-base leading-relaxed text-[#91a8c4] sm:text-lg">Products owned or developed within the Afu ecosystem, from communication and email to AI technology and movie discovery.</p>
       </motion.div>
       <motion.div initial={{ opacity: 0, scale: .95 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: .1 }} className="flex items-center justify-center">
-        <img src={illSecProducts} alt="AfuChat Technologies product suite" className="max-h-[190px] w-full object-contain drop-shadow-2xl sm:max-h-[300px]" />
+         <img src={illSecProducts} alt="AfuChat Technologies product suite" className="max-h-[230px] w-full scale-[1.08] object-contain drop-shadow-2xl sm:max-h-[350px]" />
       </motion.div>
     </section>
     <section className="max-container studio-section-tight">
