@@ -21,9 +21,6 @@ function ProductCard({ product, index }: { product: (typeof PRODUCT_DATA)[number
       className="group flex flex-col overflow-hidden rounded-[1.75rem] bg-[#f5f9fe] p-3 transition-transform hover:-translate-y-1 sm:p-4"
     >
       <div className="relative flex min-h-[190px] items-center justify-center overflow-hidden rounded-[1.35rem] bg-white/70 p-5 sm:min-h-[220px]">
-        <span className="absolute left-4 top-4 rounded-full bg-white px-3 py-1.5 text-[9px] font-semibold uppercase tracking-[0.16em] text-[#5d7694]">
-          Company product
-        </span>
         <img
           src={product.illustration}
           alt={`${product.name} product artwork`}
@@ -37,7 +34,6 @@ function ProductCard({ product, index }: { product: (typeof PRODUCT_DATA)[number
         <div className="flex items-start justify-between gap-4">
           <div className="flex items-center gap-3">
             <Icon className="h-6 w-6 shrink-0" style={{ color: product.color }} strokeWidth={1.6} />
-            <p className="studio-kicker text-[9px] text-[#5d7694]">{product.category}</p>
           </div>
           <span className="studio-mono text-[10px] text-[#7890a7]">0{index + 1}</span>
         </div>
@@ -86,7 +82,6 @@ export default function Products() {
   return <div className="studio-shell">
     <section className="products-hero max-container grid items-center gap-7 py-9 sm:gap-12 sm:py-20 lg:grid-cols-[1fr_.72fr] lg:py-32">
       <motion.div initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }}>
-        <p className="studio-kicker mb-6 text-[#9d8cff]">Company products / 04 products</p>
         <h1 className="max-w-3xl text-[clamp(3.5rem,8vw,7.4rem)] font-semibold leading-[.88] tracking-[-.075em] text-[#e6f1ff]">Built as<br /><span className="text-[#4da8ff]">separate</span><br />ideas.</h1>
         <p className="mt-8 max-w-xl text-base leading-relaxed text-[#91a8c4] sm:text-lg">Products owned or developed within the Afu ecosystem, from communication and email to AI technology and movie discovery.</p>
       </motion.div>
@@ -97,7 +92,6 @@ export default function Products() {
     <section className="max-container pb-24">
       <div className="mb-7 flex items-end justify-between gap-5 sm:mb-10">
         <div>
-          <p className="studio-kicker mb-3 text-[#4da8ff]">The portfolio</p>
           <h2 className="text-3xl font-semibold tracking-tight text-[#e6f1ff] sm:text-4xl">Explore the products.</h2>
         </div>
         <span className="hidden text-right text-xs leading-relaxed text-[#7890a7] sm:block">Owned and developed<br />within the Afu ecosystem.</span>

@@ -10,7 +10,6 @@ export default function Work() {
     <div className="min-h-screen">
       <section className="max-container container-pad py-16 sm:py-24">
         <motion.div initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} className="max-w-3xl">
-          <p className="mb-4 text-[10px] font-semibold uppercase tracking-[0.22em] text-teal-300">Selected work</p>
           <h1 className="text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-6xl">Digital experiences built for real organizations.</h1>
           <p className="mt-6 max-w-2xl text-base leading-relaxed text-white/50 sm:text-lg">
             A selection of websites and digital projects built for businesses, organizations, and media teams. Each project starts with a real audience and a clear job to do.
@@ -43,7 +42,6 @@ export default function Work() {
                       Visit project <ArrowUpRight className="h-3.5 w-3.5" />
                     </span>
                   </div>
-                  <p className="mt-8 text-[10px] font-semibold uppercase tracking-[0.18em] text-white/30">{project.category}</p>
                   <h2 className="mt-2 text-2xl font-bold tracking-tight text-white">{project.name}</h2>
                   <p className="mt-3 max-w-xl text-sm leading-relaxed text-white/45">{project.description}</p>
                 </div>
@@ -56,12 +54,10 @@ export default function Work() {
             );
           })}
         </div>
-         <p className="mt-4 text-center text-[11px] font-medium uppercase tracking-[0.18em] text-[#7890a7] md:hidden">Swipe to explore selected work</p>
       </section>
 
       <section className="max-container container-pad pb-20 sm:pb-28">
         <div className="rounded-[2rem] border border-white/10 bg-[#0b1b31] px-6 py-10 sm:px-10">
-          <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-teal-300">Your project</p>
           <div className="mt-3 flex flex-col justify-between gap-6 md:flex-row md:items-end">
             <h2 className="max-w-2xl text-3xl font-bold tracking-tight text-white sm:text-4xl">Have a product, website, or app to build?</h2>
             <a href="/contact" className="inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-[#1F7AFF] px-6 py-3.5 text-sm font-bold text-white transition-colors hover:bg-[#388bff]">
