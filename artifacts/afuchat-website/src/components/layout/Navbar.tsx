@@ -52,11 +52,8 @@ export default function Navbar() {
   return (
     <header className={`fixed inset-x-0 top-0 z-50 border-b transition-colors duration-300 ${scrolled ? 'border-white/10 bg-[#06101f]/90 backdrop-blur-xl' : 'border-transparent bg-[#06101f]/55 backdrop-blur-md'}`}>
       <div className="max-container flex h-[72px] items-center justify-between">
-        <Link href="/" className="group flex items-center gap-3" aria-label="AfuChat home">
-          <span className="relative flex h-8 w-8 items-center justify-center border border-[#4da8ff]/70 text-[#4da8ff]">
-            <span className="absolute h-2 w-2 bg-[#4da8ff] transition-transform group-hover:scale-150" />
-          </span>
-          <span className="text-[15px] font-semibold tracking-[-.03em] text-[#e6f1ff]">AfuChat<span className="text-[#4da8ff]">.</span></span>
+        <Link href="/" className="group flex items-center" aria-label="AfuChat home">
+          <img src="/assets/atl-logo.svg" alt="ATL" className="h-9 w-auto transition-transform duration-200 group-hover:scale-[1.03]" />
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex" aria-label="Primary navigation">

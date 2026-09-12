@@ -78,7 +78,7 @@ export default function ProductsSection() {
             </div>
 
             <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-              <Link href="/products" className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-purple-500 to-blue-500 text-white font-bold text-sm rounded-full hover:opacity-90 transition-opacity">
+              <Link href="/products" className="inline-flex items-center gap-2 px-6 py-3 bg-[#6C63FF] text-white font-bold text-sm rounded-full hover:bg-[#8179ff] transition-colors">
                 Explore all products →
               </Link>
             </motion.div>

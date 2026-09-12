@@ -61,7 +61,7 @@ export default function HeroSection() {
               className="text-[32px] leading-[1.1] sm:text-5xl lg:text-6xl font-extrabold text-white mb-4 sm:mb-5 tracking-tight"
             >
               Powerful tools.<br />Standalone brilliance.<br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">Zero friction.</span>
+              <span className="text-blue-300">Zero friction.</span>
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -77,7 +77,7 @@ export default function HeroSection() {
               transition={{ delay: 0.15 }}
               className="flex flex-col sm:flex-row sm:flex-wrap gap-3 mb-8 sm:mb-10"
             >
-              <Link href="/products" className="flex items-center justify-center px-7 py-3.5 bg-gradient-to-r from-[#1F7AFF] to-[#6C63FF] text-white font-bold text-sm rounded-full hover:opacity-90 transition-opacity shadow-lg shadow-blue-500/25">
+              <Link href="/products" className="flex items-center justify-center px-7 py-3.5 bg-[#1F7AFF] text-white font-bold text-sm rounded-full hover:bg-[#388bff] transition-colors shadow-lg shadow-blue-500/25">
                 Explore Products →
               </Link>
               <a href="https://web.afuchat.com/register" className="flex items-center justify-center px-7 py-3.5 text-white/70 font-medium text-sm hover:text-white transition-colors border border-white/10 rounded-full sm:border-transparent sm:bg-transparent">
@@ -91,7 +91,7 @@ export default function HeroSection() {
                     member.avatar_url ? (
                       <img key={member.handle} src={member.avatar_url} alt={member.display_name} className="w-6 h-6 sm:w-7 sm:h-7 rounded-full border-2 border-[#040c1e] object-cover bg-white/10" />
                     ) : (
-                      <div key={member.handle} className="w-6 h-6 sm:w-7 sm:h-7 rounded-full border-2 border-[#040c1e] bg-gradient-to-br from-[#1F7AFF] to-[#6C63FF] flex items-center justify-center text-white text-[9px] font-bold">
+                      <div key={member.handle} className="w-6 h-6 sm:w-7 sm:h-7 rounded-full border-2 border-[#040c1e] bg-[#1F7AFF] flex items-center justify-center text-white text-[9px] font-bold">
                         {initials(member.display_name)}
                       </div>
                     )

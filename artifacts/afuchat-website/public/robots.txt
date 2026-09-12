@@ -1,7 +1,7 @@
 User-agent: *
 Allow: /
 
-# AI crawlers — explicitly allowed to index and read all pages
+# AI crawlers: explicitly allowed to index and read all pages
 User-agent: GPTBot
 Allow: /
 

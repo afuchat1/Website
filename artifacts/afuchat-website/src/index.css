@@ -35,9 +35,7 @@ body {
   margin: 0;
   min-height: 100vh;
   color: var(--ink);
-  background:
-    radial-gradient(circle at 78% -12%, rgba(52, 130, 232, 0.15), transparent 34rem),
-    linear-gradient(180deg, #071326 0%, var(--navy) 45%, #071221 100%);
+  background: var(--navy);
   font-family: var(--display);
   -webkit-font-smoothing: antialiased;
 }
@@ -62,10 +60,12 @@ button, input, textarea, select { font: inherit; }
 .studio-button {
   display: inline-flex; align-items: center; justify-content: center; gap: .6rem;
   min-height: 46px; padding: 0 1.15rem; border: 1px solid transparent;
-  border-radius: 3px; text-decoration: none; font-size: .85rem; font-weight: 600;
-  transition: transform .22s ease, background-color .22s ease, border-color .22s ease, color .22s ease;
+  border-radius: 999px; text-decoration: none; font-size: .85rem; font-weight: 600;
+  transition: transform .2s ease, background-color .2s ease, border-color .2s ease, color .2s ease, box-shadow .2s ease, opacity .2s ease;
 }
-.studio-button:hover { transform: translateY(-2px); }
+.studio-button:hover { transform: translateY(-2px) scale(1.015); }
+.studio-button:active { transform: translateY(0) scale(.97); }
+.studio-button:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; }
 .studio-button-primary { color: #06101f; background: var(--blue); }
 .studio-button-primary:hover { background: #81c3ff; }
 .studio-button-ghost { color: var(--ink); border-color: var(--line-bright); background: rgba(11, 27, 49, .32); }
@@ -74,7 +74,7 @@ button, input, textarea, select { font: inherit; }
 .studio-section-tight { padding-block: clamp(3.5rem, 7vw, 6rem); }
 .studio-grid { border-top: 1px solid var(--line); }
 .studio-grid > * { border-bottom: 1px solid var(--line); }
-.studio-panel { background: linear-gradient(135deg, rgba(14, 39, 68, .8), rgba(9, 23, 42, .74)); border: 1px solid var(--line); }
+.studio-panel { background: var(--panel); border: 1px solid var(--line); }
 .studio-outline { border: 1px solid var(--line); }
 .studio-index { color: var(--blue); font: 500 11px var(--mono); letter-spacing: .1em; }
 .studio-fade { opacity: 0; transform: translateY(14px); animation: studio-in .7s cubic-bezier(.2,.7,.2,1) forwards; }
@@ -86,44 +86,33 @@ button, input, textarea, select { font: inherit; }
 .studio-signal { animation: studio-pulse 2.4s ease-in-out infinite; }
 .glass-card, .tint-card { background: var(--panel); border: 1px solid var(--line); backdrop-filter: blur(12px); }
 
-/* Keep the site intentionally flat: no card chrome, divider rules, or rounded containers. */
-[class*="border"] { border-width: 0 !important; border-color: transparent !important; }
-[class*="border"][class*="bg-"] { background: transparent !important; }
-[class*="rounded"] { border-radius: 0 !important; }
-.studio-panel,
-.studio-outline,
-.glass-card,
-.tint-card { background: transparent !important; border: 0 !important; backdrop-filter: none !important; }
-.studio-grid,
-.studio-grid > * { border: 0 !important; }
-hr { display: none; }
-
 /* Buttons use one rounded, tactile interaction pattern throughout the site. */
 button,
 [role="button"],
-.studio-button {
+.studio-button,
+a[class*="rounded"] {
   border-radius: 999px !important;
-  transition: transform .2s ease, background-color .2s ease, color .2s ease, opacity .2s ease;
+  transition: transform .2s ease, background-color .2s ease, border-color .2s ease, color .2s ease, box-shadow .2s ease, opacity .2s ease;
 }
 button:hover:not(:disabled),
 [role="button"]:hover,
-.studio-button:hover {
+.studio-button:hover,
+a[class*="rounded"]:hover {
   transform: translateY(-2px) scale(1.015);
 }
 button:active:not(:disabled),
 [role="button"]:active,
-.studio-button:active {
+.studio-button:active,
+a[class*="rounded"]:active {
   transform: translateY(0) scale(.97);
 }
 button:focus-visible,
 [role="button"]:focus-visible,
-.studio-button:focus-visible {
+.studio-button:focus-visible,
+a[class*="rounded"]:focus-visible {
   outline: 2px solid var(--blue);
   outline-offset: 3px;
 }
-
-/* Remove the small uppercase labels used as visual decoration. */
-.studio-kicker { display: none; }
 
 @media (max-width: 767px) {
   .max-container { width: min(100% - 32px, 1220px); }

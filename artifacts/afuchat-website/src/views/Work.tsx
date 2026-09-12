@@ -59,11 +59,11 @@ export default function Work() {
       </section>
 
       <section className="max-container container-pad pb-20 sm:pb-28">
-        <div className="rounded-[2rem] border border-white/10 bg-gradient-to-r from-teal-500/10 to-blue-500/10 px-6 py-10 sm:px-10">
+        <div className="rounded-[2rem] border border-white/10 bg-[#0b1b31] px-6 py-10 sm:px-10">
           <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-teal-300">Your project</p>
           <div className="mt-3 flex flex-col justify-between gap-6 md:flex-row md:items-end">
             <h2 className="max-w-2xl text-3xl font-bold tracking-tight text-white sm:text-4xl">Have a product, website, or app to build?</h2>
-            <a href="/contact" className="inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#1F7AFF] to-[#6C63FF] px-6 py-3.5 text-sm font-bold text-white transition-opacity hover:opacity-90">
+            <a href="/contact" className="inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-[#1F7AFF] px-6 py-3.5 text-sm font-bold text-white transition-colors hover:bg-[#388bff]">
               Start a project <ArrowUpRight className="h-4 w-4" />
             </a>
           </div>

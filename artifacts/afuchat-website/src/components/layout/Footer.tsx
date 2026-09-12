@@ -13,8 +13,8 @@ export default function Footer() {
 
           {/* Brand */}
           <div className="col-span-1 sm:col-span-2 md:col-span-1">
-            <Link href="/" className="inline-flex items-center mb-5">
-              <span className="text-white font-bold text-lg">AfuChat</span>
+            <Link href="/" className="inline-flex items-center mb-5" aria-label="AfuChat home">
+              <img src="/assets/atl-logo.svg" alt="ATL" className="h-9 w-auto" />
             </Link>
             <p className="text-white/40 text-sm leading-relaxed mb-5">
               Independent products.<br />Built for the world.

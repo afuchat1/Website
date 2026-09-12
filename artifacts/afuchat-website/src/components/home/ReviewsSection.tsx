@@ -27,7 +27,7 @@ function ReviewCard({ review }: { review: TrustpilotReview }) {
     <div className="flex-shrink-0 w-[300px] sm:w-[340px] bg-white/4 rounded-2xl p-5 flex flex-col gap-3">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2.5">
-          <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#1F7AFF] to-[#6C63FF] flex items-center justify-center text-white text-xs font-bold flex-shrink-0">
+          <div className="w-8 h-8 rounded-full bg-[#1F7AFF] flex items-center justify-center text-white text-xs font-bold flex-shrink-0">
             {initials(review.author)}
           </div>
           <div>
@@ -85,8 +85,8 @@ export default function ReviewsSection() {
 
       {/* Infinite marquee */}
       <div className="relative">
-        <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-r from-[#040c1e] to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-l from-[#040c1e] to-transparent z-10 pointer-events-none" />
+        <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-32 bg-[#040c1e] z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-32 bg-[#040c1e] z-10 pointer-events-none" />
         <div className="flex gap-4 animate-[marquee_40s_linear_infinite] w-max">
           {doubled.map((review, i) => (
             <ReviewCard key={i} review={review} />

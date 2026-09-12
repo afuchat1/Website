@@ -42,7 +42,7 @@ export default function NotFound() {
             <div className="mt-7">
               <Link
                 href="/"
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#1f7aff] to-[#6c63ff] px-6 py-3.5 text-sm font-bold text-white shadow-[0_12px_30px_rgba(31,122,255,0.22)] transition hover:-translate-y-0.5 hover:opacity-90"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-[#1f7aff] px-6 py-3.5 text-sm font-bold text-white shadow-[0_12px_30px_rgba(31,122,255,0.22)] transition hover:bg-[#388bff]"
               >
                 <Home size={16} strokeWidth={2.5} />
                 Back to home
