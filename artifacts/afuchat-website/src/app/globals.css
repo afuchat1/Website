@@ -91,3 +91,20 @@ header[class*="bg-[#040c1e]"] {
   background-color: rgba(255, 255, 255, 0.92) !important;
   border-color: rgba(18, 59, 122, 0.12) !important;
 }
+
+/* Borderless presentation: hierarchy comes from spacing, type, and surfaces. */
+[class*="border"],
+.studio-rule,
+.studio-grid,
+.studio-grid > *,
+.studio-panel,
+.studio-outline {
+  border: 0 !important;
+  border-width: 0 !important;
+  border-style: none !important;
+}
+
+.studio-rule {
+  height: 0 !important;
+  background: transparent !important;
+}
