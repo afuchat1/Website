@@ -142,6 +142,138 @@ button,[role="button"],.studio-button,a[class*="rounded"]{border-radius:999px!im
   display: none;
 }
 
+/* Shared visual system: every route gets a quiet illustration layer behind its content. */
+.site-frame {
+  position: relative;
+  min-height: 100vh;
+  isolation: isolate;
+  overflow: clip;
+  background: var(--page-bg);
+}
+
+.site-frame > :not(.site-backdrop) {
+  position: relative;
+  z-index: 1;
+}
+
+.site-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.site-backdrop-wash {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background:
+    radial-gradient(circle at 50% 15%, rgba(255, 255, 255, .58), rgba(255, 255, 255, .26) 42%, transparent 72%),
+    linear-gradient(180deg, rgba(255, 255, 255, .52), rgba(247, 251, 255, .78));
+}
+
+.site-backdrop-layer {
+  position: absolute;
+  z-index: 1;
+  width: clamp(18rem, 31vw, 30rem);
+  height: clamp(18rem, 31vw, 30rem);
+  opacity: .15;
+  filter: saturate(1.18) blur(.15px);
+  mix-blend-mode: multiply;
+  animation: site-backdrop-float 22s ease-in-out infinite;
+}
+
+.site-backdrop-layer img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.site-backdrop-hero {
+  top: 3%;
+  right: 9%;
+  width: clamp(21rem, 34vw, 34rem);
+  height: clamp(21rem, 34vw, 34rem);
+  opacity: .13;
+}
+
+.site-backdrop-ecosystem {
+  top: 28%;
+  left: -8%;
+  animation-delay: -6s;
+}
+
+.site-backdrop-developer {
+  right: -7%;
+  bottom: 10%;
+  animation-delay: -12s;
+}
+
+.site-backdrop-cta {
+  bottom: -9%;
+  left: 38%;
+  width: clamp(16rem, 25vw, 25rem);
+  height: clamp(16rem, 25vw, 25rem);
+  opacity: .1;
+  animation-delay: -17s;
+}
+
+@keyframes site-backdrop-float {
+  0%, 100% { transform: translate3d(0, 0, 0) rotate(-1deg); }
+  50% { transform: translate3d(0, -12px, 0) rotate(1deg); }
+}
+
+@media (prefers-color-scheme: dark) {
+  .site-backdrop-wash {
+    background:
+      radial-gradient(circle at 50% 15%, rgba(6, 16, 31, .1), rgba(6, 16, 31, .55) 46%, rgba(6, 16, 31, .86)),
+      linear-gradient(180deg, rgba(6, 16, 31, .55), rgba(6, 16, 31, .86));
+  }
+
+  .site-backdrop-layer {
+    opacity: .16;
+    mix-blend-mode: screen;
+  }
+}
+
+@media (max-width: 767px) {
+  .site-backdrop-layer {
+    width: 16rem;
+    height: 16rem;
+    opacity: .11;
+  }
+
+  .site-backdrop-hero {
+    top: 7%;
+    right: -16%;
+    width: 20rem;
+    height: 20rem;
+  }
+
+  .site-backdrop-ecosystem {
+    top: 34%;
+    left: -28%;
+  }
+
+  .site-backdrop-developer {
+    right: -25%;
+    bottom: 12%;
+  }
+
+  .site-backdrop-cta {
+    bottom: -5%;
+    left: 30%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-backdrop-layer {
+    animation: none !important;
+  }
+}
+
 /* Engagera product page: layered illustration washes and motion-safe reveals. */
 .engagera-page {
   isolation: isolate;
