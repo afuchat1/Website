@@ -133,7 +133,6 @@ const _FP = [
   { n: 'AfuBlog',   p: '/products/afublog' },
 ];
 function PageFooter() {
-  const yr = new Date().getFullYear();
   return (
     <footer className="relative">
       <div className="max-container container-pad pt-14 pb-8">
@@ -156,7 +155,7 @@ function PageFooter() {
           </div>
         </div>
           <div className="border-t border-white/6 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
-           <p className="text-white/20 text-xs">© {yr} AfuChat. All rights reserved.</p>
+           <p className="text-white/20 text-xs">© 2026 AfuChat. All rights reserved.</p>
            <div className="flex items-center gap-5">{[{l:'Privacy',h:'/legal/privacy'},{l:'Terms',h:'/legal/terms'}].map(x=><Link key={x.h} href={x.h} className="text-white/22 hover:text-white/55 text-xs transition-colors">{x.l}</Link>)}</div>
          </div>
       </div>

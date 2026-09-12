@@ -2,8 +2,6 @@ import Link from 'next/link';
 import { PRODUCT_DATA } from '@/data/products';
 
 export default function Footer() {
-  const year = new Date().getFullYear();
-
   return (
     <footer className="relative">
       <div className="max-container container-pad pt-16 pb-8">
@@ -74,7 +72,7 @@ export default function Footer() {
         {/* ── Copyright bar ── */}
         <div className="border-t border-white/8 pt-7 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-white/22 text-xs">
-            © {year} AfuChat. All rights reserved.
+            © 2026 AfuChat. All rights reserved.
           </p>
           <div className="flex items-center gap-5">
             {[
