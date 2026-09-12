@@ -1,16 +1,6 @@
 // All illustrations live in public/illustrations/ and are referenced as
 // absolute paths so they work identically in Next.js and any CDN.
 
-// ── 3-D product icons ─────────────────────────────────────────────────────
-export const icon3dAfumail   = '/illustrations/icon3d-afumail.webp';
-export const icon3dAfuchat   = '/illustrations/icon3d-afuchat.webp';
-export const icon3dAfuai     = '/illustrations/icon3d-afuai.webp';
-export const icon3dAfucloud  = '/illustrations/icon3d-afucloud.webp';
-export const icon3dAfumovies = '/illustrations/icon3d-afumovies.webp';
-export const icon3dAfumall   = '/illustrations/icon3d-afumall.webp';
-export const icon3dAfunews   = '/illustrations/icon3d-afunews.webp';
-export const icon3dAfublog   = '/illustrations/icon3d-afublog.webp';
-
 // ── Service / product illustrations ──────────────────────────────────────
 export const illSvcAfumail   = '/illustrations/ill-svc-afumail.webp';
 export const illSvcAfuchat   = '/illustrations/ill-svc-afuchat.webp';

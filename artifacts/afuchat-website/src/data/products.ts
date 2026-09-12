@@ -3,8 +3,6 @@ import {
   LucideIcon
 } from 'lucide-react';
 import {
-  icon3dAfumail, icon3dAfuchat, icon3dAfuai, icon3dAfucloud,
-  icon3dAfumovies, icon3dAfumall, icon3dAfunews, icon3dAfublog,
   illSvcAfumail, illSvcAfuchat, illSvcAfuai, illSvcAfucloud,
   illSvcAfumovies, illSvcAfumall, illSvcAfunews, illSvcAfublog,
 } from './illustrations';
@@ -23,7 +21,6 @@ export interface ProductData {
   path: string;
   icon: ProductIcon;
   illustration: string;
-  icon3d: string;
 }
 
 export const PRODUCT_DATA: ProductData[] = [
@@ -39,7 +36,6 @@ export const PRODUCT_DATA: ProductData[] = [
     path: "/products/afumail",
     icon: Mail,
     illustration: illSvcAfumail,
-    icon3d: icon3dAfumail,
   },
   {
     id: "afuchat",
@@ -53,7 +49,6 @@ export const PRODUCT_DATA: ProductData[] = [
     path: "/products/afuchat",
     icon: MessageCircle,
     illustration: illSvcAfuchat,
-    icon3d: icon3dAfuchat,
   },
   {
     id: "afuai",
@@ -67,7 +62,6 @@ export const PRODUCT_DATA: ProductData[] = [
     path: "/products/afuai",
     icon: Sparkles,
     illustration: illSvcAfuai,
-    icon3d: icon3dAfuai,
   },
   {
     id: "afucloud",
@@ -81,7 +75,6 @@ export const PRODUCT_DATA: ProductData[] = [
     path: "/products/afucloud",
     icon: Cloud,
     illustration: illSvcAfucloud,
-    icon3d: icon3dAfucloud,
   },
   {
     id: "afumovies",
@@ -95,7 +88,6 @@ export const PRODUCT_DATA: ProductData[] = [
     path: "/products/afumovies",
     icon: Play,
     illustration: illSvcAfumovies,
-    icon3d: icon3dAfumovies,
   },
   {
     id: "afumall",
@@ -109,7 +101,6 @@ export const PRODUCT_DATA: ProductData[] = [
     path: "/products/afumall",
     icon: ShoppingBag,
     illustration: illSvcAfumall,
-    icon3d: icon3dAfumall,
   },
   {
     id: "afunews",
@@ -123,7 +114,6 @@ export const PRODUCT_DATA: ProductData[] = [
     path: "/products/afunews",
     icon: Newspaper,
     illustration: illSvcAfunews,
-    icon3d: icon3dAfunews,
   },
   {
     id: "afublog",
@@ -137,6 +127,5 @@ export const PRODUCT_DATA: ProductData[] = [
     path: "/products/afublog",
     icon: PenLine,
     illustration: illSvcAfublog,
-    icon3d: icon3dAfublog,
   }
 ];

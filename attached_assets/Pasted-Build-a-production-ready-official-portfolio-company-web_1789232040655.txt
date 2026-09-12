@@ -1,0 +1,746 @@
+Build a production-ready official portfolio/company website for AfuChat Technologies Limited using Next.js, TypeScript, React and Tailwind CSS.
+
+Do not redesign the existing AfuChat design system. Reuse the existing brand/design system already established in the project.
+
+The goal is to build a professional technology company portfolio and project showcase, not a personal freelancer portfolio.
+
+---
+
+COMPANY
+
+Company: AfuChat Technologies Limited
+
+Founder: AM Kaweesi
+
+Title: Founder & Technology Builder
+
+Email: hello@afuchat.com
+
+Company website:
+https://afuchat.com/
+
+The website should present AfuChat Technologies as a technology company that:
+
+- Builds its own digital products
+- Builds websites for businesses and organizations
+- Builds web applications
+- Builds Android applications
+- Builds iOS applications
+- Builds cross-platform mobile applications
+- Builds e-commerce platforms
+- Builds AI-focused products
+- Develops custom digital solutions
+
+The company should be presented as a product-building technology company, not simply as a freelance developer.
+
+---
+
+WEBSITE TYPE
+
+Build an official:
+
+AfuChat Technologies Company + Portfolio + Project Showcase Website
+
+The website should serve three audiences:
+
+1. Potential clients
+2. Technology partners/collaborators
+3. Investors and people interested in AfuChat Technologies
+
+It should demonstrate that AfuChat Technologies has experience building both its own products and client projects.
+
+---
+
+MAIN PAGES
+
+Create these pages:
+
+"/"
+
+Homepage
+
+"/products"
+
+AfuChat Technologies' own products.
+
+"/work"
+
+Selected client projects and websites.
+
+"/about"
+
+Company and founder information.
+
+"/contact"
+
+Project inquiry/contact page.
+
+---
+
+HOMEPAGE CONTENT
+
+The homepage should contain:
+
+- Company introduction
+- What AfuChat Technologies builds
+- Featured products
+- Selected client work
+- Technology/capabilities
+- Founder introduction
+- Project inquiry CTA
+
+The homepage should provide enough information for someone to understand the company without having to visit every page.
+
+---
+
+PRODUCTS
+
+Create a dedicated Products section/page for products owned or developed within the Afu ecosystem.
+
+Products:
+
+1. AfuChat
+
+Website:
+
+https://afuchat.com/
+
+GitHub:
+
+https://github.com/afuchat1/AfuChat-Supa
+
+Category:
+
+Social & Communication Platform
+
+AfuChat is the company's flagship social communication platform.
+
+Relevant functionality includes:
+
+- Messaging
+- Social feeds
+- Posts
+- Stories
+- Communities/groups
+- User profiles
+- AI features
+- Digital identity
+- ACoin
+- Payment-related functionality
+- Mini-app/product ecosystem functionality
+
+AfuChat should be presented as a major company product.
+
+---
+
+2. AfuMail
+
+Website:
+
+https://email.afuchat.com/
+
+GitHub:
+
+https://github.com/afuchat1/AfuMaill
+
+Category:
+
+Communication / Email
+
+AfuMail is an email and digital communication product developed within the Afu ecosystem.
+
+Use the actual project information/assets where available.
+
+Do not invent features.
+
+---
+
+3. Engagera
+
+Website:
+
+https://engagera.afuchat.com/
+
+GitHub:
+
+https://github.com/afuchat1/EngageraAi
+
+Category:
+
+AI Technology
+
+Engagera is an AI-focused product within the Afu ecosystem.
+
+Use the actual application/repository capabilities as the source of truth.
+
+Do not invent features.
+
+---
+
+4. AfuMovies
+
+Website:
+
+https://movies.afuchat.com/
+
+Category:
+
+Entertainment / Movie Discovery
+
+AfuMovies is an entertainment and movie discovery product within the Afu ecosystem.
+
+Important:
+
+Do not describe AfuMovies as a streaming service unless the current product actually provides streaming.
+
+---
+
+PRODUCTS PAGE FUNCTIONALITY
+
+The "/products" page should:
+
+- Display all AfuChat Technologies products
+- Clearly identify them as company products
+- Allow users to open each product
+- Include GitHub links where available
+- Include screenshots/assets where available
+- Provide a detailed description for each product
+- Show relevant technologies where useful
+- Make it easy to add new products later
+
+Products should be stored in structured data rather than hard-coded repeatedly throughout the UI.
+
+---
+
+CLIENT WORK
+
+Create a dedicated Selected Work section/page.
+
+These are client projects and must be clearly separated from AfuChat Technologies' own products.
+
+Projects:
+
+1. Amazon Shoe Collection
+2. Honey Bee Ministries Uganda
+3. Sabula Shoe Spot
+4. Mindset Media Radio
+5. Shanny
+
+---
+
+1. AMAZON SHOE COLLECTION
+
+Website:
+
+https://amazonshoecollection.com/
+
+Category:
+
+E-commerce / Footwear
+
+Present this as a client e-commerce project.
+
+Focus on:
+
+- Online footwear
+- Product presentation
+- Product discovery
+- Shopping experience
+- Responsive website development
+
+Do not invent additional functionality.
+
+---
+
+2. HONEY BEE MINISTRIES UGANDA
+
+Website:
+
+https://honeybeeministriesug.org/
+
+Category:
+
+Organization Website
+
+Present this as a client website for an organization.
+
+Focus on:
+
+- Organization information
+- Content presentation
+- Online presence
+- Responsive website development
+
+Do not invent information about the organization.
+
+---
+
+3. SABULA SHOE SPOT
+
+Website:
+
+https://www.sabulashoespot.com/
+
+Category:
+
+B2B E-commerce
+
+Present this as a B2B footwear commerce project.
+
+Relevant functionality includes:
+
+- Wholesale footwear
+- Product catalog
+- Product categories
+- Shopping/cart experience
+- Bulk ordering
+- Retailer/reseller focus
+- WhatsApp ordering
+- E-commerce experience
+
+Do not claim the client's business statistics as AfuChat Technologies statistics.
+
+---
+
+4. MINDSET MEDIA RADIO
+
+Website:
+
+https://www.mmradioug.org/
+
+Category:
+
+Media / Radio / News
+
+Present this as a digital media/radio project.
+
+Relevant functionality includes:
+
+- Radio/media website
+- Live listening
+- News
+- Stories/content
+- Luganda content
+- Responsive media experience
+
+If the existing project contains a mobile application, include the mobile application as part of the project.
+
+Do not invent functionality that is not present.
+
+---
+
+5. SHANNY
+
+Website:
+
+https://shanny.afuchat.com/
+
+Category:
+
+Custom Digital Project
+
+Present this as a custom digital project built/hosted within the Afu ecosystem.
+
+Do not invent the client's industry or features.
+
+Use actual project information if available.
+
+---
+
+WORK PAGE FUNCTIONALITY
+
+The "/work" page should:
+
+- Display all client projects
+- Clearly label them as client projects
+- Show project category
+- Show description
+- Show screenshots where available
+- Link to the actual website
+- Show technologies where known
+- Make it easy to add future projects
+
+Use structured project data.
+
+Example data structure:
+
+{
+  name: "Sabula Shoe Spot",
+  category: "B2B E-commerce",
+  type: "client",
+  description: "...",
+  url: "https://www.sabulashoespot.com/",
+  image: "...",
+  technologies: [...]
+}
+
+---
+
+COMPANY CAPABILITIES
+
+Create a section showing what AfuChat Technologies can build:
+
+- Websites
+- Web applications
+- Android applications
+- iOS applications
+- Cross-platform mobile applications
+- E-commerce platforms
+- Social platforms
+- Communication platforms
+- AI products
+- Custom digital products
+
+This section should communicate capability through the actual projects rather than exaggerated claims.
+
+---
+
+TECHNOLOGY
+
+Create a section showing technologies used across the company's projects where appropriate.
+
+Potential technologies include:
+
+- Next.js
+- React
+- TypeScript
+- JavaScript
+- React Native
+- Expo
+- Supabase
+- PostgreSQL
+- Tailwind CSS
+- Cloudflare
+- GitHub
+- Vercel
+
+Only include technologies that are actually used.
+
+---
+
+ABOUT PAGE
+
+Create an "/about" page for AfuChat Technologies.
+
+Include:
+
+Company
+
+AfuChat Technologies Limited
+
+A Ugandan technology company building digital products, websites, web applications and mobile applications.
+
+Founder
+
+AM Kaweesi
+
+Founder & Technology Builder
+
+Describe AM Kaweesi as the founder and builder behind AfuChat Technologies and its products.
+
+Mention relevant work such as:
+
+- AfuChat
+- AfuMail
+- Engagera
+- Digital products
+- Web applications
+- Mobile applications
+
+Do not invent:
+
+- Education
+- Awards
+- Certifications
+- Previous employers
+- Years of experience
+- Investor relationships
+- Fake achievements
+
+---
+
+CONTACT PAGE
+
+Create "/contact".
+
+Purpose:
+
+Allow potential clients to contact AfuChat Technologies about building a digital product.
+
+Include:
+
+- Name
+- Email
+- Company/organization
+- Project type
+- Project description
+- Optional budget
+- Submit button
+
+Project types:
+
+- Website
+- Web application
+- Android app
+- iOS app
+- E-commerce
+- Custom software
+- AI product
+- Other
+
+Contact email:
+
+hello@afuchat.com
+
+The form must be functional.
+
+Do not create fake form submission behavior.
+
+If email/backend integration is not currently available, structure the implementation so a real email provider/API can be connected later.
+
+---
+
+PROJECT DETAIL FUNCTIONALITY
+
+Each product/project should support:
+
+- External website link
+- GitHub link where available
+- Project description
+- Category
+- Screenshots/images
+- Technologies
+- Ownership/type
+
+Use:
+
+AfuChat Product
+
+for company-owned products.
+
+Use:
+
+Client Project
+
+for client work.
+
+This distinction must be obvious.
+
+---
+
+CONTENT MANAGEMENT
+
+Do not duplicate product/project content throughout components.
+
+Create:
+
+data/products.ts
+data/projects.ts
+
+Store project/product information there.
+
+The UI should consume this data.
+
+This will make it easy to add future projects.
+
+---
+
+IMAGES
+
+Use real project screenshots/assets wherever available.
+
+Do not create fake product screenshots.
+
+Do not make a screenshot look like an actual feature if the product does not have that feature.
+
+If an image is unavailable, use a clean project representation rather than inventing one.
+
+Use Next.js "next/image".
+
+---
+
+EXTERNAL LINKS
+
+Use these exact links.
+
+AfuChat
+
+https://afuchat.com/
+
+https://github.com/afuchat1/AfuChat-Supa
+
+AfuMail
+
+https://email.afuchat.com/
+
+https://github.com/afuchat1/AfuMaill
+
+Engagera
+
+https://engagera.afuchat.com/
+
+https://github.com/afuchat1/EngageraAi
+
+AfuMovies
+
+https://movies.afuchat.com/
+
+Client projects
+
+https://amazonshoecollection.com/
+
+https://honeybeeministriesug.org/
+
+https://www.sabulashoespot.com/
+
+https://www.mmradioug.org/
+
+https://shanny.afuchat.com/
+
+Email
+
+hello@afuchat.com
+
+---
+
+NEXT.JS REQUIREMENTS
+
+Use:
+
+- Next.js App Router
+- TypeScript
+- React
+- Tailwind CSS
+
+Use:
+
+- Server Components where possible
+- Client Components only when needed
+- "next/link"
+- "next/image"
+- Next.js metadata
+- Semantic HTML
+
+The project must build successfully with:
+
+npm run build
+
+No TypeScript errors.
+
+No broken routes.
+
+No broken imports.
+
+No unnecessary dependencies.
+
+---
+
+DATABASE / SECURITY
+
+Do NOT connect this portfolio to the production AfuChat database.
+
+The portfolio must not access:
+
+- AfuChat users
+- Messages
+- Private profiles
+- ACoin balances
+- Payments
+- Authentication data
+- Production database credentials
+
+If the website does not require a database, do not add one.
+
+Never expose API keys or service-role keys.
+
+---
+
+SEO
+
+Implement proper metadata for:
+
+Homepage:
+
+AfuChat Technologies Limited — Digital Products, Web & Mobile Applications
+
+Products:
+
+AfuChat Technologies Products
+
+Work:
+
+Selected Work — AfuChat Technologies
+
+About:
+
+About AfuChat Technologies
+
+Contact:
+
+Contact AfuChat Technologies
+
+Include:
+
+- Page descriptions
+- Open Graph metadata
+- Canonical URLs
+- Favicon
+- Semantic headings
+
+---
+
+IMPORTANT CONTENT RULES
+
+Do not invent:
+
+- Clients
+- Employees
+- Testimonials
+- Awards
+- Funding
+- Revenue
+- User counts
+- Download numbers
+- Partnerships
+- Certifications
+- Offices
+- Phone numbers
+- Business statistics
+- Project results
+
+Only use information supplied in this prompt or information that can be verified from the actual linked projects.
+
+---
+
+FINAL OBJECTIVE
+
+The finished website should make a visitor understand immediately:
+
+AfuChat Technologies Limited is a technology company based in Uganda.
+
+AM Kaweesi is the founder and technology builder.
+
+The company builds its own products.
+
+The company also builds websites, web applications and mobile applications for clients.
+
+The portfolio must showcase the company's actual technology work:
+
+Products
+
+- AfuChat
+- AfuMail
+- Engagera
+- AfuMovies
+
+Client work
+
+- Amazon Shoe Collection
+- Honey Bee Ministries Uganda
+- Sabula Shoe Spot
+- Mindset Media Radio
+- Shanny
+
+The final result must be a real working Next.js company portfolio, not just a landing-page mockup.
+
+Prioritize actual functionality, clear content structure, maintainability and accurate representation of the company's products and work.

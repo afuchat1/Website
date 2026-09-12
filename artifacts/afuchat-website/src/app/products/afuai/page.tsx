@@ -34,7 +34,7 @@ const productJsonLd = {
   description:
     'Your personal smart assistant, context-aware and deeply integrated with live web search, automated workflows, and voice recognition.',
   url: `${BASE_URL}/products/afuai`,
-  image: `${BASE_URL}/illustrations/icon3d-afuai.webp`,
+  image: `${BASE_URL}/illustrations/ill-svc-afuai.webp`,
   offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
   provider: { '@type': 'Organization', name: 'AfuChat Technologies Limited', url: BASE_URL },
   featureList: ['Contextual Help', 'Automated Workflows', 'Voice Recognition', 'Live Web Search'],
