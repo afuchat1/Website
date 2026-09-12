@@ -142,6 +142,283 @@ button,[role="button"],.studio-button,a[class*="rounded"]{border-radius:999px!im
   display: none;
 }
 
+/* Engagera product page: layered illustration washes and motion-safe reveals. */
+.engagera-page {
+  isolation: isolate;
+  overflow: clip;
+  background:
+    radial-gradient(circle at 8% 8%, rgba(111, 174, 255, .12), transparent 27rem),
+    radial-gradient(circle at 88% 48%, rgba(139, 231, 196, .1), transparent 32rem),
+    var(--page-bg);
+}
+
+.engagera-page > * {
+  position: relative;
+  z-index: 1;
+}
+
+.engagera-page .studio-kicker {
+  display: block;
+  letter-spacing: .16em;
+}
+
+.engagera-hero-section,
+.engagera-section {
+  isolation: isolate;
+  overflow: clip;
+}
+
+.engagera-hero-section::before,
+.engagera-section::before {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background-image: linear-gradient(90deg, transparent 0, rgba(43, 94, 164, .035) 1px, transparent 1px), linear-gradient(0deg, transparent 0, rgba(43, 94, 164, .035) 1px, transparent 1px);
+  background-size: 72px 72px;
+  content: '';
+  mask-image: linear-gradient(to bottom, transparent, black 16%, black 84%, transparent);
+  pointer-events: none;
+}
+
+.engagera-hero-section {
+  min-height: min(760px, 78vh);
+}
+
+.engagera-section-art {
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+  user-select: none;
+}
+
+.engagera-section-art img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.engagera-hero-art {
+  top: 2%;
+  right: 25%;
+  width: min(44vw, 620px);
+  height: min(44vw, 620px);
+  opacity: .1;
+  filter: saturate(1.25) blur(.2px);
+  animation: engagera-drift 16s ease-in-out infinite;
+}
+
+.engagera-platform-art {
+  right: -7%;
+  bottom: -20%;
+  width: min(52vw, 720px);
+  height: min(52vw, 720px);
+  opacity: .13;
+  filter: saturate(1.12);
+  animation: engagera-float 18s ease-in-out infinite;
+}
+
+.engagera-developer-art {
+  top: 12%;
+  right: -5%;
+  width: min(42vw, 590px);
+  height: min(42vw, 590px);
+  opacity: .12;
+  filter: saturate(1.16);
+  animation: engagera-float 20s ease-in-out infinite reverse;
+}
+
+.engagera-orb {
+  position: absolute;
+  z-index: -1;
+  width: 18rem;
+  height: 18rem;
+  border-radius: 999px;
+  filter: blur(54px);
+  opacity: .16;
+  pointer-events: none;
+  animation: engagera-pulse 7s ease-in-out infinite;
+}
+
+.engagera-orb-amber {
+  top: 28%;
+  left: -8rem;
+  background: #f59e0b;
+}
+
+.engagera-orb-mint {
+  top: 42%;
+  right: -9rem;
+  background: #42d6ac;
+  animation-delay: -2s;
+}
+
+.engagera-feature {
+  position: relative;
+  padding-top: .9rem;
+}
+
+.engagera-feature::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2.5rem;
+  height: 2px;
+  background: linear-gradient(90deg, #f59e0b, transparent);
+  content: '';
+}
+
+.engagera-access-card {
+  box-shadow: 0 24px 80px rgba(21, 67, 118, .13), inset 0 1px 0 rgba(255, 255, 255, .08);
+  backdrop-filter: blur(18px);
+}
+
+.engagera-access-card [class*="text-[#e6f1ff]"] {
+  color: #e6f1ff !important;
+}
+
+.engagera-access-card [class*="text-[#6f89a7]"] {
+  color: #a7bad0 !important;
+}
+
+.engagera-access-card .studio-kicker {
+  color: #b1a4ff !important;
+}
+
+.engagera-list-row {
+  padding: .65rem .75rem;
+  border-radius: .8rem;
+  background: rgba(255, 255, 255, .04);
+  transition: background-color .25s ease, transform .25s ease;
+}
+
+.engagera-list-row:hover {
+  background: rgba(255, 255, 255, .09);
+  transform: translateX(4px);
+}
+
+.engagera-code-card {
+  background: linear-gradient(145deg, #0b1e39, #061225) !important;
+  box-shadow: 0 20px 60px rgba(7, 28, 56, .2), inset 0 1px 0 rgba(255, 255, 255, .12);
+}
+
+.engagera-code-card button {
+  color: rgba(255, 255, 255, .62) !important;
+}
+
+.engagera-code-card button:hover {
+  color: #fff !important;
+}
+
+.engagera-reference-card {
+  min-height: 7.5rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  background: rgba(43, 94, 164, .055);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .5);
+}
+
+.engagera-cta-band {
+  position: relative;
+  min-height: 13rem;
+  background:
+    radial-gradient(circle at 72% 44%, rgba(77, 168, 255, .2), transparent 14rem),
+    linear-gradient(120deg, #07172d, #102e55) !important;
+  box-shadow: 0 24px 70px rgba(18, 47, 82, .2);
+}
+
+.engagera-cta-band [class*="text-[#e6f1ff]"] {
+  color: #e6f1ff !important;
+}
+
+.engagera-cta-band [class*="text-[#91a8c4]"] {
+  color: #b6cbe0 !important;
+}
+
+.engagera-cta-art {
+  position: absolute;
+  right: 17%;
+  bottom: -5rem;
+  z-index: 0;
+  width: 14rem;
+  opacity: .58;
+  transform: rotate(7deg);
+  pointer-events: none;
+}
+
+.engagera-button {
+  color: #fff !important;
+  box-shadow: 0 10px 30px rgba(245, 158, 11, .2);
+}
+
+.engagera-button:hover {
+  color: #fff !important;
+  box-shadow: 0 14px 34px rgba(245, 158, 11, .3);
+}
+
+@keyframes engagera-float {
+  0%, 100% { transform: translate3d(0, 0, 0) rotate(-1deg); }
+  50% { transform: translate3d(0, -14px, 0) rotate(1deg); }
+}
+
+@keyframes engagera-drift {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(-12px, 10px, 0) scale(1.025); }
+}
+
+@keyframes engagera-pulse {
+  0%, 100% { opacity: .11; transform: scale(.96); }
+  50% { opacity: .22; transform: scale(1.05); }
+}
+
+@media (max-width: 767px) {
+  .engagera-hero-section {
+    min-height: 0;
+  }
+
+  .engagera-hero-art {
+    top: 23%;
+    right: -14%;
+    width: 78vw;
+    height: 78vw;
+    opacity: .08;
+  }
+
+  .engagera-platform-art {
+    right: -30%;
+    bottom: -8%;
+    width: 94vw;
+    height: 94vw;
+    opacity: .1;
+  }
+
+  .engagera-developer-art {
+    top: 30%;
+    right: -24%;
+    width: 78vw;
+    height: 78vw;
+    opacity: .09;
+  }
+
+  .engagera-cta-art {
+    right: -1rem;
+    bottom: -4rem;
+    width: 10rem;
+    opacity: .42;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .engagera-section-art,
+  .engagera-orb {
+    animation: none !important;
+  }
+
+  .engagera-list-row {
+    transition: none;
+  }
+}
+
 /* Borderless presentation: hierarchy comes from spacing, type, and surfaces. */
 [class*="border"],
 .studio-rule,

@@ -298,10 +298,22 @@ export default function AfuAIPage() {
                 <p className="text-white text-xl font-bold">Engagera</p>
               </div>
               <p className="text-white/35 text-[13px] leading-relaxed mb-4">Advanced AI models · Live web search · Image generation · Code execution</p>
-              <a href="https://engagera.afuchat.com" target="_blank" rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-amber-400 hover:text-amber-300 text-sm font-semibold transition-colors">
-                Open Engagera <ArrowRight className="w-3.5 h-3.5" />
-              </a>
+              <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
+                <a href="https://engagera.afuchat.com" target="_blank" rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-amber-400 hover:text-amber-300 text-sm font-semibold transition-colors">
+                  Open Engagera <ArrowRight className="w-3.5 h-3.5" />
+                </a>
+                <a href="https://engagera.afuchat.com" target="_blank" rel="noopener noreferrer"
+                  className="text-white/35 hover:text-white/70 text-xs transition-colors">
+                  Create an account / sign in
+                </a>
+              </div>
+              <div className="mt-4 border-l-2 border-amber-400/50 pl-3">
+                <p className="text-white/55 text-xs font-semibold mb-1">How to get access</p>
+                <p className="text-white/30 text-xs leading-relaxed">
+                  Open Engagera, create or sign in to your account, then create an API key in Developer settings. Use the key as <span className="font-mono text-white/50">eng_...</span> in the SDK.
+                </p>
+              </div>
             </div>
 
             <div>
@@ -335,11 +347,9 @@ export default function AfuAIPage() {
               </div>
             </div>
 
-            {/* Product highlights */}
+            {/* product highlights */}
             <div>
-              <div className="flex items-center gap-2 mb-4">
-                <p className="text-white/20 text-[10px] uppercase tracking-widest font-semibold">Built for modern AI</p>
-              </div>
+              <p className="text-white/20 text-[10px] uppercase tracking-widest font-semibold mb-3">Built for modern AI</p>
               <div className="flex flex-col gap-5">
                 <div>
                   <p className="text-[2.6rem] font-extrabold tracking-tight text-white leading-none">Live web</p>
