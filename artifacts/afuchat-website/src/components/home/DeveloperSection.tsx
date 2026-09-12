@@ -14,7 +14,7 @@ export default function DeveloperSection() {
           <p className="mt-5 max-w-md text-base leading-relaxed text-[#91a8c4]">REST and GraphQL APIs, real time WebSocket events, and open source SDKs for every major platform. Build integrations in hours, not weeks.</p>
           <Link href="/developers" className="studio-button studio-button-ghost mt-8">Read the docs <ArrowUpRight className="h-4 w-4" /></Link>
         </motion.div>
-        <motion.div initial={{ opacity: 0, scale: .96 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ delay: .1 }} className="border border-white/10 bg-[#0b1b31]/45 p-6">
+        <motion.div initial={{ opacity: 0, scale: .96 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ delay: .1 }} className="flex justify-center">
           <img src={illSecDeveloper} alt="AfuChat developer platform" className="w-full" loading="lazy" decoding="async" />
         </motion.div>
       </div>

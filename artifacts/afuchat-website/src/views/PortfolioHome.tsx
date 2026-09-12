@@ -34,7 +34,7 @@ export default function PortfolioHome() {
         </div>
       </div>
       <motion.div initial={{ opacity: 0, scale: .96 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: .75 }} className="relative">
-        <div className="relative border border-white/10 bg-[#0b1b31]/45 p-5 sm:p-8">
+        <div className="relative">
           <img src={illSecHero} alt="AfuChat Technologies digital products" className="w-full drop-shadow-2xl" />
         </div>
       </motion.div>
@@ -55,9 +55,9 @@ export default function PortfolioHome() {
       <div className="mb-10 flex flex-col justify-between gap-5 sm:flex-row sm:items-end"><div><Label tone="#9d8cff">Company products</Label><h2 className="text-3xl font-semibold text-[#e6f1ff] sm:text-4xl">An ecosystem in progress.</h2></div><Link href="/products" className="studio-link flex items-center gap-2 text-sm">View product index <ArrowUpRight className="h-4 w-4" /></Link></div>
        <div aria-label="Featured AfuChat products" className="mobile-rail flex snap-x snap-mandatory gap-4 overflow-x-auto pb-3 md:grid md:grid-cols-2 md:gap-0 md:overflow-visible">
         {featuredProducts.map((product, index) => { const Icon = product.icon; return <motion.div key={product.id} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * .05 }} className="border-b border-white/[.1] md:even:border-l">
-           <Link href={product.path} className="group grid min-h-[280px] min-w-[86vw] snap-start grid-cols-[1fr_.82fr] overflow-hidden rounded-3xl bg-[#f5f9fe] md:min-w-0 md:rounded-none">
+            <Link href={product.path} className="group grid min-h-[280px] min-w-[86vw] snap-start grid-cols-[1fr_.82fr] overflow-hidden bg-transparent md:min-w-0">
             <div className="flex flex-col justify-between p-6 sm:p-8"><div><Icon className="h-6 w-6" style={{ color: product.color }} strokeWidth={1.5} /><p className="studio-kicker mt-8 text-[9px] text-[#5d7694]">{product.category}</p><h3 className="mt-2 text-2xl font-semibold text-[#e6f1ff]">{product.name}</h3><p className="mt-3 text-sm leading-relaxed text-[#6f89a7]">{product.description}</p></div><span className="flex items-center gap-2 text-xs text-[#91a8c4] group-hover:text-[#4da8ff]">Open product <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" /></span></div>
-            <div className="flex items-center justify-center border-l border-white/[.07] bg-[#0b1b31]/65 p-4"><img src={product.illustration} alt={`${product.name} product artwork`} loading="lazy" className="max-h-[230px] w-full object-contain transition-transform duration-500 group-hover:scale-105" /></div>
+             <div className="flex items-center justify-center p-2"><img src={product.illustration} alt={`${product.name} product artwork`} loading="lazy" className="max-h-[230px] w-full object-contain transition-transform duration-500 group-hover:scale-105" /></div>
           </Link>
         </motion.div>; })}
       </div>

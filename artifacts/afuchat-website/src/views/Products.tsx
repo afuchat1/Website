@@ -18,9 +18,9 @@ function ProductCard({ product, index }: { product: (typeof PRODUCT_DATA)[number
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ delay: index * 0.06 }}
-      className="group flex flex-col overflow-hidden rounded-[1.75rem] bg-[#f5f9fe] p-3 transition-transform hover:-translate-y-1 sm:p-4"
+      className="group flex flex-col overflow-hidden bg-transparent transition-transform hover:-translate-y-1"
     >
-      <div className="relative flex min-h-[190px] items-center justify-center overflow-hidden rounded-[1.35rem] bg-white/70 p-5 sm:min-h-[220px]">
+      <div className="relative flex min-h-[190px] items-center justify-center overflow-hidden sm:min-h-[220px]">
         <img
           src={product.illustration}
           alt={`${product.name} product artwork`}
@@ -85,7 +85,7 @@ export default function Products() {
         <h1 className="max-w-3xl text-[clamp(3.5rem,8vw,7.4rem)] font-semibold leading-[.88] tracking-[-.075em] text-[#e6f1ff]">Built as<br /><span className="text-[#4da8ff]">separate</span><br />ideas.</h1>
         <p className="mt-8 max-w-xl text-base leading-relaxed text-[#91a8c4] sm:text-lg">Products owned or developed within the Afu ecosystem, from communication and email to AI technology and movie discovery.</p>
       </motion.div>
-      <motion.div initial={{ opacity: 0, scale: .95 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: .1 }} className="flex items-center justify-center rounded-[1.75rem] bg-[#f5f9fe] p-4 sm:p-8">
+      <motion.div initial={{ opacity: 0, scale: .95 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: .1 }} className="flex items-center justify-center">
         <img src={illSecProducts} alt="AfuChat Technologies product suite" className="max-h-[190px] w-full object-contain drop-shadow-2xl sm:max-h-[300px]" />
       </motion.div>
     </section>
