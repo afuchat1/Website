@@ -19,7 +19,6 @@ export default function Footer() {
             <p className="text-white/40 text-sm leading-relaxed mb-5">
               Independent products.<br />Built for the world.
             </p>
-            <p className="text-white/22 text-xs">AfuChat Technologies Limited</p>
           </div>
 
           {/* Products */}
@@ -75,7 +74,7 @@ export default function Footer() {
         {/* ── Copyright bar ── */}
         <div className="border-t border-white/8 pt-7 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-white/22 text-xs">
-            © {year} AfuChat Technologies Limited. All rights reserved.
+            © {year} AfuChat. All rights reserved.
           </p>
           <div className="flex items-center gap-5">
             {[

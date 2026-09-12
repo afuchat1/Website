@@ -26,21 +26,16 @@ export default function PortfolioHome() {
   return <div className="studio-shell">
     <section className="max-container studio-section grid items-center gap-12 lg:grid-cols-[1.05fr_.95fr] lg:gap-20">
       <div className="studio-fade">
-        <Label>AfuChat Technologies / Kampala, Uganda</Label>
         <h1 className="max-w-4xl text-[clamp(3.5rem,8vw,7.8rem)] font-semibold leading-[.88] tracking-[-.075em] text-[#e6f1ff]">Useful<br /><span className="text-[#4da8ff]">things,</span><br />made real.</h1>
         <p className="mt-8 max-w-xl text-base leading-relaxed text-[#91a8c4] sm:text-lg">We are a technology company building our own products and helping ambitious organizations turn useful ideas into working digital experiences.</p>
         <div className="mt-9 flex flex-wrap gap-3">
           <Link href="/work" className="studio-button studio-button-primary">Explore our work <ArrowUpRight className="h-4 w-4" /></Link>
           <Link href="/contact" className="studio-button studio-button-ghost">Start a project</Link>
         </div>
-        <div className="mt-14 flex items-center gap-4 text-[10px] text-[#5d7694] studio-mono"><span className="studio-signal h-1.5 w-1.5 bg-[#8be7c4]" /> INDEPENDENT DIGITAL LAB <span className="text-[#314c6c]">/</span> PRODUCT + PARTNER WORK</div>
       </div>
       <motion.div initial={{ opacity: 0, scale: .96 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: .75 }} className="relative">
-        <div className="absolute -inset-12 bg-[#1f7aff]/10 blur-3xl" />
         <div className="relative border border-white/10 bg-[#0b1b31]/45 p-5 sm:p-8">
-          <div className="mb-6 flex items-center justify-between border-b border-white/10 pb-4 text-[10px] text-[#5d7694] studio-mono"><span>AFU / SYSTEMS / 2025</span><span>01—01</span></div>
           <img src={illSecHero} alt="AfuChat Technologies digital products" className="w-full drop-shadow-2xl" />
-          <div className="mt-5 flex justify-between text-[10px] text-[#5d7694] studio-mono"><span>PRODUCTS IN MOTION</span><span className="text-[#4da8ff]">● LIVE</span></div>
         </div>
       </motion.div>
     </section>
@@ -79,9 +74,9 @@ export default function PortfolioHome() {
 
     <section className="max-container studio-section grid items-center gap-12 lg:grid-cols-[.75fr_1.25fr] lg:gap-24">
       <div className="mx-auto max-w-sm"><img src={illSecDeveloper} alt="AfuChat Technologies building digital products" loading="lazy" className="w-full" /></div>
-      <div><Label tone="#4da8ff">The company behind the work</Label><h2 className="max-w-2xl text-4xl font-semibold leading-tight text-[#e6f1ff] sm:text-5xl">Product-minded<br />by default.</h2><p className="mt-6 max-w-xl text-base leading-relaxed text-[#91a8c4]">AfuChat Technologies Limited is led by AM Kaweesi, Founder &amp; Technology Builder. We build our own digital products and help businesses and organizations turn useful ideas into working digital experiences.</p><div className="mt-8 flex flex-wrap gap-3"><Link href="/about" className="studio-button studio-button-ghost">About the studio <ArrowUpRight className="h-4 w-4" /></Link><Link href="/contact" className="studio-link flex items-center gap-2 px-2 text-sm">Talk about a project <MoveUpRight className="h-4 w-4" /></Link></div></div>
+      <div><Label tone="#4da8ff">The company behind the work</Label><h2 className="max-w-2xl text-4xl font-semibold leading-tight text-[#e6f1ff] sm:text-5xl">Product-minded<br />by default.</h2><p className="mt-6 max-w-xl text-base leading-relaxed text-[#91a8c4]">Led by AM Kaweesi, Founder &amp; Technology Builder, we build our own digital products and help businesses and organizations turn useful ideas into working digital experiences.</p><div className="mt-8 flex flex-wrap gap-3"><Link href="/about" className="studio-button studio-button-ghost">About the studio <ArrowUpRight className="h-4 w-4" /></Link><Link href="/contact" className="studio-link flex items-center gap-2 px-2 text-sm">Talk about a project <MoveUpRight className="h-4 w-4" /></Link></div></div>
     </section>
-    <section className="max-container pb-24"><div className="studio-panel relative overflow-hidden p-8 sm:p-14"><div className="relative z-10 max-w-2xl"><Label>Have something to build?</Label><h2 className="text-3xl font-semibold text-[#e6f1ff] sm:text-5xl">Start with the problem.<br />End with something useful.</h2><p className="mt-5 max-w-lg text-base leading-relaxed text-[#91a8c4]">Tell us what you are trying to create. We will work toward the right digital product.</p><Link href="/contact" className="studio-button studio-button-primary mt-8">Start a project <ArrowUpRight className="h-4 w-4" /></Link></div><div className="absolute -right-24 -top-24 h-80 w-80 rounded-full bg-[#257bd1]/20 blur-3xl" /></div></section>
+    <section className="max-container pb-24"><div className="studio-panel relative overflow-hidden p-8 sm:p-14"><div className="relative z-10 max-w-2xl"><h2 className="text-3xl font-semibold text-[#e6f1ff] sm:text-5xl">Start with the problem.<br />End with something useful.</h2><p className="mt-5 max-w-lg text-base leading-relaxed text-[#91a8c4]">Tell us what you are trying to create. We will work toward the right digital product.</p><Link href="/contact" className="studio-button studio-button-primary mt-8">Start a project <ArrowUpRight className="h-4 w-4" /></Link></div></div></section>
     <Footer />
   </div>;
 }

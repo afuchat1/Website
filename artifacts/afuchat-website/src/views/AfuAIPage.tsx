@@ -141,7 +141,6 @@ function PageFooter() {
           <div className="col-span-1 sm:col-span-2 md:col-span-1">
             <Link href="/" className="inline-flex items-center mb-4"><span className="text-white font-bold text-base">AfuChat</span></Link>
             <p className="text-white/38 text-sm leading-relaxed mb-4">Independent products.<br />Built for the world.</p>
-            <p className="text-white/20 text-xs">AfuChat Technologies Limited</p>
           </div>
           <div>
             <h4 className="text-white/40 font-semibold text-[10px] uppercase tracking-widest mb-4">Products</h4>
@@ -157,7 +156,7 @@ function PageFooter() {
           </div>
         </div>
           <div className="border-t border-white/6 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
-           <p className="text-white/20 text-xs">© {yr} AfuChat Technologies Limited. All rights reserved.</p>
+           <p className="text-white/20 text-xs">© {yr} AfuChat. All rights reserved.</p>
            <div className="flex items-center gap-5">{[{l:'Privacy',h:'/legal/privacy'},{l:'Terms',h:'/legal/terms'}].map(x=><Link key={x.h} href={x.h} className="text-white/22 hover:text-white/55 text-xs transition-colors">{x.l}</Link>)}</div>
          </div>
       </div>

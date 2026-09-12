@@ -67,7 +67,6 @@ export default function Navbar() {
             {productsOpen && (
               <div id="product-menu" role="menu" className="absolute left-1/2 top-8 w-[430px] -translate-x-1/2 border border-white/10 bg-[#09172a]/98 p-3 shadow-2xl shadow-black/30">
                 <div className="mb-2 flex items-center justify-between px-3 py-2">
-                  <span className="studio-kicker text-[9px]">Product system / 08</span>
                   <Link href="/products" className="flex items-center gap-1 text-[11px] text-[#91a8c4] hover:text-white">Index <ArrowUpRight className="h-3 w-3" /></Link>
                 </div>
                 <div className="grid grid-cols-2">

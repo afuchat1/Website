@@ -42,15 +42,7 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  opacity: .22;
-  background-image: linear-gradient(rgba(166, 207, 255, .035) 1px, transparent 1px), linear-gradient(90deg, rgba(166, 207, 255, .035) 1px, transparent 1px);
-  background-size: 72px 72px;
-  mask-image: linear-gradient(to bottom, black, transparent 75%);
+  display: none;
 }
 h1, h2, h3, h4, h5, h6 { margin: 0; font-family: var(--display); letter-spacing: -.045em; }
 a { color: inherit; }
@@ -93,6 +85,45 @@ button, input, textarea, select { font: inherit; }
 .studio-marquee { animation: studio-marquee 35s linear infinite; }
 .studio-signal { animation: studio-pulse 2.4s ease-in-out infinite; }
 .glass-card, .tint-card { background: var(--panel); border: 1px solid var(--line); backdrop-filter: blur(12px); }
+
+/* Keep the site intentionally flat: no card chrome, divider rules, or rounded containers. */
+[class*="border"] { border-width: 0 !important; border-color: transparent !important; }
+[class*="border"][class*="bg-"] { background: transparent !important; }
+[class*="rounded"] { border-radius: 0 !important; }
+.studio-panel,
+.studio-outline,
+.glass-card,
+.tint-card { background: transparent !important; border: 0 !important; backdrop-filter: none !important; }
+.studio-grid,
+.studio-grid > * { border: 0 !important; }
+hr { display: none; }
+
+/* Buttons use one rounded, tactile interaction pattern throughout the site. */
+button,
+[role="button"],
+.studio-button {
+  border-radius: 999px !important;
+  transition: transform .2s ease, background-color .2s ease, color .2s ease, opacity .2s ease;
+}
+button:hover:not(:disabled),
+[role="button"]:hover,
+.studio-button:hover {
+  transform: translateY(-2px) scale(1.015);
+}
+button:active:not(:disabled),
+[role="button"]:active,
+.studio-button:active {
+  transform: translateY(0) scale(.97);
+}
+button:focus-visible,
+[role="button"]:focus-visible,
+.studio-button:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 3px;
+}
+
+/* Remove the small uppercase labels used as visual decoration. */
+.studio-kicker { display: none; }
 
 @media (max-width: 767px) {
   .max-container { width: min(100% - 32px, 1220px); }
