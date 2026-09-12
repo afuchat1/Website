@@ -80,7 +80,7 @@ function ProductCard({ product, index }: { product: (typeof PRODUCT_DATA)[number
 
 export default function Products() {
   return <div className="studio-shell">
-    <section className="products-hero max-container grid items-center gap-7 py-9 sm:gap-12 sm:py-20 lg:grid-cols-[1fr_.72fr] lg:py-32">
+    <section className="products-hero max-container studio-section grid items-center gap-10 sm:gap-12 lg:grid-cols-[1fr_.72fr] lg:gap-20">
       <motion.div initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }}>
         <h1 className="max-w-3xl text-[clamp(3.5rem,8vw,7.4rem)] font-semibold leading-[.88] tracking-[-.075em] text-[#e6f1ff]">Built as<br /><span className="text-[#4da8ff]">separate</span><br />ideas.</h1>
         <p className="mt-8 max-w-xl text-base leading-relaxed text-[#91a8c4] sm:text-lg">Products owned or developed within the Afu ecosystem, from communication and email to AI technology and movie discovery.</p>
@@ -89,7 +89,7 @@ export default function Products() {
         <img src={illSecProducts} alt="AfuChat product suite" className="max-h-[190px] w-full object-contain drop-shadow-2xl sm:max-h-[300px]" />
       </motion.div>
     </section>
-    <section className="max-container pb-16 sm:pb-20">
+    <section className="max-container studio-section-tight">
       <div className="mb-7 flex items-end justify-between gap-5 sm:mb-10">
         <div>
           <h2 className="text-3xl font-semibold tracking-tight text-[#e6f1ff] sm:text-4xl">Explore the products.</h2>

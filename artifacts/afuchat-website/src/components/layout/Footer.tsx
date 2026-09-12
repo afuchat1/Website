@@ -4,10 +4,10 @@ import { PRODUCT_DATA } from '@/data/products';
 export default function Footer() {
   return (
     <footer className="relative">
-      <div className="max-container container-pad pt-16 pb-8">
+      <div className="max-container container-pad pt-20 pb-10 sm:pt-24">
 
         {/* ── Main grid ── */}
-        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 mb-8 md:mb-12">
+        <div className="mb-12 grid grid-cols-1 gap-10 sm:grid-cols-2 md:mb-16 md:grid-cols-3 md:gap-12">
 
           {/* Brand */}
           <div className="col-span-1 sm:col-span-2 md:col-span-1">
@@ -56,7 +56,7 @@ export default function Footer() {
         </div>
 
         {/* ── Copyright bar ── */}
-        <div className="border-t border-white/8 pt-7 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="flex flex-col items-center justify-between gap-5 border-t border-white/8 pt-8 sm:flex-row">
           <p className="text-white/22 text-xs">
             © 2026 AfuChat. All rights reserved.
           </p>

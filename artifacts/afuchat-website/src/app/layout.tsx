@@ -24,7 +24,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className={inter.className} style={{ background: '#ffffff' }}>
       <body>
         <Navbar />
-        <main className="pt-16">{children}</main>
+        <main className="pt-[72px]">{children}</main>
       </body>
     </html>
   );
