@@ -17,7 +17,7 @@ export default function ProductsSection() {
             transition={{ duration: 0.6 }}
             className="order-2 lg:order-1 flex justify-center"
           >
-            <img src={illSecProducts} alt="AfuChat products" className="w-full max-w-[420px] drop-shadow-2xl" loading="lazy" decoding="async" />
+            <img src={illSecProducts} alt="AfuChat Technologies product ecosystem" className="w-full max-w-[420px] drop-shadow-2xl" loading="lazy" decoding="async" />
           </motion.div>
 
           {/* Content */}

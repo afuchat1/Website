@@ -11,8 +11,8 @@ export default function Footer() {
 
           {/* Brand */}
           <div className="col-span-1 sm:col-span-2 md:col-span-1">
-            <Link href="/" className="inline-flex items-center mb-5" aria-label="AfuChat home">
-              <img src="/assets/atl-logo.svg" alt="ATL" className="h-9 w-auto" />
+            <Link href="/" className="inline-flex items-center mb-5" aria-label="AfuChat Technologies Limited home">
+              <img src="/assets/atl-logo.svg" alt="ATL — AfuChat Technologies Limited" className="h-9 w-auto" />
             </Link>
             <p className="text-white/40 text-sm leading-relaxed mb-5">
               Independent products.<br />Built for the world.
@@ -58,7 +58,7 @@ export default function Footer() {
         {/* ── Copyright bar ── */}
         <div className="flex flex-col items-center justify-between gap-5 border-t border-white/8 pt-8 sm:flex-row">
           <p className="text-white/22 text-xs">
-            © 2026 AfuChat. All rights reserved.
+             © 2026 AfuChat Technologies Limited. All rights reserved.
           </p>
           <div className="flex items-center gap-5">
             {[

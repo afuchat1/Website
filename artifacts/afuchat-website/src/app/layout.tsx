@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description:
     'AfuChat Technologies Limited builds digital products and custom web and mobile experiences for its own ecosystem and for organizations.',
   metadataBase: new URL('https://afuchat.com'),
-  openGraph: { siteName: 'AfuChat', type: 'website', images: [{ url: '/og-default.png' }] },
+  openGraph: { siteName: 'AfuChat Technologies Limited', type: 'website', images: [{ url: '/og-default.png' }] },
   twitter: { card: 'summary_large_image' },
   icons: {
     icon: [{ url: '/assets/atl-logo.svg', type: 'image/svg+xml' }],

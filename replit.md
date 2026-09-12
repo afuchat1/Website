@@ -1,6 +1,6 @@
-# [Project name]
+# AfuChat Technologies Limited website
 
-_Replace the heading above with the project's name, and this line with one sentence describing what this app does for users._
+Corporate website for AfuChat Technologies Limited. ATL is the company's short logo mark; AfuChat, AfuMail, Engagera, and AfuMovies are products in its ecosystem.
 
 ## Run & Operate
 
@@ -30,11 +30,13 @@ _Populate as you build — non-obvious choices a reader couldn't infer from the 
 
 ## Product
 
-_Describe the high-level user-facing capabilities of this app once they exist._
+The site presents AfuChat Technologies Limited's company profile, digital product ecosystem, selected work, developer resources, partner program, contact flows, and legal information.
 
 ## User preferences
 
-_Populate as you build — explicit user instructions worth remembering across sessions._
+- Use “AfuChat Technologies Limited” for the company name.
+- Use “ATL” only as the short logo mark.
+- Keep product names such as AfuChat distinct from the parent company name.
 
 ## Gotchas
 

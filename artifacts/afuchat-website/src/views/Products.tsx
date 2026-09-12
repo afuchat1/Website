@@ -86,7 +86,7 @@ export default function Products() {
         <p className="mt-8 max-w-xl text-base leading-relaxed text-[#91a8c4] sm:text-lg">Products owned or developed within the Afu ecosystem, from communication and email to AI technology and movie discovery.</p>
       </motion.div>
       <motion.div initial={{ opacity: 0, scale: .95 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: .1 }} className="flex items-center justify-center rounded-[1.75rem] bg-[#f5f9fe] p-4 sm:p-8">
-        <img src={illSecProducts} alt="AfuChat product suite" className="max-h-[190px] w-full object-contain drop-shadow-2xl sm:max-h-[300px]" />
+        <img src={illSecProducts} alt="AfuChat Technologies product suite" className="max-h-[190px] w-full object-contain drop-shadow-2xl sm:max-h-[300px]" />
       </motion.div>
     </section>
     <section className="max-container studio-section-tight">

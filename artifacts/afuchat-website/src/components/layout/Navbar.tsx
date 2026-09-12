@@ -22,7 +22,7 @@ function GithubStarBadge() {
     return () => { cancelled = true; };
   }, []);
   return (
-    <a href={GITHUB_REPO_URL} target="_blank" rel="noopener noreferrer" aria-label="AfuChat on GitHub" className="studio-link flex items-center gap-2 text-xs">
+    <a href={GITHUB_REPO_URL} target="_blank" rel="noopener noreferrer" aria-label="AfuChat Technologies Limited on GitHub" className="studio-link flex items-center gap-2 text-xs">
       <Github className="h-4 w-4" />
       {stars && <span className="studio-mono text-[10px]">{stars}</span>}
     </a>
@@ -52,8 +52,8 @@ export default function Navbar() {
   return (
     <header className={`fixed inset-x-0 top-0 z-50 border-b transition-colors duration-300 ${scrolled ? 'border-white/10 bg-[#06101f]/90 backdrop-blur-xl' : 'border-transparent bg-[#06101f]/55 backdrop-blur-md'}`}>
       <div className="max-container flex h-[72px] items-center justify-between">
-        <Link href="/" className="group flex items-center" aria-label="AfuChat home">
-          <img src="/assets/atl-logo.svg" alt="ATL" className="h-9 w-auto transition-transform duration-200 group-hover:scale-[1.03]" />
+        <Link href="/" className="group flex items-center" aria-label="AfuChat Technologies Limited home">
+          <img src="/assets/atl-logo.svg" alt="ATL — AfuChat Technologies Limited" className="h-9 w-auto transition-transform duration-200 group-hover:scale-[1.03]" />
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex" aria-label="Primary navigation">
