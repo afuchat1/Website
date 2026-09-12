@@ -92,6 +92,15 @@ header[class*="bg-[#040c1e]"] {
   border-color: rgba(18, 59, 122, 0.12) !important;
 }
 
+.mobile-rail {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.mobile-rail::-webkit-scrollbar {
+  display: none;
+}
+
 /* Borderless presentation: hierarchy comes from spacing, type, and surfaces. */
 [class*="border"],
 .studio-rule,

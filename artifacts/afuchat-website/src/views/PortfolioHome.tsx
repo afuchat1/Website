@@ -8,7 +8,7 @@ import { PROJECTS } from '@/data/projects';
 import { illSecDeveloper, illSecHero } from '@/data/illustrations';
 import Footer from '@/components/layout/Footer';
 
-const featuredProducts = PRODUCT_DATA.filter((product) => ['afuchat', 'afumail', 'afuai', 'afumovies'].includes(product.id));
+const featuredProducts = PRODUCT_DATA;
 const capabilities = [
   ['01', Globe2, 'Websites', 'Clear, responsive websites for companies and organizations.'],
   ['02', Code2, 'Web applications', 'Useful digital products built around real user flows.'],
@@ -53,9 +53,9 @@ export default function PortfolioHome() {
 
     <section className="max-container studio-section">
       <div className="mb-10 flex flex-col justify-between gap-5 sm:flex-row sm:items-end"><div><Label tone="#9d8cff">Company products</Label><h2 className="text-3xl font-semibold text-[#e6f1ff] sm:text-4xl">An ecosystem in progress.</h2></div><Link href="/products" className="studio-link flex items-center gap-2 text-sm">View product index <ArrowUpRight className="h-4 w-4" /></Link></div>
-      <div className="grid border-t border-white/[.1] md:grid-cols-2">
+       <div aria-label="Featured AfuChat products" className="mobile-rail flex snap-x snap-mandatory gap-4 overflow-x-auto pb-3 md:grid md:grid-cols-2 md:gap-0 md:overflow-visible">
         {featuredProducts.map((product, index) => { const Icon = product.icon; return <motion.div key={product.id} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * .05 }} className="border-b border-white/[.1] md:even:border-l">
-          <Link href={product.path} className="group grid min-h-[280px] grid-cols-[1fr_.82fr] overflow-hidden">
+           <Link href={product.path} className="group grid min-h-[280px] min-w-[86vw] snap-start grid-cols-[1fr_.82fr] overflow-hidden rounded-3xl bg-[#f5f9fe] md:min-w-0 md:rounded-none">
             <div className="flex flex-col justify-between p-6 sm:p-8"><div><Icon className="h-6 w-6" style={{ color: product.color }} strokeWidth={1.5} /><p className="studio-kicker mt-8 text-[9px] text-[#5d7694]">{product.category}</p><h3 className="mt-2 text-2xl font-semibold text-[#e6f1ff]">{product.name}</h3><p className="mt-3 text-sm leading-relaxed text-[#6f89a7]">{product.description}</p></div><span className="flex items-center gap-2 text-xs text-[#91a8c4] group-hover:text-[#4da8ff]">Open product <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" /></span></div>
             <div className="flex items-center justify-center border-l border-white/[.07] bg-[#0b1b31]/65 p-4"><img src={product.illustration} alt={`${product.name} product artwork`} loading="lazy" className="max-h-[230px] w-full object-contain transition-transform duration-500 group-hover:scale-105" /></div>
           </Link>
@@ -66,7 +66,7 @@ export default function PortfolioHome() {
     <section className="border-y border-white/[.08] bg-[#081529]/50">
       <div className="max-container studio-section">
         <div className="mb-10 flex flex-col justify-between gap-5 sm:flex-row sm:items-end"><div><Label tone="#8be7c4">Selected work</Label><h2 className="max-w-2xl text-3xl font-semibold text-[#e6f1ff] sm:text-4xl">Partner work, built with the same care.</h2></div><Link href="/work" className="studio-link flex items-center gap-2 text-sm">View all work <ArrowUpRight className="h-4 w-4" /></Link></div>
-        <div className="grid border-t border-white/[.1] md:grid-cols-3">{PROJECTS.slice(0, 3).map((project, index) => { const Icon = project.icon; return <motion.a key={project.id} href={project.url} target="_blank" rel="noopener noreferrer" initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * .06 }} className="group border-b border-white/[.1] p-6 md:border-l md:first:border-l-0 md:last:border-r sm:p-8">
+       <div aria-label="Selected client work" className="mobile-rail flex snap-x snap-mandatory gap-4 overflow-x-auto pb-3 md:grid md:grid-cols-3 md:gap-0 md:overflow-visible">{PROJECTS.slice(0, 3).map((project, index) => { const Icon = project.icon; return <motion.a key={project.id} href={project.url} target="_blank" rel="noopener noreferrer" initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * .06 }} className="group min-w-[86vw] snap-start rounded-3xl bg-[#f5f9fe] p-6 md:min-w-0 md:rounded-none md:p-8">
           <div className="flex items-center justify-between"><Icon className="h-5 w-5" style={{ color: project.accent }} strokeWidth={1.5} /><ArrowUpRight className="h-4 w-4 text-[#5d7694] transition-transform group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-white" /></div><p className="studio-kicker mt-12 text-[9px] text-[#5d7694]">{project.category}</p><h3 className="mt-2 text-xl font-semibold text-[#e6f1ff]">{project.name}</h3><p className="mt-3 text-sm leading-relaxed text-[#6f89a7]">{project.description}</p>
         </motion.a>; })}</div>
       </div>

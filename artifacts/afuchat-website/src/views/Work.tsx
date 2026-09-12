@@ -18,8 +18,8 @@ export default function Work() {
         </motion.div>
       </section>
 
-      <section className="max-container container-pad pb-20 sm:pb-28">
-        <div className="grid gap-5 md:grid-cols-2">
+       <section className="max-container container-pad pb-20 sm:pb-28">
+         <div aria-label="Selected client projects" className="mobile-rail flex snap-x snap-mandatory gap-4 overflow-x-auto pb-3 md:grid md:grid-cols-2 md:gap-5 md:overflow-visible">
           {PROJECTS.map((project, index) => {
             const Icon = project.icon;
             return (
@@ -32,7 +32,7 @@ export default function Work() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.05 }}
-                className="group flex min-h-[290px] flex-col justify-between rounded-3xl border border-white/10 bg-white/[0.035] p-7 transition-all hover:-translate-y-1 hover:border-white/20 hover:bg-white/[0.06] sm:p-8"
+                 className="group flex min-h-[290px] min-w-[86vw] snap-start flex-col justify-between rounded-3xl bg-[#f5f9fe] p-7 transition-transform hover:-translate-y-1 md:min-w-0 sm:p-8"
               >
                 <div>
                   <div className="flex items-start justify-between">
@@ -56,6 +56,7 @@ export default function Work() {
             );
           })}
         </div>
+         <p className="mt-4 text-center text-[11px] font-medium uppercase tracking-[0.18em] text-[#7890a7] md:hidden">Swipe to explore selected work</p>
       </section>
 
       <section className="max-container container-pad pb-20 sm:pb-28">
