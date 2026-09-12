@@ -3,8 +3,22 @@ import { PRODUCT_DATA } from '@/data/products';
 
 export default function Footer() {
   return (
-    <footer className="relative">
-      <div className="max-container container-pad pt-20 pb-10 sm:pt-24">
+    <footer className="footer-shell relative">
+      <svg
+        className="footer-dip"
+        viewBox="0 0 1440 190"
+        preserveAspectRatio="none"
+        role="img"
+        aria-label="Decorative footer separator"
+      >
+        <path
+          fill="var(--footer-surface)"
+          d="M0 92C45 68 82 48 126 54C174 60 180 94 184 128C188 160 205 174 226 166C247 158 235 118 254 102C276 84 302 111 331 88C360 62 389 75 420 82C452 90 475 74 509 72C551 69 583 85 616 77C650 68 665 52 690 52C728 52 743 71 755 101C769 140 770 162 799 170C829 179 844 158 858 126C871 93 899 90 922 80C945 70 936 46 966 34C997 20 1015 60 1058 61C1099 62 1115 39 1145 27C1183 12 1205 48 1236 62C1264 75 1294 79 1320 70C1354 58 1380 63 1410 67C1423 69 1434 67 1440 65V190H0Z"
+        />
+      </svg>
+
+      <div className="footer-body">
+      <div className="max-container container-pad pt-12 pb-10 sm:pt-16">
 
         {/* ── Main grid ── */}
         <div className="mb-12 grid grid-cols-1 gap-10 sm:grid-cols-2 md:mb-16 md:grid-cols-3 md:gap-12">
@@ -71,6 +85,7 @@ export default function Footer() {
             ))}
           </div>
         </div>
+      </div>
       </div>
     </footer>
   );
