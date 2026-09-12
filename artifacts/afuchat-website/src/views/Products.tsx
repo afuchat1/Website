@@ -1,65 +1,33 @@
 'use client';
+
 import { motion } from 'framer-motion';
-import { PRODUCT_DATA } from '@/data/products';
 import Link from 'next/link';
+import { ArrowUpRight, MoveUpRight } from 'lucide-react';
+import { PRODUCT_DATA } from '@/data/products';
 import { illSecProducts } from '@/data/illustrations';
 import Footer from '@/components/layout/Footer';
 
 export default function Products() {
-  return (
-    <div className="w-full min-h-screen">
-      {/* Hero */}
-      <div className="max-container container-pad pt-8 pb-10 sm:pt-20 sm:pb-16">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">
-          <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }}>
-            <p className="text-purple-400 font-semibold text-[10px] sm:text-xs uppercase tracking-widest mb-3">Our Products</p>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white mb-5 tracking-tight leading-tight">
-              Eight tools.<br />One vision.
-            </h1>
-            <p className="text-white/50 text-base sm:text-lg leading-relaxed max-w-md">
-              Every AfuChat product is built to stand on its own. No artificial dependencies, no forced bundles. Use one, use all, or mix and match.
-            </p>
-          </motion.div>
-          <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.1 }} className="flex justify-center">
-            <img src={illSecProducts} alt="AfuChat product suite" className="w-full max-w-sm drop-shadow-2xl" />
-          </motion.div>
-        </div>
+  return <div className="studio-shell">
+    <section className="max-container studio-section grid items-end gap-12 lg:grid-cols-[1fr_.72fr]">
+      <motion.div initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }}>
+        <p className="studio-kicker mb-6 text-[#9d8cff]">Product index / 08 independent tools</p>
+        <h1 className="max-w-3xl text-[clamp(3.5rem,8vw,7.4rem)] font-semibold leading-[.88] tracking-[-.075em] text-[#e6f1ff]">Built as<br /><span className="text-[#4da8ff]">separate</span><br />ideas.</h1>
+        <p className="mt-8 max-w-xl text-base leading-relaxed text-[#91a8c4] sm:text-lg">Every AfuChat product is built to stand on its own. No artificial dependencies, no forced bundles. Use one, use all, or mix and match.</p>
+      </motion.div>
+      <motion.div initial={{ opacity: 0, scale: .95 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: .1 }} className="border border-white/10 bg-[#0b1b31]/50 p-5 sm:p-8">
+        <div className="mb-5 flex justify-between border-b border-white/10 pb-4 text-[10px] text-[#5d7694] studio-mono"><span>AFU / PRODUCT LAB</span><span>INDEX_08</span></div>
+        <img src={illSecProducts} alt="AfuChat product suite" className="w-full drop-shadow-2xl" />
+      </motion.div>
+    </section>
+    <section className="max-container pb-24">
+      <div className="mb-8 flex items-center justify-between border-b border-white/10 pb-5"><p className="studio-kicker">All products</p><span className="text-xs text-[#5d7694] studio-mono">01—08 / LIVE SYSTEMS</span></div>
+      <div className="grid border-t border-white/10 sm:grid-cols-2 lg:grid-cols-4">
+        {PRODUCT_DATA.map((product, index) => { const Icon = product.icon; return <motion.div key={product.id} initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * .04 }} className="border-b border-white/10 sm:[&:nth-child(even)]:border-l lg:[&:nth-child(4n+2)]:border-l lg:[&:nth-child(4n+3)]:border-l lg:[&:nth-child(4n+4)]:border-l">
+          <Link href={product.path} className="group flex min-h-[310px] flex-col p-6 transition-colors hover:bg-white/[.035] sm:p-7"><div className="flex items-start justify-between"><Icon className="h-7 w-7" style={{ color: product.color }} strokeWidth={1.5} /><ArrowUpRight className="h-4 w-4 text-[#5d7694] transition-transform group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-white" /></div><p className="studio-kicker mt-auto text-[9px] text-[#5d7694]">{product.category}</p><h2 className="mt-2 text-xl font-semibold text-[#e6f1ff]">{product.name}</h2><p className="mt-3 text-sm leading-relaxed text-[#6f89a7]">{product.description}</p><span className="mt-7 flex items-center gap-2 text-xs font-medium text-[#91a8c4] group-hover:text-[#4da8ff]">Explore product <MoveUpRight className="h-3.5 w-3.5" /></span></Link>
+        </motion.div>; })}
       </div>
-
-      {/* Product grid */}
-      <div className="max-container container-pad py-8 sm:py-12">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {PRODUCT_DATA.map((p, i) => (
-            <motion.div
-              key={p.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.06 }}
-            >
-              <Link href={p.path} className="block group">
-                <div className="flex flex-col items-start gap-4 p-5 rounded-2xl hover:bg-white/4 transition-colors">
-                  <p.icon
-                    aria-hidden="true"
-                    className="w-10 h-10"
-                    style={{ color: p.color }}
-                    strokeWidth={1.7}
-                  />
-                  <div>
-                    <p className="text-white font-bold text-base mb-1 group-hover:text-white/90 transition-colors">{p.name}</p>
-                    <p className="text-white/35 text-xs uppercase tracking-widest font-semibold mb-2">{p.category}</p>
-                    <p className="text-white/50 text-sm leading-relaxed">{p.description}</p>
-                  </div>
-                  <span className="text-xs font-semibold mt-auto" style={{ color: p.color }}>
-                    Learn more →
-                  </span>
-                </div>
-              </Link>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-      <Footer />
-    </div>
-  );
+    </section>
+    <Footer />
+  </div>;
 }
