@@ -19,9 +19,9 @@ const PAGE_CONTENT: Record<string, {
   about: {
     accent: '#1F95FF', illustration: illSecAbout,
     sections: [
-      { heading: 'Who we are', body: 'AfuChat Technologies Limited is a technology company founded with a single belief: powerful tools should be accessible to everyone. We build standalone products that excel in their respective categories, from intelligent assistants to seamless messaging.' },
-      { heading: 'Our mission', body: "We believe that the best software empowers people to do their best work and live their best lives. Our mission is to build tools that are intuitive, beautiful, and deeply useful. Each product we create is designed to solve a specific problem brilliantly, allowing anyone in the world to adopt what they need without friction." },
-      { heading: 'How we build', body: 'Every product we ship starts with a focus on craft and utility. While our products can work together seamlessly, each is designed to stand entirely on its own merit. This independent thinking ensures we never compromise on quality for the sake of forced integration.' },
+      { heading: 'Who we are', body: 'AfuChat Technologies Limited is a Ugandan technology company building digital products, websites, web applications, Android applications, iOS applications, cross-platform mobile applications, e-commerce platforms, AI-focused products, and custom digital solutions.' },
+      { heading: 'The founder', body: 'AM Kaweesi is the Founder & Technology Builder behind AfuChat Technologies and its products. The company builds its own products while also helping businesses and organizations turn useful ideas into working digital experiences.' },
+      { heading: 'How we build', body: 'We start with the problem and the people who need the solution. From there, we combine product thinking, design, and engineering to build clear, useful experiences that can grow with the organization behind them.' },
     ],
   },
   leadership: {
