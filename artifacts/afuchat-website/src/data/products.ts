@@ -1,5 +1,5 @@
 import {
-  Mail, MessageCircle, Sparkles, Play,
+  Mail, MessageCircle, BrainCircuit, Play,
   LucideIcon
 } from 'lucide-react';
 import {
@@ -67,7 +67,7 @@ export const PRODUCT_DATA: ProductData[] = [
     path: "/products/engagera",
     website: "https://engagera.afuchat.com/",
     github: "https://github.com/afuchat1/EngageraAi",
-    icon: Sparkles,
+    icon: BrainCircuit,
     illustration: illSecDeveloper,
   },
   {

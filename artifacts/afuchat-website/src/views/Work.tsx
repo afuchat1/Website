@@ -39,7 +39,7 @@ export default function Work() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.05 }}
-                 className="group flex min-h-[290px] min-w-[86vw] snap-start flex-col justify-between rounded-3xl bg-[#f5f9fe] p-7 transition-transform hover:-translate-y-1 md:min-w-0 sm:p-8"
+                 className="group flex min-h-[290px] min-w-[86vw] snap-start flex-col justify-between rounded-3xl bg-[#0b1b31] p-7 transition-transform hover:-translate-y-1 md:min-w-0 sm:p-8"
               >
                 <div>
                   <div className="flex items-start justify-between">
@@ -50,8 +50,8 @@ export default function Work() {
                       Visit project <ArrowUpRight className="h-3.5 w-3.5" />
                     </span>
                   </div>
-                  <h2 className="mt-2 text-2xl font-bold tracking-tight text-white">{project.name}</h2>
-                  <p className="mt-3 max-w-xl text-sm leading-relaxed text-white/45">{project.description}</p>
+                    <h2 className="mt-2 text-2xl font-bold tracking-tight text-[#e6f1ff]">{project.name}</h2>
+                    <p className="mt-3 max-w-xl text-sm leading-relaxed text-[#91a8c4]">{project.description}</p>
                 </div>
                 <div className="mt-8 flex flex-wrap gap-2">
                   {project.focus.map(item => (

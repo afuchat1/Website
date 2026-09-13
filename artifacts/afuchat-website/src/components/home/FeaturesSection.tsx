@@ -1,12 +1,12 @@
 'use client';
 import { illSecSecurity } from '@/data/illustrations';
 import { motion } from 'framer-motion';
-import { ShieldCheck, Lock, Sparkles, RefreshCw, Zap, Globe } from 'lucide-react';
+import { ShieldCheck, Lock, BrainCircuit, RefreshCw, Zap, Globe } from 'lucide-react';
 
 const features = [
   { icon: ShieldCheck, label: 'Zero Knowledge Security',  desc: 'Your data is encrypted before it ever leaves your device.' },
   { icon: Lock,        label: 'End to End Encryption',    desc: 'Every message and file is protected with AES 256.' },
-  { icon: Sparkles,    label: 'AI Built In',              desc: 'Smart suggestions and automation across every product.' },
+  { icon: BrainCircuit, label: 'AI Built In',             desc: 'Smart suggestions and automation across every product.' },
   { icon: RefreshCw,   label: 'Real Time Sync',           desc: 'Instant updates across all your devices, always.' },
   { icon: Zap,         label: 'Blazing Fast',             desc: 'Sub-100ms response times, globally distributed.' },
   { icon: Globe,       label: 'Available Everywhere',     desc: 'Web, iOS, Android, macOS, and Windows.' },

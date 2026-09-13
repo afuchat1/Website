@@ -24,7 +24,7 @@ export default function Products() {
         {[['08', 'products in the ecosystem', 'Each one solves a focused problem.'], ['01', 'shared technology foundation', 'Independent products, connected by craft.'], ['∞', 'room for the next idea', 'The system keeps expanding with purpose.']].map(([value, label, detail], index) => (
           <ScrollReveal key={label} delay={index * .08} className="px-0 sm:px-8 sm:first:pl-0 sm:last:pr-0">
             <p className="studio-mono text-3xl font-medium text-[#165fbd]">{value}</p>
-            <p className="mt-3 text-sm font-semibold text-[#102f53]">{label}</p>
+            <p className="mt-3 text-sm font-semibold text-[#e6f1ff]">{label}</p>
             <p className="mt-1 text-xs leading-relaxed text-[#6f89a7]">{detail}</p>
           </ScrollReveal>
         ))}
