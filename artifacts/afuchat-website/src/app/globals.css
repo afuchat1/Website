@@ -299,30 +299,40 @@ button[class*="rounded-full"] {
 .color-panel {
   position: relative;
   overflow: hidden;
-  background: linear-gradient(135deg, rgba(14,39,68,.62), rgba(9,23,42,.5));
-  box-shadow: none;
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 1rem;
+  background: rgba(12,29,53,.75);
+  box-shadow: 0 24px 80px rgba(21,67,118,.13), inset 0 1px 0 rgba(255,255,255,.08);
+  backdrop-filter: blur(18px);
 }
 
 .showcase-card {
-  background: rgba(11,27,49,.5);
-  box-shadow: none;
+  border: 1px solid rgba(255,255,255,.1);
+  background: rgba(12,29,53,.75);
+  box-shadow: 0 24px 80px rgba(21,67,118,.13), inset 0 1px 0 rgba(255,255,255,.08);
+  backdrop-filter: blur(18px);
+  transition: border-color .25s ease, background-color .25s ease, transform .25s ease;
 }
 
 .showcase-card:hover {
-  background: rgba(14,39,68,.7);
-  box-shadow: none;
+  border-color: rgba(77,168,255,.35);
+  background: rgba(14,39,68,.82);
 }
 
-.color-panel::before {
-  position: absolute;
-  top: -5rem;
-  right: -3rem;
-  width: 15rem;
-  height: 15rem;
-  border-radius: 50%;
-  background: rgba(215,103,80,.11);
-  filter: blur(4px);
-  content: '';
+.site-card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 1rem;
+  background: rgba(12,29,53,.75);
+  box-shadow: 0 24px 80px rgba(21,67,118,.13), inset 0 1px 0 rgba(255,255,255,.08);
+  backdrop-filter: blur(18px);
+  transition: border-color .25s ease, background-color .25s ease, transform .25s ease;
+}
+
+.site-card:hover {
+  border-color: rgba(77,168,255,.35);
+  background: rgba(14,39,68,.82);
 }
 
 .accent-bar {

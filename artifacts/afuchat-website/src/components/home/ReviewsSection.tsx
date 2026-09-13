@@ -24,7 +24,7 @@ function Stars({ rating }: { rating: number }) {
 
 function ReviewCard({ review }: { review: TrustpilotReview }) {
   return (
-    <div className="flex-shrink-0 w-[300px] sm:w-[340px] bg-white/4 rounded-2xl p-5 flex flex-col gap-3">
+    <div className="site-card flex-shrink-0 w-[300px] sm:w-[340px] p-5 flex flex-col gap-3">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2.5">
           <div className="w-8 h-8 rounded-full bg-[#1F7AFF] flex items-center justify-center text-white text-xs font-bold flex-shrink-0">

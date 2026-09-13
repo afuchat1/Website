@@ -39,7 +39,7 @@ export default function Work() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.05 }}
-                 className="group flex min-h-[290px] min-w-[86vw] snap-start flex-col justify-between rounded-3xl bg-[#0b1b31] p-7 transition-transform hover:-translate-y-1 md:min-w-0 sm:p-8"
+                 className="site-card group flex min-h-[290px] min-w-[86vw] snap-start flex-col p-7 transition-transform hover:-translate-y-1 md:min-w-0 sm:p-8"
               >
                 <div>
                   <div className="flex items-start justify-between">

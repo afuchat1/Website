@@ -66,7 +66,7 @@ export default function DonationSection() {
             </p>
           </div>
 
-          <form onSubmit={startDonation} className="rounded-2xl border border-white/10 bg-[#0b1b3b] p-5 shadow-2xl shadow-black/20 sm:p-7">
+          <form onSubmit={startDonation} className="site-card p-5 sm:p-7">
             <div className="mb-5 flex items-center justify-between gap-4">
               <div>
                 <p className="text-sm font-semibold text-white">Choose your support</p>

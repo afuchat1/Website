@@ -49,7 +49,7 @@ export default function ShowcaseCard({
       whileInView={reducedMotion ? undefined : { opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ delay: index * 0.06 }}
-      className="showcase-card group flex flex-col overflow-hidden rounded-[1.7rem] bg-transparent p-3 transition-transform hover:-translate-y-1 sm:p-4"
+      className="showcase-card group flex flex-col p-3 transition-transform hover:-translate-y-1 sm:p-4"
     >
       <div className="relative flex min-h-[240px] items-center justify-center overflow-hidden sm:min-h-[300px]">
         {illustration ? (
@@ -87,12 +87,12 @@ export default function ShowcaseCard({
 
         <div className="mt-5 flex flex-wrap gap-2">
           {visibleFeatures.map((feature) => (
-            <span key={feature} className="rounded-full bg-white px-2.5 py-1.5 text-[11px] text-[#5d7694]">
+            <span key={feature} className="rounded-full bg-white/[.06] px-2.5 py-1.5 text-[11px] text-[#91a8c4]">
               {feature}
             </span>
           ))}
           {remainingFeatures > 0 && (
-            <span className="rounded-full bg-white px-2.5 py-1.5 text-[11px] text-[#7890a7]">
+            <span className="rounded-full bg-white/[.06] px-2.5 py-1.5 text-[11px] text-[#5d7694]">
               +{remainingFeatures} more
             </span>
           )}

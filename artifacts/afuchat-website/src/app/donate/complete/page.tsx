@@ -45,7 +45,7 @@ export default function DonationCompletePage() {
 
   return (
     <main className="flex min-h-[70vh] items-center justify-center bg-[#040c1e] px-5 py-20">
-      <div className="w-full max-w-lg rounded-2xl border border-white/10 bg-[#0b1b3b] p-8 text-center shadow-2xl">
+      <div className="site-card w-full max-w-lg p-8 text-center">
         <div className="mb-5 flex justify-center">{content.icon}</div>
         <h1 className="text-2xl font-bold text-white">{content.title}</h1>
         <p className="mt-3 text-sm leading-relaxed text-white/55">{content.body}</p>
