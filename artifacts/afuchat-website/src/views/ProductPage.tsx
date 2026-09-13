@@ -101,7 +101,7 @@ function EngageraDetails() {
   const npmVersion = NpmVersion();
   return (
     <>
-      <section className="engagera-section engagera-platform-section border-y border-white/[.08] bg-[#081529]/55">
+      <section className="engagera-section engagera-platform-section border-y border-white/[.08] bg-transparent">
         <div className="engagera-section-art engagera-platform-art" aria-hidden="true">
           <img src={illSecEcosystem} alt="" loading="lazy" />
         </div>

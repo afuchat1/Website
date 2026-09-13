@@ -30,7 +30,7 @@ export default function PortfolioHome() {
       </div>
     </section>
 
-    <section className="border-y border-white/[.08] bg-[#081529]/60">
+    <section className="border-y border-white/[.08] bg-transparent">
       <div className="max-container grid gap-10 py-16 lg:grid-cols-[.78fr_1.22fr] lg:gap-24">
         <div><h2 className="max-w-md text-3xl font-semibold leading-tight text-[#e6f1ff] sm:text-4xl">Small studio.<br />Wide range.</h2><p className="mt-5 max-w-md text-sm leading-relaxed text-[#6f89a7]">From the first sketch to the final deploy, we combine product thinking, design, and engineering in one close loop.</p></div>
         <div className="grid grid-cols-1 sm:grid-cols-2">
@@ -48,7 +48,7 @@ export default function PortfolioHome() {
       </div>
     </section>
 
-    <section className="border-y border-white/[.08] bg-[#081529]/50">
+    <section className="border-y border-white/[.08] bg-transparent">
       <div className="max-container studio-section">
         <div className="mb-10"><h2 className="max-w-2xl text-3xl font-semibold text-[#e6f1ff] sm:text-4xl">Partner work, built with the same care.</h2></div>
         <div aria-label="Selected client work" className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">

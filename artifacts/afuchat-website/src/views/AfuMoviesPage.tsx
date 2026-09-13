@@ -199,8 +199,8 @@ export default function AfuMoviesPage() {
   const searchUrl = `${MOVIES_BASE_URL}/search?q=${encodeURIComponent(query || hero.title)}`;
 
   return (
-    <div className="min-h-screen bg-[#101010] text-white selection:bg-[#e51414] selection:text-white">
-      <header className="sticky top-0 z-50 border-b border-white/[.06] bg-[#111]/95 backdrop-blur-xl">
+    <div className="platform-page min-h-screen text-white selection:bg-[#e51414] selection:text-white">
+      <header className="sticky top-0 z-50 border-b border-white/[.06] bg-[#06101f]/95 backdrop-blur-xl">
         <div className="mx-auto flex h-16 max-w-[1440px] items-center gap-5 px-5 sm:px-8">
           <Link href="/products/afumovies" className="flex shrink-0 items-center gap-2">
             <span className="grid h-8 w-8 place-items-center rounded bg-[#e51414] shadow-[0_0_20px_rgba(229,20,20,.25)]">
