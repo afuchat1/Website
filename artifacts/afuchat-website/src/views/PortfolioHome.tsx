@@ -18,7 +18,7 @@ const capabilities = [
   ['06', Layers3, 'Custom solutions', 'Digital products shaped around the problem to solve.'],
 ] as const;
 
-function Label({ children, tone = '#4da8ff' }: { children: React.ReactNode; tone?: string }) {
+function Label({ children, tone = 'var(--blue)' }: { children: React.ReactNode; tone?: string }) {
   return <p className="studio-kicker mb-5" style={{ color: tone }}>{children}</p>;
 }
 
@@ -72,7 +72,7 @@ export default function PortfolioHome() {
 
     <section className="border-y border-white/[.08] bg-[#081529]/60">
       <div className="max-container grid gap-10 py-16 lg:grid-cols-[.78fr_1.22fr] lg:gap-24">
-        <div><Label tone="#8be7c4">Capabilities</Label><h2 className="max-w-md text-3xl font-semibold leading-tight text-[#e6f1ff] sm:text-4xl">Small studio.<br />Wide range.</h2><p className="mt-5 max-w-md text-sm leading-relaxed text-[#6f89a7]">From the first sketch to the final deploy, we combine product thinking, design, and engineering in one close loop.</p></div>
+        <div><Label tone="var(--mint)">Capabilities</Label><h2 className="max-w-md text-3xl font-semibold leading-tight text-[#e6f1ff] sm:text-4xl">Small studio.<br />Wide range.</h2><p className="mt-5 max-w-md text-sm leading-relaxed text-[#6f89a7]">From the first sketch to the final deploy, we combine product thinking, design, and engineering in one close loop.</p></div>
         <div className="grid grid-cols-1 sm:grid-cols-2">
           {capabilities.map(([number, Icon, title, description]) => <div key={title} className="group border-t border-white/[.08] py-5 sm:pr-8">
             <div className="flex gap-4"><span className="studio-index pt-1">{number}</span><Icon className="h-5 w-5 text-[#4da8ff] transition-transform group-hover:translate-x-1" strokeWidth={1.5} /><div><h3 className="text-sm font-semibold text-[#e6f1ff]">{title}</h3><p className="mt-2 text-sm leading-relaxed text-[#6f89a7]">{description}</p></div></div>
@@ -82,7 +82,7 @@ export default function PortfolioHome() {
     </section>
 
     <section className="max-container studio-section">
-      <div className="mb-10 flex flex-col justify-between gap-5 sm:flex-row sm:items-end"><div><Label tone="#9d8cff">Company products</Label><h2 className="text-3xl font-semibold text-[#e6f1ff] sm:text-4xl">An ecosystem in progress.</h2></div><Link href="/products" className="studio-link flex items-center gap-2 text-sm">View product index <ArrowUpRight className="h-4 w-4" /></Link></div>
+      <div className="mb-10 flex flex-col justify-between gap-5 sm:flex-row sm:items-end"><div><Label tone="var(--violet)">Company products</Label><h2 className="text-3xl font-semibold text-[#e6f1ff] sm:text-4xl">An ecosystem in progress.</h2></div><Link href="/products" className="studio-link flex items-center gap-2 text-sm">View product index <ArrowUpRight className="h-4 w-4" /></Link></div>
         <div aria-label="Featured AfuChat products" className="grid gap-5 md:grid-cols-2">
          {PRODUCT_DATA.map((product, index) => <ShowcaseCard key={product.id} name={product.name} category={product.category} tagline={product.tagline} description={product.description} features={product.features} color={product.color} index={index} href={product.path} hrefLabel="Explore details" secondaryHref={product.website} secondaryLabel="Visit website" github={product.github} icon={product.icon} illustration={product.illustration} illustrationAlt={`${product.name} product artwork`} />)}
       </div>
@@ -90,7 +90,7 @@ export default function PortfolioHome() {
 
     <section className="border-y border-white/[.08] bg-[#081529]/50">
       <div className="max-container studio-section">
-        <div className="mb-10 flex flex-col justify-between gap-5 sm:flex-row sm:items-end"><div><Label tone="#8be7c4">Selected work</Label><h2 className="max-w-2xl text-3xl font-semibold text-[#e6f1ff] sm:text-4xl">Partner work, built with the same care.</h2></div><Link href="/work" className="studio-link flex items-center gap-2 text-sm">View all work <ArrowUpRight className="h-4 w-4" /></Link></div>
+        <div className="mb-10 flex flex-col justify-between gap-5 sm:flex-row sm:items-end"><div><Label tone="var(--mint)">Selected work</Label><h2 className="max-w-2xl text-3xl font-semibold text-[#e6f1ff] sm:text-4xl">Partner work, built with the same care.</h2></div><Link href="/work" className="studio-link flex items-center gap-2 text-sm">View all work <ArrowUpRight className="h-4 w-4" /></Link></div>
         <div aria-label="Selected client work" className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {PROJECTS.slice(0, 3).map((project, index) => <ShowcaseCard key={project.id} name={project.name} category={project.category} tagline={project.category} description={project.description} features={project.focus} color={project.accent} index={index} href={project.url} hrefLabel="Visit project" hrefExternal icon={project.icon} />)}
         </div>
@@ -99,7 +99,7 @@ export default function PortfolioHome() {
 
     <section className="max-container studio-section grid items-center gap-12 lg:grid-cols-[.75fr_1.25fr] lg:gap-24">
       <div className="mx-auto max-w-sm"><img src={illSecDeveloper} alt="AfuChat Technologies building digital products" loading="lazy" className="w-full" /></div>
-      <div><Label tone="#4da8ff">The company behind the work</Label><h2 className="max-w-2xl text-4xl font-semibold leading-tight text-[#e6f1ff] sm:text-5xl">Product-minded<br />by default.</h2><p className="mt-6 max-w-xl text-base leading-relaxed text-[#91a8c4]">Led by AM Kaweesi, Founder &amp; Technology Builder, we build our own digital products and help businesses and organizations turn useful ideas into working digital experiences.</p><div className="mt-8 flex flex-wrap gap-3"><Link href="/about" className="studio-button studio-button-ghost">About the studio <ArrowUpRight className="h-4 w-4" /></Link><Link href="/contact" className="studio-link flex items-center gap-2 px-2 text-sm">Talk about a project <MoveUpRight className="h-4 w-4" /></Link></div></div>
+      <div><Label tone="var(--blue)">The company behind the work</Label><h2 className="max-w-2xl text-4xl font-semibold leading-tight text-[#e6f1ff] sm:text-5xl">Product-minded<br />by default.</h2><p className="mt-6 max-w-xl text-base leading-relaxed text-[#91a8c4]">Led by AM Kaweesi, Founder &amp; Technology Builder, we build our own digital products and help businesses and organizations turn useful ideas into working digital experiences.</p><div className="mt-8 flex flex-wrap gap-3"><Link href="/about" className="studio-button studio-button-ghost">About the studio <ArrowUpRight className="h-4 w-4" /></Link><Link href="/contact" className="studio-link flex items-center gap-2 px-2 text-sm">Talk about a project <MoveUpRight className="h-4 w-4" /></Link></div></div>
     </section>
     <section className="max-container pb-24"><div className="studio-panel relative overflow-hidden p-8 sm:p-14"><div className="relative z-10 max-w-2xl"><h2 className="text-3xl font-semibold text-[#e6f1ff] sm:text-5xl">Start with the problem.<br />End with something useful.</h2><p className="mt-5 max-w-lg text-base leading-relaxed text-[#91a8c4]">Tell us what you are trying to create. We will work toward the right digital product.</p><Link href="/contact" className="studio-button studio-button-primary mt-8">Start a project <ArrowUpRight className="h-4 w-4" /></Link></div></div></section>
     <Footer />
