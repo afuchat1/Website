@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { ArrowUpRight, BrainCircuit, Code2, Globe2, Layers3, Smartphone, ShoppingCart, MoveUpRight } from 'lucide-react';
 import { PRODUCT_DATA } from '@/data/products';
 import { PROJECTS } from '@/data/projects';
-import { illSecDeveloper, illSecHero } from '@/data/illustrations';
+import { illSecDeveloper } from '@/data/illustrations';
 import Footer from '@/components/layout/Footer';
 import ShowcaseCard from '@/components/cards/ShowcaseCard';
 
@@ -22,6 +22,38 @@ function Label({ children, tone = '#4da8ff' }: { children: React.ReactNode; tone
   return <p className="studio-kicker mb-5" style={{ color: tone }}>{children}</p>;
 }
 
+const TRUSTED_PARTNERS = [
+  { name: 'AJS Digital Services & IT Solutions', source: '/partners/ajs-digital-services.png' },
+  { name: 'Mindset Media Radio', source: '/partners/mindset-media-radio.png' },
+  { name: 'Amazon Shoe Collection', source: '/partners/amazon-shoe-collection.png' },
+  { name: 'Sabula Shoe Spot', source: '/partners/sabula-shoe-spot.png' },
+  { name: 'Bee brand', source: '/partners/bee-brand.png' },
+];
+
+function TrustedByMarquee() {
+  const marqueePartners = [...TRUSTED_PARTNERS, ...TRUSTED_PARTNERS];
+
+  return (
+    <div className="trusted-by-showcase">
+      <p className="trusted-by-title">Trusted by</p>
+      <div className="trusted-by-marquee" aria-label="Companies AfuChat has worked with">
+        <div className="trusted-by-track">
+          {marqueePartners.map((partner, index) => (
+            <div className="trusted-by-logo" key={`${partner.source}-${index}`}>
+              <img
+                src={partner.source}
+                alt={index < TRUSTED_PARTNERS.length ? partner.name : ''}
+                aria-hidden={index >= TRUSTED_PARTNERS.length}
+                loading="eager"
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function PortfolioHome() {
   return <div className="studio-shell">
     <section className="max-container studio-section grid items-center gap-12 lg:grid-cols-[1.05fr_.95fr] lg:gap-20">
@@ -34,9 +66,7 @@ export default function PortfolioHome() {
         </div>
       </div>
       <motion.div initial={{ opacity: 0, scale: .96 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: .75 }} className="relative">
-        <div className="relative">
-          <img src={illSecHero} alt="AfuChat Technologies digital products" className="w-full drop-shadow-2xl" />
-        </div>
+        <TrustedByMarquee />
       </motion.div>
     </section>
 

@@ -274,6 +274,93 @@ button,[role="button"],.studio-button,a[class*="rounded"]{border-radius:999px!im
   }
 }
 
+/* Homepage partner marquee: a flat, borderless logo strip with no interaction. */
+.trusted-by-showcase {
+  overflow: hidden;
+  width: 100%;
+  padding: clamp(1.5rem, 4vw, 2.5rem) 0;
+  background: #edf2f5;
+}
+
+.trusted-by-title {
+  max-width: 1200px;
+  margin: 0 auto 1.15rem;
+  padding-inline: max(1.25rem, 5vw);
+  color: #60738b;
+  font: 500 .68rem var(--mono);
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+
+.trusted-by-marquee {
+  overflow: hidden;
+  width: 100%;
+  mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+}
+
+.trusted-by-track {
+  display: flex;
+  width: max-content;
+  align-items: center;
+  gap: clamp(2.5rem, 8vw, 7rem);
+  padding-inline: clamp(2.5rem, 8vw, 7rem);
+  animation: trusted-by-slide 34s linear infinite;
+  will-change: transform;
+}
+
+.trusted-by-logo {
+  display: flex;
+  width: clamp(8rem, 15vw, 12rem);
+  height: clamp(4.5rem, 8vw, 6rem);
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+}
+
+.trusted-by-logo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: grayscale(1);
+  mix-blend-mode: multiply;
+  opacity: .62;
+}
+
+@keyframes trusted-by-slide {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@media (max-width: 767px) {
+  .trusted-by-showcase {
+    padding-block: 1.25rem;
+  }
+
+  .trusted-by-title {
+    margin-bottom: .75rem;
+    padding-inline: 1.25rem;
+  }
+
+  .trusted-by-track {
+    gap: 2.25rem;
+    padding-inline: 2.25rem;
+    animation-duration: 27s;
+  }
+
+  .trusted-by-logo {
+    width: 7.5rem;
+    height: 4.25rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .trusted-by-track {
+    animation-play-state: paused;
+  }
+}
+
 /* Engagera product page: layered illustration washes and motion-safe reveals. */
 .engagera-page {
   isolation: isolate;
