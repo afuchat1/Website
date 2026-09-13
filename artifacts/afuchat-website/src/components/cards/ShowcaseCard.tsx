@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import type { LucideIcon } from 'lucide-react';
 import { ArrowUpRight, ExternalLink, Github, MoveUpRight } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 
 type ShowcaseCardProps = {
   name: string;
@@ -42,16 +42,17 @@ export default function ShowcaseCard({
   illustration,
   illustrationAlt,
 }: ShowcaseCardProps) {
+  const reducedMotion = useReducedMotion();
   const visibleFeatures = features.slice(0, 4);
   const remainingFeatures = features.length - visibleFeatures.length;
 
   return (
     <motion.article
-      initial={{ opacity: 0, y: 14 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial={reducedMotion ? false : { opacity: 0, y: 14 }}
+      whileInView={reducedMotion ? undefined : { opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ delay: index * 0.06 }}
-      className="group flex flex-col overflow-hidden bg-transparent transition-transform hover:-translate-y-1"
+      className="showcase-card group flex flex-col overflow-hidden rounded-[1.7rem] bg-transparent p-3 transition-transform hover:-translate-y-1 sm:p-4"
     >
       <div className="relative flex min-h-[240px] items-center justify-center overflow-hidden sm:min-h-[300px]">
         {illustration ? (

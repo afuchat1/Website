@@ -54,6 +54,11 @@ export default function SiteBackdrop() {
   return (
     <div className="site-backdrop" aria-hidden="true">
       <div className="site-backdrop-wash" />
+      <div className="site-backdrop-grid" />
+      <div className="site-backdrop-ring site-backdrop-ring-one" />
+      <div className="site-backdrop-ring site-backdrop-ring-two" />
+      <div className="site-backdrop-spark site-backdrop-spark-one" />
+      <div className="site-backdrop-spark site-backdrop-spark-two" />
       <div className="site-backdrop-layer site-backdrop-route">
         <img src={routeBackdrop} alt="" decoding="async" />
       </div>

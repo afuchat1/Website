@@ -4,12 +4,15 @@ import { ArrowUpRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 import Footer from '@/components/layout/Footer';
 import { PROJECTS } from '@/data/projects';
+import ScrollReveal from '@/components/motion/ScrollReveal';
 
 export default function Work() {
   return (
-    <div className="min-h-screen">
-      <section className="max-container container-pad py-14 sm:py-20">
+    <div className="studio-shell atmosphere-page min-h-screen">
+      <section className="page-hero max-container container-pad py-14 sm:py-20">
         <motion.div initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} className="max-w-3xl">
+          <div className="accent-bar mb-7" />
+          <p className="studio-kicker mb-6 text-[#d76750]">Selected work / 2020—today</p>
           <h1 className="text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-6xl">Digital experiences built for real organizations.</h1>
           <p className="mt-6 max-w-2xl text-base leading-relaxed text-white/50 sm:text-lg">
             A selection of websites and digital projects built for businesses, organizations, and media teams. Each project starts with a real audience and a clear job to do.
@@ -17,7 +20,12 @@ export default function Work() {
         </motion.div>
       </section>
 
-       <section className="max-container container-pad pb-16 sm:pb-20">
+        <section className="atmosphere-band">
+        <div className="max-container container-pad py-16 sm:py-20">
+          <ScrollReveal className="mb-10 grid gap-4 sm:grid-cols-[.6fr_1fr] sm:items-end">
+            <h2 className="text-3xl font-semibold tracking-tight text-[#e6f1ff] sm:text-4xl">Useful work, in public.</h2>
+            <p className="max-w-xl text-sm leading-relaxed text-[#6f89a7]">A compact selection of launches where the interface had to carry a real message, workflow, or community.</p>
+          </ScrollReveal>
          <div aria-label="Selected client projects" className="mobile-rail flex snap-x snap-mandatory gap-4 overflow-x-auto pb-3 md:grid md:grid-cols-2 md:gap-5 md:overflow-visible">
           {PROJECTS.map((project, index) => {
             const Icon = project.icon;
@@ -54,10 +62,11 @@ export default function Work() {
             );
           })}
         </div>
+        </div>
       </section>
 
       <section className="max-container container-pad pb-16 sm:pb-20">
-        <div className="rounded-[2rem] border border-white/10 bg-[#0b1b31] px-6 py-10 sm:px-10">
+         <div className="color-panel rounded-[2rem] px-6 py-10 sm:px-10">
           <div className="mt-3 flex flex-col justify-between gap-6 md:flex-row md:items-end">
             <h2 className="max-w-2xl text-3xl font-bold tracking-tight text-white sm:text-4xl">Have a product, website, or app to build?</h2>
             <a href="/contact" className="inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-[#1F7AFF] px-6 py-3.5 text-sm font-bold text-white transition-colors hover:bg-[#388bff]">
