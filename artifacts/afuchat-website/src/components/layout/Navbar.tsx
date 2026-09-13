@@ -3,31 +3,8 @@
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { ChevronDown, Github, Menu, X, ArrowUpRight } from 'lucide-react';
+import { ChevronDown, Menu, X } from 'lucide-react';
 import { PRODUCT_DATA } from '@/data/products';
-
-const GITHUB_REPO_URL = 'https://github.com/afuchat1/Website';
-
-function GithubStarBadge() {
-  const [stars, setStars] = useState<string | null>(null);
-  useEffect(() => {
-    let cancelled = false;
-    fetch('https://api.github.com/repos/afuchat1/Website')
-      .then((response) => (response.ok ? response.json() : null))
-      .then((data) => {
-        if (!cancelled && data && typeof data.stargazers_count === 'number') {
-          setStars(data.stargazers_count > 999 ? `${(data.stargazers_count / 1000).toFixed(1)}k` : `${data.stargazers_count}`);
-        }
-      }).catch(() => {});
-    return () => { cancelled = true; };
-  }, []);
-  return (
-    <a href={GITHUB_REPO_URL} target="_blank" rel="noopener noreferrer" aria-label="AfuChat Technologies Limited on GitHub" className="studio-link flex items-center gap-2 text-xs">
-      <Github className="h-4 w-4" />
-      {stars && <span className="studio-mono text-[10px]">{stars}</span>}
-    </a>
-  );
-}
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -64,14 +41,12 @@ export default function Navbar() {
             {productsOpen && (
               <div id="product-menu" role="menu" className="absolute left-1/2 top-8 w-[430px] -translate-x-1/2 border border-white/10 bg-[#09172a]/98 p-3 shadow-2xl shadow-black/30">
                 <div className="mb-2 flex items-center justify-between px-3 py-2">
-                  <Link href="/products" className="flex items-center gap-1 text-[11px] text-[#91a8c4] hover:text-white">Index <ArrowUpRight className="h-3 w-3" /></Link>
+                  <Link href="/products" className="text-[11px] text-[#91a8c4] hover:text-white">All products</Link>
                 </div>
                 <div className="grid grid-cols-2">
                   {PRODUCT_DATA.map((product) => {
-                    const Icon = product.icon;
-                    return <Link key={product.id} href={product.path} role="menuitem" onClick={() => setProductsOpen(false)} className="group flex items-center gap-3 border-t border-white/[.06] px-3 py-3 hover:bg-white/[.04]">
-                      <Icon className="h-4 w-4" style={{ color: product.color }} strokeWidth={1.7} />
-                      <span className="text-xs text-[#91a8c4] transition-colors group-hover:text-[#e6f1ff]">{product.name}</span>
+                    return <Link key={product.id} href={product.path} role="menuitem" onClick={() => setProductsOpen(false)} className="group border-t border-white/[.06] px-3 py-3 text-xs text-[#91a8c4] transition-colors hover:bg-white/[.04] hover:text-[#e6f1ff]">
+                      {product.name}
                     </Link>;
                   })}
                 </div>
@@ -83,9 +58,7 @@ export default function Navbar() {
         </nav>
 
         <div className="hidden items-center gap-5 md:flex">
-          <GithubStarBadge />
-          <a href="https://web.afuchat.com/login" className="studio-link text-[13px]">Log in</a>
-          <Link href="/contact" className="studio-button studio-button-primary min-h-[38px] px-4 text-xs">Start a project <ArrowUpRight className="h-3.5 w-3.5" /></Link>
+          <Link href="/contact" className="studio-button studio-button-primary min-h-[38px] px-4 text-xs">Start a project</Link>
         </div>
         <button type="button" aria-label={open ? 'Close menu' : 'Open menu'} aria-expanded={open} onClick={() => setOpen((value) => !value)} className="p-2 text-[#91a8c4] hover:text-white md:hidden">
           {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -99,7 +72,7 @@ export default function Navbar() {
           </div>}
           {links.map((link) => <Link key={link.href} href={link.href} className="border-b border-white/[.08] py-4 text-sm text-[#91a8c4]">{link.label}</Link>)}
           <Link href="/developers" className="border-b border-white/[.08] py-4 text-sm text-[#91a8c4]">Developers</Link>
-          <div className="flex items-center justify-between pt-5"><GithubStarBadge /><Link href="/contact" className="studio-button studio-button-primary min-h-[40px] text-xs">Start a project</Link></div>
+          <div className="flex justify-end pt-5"><Link href="/contact" className="studio-button studio-button-primary min-h-[40px] text-xs">Start a project</Link></div>
         </div>
       </div>}
     </header>

@@ -38,7 +38,7 @@ export default function Products() {
         <span className="hidden text-right text-xs leading-relaxed text-[#7890a7] sm:block">Owned and developed<br />within the Afu ecosystem.</span>
       </div>
        <div aria-label="AfuChat Technologies products" className="grid gap-x-10 gap-y-14 md:grid-cols-2">
-         {PRODUCT_DATA.map((product, index) => <ShowcaseCard key={product.id} name={product.name} category={product.category} tagline={product.tagline} description={product.description} features={product.features} color={product.color} index={index} href={product.path} hrefLabel="Explore details" secondaryHref={product.website} secondaryLabel="Visit website" github={product.github} icon={product.icon} illustration={product.illustration} illustrationAlt={`${product.name} product artwork`} />)}
+         {PRODUCT_DATA.map((product, index) => <ShowcaseCard key={product.id} name={product.name} category={product.category} tagline={product.tagline} description={product.description} features={product.features} color={product.color} index={index} href={product.path} hrefLabel="Explore details" secondaryHref={product.website} secondaryLabel="Visit website" icon={product.icon} illustration={product.illustration} illustrationAlt={`${product.name} product artwork`} />)}
       </div>
     </section>
     <Footer />
