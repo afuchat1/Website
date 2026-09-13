@@ -41,7 +41,7 @@ button,[role="button"],.studio-button,a[class*="rounded"]{border-radius:999px!im
   [class*="bg-[#101010]"],
   [class*="bg-[#111]"],
   [class*="bg-[#161616]"] {
-    background-color: #f7fbff !important;
+    background-color: rgba(247, 251, 255, .72) !important;
   }
 
   [class*="text-[#e6f1ff]"],
@@ -65,7 +65,7 @@ button,[role="button"],.studio-button,a[class*="rounded"]{border-radius:999px!im
   }
 
   [class*="bg-white"] {
-    background-color: rgba(43, 94, 164, 0.055) !important;
+    background-color: #fff !important;
   }
 
   .studio-button-primary,
@@ -98,6 +98,36 @@ button,[role="button"],.studio-button,a[class*="rounded"]{border-radius:999px!im
     background-color: rgba(255, 255, 255, 0.92) !important;
     border-color: rgba(18, 59, 122, 0.12) !important;
   }
+}
+
+.studio-button:not(:disabled),
+a[class*="rounded-full"],
+button[class*="rounded-full"] {
+  opacity: 1;
+  filter: none;
+}
+
+.studio-button-primary {
+  color: #fff !important;
+  background: var(--blue) !important;
+  box-shadow: 0 8px 20px rgba(11, 99, 206, .2);
+}
+
+.studio-button-primary:hover {
+  background: var(--blue-deep) !important;
+  box-shadow: 0 10px 24px rgba(8, 74, 158, .26);
+}
+
+.studio-button-ghost {
+  color: var(--blue-deep) !important;
+  background: #fff !important;
+  border-color: rgba(8, 74, 158, .32) !important;
+}
+
+.studio-button-ghost:hover {
+  color: var(--blue-deep) !important;
+  background: #eef5ff !important;
+  border-color: var(--blue) !important;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -174,8 +204,8 @@ button,[role="button"],.studio-button,a[class*="rounded"]{border-radius:999px!im
   inset: 0;
   z-index: 2;
   background:
-    radial-gradient(circle at 50% 15%, rgba(255, 255, 255, .58), rgba(255, 255, 255, .26) 42%, transparent 72%),
-    linear-gradient(180deg, rgba(255, 255, 255, .52), rgba(247, 251, 255, .78));
+    radial-gradient(circle at 50% 15%, rgba(255, 255, 255, .4), rgba(255, 255, 255, .14) 42%, transparent 72%),
+    linear-gradient(180deg, rgba(255, 255, 255, .3), rgba(247, 251, 255, .62));
 }
 
 .site-backdrop-layer {
@@ -183,10 +213,19 @@ button,[role="button"],.studio-button,a[class*="rounded"]{border-radius:999px!im
   z-index: 1;
   width: clamp(18rem, 31vw, 30rem);
   height: clamp(18rem, 31vw, 30rem);
-  opacity: .15;
+  opacity: .12;
   filter: saturate(1.18) blur(.15px);
   mix-blend-mode: multiply;
   animation: site-backdrop-float 22s ease-in-out infinite;
+}
+
+.site-backdrop-route {
+  top: 4%;
+  right: 8%;
+  width: clamp(22rem, 38vw, 40rem);
+  height: clamp(22rem, 38vw, 40rem);
+  opacity: .2;
+  animation-delay: -3s;
 }
 
 .site-backdrop-layer img {
@@ -241,6 +280,10 @@ button,[role="button"],.studio-button,a[class*="rounded"]{border-radius:999px!im
     opacity: .16;
     mix-blend-mode: screen;
   }
+
+  .site-backdrop-route {
+    opacity: .18;
+  }
 }
 
 @media (max-width: 767px) {
@@ -255,6 +298,14 @@ button,[role="button"],.studio-button,a[class*="rounded"]{border-radius:999px!im
     right: -16%;
     width: 20rem;
     height: 20rem;
+  }
+
+  .site-backdrop-route {
+    top: 8%;
+    right: -18%;
+    width: 20rem;
+    height: 20rem;
+    opacity: .13;
   }
 
   .site-backdrop-ecosystem {
