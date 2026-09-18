@@ -36,6 +36,39 @@ export default function PortfolioHome() {
       </div>
     </section>
 
+    <section className="border-y border-white/[.08] bg-transparent" aria-labelledby="trusted-partners-heading">
+      <div className="max-container py-12 sm:py-14">
+        <div className="mb-7 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <p className="mb-2 text-[10px] uppercase tracking-[.18em] text-[#5d7694]">Our partners</p>
+            <h2 id="trusted-partners-heading" className="text-2xl font-semibold text-[#e6f1ff] sm:text-3xl">Trusted relationships behind the work.</h2>
+          </div>
+          <Link href="/partners" className="studio-link text-sm">Partner with us</Link>
+        </div>
+        <div className="trusted-by-marquee" aria-label="Companies AfuChat has worked with">
+          <div className="trusted-by-track">
+            {[
+              ['AJS Digital Services & IT Solutions', 'https://raw.githubusercontent.com/afuchat1/Website/fc5e7cc0a61565cdbae179b8d523c817f7ffd138/artifacts/afuchat-website/public/partners/ajs-digital-services.png'],
+              ['Mindset Media Radio', 'https://raw.githubusercontent.com/afuchat1/Website/fc5e7cc0a61565cdbae179b8d523c817f7ffd138/artifacts/afuchat-website/public/partners/mindset-media-radio.png'],
+              ['Amazon Shoe Collection', 'https://raw.githubusercontent.com/afuchat1/Website/fc5e7cc0a61565cdbae179b8d523c817f7ffd138/artifacts/afuchat-website/public/partners/amazon-shoe-collection.png'],
+              ['Sabula Shoe Spot', 'https://raw.githubusercontent.com/afuchat1/Website/fc5e7cc0a61565cdbae179b8d523c817f7ffd138/artifacts/afuchat-website/public/partners/sabula-shoe-spot.png'],
+              ['Bee brand', 'https://raw.githubusercontent.com/afuchat1/Website/fc5e7cc0a61565cdbae179b8d523c817f7ffd138/artifacts/afuchat-website/public/partners/bee-brand.png'],
+            ], ...[
+              ['AJS Digital Services & IT Solutions', 'https://raw.githubusercontent.com/afuchat1/Website/fc5e7cc0a61565cdbae179b8d523c817f7ffd138/artifacts/afuchat-website/public/partners/ajs-digital-services.png'],
+              ['Mindset Media Radio', 'https://raw.githubusercontent.com/afuchat1/Website/fc5e7cc0a61565cdbae179b8d523c817f7ffd138/artifacts/afuchat-website/public/partners/mindset-media-radio.png'],
+              ['Amazon Shoe Collection', 'https://raw.githubusercontent.com/afuchat1/Website/fc5e7cc0a61565cdbae179b8d523c817f7ffd138/artifacts/afuchat-website/public/partners/amazon-shoe-collection.png'],
+              ['Sabula Shoe Spot', 'https://raw.githubusercontent.com/afuchat1/Website/fc5e7cc0a61565cdbae179b8d523c817f7ffd138/artifacts/afuchat-website/public/partners/sabula-shoe-spot.png'],
+              ['Bee brand', 'https://raw.githubusercontent.com/afuchat1/Website/fc5e7cc0a61565cdbae179b8d523c817f7ffd138/artifacts/afuchat-website/public/partners/bee-brand.png'],
+            ]].map(([name, source], index) => (
+              <div className="trusted-by-logo" key={name + '-' + index}>
+                <img src={source} alt={index < 5 ? name : ''} aria-hidden={index >= 5} loading="eager" />
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section className="relative border-y border-white/[.08] bg-white/[.012] backdrop-blur-[2px]">
       <div className="max-container grid gap-10 py-16 lg:grid-cols-[.78fr_1.22fr] lg:gap-24">
         <div><h2 className="max-w-md text-3xl font-semibold leading-tight text-[#e6f1ff] sm:text-4xl">Small studio.<br />Wide range.</h2><p className="mt-5 max-w-md text-sm leading-relaxed text-[#6f89a7]">From the first sketch to the final deploy, we combine product thinking, design, and engineering in one close loop.</p></div>
