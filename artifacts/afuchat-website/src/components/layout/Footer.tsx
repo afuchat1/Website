@@ -45,6 +45,9 @@ export default function Footer() {
                 { label: 'Developers', href: '/developers' },
                 { label: 'Partners',   href: '/partners' },
                 { label: 'Careers',    href: '/about/careers' },
+                { label: 'Press',      href: '/about/press' },
+                { label: 'Security',   href: '/security' },
+                { label: 'Help',       href: '/help' },
               ].map(l => (
                 <li key={l.href}>
                   <Link href={l.href} className="text-white/38 hover:text-white text-sm transition-colors">

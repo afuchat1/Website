@@ -729,21 +729,18 @@ button[class*="rounded-full"] {
   }
 }
 
-/* Borderless presentation: hierarchy comes from spacing, type, and surfaces. */
-[class*="border"],
-.studio-rule,
-.studio-grid,
-.studio-grid > *,
-.studio-panel,
-.studio-outline {
-  border: 0 !important;
-  border-width: 0 !important;
-  border-style: none !important;
-}
-
+/* Layout primitives. Keep borders opt-in so navigation and controls can use them
+   without a global selector unexpectedly stripping component styles. */
 .studio-rule {
-  height: 0 !important;
-  background: transparent !important;
+  height: 1px;
+  background: rgba(255,255,255,.07);
+}
+.studio-panel {
+  background: rgba(12,29,53,.42);
+  backdrop-filter: blur(14px);
+}
+.studio-outline {
+  border: 1px solid rgba(161,205,255,.10);
 }
 /* Premium ambient layer: motion, depth, glow and responsive rhythm. */
 .site-backdrop::before {
@@ -854,4 +851,31 @@ button[class*="rounded-full"] {
 }
 @media(prefers-reduced-motion:reduce){
   .site-backdrop::before,.site-backdrop-orb,.site-backdrop-layer,.showcase-card::before{animation:none!important;transition:none!important}
+}
+
+
+/* Vector artwork treatment */
+.site-backdrop-layer img[src$=".svg"],
+.page-hero-art img[src$=".svg"] {
+  filter: drop-shadow(0 24px 60px rgba(31,149,255,.10));
+}
+
+/* Keep the company shell visually distinct from product accents. */
+.showcase-card {
+  --card-accent: #1f95ff;
+}
+.showcase-card .product-accent {
+  color: var(--card-accent);
+}
+
+/* Comfortable content width and mobile gutters. */
+.max-container {
+  width: min(100% - 2rem, 1220px);
+  margin-inline: auto;
+}
+@media (min-width: 768px) {
+  .max-container { width: min(100% - 4rem, 1220px); }
+}
+@media (min-width: 1280px) {
+  .max-container { width: min(100% - 5rem, 1280px); }
 }

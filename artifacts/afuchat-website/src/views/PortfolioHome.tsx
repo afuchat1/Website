@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { PRODUCT_DATA } from '@/data/products';
 import { PROJECTS } from '@/data/projects';
-import { illSecDeveloper } from '@/data/illustrations';
+import { illSecDeveloper, illSecHero } from '@/data/illustrations';
 import Footer from '@/components/layout/Footer';
 import ShowcaseCard from '@/components/cards/ShowcaseCard';
 
@@ -19,14 +19,19 @@ const capabilities = [
 
 export default function PortfolioHome() {
   return <div className="studio-shell">
-    <section className="max-container studio-section relative overflow-visible">
-      <div className="studio-fade relative z-10">
-        <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[.04] px-3 py-1.5 text-[10px] font-medium uppercase tracking-[.18em] text-[#91a8c4] backdrop-blur-md"><span className="h-1.5 w-1.5 rounded-full bg-[#4da8ff] shadow-[0_0_14px_rgba(77,168,255,.8)]" />Digital products, built to work</div>
-        <h1 className="max-w-4xl text-[clamp(3.5rem,8vw,7.8rem)] font-semibold leading-[.88] tracking-[-.075em] text-[#e6f1ff]">Useful<br /><span className="text-[#4da8ff]">things,</span><br />made real.</h1>
-        <p className="mt-8 max-w-xl text-base leading-relaxed text-[#91a8c4] sm:text-lg">We are a technology company building our own products and helping ambitious organizations turn useful ideas into working digital experiences.</p>
-        <div className="mt-9 flex flex-wrap gap-3">
-          <Link href="/work" className="studio-button studio-button-primary">Explore our work</Link>
-          <Link href="/contact" className="studio-button studio-button-ghost">Start a project</Link>
+    <section className="max-container studio-section relative overflow-visible py-14 sm:py-20 lg:min-h-[calc(100vh-72px)] lg:py-24">
+      <div className="grid items-center gap-10 lg:grid-cols-[1.02fr_.98fr] lg:gap-12">
+        <div className="studio-fade relative z-10">
+          <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-white/[.04] px-3 py-1.5 text-[10px] font-medium uppercase tracking-[.18em] text-[#91a8c4] backdrop-blur-md"><span className="h-1.5 w-1.5 rounded-full bg-[#4da8ff] shadow-[0_0_14px_rgba(77,168,255,.8)]" />Digital products, built to work</div>
+          <h1 className="max-w-4xl text-[clamp(3.5rem,8vw,7.8rem)] font-semibold leading-[.88] tracking-[-.075em] text-[#e6f1ff]">Useful<br /><span className="text-[#4da8ff]">things,</span><br />made real.</h1>
+          <p className="mt-8 max-w-xl text-base leading-relaxed text-[#91a8c4] sm:text-lg">We are a technology company building our own products and helping ambitious organizations turn useful ideas into working digital experiences.</p>
+          <div className="mt-9 flex flex-wrap gap-3">
+            <Link href="/products" className="studio-button studio-button-primary">Explore products</Link>
+            <Link href="/contact" className="studio-button studio-button-ghost">Start a project</Link>
+          </div>
+        </div>
+        <div className="relative flex min-h-[280px] items-center justify-center lg:min-h-[520px]">
+          <img src={illSecHero} alt="" aria-hidden="true" className="relative z-10 w-full max-w-[620px] object-contain drop-shadow-[0_35px_80px_rgba(31,149,255,.16)]" />
         </div>
       </div>
     </section>
