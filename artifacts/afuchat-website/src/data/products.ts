@@ -3,7 +3,7 @@ import {
   LucideIcon
 } from 'lucide-react';
 import {
-  illSvcAfumail, illSvcAfuchat, illSvcAfumovies, illSecDeveloper,
+  illSvcAfumail, illSvcAfuchat, illSvcAfumovies, illSvcEngagera,
 } from './illustrations';
 
 export type ProductIcon = LucideIcon;
@@ -47,8 +47,8 @@ export const PRODUCT_DATA: ProductData[] = [
     category: "Social & Communication Platform",
     description: "The company's flagship social communication platform.",
     features: ["Messaging", "Social feeds", "Posts", "Stories", "Communities and groups", "User profiles", "AI features", "Digital identity", "ACoin", "Payment-related functionality", "Mini-app and product ecosystem functionality"],
-    color: "#6C63FF",
-    bgColor: "#F0EFFF",
+    color: "#1F95FF",
+    bgColor: "#EEF7FF",
     path: "/products/afuchat",
     website: "https://afuchat.com/",
     github: "https://github.com/afuchat1/AfuChat-Supa",
@@ -62,13 +62,13 @@ export const PRODUCT_DATA: ProductData[] = [
     category: "AI Technology",
     description: "An AI-focused product within the Afu ecosystem.",
     features: ["AI technology", "Afu ecosystem"],
-    color: "#F59E0B",
-    bgColor: "#FEF3C7",
+    color: "#1F95FF",
+    bgColor: "#EEF7FF",
     path: "/products/engagera",
     website: "https://engagera.afuchat.com/",
     github: "https://github.com/afuchat1/EngageraAi",
     icon: BrainCircuit,
-    illustration: illSecDeveloper,
+    illustration: illSvcEngagera,
   },
   {
     id: "afumovies",
@@ -77,8 +77,8 @@ export const PRODUCT_DATA: ProductData[] = [
     category: "Entertainment / Movie Discovery",
     description: "An entertainment and movie discovery product within the Afu ecosystem.",
     features: ["Entertainment", "Movie discovery"],
-    color: "#EF4444",
-    bgColor: "#FEE2E2",
+    color: "#1F95FF",
+    bgColor: "#EEF7FF",
     path: "/products/afumovies",
     website: "https://movies.afuchat.com/",
     icon: Play,
