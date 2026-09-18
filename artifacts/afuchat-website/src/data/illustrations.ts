@@ -5,6 +5,7 @@
 export const illSvcAfumail   = '/illustrations/product-afumail.svg';
 export const illSvcAfuchat   = '/illustrations/product-afuchat.svg';
 export const illSvcAfuai     = '/illustrations/ill-svc-afuai.webp';
+export const illSvcEngagera = '/illustrations/product-engagera.svg';
 export const illSvcAfucloud  = '/illustrations/ill-svc-afucloud.webp';
 export const illSvcAfumovies = '/illustrations/product-afumovies.svg';
 export const illSvcAfumall   = '/illustrations/ill-svc-afumall.webp';
