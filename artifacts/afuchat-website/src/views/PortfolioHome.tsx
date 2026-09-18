@@ -19,8 +19,9 @@ const capabilities = [
 
 export default function PortfolioHome() {
   return <div className="studio-shell">
-    <section className="max-container studio-section">
-      <div className="studio-fade">
+    <section className="max-container studio-section relative overflow-visible">
+      <div className="studio-fade relative z-10">
+        <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[.04] px-3 py-1.5 text-[10px] font-medium uppercase tracking-[.18em] text-[#91a8c4] backdrop-blur-md"><span className="h-1.5 w-1.5 rounded-full bg-[#4da8ff] shadow-[0_0_14px_rgba(77,168,255,.8)]" />Digital products, built to work</div>
         <h1 className="max-w-4xl text-[clamp(3.5rem,8vw,7.8rem)] font-semibold leading-[.88] tracking-[-.075em] text-[#e6f1ff]">Useful<br /><span className="text-[#4da8ff]">things,</span><br />made real.</h1>
         <p className="mt-8 max-w-xl text-base leading-relaxed text-[#91a8c4] sm:text-lg">We are a technology company building our own products and helping ambitious organizations turn useful ideas into working digital experiences.</p>
         <div className="mt-9 flex flex-wrap gap-3">
@@ -30,7 +31,7 @@ export default function PortfolioHome() {
       </div>
     </section>
 
-    <section className="border-y border-white/[.08] bg-transparent">
+    <section className="relative border-y border-white/[.08] bg-white/[.012] backdrop-blur-[2px]">
       <div className="max-container grid gap-10 py-16 lg:grid-cols-[.78fr_1.22fr] lg:gap-24">
         <div><h2 className="max-w-md text-3xl font-semibold leading-tight text-[#e6f1ff] sm:text-4xl">Small studio.<br />Wide range.</h2><p className="mt-5 max-w-md text-sm leading-relaxed text-[#6f89a7]">From the first sketch to the final deploy, we combine product thinking, design, and engineering in one close loop.</p></div>
         <div className="grid grid-cols-1 sm:grid-cols-2">
@@ -42,7 +43,7 @@ export default function PortfolioHome() {
     </section>
 
     <section className="max-container studio-section">
-      <div className="mb-10"><h2 className="text-3xl font-semibold text-[#e6f1ff] sm:text-4xl">An ecosystem in progress.</h2></div>
+      <div className="mb-10 flex items-end justify-between gap-6"><div><p className="mb-3 text-[10px] uppercase tracking-[.18em] text-[#5d7694]">The ecosystem</p><h2 className="text-3xl font-semibold text-[#e6f1ff] sm:text-4xl">An ecosystem in progress.</h2></div><span className="hidden max-w-xs text-right text-xs leading-relaxed text-[#6f89a7] md:block">A growing family of products across communication, AI, email and digital experiences.</span></div>
         <div aria-label="Featured AfuChat products" className="grid gap-5 md:grid-cols-2">
           {PRODUCT_DATA.map((product, index) => <ShowcaseCard key={product.id} name={product.name} category={product.category} tagline={product.tagline} description={product.description} features={product.features} color={product.color} index={index} href={product.path} hrefLabel="Explore details" secondaryHref={product.website} secondaryLabel="Visit website" icon={product.icon} illustration={product.illustration} illustrationAlt={`${product.name} product artwork`} />)}
       </div>
