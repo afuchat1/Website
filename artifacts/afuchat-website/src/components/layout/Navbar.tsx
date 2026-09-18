@@ -43,7 +43,7 @@ export default function Navbar() {
     setCompanyOpen(false);
   }, [pathname]);
 
-  const isActive = (href: string) => pathname === href || pathname.startsWith(href + '/');
+  const isActive = (href: string) => pathname === href || (pathname ?? '').startsWith(href + '/');
 
   return (
     <header className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${scrolled ? 'bg-[#06101f]/92 shadow-[0_12px_45px_rgba(0,0,0,.16)] backdrop-blur-xl' : 'bg-[#06101f]/68 backdrop-blur-md'}`}>
