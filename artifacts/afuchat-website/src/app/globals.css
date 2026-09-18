@@ -745,3 +745,113 @@ button[class*="rounded-full"] {
   height: 0 !important;
   background: transparent !important;
 }
+/* Premium ambient layer: motion, depth, glow and responsive rhythm. */
+.site-backdrop::before {
+  content: '';
+  position: absolute;
+  inset: -20%;
+  background:
+    radial-gradient(35rem 35rem at var(--pointer-x, 50%) var(--pointer-y, 35%), rgba(77,168,255,.10), transparent 60%),
+    radial-gradient(28rem 28rem at 15% 75%, rgba(139,231,196,.07), transparent 62%),
+    radial-gradient(30rem 30rem at 90% 10%, rgba(157,140,255,.07), transparent 62%);
+  transform: translateZ(0);
+  transition: background .45s ease;
+}
+.site-backdrop-wash {
+  background:
+    radial-gradient(45rem 30rem at 50% -5%, rgba(77,168,255,.12), transparent 70%),
+    linear-gradient(180deg, rgba(6,16,31,.08), rgba(6,16,31,.72));
+}
+.site-backdrop-grid {
+  opacity: .16;
+  background-size: 96px 96px;
+  mask-image: linear-gradient(180deg, transparent, #000 14%, #000 82%, transparent);
+}
+.site-backdrop-layer {
+  opacity: .085;
+  filter: saturate(1.1) blur(.2px);
+  animation: site-backdrop-float 18s cubic-bezier(.45,0,.55,1) infinite;
+}
+.site-backdrop-route {
+  top: 1%;
+  right: 4%;
+  width: clamp(24rem, 44vw, 48rem);
+  height: clamp(24rem, 44vw, 48rem);
+  opacity: .17;
+  animation-duration: 15s;
+}
+.site-backdrop-ecosystem { left: -12%; top: 24%; animation-duration: 23s; }
+.site-backdrop-developer { right: -10%; bottom: 5%; animation-duration: 26s; }
+.site-backdrop-cta { left: 35%; bottom: -14%; animation-duration: 20s; }
+.site-backdrop-orb {
+  position:absolute;
+  border-radius:999px;
+  filter:blur(80px);
+  opacity:.18;
+  will-change:transform;
+  animation: site-orb-drift 14s ease-in-out infinite;
+}
+.site-backdrop-orb-one { width:18rem;height:18rem;left:-7rem;top:18%;background:#4da8ff; }
+.site-backdrop-orb-two { width:22rem;height:22rem;right:-10rem;top:44%;background:#8be7c4;animation-delay:-5s; }
+.site-backdrop-orb-three { width:15rem;height:15rem;left:42%;bottom:-8rem;background:#9d8cff;animation-delay:-9s; }
+.site-backdrop-cursor {
+  position:absolute;
+  width:28rem;height:28rem;
+  left:calc(var(--pointer-x,50%) - 14rem);
+  top:calc(var(--pointer-y,35%) - 14rem);
+  border-radius:50%;
+  background:radial-gradient(circle, rgba(77,168,255,.075), transparent 68%);
+  transition:left .18s ease-out, top .18s ease-out;
+  mix-blend-mode:screen;
+}
+.site-backdrop-noise {
+  position:absolute;inset:0;opacity:.025;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
+}
+.studio-shell {
+  position:relative;
+}
+.studio-section {
+  position:relative;
+}
+.studio-section::after {
+  content:'';
+  position:absolute;
+  width:1px;height:100%;
+  left:clamp(1rem,4vw,4rem);
+  top:0;
+  background:linear-gradient(180deg,transparent,rgba(77,168,255,.07) 18%,rgba(77,168,255,.07) 82%,transparent);
+  pointer-events:none;
+}
+.showcase-card {
+  position:relative;
+  overflow:hidden;
+  background:linear-gradient(145deg,rgba(14,35,62,.62),rgba(7,18,34,.48));
+  border-color:rgba(161,205,255,.12);
+  box-shadow:0 30px 90px rgba(0,0,0,.18), inset 0 1px 0 rgba(255,255,255,.045);
+  backdrop-filter:blur(18px);
+}
+.showcase-card::before {
+  content:'';
+  position:absolute;inset:0;
+  background:linear-gradient(115deg,transparent 25%,rgba(255,255,255,.045) 50%,transparent 75%);
+  transform:translateX(-120%);
+  transition:transform .8s ease;
+  pointer-events:none;
+}
+.showcase-card:hover::before { transform:translateX(120%); }
+.showcase-card:hover { transform:translateY(-5px); border-color:rgba(77,168,255,.28); }
+@keyframes site-orb-drift {
+  0%,100% { transform:translate3d(0,0,0) scale(1); }
+  50% { transform:translate3d(20px,-24px,0) scale(1.06); }
+}
+@media(max-width:767px){
+  .site-backdrop-grid{background-size:58px 58px;opacity:.11}
+  .site-backdrop-route{right:-22%;top:7%;width:23rem;height:23rem;opacity:.12}
+  .site-backdrop-orb{filter:blur(65px);opacity:.11}
+  .site-backdrop-cursor{display:none}
+  .studio-section::after{left:1rem;opacity:.55}
+}
+@media(prefers-reduced-motion:reduce){
+  .site-backdrop::before,.site-backdrop-orb,.site-backdrop-layer,.showcase-card::before{animation:none!important;transition:none!important}
+}
