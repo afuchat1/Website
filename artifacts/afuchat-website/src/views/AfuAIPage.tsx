@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { ScanSearch, BrainCircuit, Activity, Copy, Check, ArrowRight, Github } from 'lucide-react';
 import { PRODUCT_DATA } from '@/data/products';
+import ProductIcon from '@/components/products/ProductIcon';
 import { openCookiePreferences } from '@/lib/cookieConsent';
 
 /* ─────────────────────────────────────────────
@@ -127,16 +128,6 @@ const _FL = '/assets/afuchat_logo_transparent.png';
 const _FT = '/assets/trustpilot_logo.png';
 const _FG = '/assets/google_play_badge.png';
 const ENGagera_PLAY_URL = 'https://play.google.com/store/apps/details?id=com.engagera.mobile';
-const _FP = [
-  { n: 'AfuMail',   p: '/products/afumail',   i: '/illustrations/icon3d-afumail.webp' },
-  { n: 'AfuChat',   p: '/products/afuchat',   i: '/illustrations/icon3d-afuchat.webp' },
-  { n: 'AfuAI',     p: '/products/afuai',     i: '/illustrations/icon3d-afuai.webp' },
-  { n: 'AfuCloud',  p: '/products/afucloud',  i: '/illustrations/icon3d-afucloud.webp' },
-  { n: 'AfuMovies', p: '/products/afumovies', i: '/illustrations/icon3d-afumovies.webp' },
-  { n: 'AfuMall',   p: '/products/afumall',   i: '/illustrations/icon3d-afumall.webp' },
-  { n: 'AfuNews',   p: '/products/afunews',   i: '/illustrations/icon3d-afunews.webp' },
-  { n: 'AfuBlog',   p: '/products/afublog',   i: '/illustrations/icon3d-afublog.webp' },
-];
 function PageFooter() {
   const yr = new Date().getFullYear();
   return (
@@ -157,11 +148,11 @@ function PageFooter() {
           </div>
           <div>
             <h4 className="text-white/40 font-semibold text-[10px] uppercase tracking-widest mb-4">Products</h4>
-            <ul className="flex flex-col gap-3">{_FP.slice(0,4).map(p=><li key={p.n}><Link href={p.p} className="flex items-center gap-2 text-white/35 hover:text-white text-sm transition-colors"><img src={p.i} alt="" className="w-4 h-4 object-contain" loading="lazy"/>{p.n}</Link></li>)}</ul>
+            <ul className="flex flex-col gap-3">{PRODUCT_DATA.slice(0,4).map(p=><li key={p.n}><Link href={p.path} className="flex items-center gap-2.5 text-white/35 hover:text-white text-sm transition-colors"><ProductIcon product={p} containerClassName="w-6 h-6 rounded-lg" iconClassName="w-3.5 h-3.5" />{p.name}</Link></li>)}</ul>
           </div>
           <div>
             <h4 className="text-white/40 font-semibold text-[10px] uppercase tracking-widest mb-4">More</h4>
-            <ul className="flex flex-col gap-3">{_FP.slice(4).map(p=><li key={p.n}><Link href={p.p} className="flex items-center gap-2 text-white/35 hover:text-white text-sm transition-colors"><img src={p.i} alt="" className="w-4 h-4 object-contain" loading="lazy"/>{p.n}</Link></li>)}</ul>
+            <ul className="flex flex-col gap-3">{PRODUCT_DATA.slice(4).map(p=><li key={p.n}><Link href={p.path} className="flex items-center gap-2.5 text-white/35 hover:text-white text-sm transition-colors"><ProductIcon product={p} containerClassName="w-6 h-6 rounded-lg" iconClassName="w-3.5 h-3.5" />{p.name}</Link></li>)}</ul>
           </div>
           <div>
             <h4 className="text-white/40 font-semibold text-[10px] uppercase tracking-widest mb-4">Company</h4>
