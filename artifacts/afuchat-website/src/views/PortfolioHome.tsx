@@ -17,14 +17,6 @@ const capabilities = [
   ['Custom solutions', 'Digital products shaped around the problem to solve.'],
 ] as const;
 
-const trustedPartners = [
-  ['AJS Digital Services & IT Solutions', 'https://raw.githubusercontent.com/afuchat1/Website/fc5e7cc0a61565cdbae179b8d523c817f7ffd138/artifacts/afuchat-website/public/partners/ajs-digital-services.png'],
-  ['Mindset Media Radio', 'https://raw.githubusercontent.com/afuchat1/Website/fc5e7cc0a61565cdbae179b8d523c817f7ffd138/artifacts/afuchat-website/public/partners/mindset-media-radio.png'],
-  ['Amazon Shoe Collection', 'https://raw.githubusercontent.com/afuchat1/Website/fc5e7cc0a61565ecf7ffd138/artifacts/afuchat-website/public/partners/amazon-shoe-collection.png'],
-  ['Sabula Shoe Spot', 'https://raw.githubusercontent.com/afuchat1/Website/fc5e7cc0a61565cdbae179b8d523c817f7ffd138/artifacts/afuchat-website/public/partners/sabula-shoe-spot.png'],
-  ['Bee brand', 'https://raw.githubusercontent.com/afuchat1/Website/fc5e7cc0a61565cdbae179b8d523c817f7ffd138/artifacts/afuchat-website/public/partners/bee-brand.png'],
-] as const;
-
 export default function PortfolioHome() {
   return <div className="studio-shell">
     <section className="max-container studio-section relative overflow-visible py-14 sm:py-20 lg:min-h-[calc(100vh-72px)] lg:py-24">
