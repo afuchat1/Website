@@ -148,11 +148,11 @@ function PageFooter() {
           </div>
           <div>
             <h4 className="text-white/40 font-semibold text-[10px] uppercase tracking-widest mb-4">Products</h4>
-            <ul className="flex flex-col gap-3">{PRODUCT_DATA.slice(0,4).map(p=><li key={p.n}><Link href={p.path} className="flex items-center gap-2.5 text-white/35 hover:text-white text-sm transition-colors"><ProductIcon product={p} containerClassName="w-6 h-6 rounded-lg" iconClassName="w-3.5 h-3.5" />{p.name}</Link></li>)}</ul>
+            <ul className="flex flex-col gap-3">{PRODUCT_DATA.slice(0,4).map(p=><li key={p.id}><Link href={p.path} className="flex items-center gap-2.5 text-white/35 hover:text-white text-sm transition-colors"><ProductIcon product={p} containerClassName="w-6 h-6 rounded-lg" iconClassName="w-3.5 h-3.5" />{p.name}</Link></li>)}</ul>
           </div>
           <div>
             <h4 className="text-white/40 font-semibold text-[10px] uppercase tracking-widest mb-4">More</h4>
-            <ul className="flex flex-col gap-3">{PRODUCT_DATA.slice(4).map(p=><li key={p.n}><Link href={p.path} className="flex items-center gap-2.5 text-white/35 hover:text-white text-sm transition-colors"><ProductIcon product={p} containerClassName="w-6 h-6 rounded-lg" iconClassName="w-3.5 h-3.5" />{p.name}</Link></li>)}</ul>
+            <ul className="flex flex-col gap-3">{PRODUCT_DATA.slice(4).map(p=><li key={p.id}><Link href={p.path} className="flex items-center gap-2.5 text-white/35 hover:text-white text-sm transition-colors"><ProductIcon product={p} containerClassName="w-6 h-6 rounded-lg" iconClassName="w-3.5 h-3.5" />{p.name}</Link></li>)}</ul>
           </div>
           <div>
             <h4 className="text-white/40 font-semibold text-[10px] uppercase tracking-widest mb-4">Company</h4>
