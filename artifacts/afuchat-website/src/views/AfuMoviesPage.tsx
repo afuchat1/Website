@@ -32,7 +32,7 @@ const MOVIES: Movie[] = [
     genre: 'Drama · Mystery',
     score: '81% Match',
     description: 'Two intergalactic cops, new recruit John Stewart and Lantern legend Hal Jordan, are drawn into a dark, Earth-based mystery as they investigate a murder in the American heartland.',
-    tone: 'from-emerald-950 via-slate-900 to-orange-950',
+    tone: 'bg-emerald-950',
     accent: '#f21d2b',
   },
   {
@@ -42,7 +42,7 @@ const MOVIES: Movie[] = [
     genre: 'Animation · Adventure',
     score: '94% Match',
     description: 'A robot learns to survive on a remote island and discovers that connection can be built in the most unexpected places.',
-    tone: 'from-cyan-950 via-sky-900 to-amber-800',
+    tone: 'bg-cyan-950',
     accent: '#f59e0b',
   },
   {
@@ -52,7 +52,7 @@ const MOVIES: Movie[] = [
     genre: 'Drama · History',
     score: '96% Match',
     description: 'Power, loyalty, and survival collide in a sweeping story of political intrigue and culture clash.',
-    tone: 'from-red-950 via-stone-900 to-yellow-950',
+    tone: 'bg-red-950',
     accent: '#e51414',
   },
   {
@@ -62,7 +62,7 @@ const MOVIES: Movie[] = [
     genre: 'Horror · Thriller',
     score: '89% Match',
     description: 'A return home opens the door to a night of music, memory, and something much darker.',
-    tone: 'from-zinc-950 via-red-950 to-orange-950',
+    tone: 'bg-zinc-950',
     accent: '#ef4444',
   },
   {
@@ -72,7 +72,7 @@ const MOVIES: Movie[] = [
     genre: 'Comedy',
     score: '87% Match',
     description: 'A newly appointed studio head tries to keep movies alive while navigating impossible creative egos.',
-    tone: 'from-violet-950 via-slate-900 to-fuchsia-950',
+    tone: 'bg-violet-950',
     accent: '#c084fc',
   },
   {
@@ -82,7 +82,7 @@ const MOVIES: Movie[] = [
     genre: 'Science fiction · Adventure',
     score: '92% Match',
     description: 'Paul Atreides unites with Chani and the Fremen while seeking revenge against the conspirators who destroyed his family.',
-    tone: 'from-orange-950 via-amber-900 to-stone-950',
+    tone: 'bg-orange-950',
     accent: '#f97316',
   },
   {
@@ -92,7 +92,7 @@ const MOVIES: Movie[] = [
     genre: 'Mystery · Science fiction',
     score: '84% Match',
     description: 'A signal from beyond the atmosphere turns a quiet observatory into the center of a global race against time.',
-    tone: 'from-blue-950 via-indigo-950 to-black',
+    tone: 'bg-blue-950',
     accent: '#60a5fa',
   },
   {
@@ -102,7 +102,7 @@ const MOVIES: Movie[] = [
     genre: 'Drama · Romance',
     score: '79% Match',
     description: 'Two old friends reconnect in a city that feels familiar, but not quite the same.',
-    tone: 'from-slate-800 via-sky-950 to-purple-950',
+    tone: 'bg-slate-800',
     accent: '#a78bfa',
   },
   {
@@ -112,7 +112,7 @@ const MOVIES: Movie[] = [
     genre: 'Crime · Thriller',
     score: '86% Match',
     description: 'A detective follows a trail across the country where every answer creates a more dangerous question.',
-    tone: 'from-stone-950 via-neutral-800 to-red-950',
+    tone: 'bg-stone-950',
     accent: '#fb7185',
   },
 ];
@@ -133,8 +133,8 @@ const NAV_ITEMS = [
 function PosterCard({ movie, compact = false }: { movie: Movie; compact?: boolean }) {
   return (
     <article className={`group shrink-0 ${compact ? 'w-[148px] sm:w-[176px]' : 'w-[178px] sm:w-[210px]'}`}>
-      <div className={`relative overflow-hidden rounded-md bg-gradient-to-br ${movie.tone} ${compact ? 'aspect-[2/3]' : 'aspect-[2/3.05]'} border border-white/10 shadow-lg shadow-black/30 transition duration-300 group-hover:-translate-y-1 group-hover:border-white/25`}>
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_20%,rgba(255,255,255,.28),transparent_28%),linear-gradient(155deg,transparent_35%,rgba(0,0,0,.78))]" />
+      <div className={`relative overflow-hidden rounded-md ${movie.tone} ${compact ? 'aspect-[2/3]' : 'aspect-[2/3.05]'} border border-white/10 shadow-lg shadow-black/30 transition duration-300 group-hover:-translate-y-1 group-hover:border-white/25`}>
+        <div className="absolute inset-0 bg-black/35" />
         <div className="absolute left-3 top-3 rounded-sm border border-white/20 bg-black/35 px-2 py-1 text-[9px] font-bold uppercase tracking-[.2em] text-white/75">
           {movie.type}
         </div>
@@ -199,8 +199,8 @@ export default function AfuMoviesPage() {
   const searchUrl = `${MOVIES_BASE_URL}/search?q=${encodeURIComponent(query || hero.title)}`;
 
   return (
-    <div className="min-h-screen bg-[#101010] text-white selection:bg-[#e51414] selection:text-white">
-      <header className="sticky top-0 z-50 border-b border-white/[.06] bg-[#111]/95 backdrop-blur-xl">
+    <div className="platform-page min-h-screen text-white selection:bg-[#e51414] selection:text-white">
+      <header className="sticky top-0 z-50 border-b border-white/[.06] bg-[#06101f]/95 backdrop-blur-xl">
         <div className="mx-auto flex h-16 max-w-[1440px] items-center gap-5 px-5 sm:px-8">
           <Link href="/products/afumovies" className="flex shrink-0 items-center gap-2">
             <span className="grid h-8 w-8 place-items-center rounded bg-[#e51414] shadow-[0_0_20px_rgba(229,20,20,.25)]">
@@ -258,9 +258,8 @@ export default function AfuMoviesPage() {
 
       <main>
         <section className="relative isolate min-h-[540px] overflow-hidden border-b border-white/[.04] sm:min-h-[610px]">
-          <div className={`absolute inset-0 bg-gradient-to-br ${hero.tone}`} />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_70%_35%,rgba(100,120,130,.25),transparent_32%),linear-gradient(90deg,#101010_3%,rgba(16,16,16,.84)_35%,rgba(16,16,16,.2)_75%,#101010_100%)]" />
-          <div className="absolute inset-0 opacity-25 [background-image:linear-gradient(rgba(255,255,255,.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.04)_1px,transparent_1px)] [background-size:48px_48px]" />
+          <div className={`absolute inset-0 ${hero.tone}`} />
+          <div className="absolute inset-0 bg-[#101010]/70" />
           <div className="relative mx-auto flex min-h-[540px] max-w-[1440px] items-end px-5 pb-14 sm:min-h-[610px] sm:px-8 sm:pb-20">
             <div className="max-w-xl">
               <p className="mb-4 text-[10px] font-bold uppercase tracking-[.22em] text-[#ff4a51]">
@@ -317,7 +316,7 @@ export default function AfuMoviesPage() {
           <Rail title="In the spotlight" movies={spotlight.length ? spotlight : MOVIES.slice(1, 6)} seeAllHref={`${MOVIES_BASE_URL}/browse`} />
           <Rail title={activeNav === 'Trending' ? 'Trending now' : activeNav} movies={popular} seeAllHref={`${MOVIES_BASE_URL}/browse`} />
 
-          <section className="mb-10 rounded-xl border border-white/10 bg-gradient-to-r from-[#261012] via-[#161616] to-[#111] p-6 sm:p-10">
+          <section className="mb-10 rounded-xl border border-white/10 bg-[#161616] p-6 sm:p-10">
             <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-center">
               <div>
                 <p className="mb-2 text-[10px] font-bold uppercase tracking-[.2em] text-[#ff4a51]">AfuMovies platform</p>

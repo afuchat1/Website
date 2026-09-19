@@ -1,170 +1,24 @@
-
-
 'use client';
+
 import { motion } from 'framer-motion';
-import { Star, ExternalLink } from 'lucide-react';
-import Link from 'next/link';
-import { openCookiePreferences } from '@/lib/cookieConsent';
-import { PRODUCT_DATA } from '@/data/products';
-
-const _FL = '/assets/afuchat_logo_transparent.png';
-const _FT = '/assets/trustpilot_logo.png';
-const _FG = '/assets/google_play_badge.png';
-const _AFUCHAT_PLAY_URL = 'https://play.google.com/store/apps/details?id=com.afuchat.afuapp';
-const _FP = PRODUCT_DATA;
-function PageFooter() {
-  const yr = new Date().getFullYear();
-  return (
-    <footer className="relative">
-      <div className="max-container container-pad pt-16 pb-8">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 mb-10 md:mb-14">
-          <div className="col-span-1 sm:col-span-2 md:col-span-1">
-            <Link href="/" className="flex items-center gap-2.5 mb-5"><img src={_FL} alt="AfuChat" className="h-8 w-auto" /><span className="text-white font-bold text-lg">AfuChat</span></Link>
-            <p className="text-white/40 text-sm leading-relaxed mb-5">Independent products.<br />Built for the world.</p>
-            <div className="flex items-center gap-3 flex-wrap mb-5">
-              <a href="https://www.trustpilot.com/review/afuchat.com" target="_blank" rel="noopener noreferrer" className="bg-white hover:bg-white/90 transition-colors rounded-full px-3 py-1.5 flex items-center"><img src={_FT} alt="Trustpilot" className="h-5 w-auto" loading="lazy" /></a>
-              <a href={_AFUCHAT_PLAY_URL} target="_blank" rel="noopener noreferrer" aria-label="Download the AfuChat app on Google Play" className="flex flex-col gap-1">
-                <span className="text-white/55 text-[10px] font-semibold uppercase tracking-widest">Download AfuChat</span>
-                <img src={_FG} alt="Get the AfuChat app on Google Play" className="h-10 w-auto" loading="lazy" />
-              </a>
-            </div>
-            <p className="text-white/22 text-xs">AfuChat Technologies Limited</p>
-          </div>
-          <div>
-            <h4 className="text-white/50 font-semibold text-xs uppercase tracking-widest mb-5">Products</h4>
-            <ul className="flex flex-col gap-3.5">{_FP.slice(0,4).map(p=><li key={p.id}><Link href={p.path} className="flex items-center gap-2.5 text-white/38 hover:text-white text-sm transition-colors"><span className="w-5 h-5 rounded-md flex items-center justify-center flex-shrink-0" style={{ color: p.color, backgroundColor: `${p.color}18` }}><p.icon className="w-3 h-3" strokeWidth={1.8} aria-hidden="true" /></span>{p.name}</Link></li>)}</ul>
-          </div>
-          <div>
-            <h4 className="text-white/50 font-semibold text-xs uppercase tracking-widest mb-5">More</h4>
-            <ul className="flex flex-col gap-3.5">{_FP.slice(4).map(p=><li key={p.id}><Link href={p.path} className="flex items-center gap-2.5 text-white/38 hover:text-white text-sm transition-colors"><span className="w-5 h-5 rounded-md flex items-center justify-center flex-shrink-0" style={{ color: p.color, backgroundColor: `${p.color}18` }}><p.icon className="w-3 h-3" strokeWidth={1.8} aria-hidden="true" /></span>{p.name}</Link></li>)}</ul>
-          </div>
-          <div>
-            <h4 className="text-white/50 font-semibold text-xs uppercase tracking-widest mb-5">Company</h4>
-            <ul className="flex flex-col gap-3">{[{l:'About',h:'/about'},{l:'Developers',h:'/developers'},{l:'Partners',h:'/partners'},{l:'Careers',h:'/about/careers'}].map(x=><li key={x.h}><Link href={x.h} className="text-white/38 hover:text-white text-sm transition-colors">{x.l}</Link></li>)}</ul>
-          </div>
-        </div>
-        <div className="border-t border-white/8 pt-7 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-white/22 text-xs">© {yr} AfuChat Technologies Limited. All rights reserved.</p>
-          <div className="flex items-center gap-5">{[{l:'Privacy Policy',h:'/legal/privacy'},{l:'Terms of Service',h:'/legal/terms'},{l:'Cookie Policy',h:'/legal/cookies'}].map(x=><Link key={x.h} href={x.h} className="text-white/28 hover:text-white/60 text-xs transition-colors">{x.l}</Link>)}<button onClick={openCookiePreferences} className="text-white/28 hover:text-white/60 text-xs transition-colors">Manage Cookies</button></div>
-        </div>
-      </div>
-    </footer>
-  );
-}
+import { ExternalLink, Star, ArrowUpRight } from 'lucide-react';
+import Footer from '@/components/layout/Footer';
 import { TRUSTPILOT_PROFILE_URL, TRUSTPILOT_REVIEWS, TRUSTPILOT_SUMMARY, type TrustpilotReview } from '@/data/trustpilot';
+import ScrollReveal from '@/components/motion/ScrollReveal';
 
-
-function initials(name: string) {
-  return name
-    .split(' ')
-    .filter(Boolean)
-    .slice(0, 2)
-    .map((part) => part[0]?.toUpperCase())
-    .join('');
-}
-
-function Stars({ rating }: { rating: number }) {
-  return (
-    <div className="flex gap-0.5">
-      {[1, 2, 3, 4, 5].map((star) => (
-        <Star
-          key={star}
-          className={`w-4 h-4 ${star <= rating ? 'text-[#00b67a] fill-[#00b67a]' : 'text-white/20 fill-white/20'}`}
-        />
-      ))}
-    </div>
-  );
-}
-
-function ReviewCard({ review, index }: { review: TrustpilotReview; index: number }) {
-  return (
-    <a
-      href={review.url}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="flex-shrink-0 w-[320px] sm:w-[360px] bg-white/5 border border-white/10 rounded-3xl p-7 hover:bg-white/10 transition-colors flex flex-col group"
-    >
-      <Stars rating={review.rating} />
-      <p className="text-white font-semibold text-lg mt-4 mb-2 leading-snug">{review.title}</p>
-      <p className="text-white/70 text-sm leading-relaxed flex-1">"{review.quote}"</p>
-      <div className="flex items-center justify-between mt-6 pt-5 border-t border-white/10">
-        <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-full shrink-0 bg-gradient-to-br from-[#1F7AFF] to-[#6C63FF] flex items-center justify-center text-white text-xs font-bold">
-            {initials(review.author)}
-          </div>
-          <div>
-            <p className="text-white font-bold text-sm">{review.author}</p>
-            <p className="text-white/40 text-xs mt-0.5">{review.country} · {review.date}</p>
-          </div>
-        </div>
-        <ExternalLink className="w-4 h-4 text-white/30 group-hover:text-white/60 transition-colors shrink-0" />
-      </div>
-    </a>
-  );
+function initials(name: string) { return name.split(' ').filter(Boolean).slice(0, 2).map((part) => part[0]?.toUpperCase()).join(''); }
+function Stars({ rating }: { rating: number }) { return <div className="flex gap-1">{[1, 2, 3, 4, 5].map((star) => <Star key={star} className={`h-3.5 w-3.5 ${star <= rating ? 'fill-[#8be7c4] text-[#8be7c4]' : 'fill-transparent text-[#5d7694]'}`} />)}</div>; }
+function ReviewCard({ review }: { review: TrustpilotReview }) {
+  return <a href={review.url} target="_blank" rel="noopener noreferrer" className="site-card group flex w-[320px] shrink-0 flex-col p-6 sm:w-[370px]"><Stars rating={review.rating} /><h2 className="mt-5 text-lg font-semibold leading-snug text-[#e6f1ff]">{review.title}</h2><p className="mt-3 flex-1 text-sm leading-relaxed text-[#91a8c4]">&quot;{review.quote}&quot;</p><div className="mt-7 flex items-center justify-between border-t border-white/10 pt-5"><div className="flex items-center gap-3"><span className="flex h-8 w-8 items-center justify-center bg-[#257bd1] text-[10px] font-semibold text-white">{initials(review.author)}</span><div><p className="text-xs font-semibold text-[#e6f1ff]">{review.author}</p><p className="mt-1 text-[10px] text-[#5d7694]">{review.country} · {review.date}</p></div></div><ExternalLink className="h-3.5 w-3.5 text-[#5d7694] transition-colors group-hover:text-[#4da8ff]" /></div></a>;
 }
 
 export default function Reviews() {
-  const mid = Math.ceil(TRUSTPILOT_REVIEWS.length / 2);
-  const firstRow = TRUSTPILOT_REVIEWS.slice(0, mid);
-  const secondRow = TRUSTPILOT_REVIEWS.slice(mid);
-
-  return (
-    <div className="relative flex flex-col w-full">
-      <section className="section-pad">
-        <div className="max-container container-pad">
-          {/* Hero */}
-          <div className="text-center mb-16">
-            <motion.p
-              initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }}
-              className="text-pink-400 font-semibold text-xs uppercase tracking-widest mb-4"
-            >Customer Stories</motion.p>
-            <motion.h1
-              initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.05 }}
-              className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white tracking-tight mb-4"
-            >Real reviews,<br />straight from Trustpilot.</motion.h1>
-            <motion.p
-              initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.1 }}
-              className="text-white/60 max-w-lg mx-auto mb-6"
-            >We don't write these ourselves — every review below is public and verifiable on Trustpilot.</motion.p>
-            <motion.a
-              href={TRUSTPILOT_PROFILE_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.15 }}
-              className="inline-flex items-center gap-2.5 bg-white rounded-full px-4 py-2 hover:bg-white/90 transition-colors"
-            >
-              <svg viewBox="0 0 24 24" width="18" height="18" fill="#00b67a"><path d="M12 1.5l3.09 6.26L22 8.76l-5 4.87 1.18 6.87L12 17.27l-6.18 3.23L7 13.63 2 8.76l6.91-1L12 1.5z"/></svg>
-              <span className="text-[#0F172A] font-bold text-sm">{TRUSTPILOT_SUMMARY.rating.toFixed(1)}</span>
-              <Stars rating={Math.round(TRUSTPILOT_SUMMARY.rating)} />
-              <span className="text-[#0F172A]/50 text-xs">{TRUSTPILOT_SUMMARY.reviewCount} reviews on Trustpilot</span>
-            </motion.a>
-          </div>
-
-          {/* Sliding review rows — two rows drifting in opposite directions */}
-          <div className="flex flex-col gap-6 mb-20 -mx-4 sm:-mx-6 lg:-mx-8">
-            <div className="relative overflow-hidden">
-              <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-r from-[#040c1e] to-transparent z-10 pointer-events-none" />
-              <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-l from-[#040c1e] to-transparent z-10 pointer-events-none" />
-              <div className="flex gap-6 w-max animate-[marquee_50s_linear_infinite] px-4 sm:px-6 lg:px-8">
-                {[...firstRow, ...firstRow].map((review, i) => (
-                  <ReviewCard key={`row1-${i}`} review={review} index={i} />
-                ))}
-              </div>
-            </div>
-            <div className="relative overflow-hidden">
-              <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-r from-[#040c1e] to-transparent z-10 pointer-events-none" />
-              <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-l from-[#040c1e] to-transparent z-10 pointer-events-none" />
-              <div className="flex gap-6 w-max animate-[marquee-reverse_50s_linear_infinite] px-4 sm:px-6 lg:px-8">
-                {[...secondRow, ...secondRow].map((review, i) => (
-                  <ReviewCard key={`row2-${i}`} review={review} index={i} />
-                ))}
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </section>
-      <PageFooter />
-    </div>
-  );
+  const middle = Math.ceil(TRUSTPILOT_REVIEWS.length / 2);
+  const rows = [TRUSTPILOT_REVIEWS.slice(0, middle), TRUSTPILOT_REVIEWS.slice(middle)];
+  return <div className="studio-shell atmosphere-page">
+    <section className="page-hero max-container studio-section"><div className="grid items-end gap-10 lg:grid-cols-[1fr_.7fr]"><div><div className="accent-bar mb-7" /><motion.p initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} className="studio-kicker mb-6 text-[#087a68]">Customer stories / Public record</motion.p><motion.h1 initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: .06 }} className="max-w-3xl text-[clamp(3.5rem,8vw,7.5rem)] font-semibold leading-[.88] tracking-[-.075em] text-[#e6f1ff]">Words from<br /><span className="text-[#087a68]">the field.</span></motion.h1></div><div><p className="text-base leading-relaxed text-[#91a8c4]">We don&apos;t write these ourselves. Every review below is public and verifiable on Trustpilot.</p><a href={TRUSTPILOT_PROFILE_URL} target="_blank" rel="noopener noreferrer" className="color-panel mt-6 inline-flex items-center gap-4 rounded-2xl px-5 py-4 hover:border-[#8be7c4]/50"><span className="text-2xl font-semibold text-[#e6f1ff]">{TRUSTPILOT_SUMMARY.rating.toFixed(1)}</span><span><Stars rating={Math.round(TRUSTPILOT_SUMMARY.rating)} /><span className="mt-1 block text-[10px] text-[#5d7694]">{TRUSTPILOT_SUMMARY.reviewCount} reviews on Trustpilot</span></span><ArrowUpRight className="h-4 w-4 text-[#8be7c4]" /></a></div></div></section>
+     <section className="atmosphere-band overflow-hidden py-12"><ScrollReveal className="mb-8 max-container"><p className="studio-kicker text-[#d76750]">Unedited / Unfiltered</p><p className="mt-3 max-w-xl text-sm leading-relaxed text-[#6f89a7]">Real words from people using AfuChat products in their day-to-day work and communication.</p></ScrollReveal><div className="flex w-max gap-5 px-4 studio-marquee">{[...rows[0], ...rows[0]].map((review, index) => <ReviewCard key={`a-${index}`} review={review} />)}</div><div className="mt-5 flex w-max gap-5 px-4" style={{ animation: 'studio-marquee 42s linear infinite reverse' }}>{[...rows[1], ...rows[1]].map((review, index) => <ReviewCard key={`b-${index}`} review={review} />)}</div></section>
+     <section className="max-container py-24"><div className="color-panel rounded-[1.8rem] flex flex-col items-start justify-between gap-8 p-8 sm:flex-row sm:items-end sm:p-12"><div><p className="studio-kicker mb-5 text-[#4da8ff]">Your turn</p><h2 className="text-3xl font-semibold text-[#e6f1ff] sm:text-4xl">Have a useful thing<br />in mind?</h2></div><a href="https://web.afuchat.com/register" className="studio-button studio-button-primary">Create a free account <ArrowUpRight className="h-4 w-4" /></a></div></section>
+    <Footer />
+  </div>;
 }

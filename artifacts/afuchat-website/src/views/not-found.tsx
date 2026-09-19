@@ -1,4 +1,3 @@
-'use client';
 import Link from 'next/link';
 import Footer from '@/components/layout/Footer';
 
@@ -15,7 +14,7 @@ export default function NotFoundPage() {
         </p>
         <Link
           href="/"
-          className="px-6 py-3 bg-gradient-to-r from-[#1F7AFF] to-[#6C63FF] text-white font-bold rounded-full hover:opacity-90 transition-opacity"
+          className="px-6 py-3 bg-[#1F7AFF] text-white font-bold rounded-full hover:bg-[#388bff] transition-colors"
         >
           🏠 Back to Home
         </Link>

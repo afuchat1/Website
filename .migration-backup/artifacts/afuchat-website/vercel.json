@@ -1,5 +1,0 @@
-{
-  "installCommand": "cd ../.. && pnpm install",
-  "buildCommand": "pnpm run build",
-  "framework": "nextjs"
-}

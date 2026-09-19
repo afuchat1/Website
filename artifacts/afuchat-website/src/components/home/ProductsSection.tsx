@@ -17,7 +17,7 @@ export default function ProductsSection() {
             transition={{ duration: 0.6 }}
             className="order-2 lg:order-1 flex justify-center"
           >
-            <img src={illSecProducts} alt="AfuChat products" className="w-full max-w-[420px] drop-shadow-2xl" loading="lazy" decoding="async" />
+            <img src={illSecProducts} alt="AfuChat Technologies product ecosystem" className="w-full max-w-[420px] drop-shadow-2xl" loading="lazy" decoding="async" />
           </motion.div>
 
           {/* Content */}
@@ -46,10 +46,10 @@ export default function ProductsSection() {
               transition={{ delay: 0.1 }}
               className="text-white/50 text-base leading-relaxed mb-8 sm:mb-10 max-w-md"
             >
-              Each AfuChat product is designed to stand entirely on its own. Together, they form a seamless ecosystem — but you never have to use more than you need.
+              Each AfuChat product is designed to stand entirely on its own. Together, they form a seamless ecosystem, but you never have to use more than you need.
             </motion.p>
 
-            {/* Flat grid — no cards, no borders */}
+            {/* Flat grid with no cards or borders */}
             <div className="grid grid-cols-2 gap-x-6 gap-y-4 sm:gap-y-5 mb-8 sm:mb-10">
               {PRODUCT_DATA.map((p, i) => (
                 <motion.div
@@ -61,12 +61,12 @@ export default function ProductsSection() {
                 >
                   <Link href={p.path}>
                     <div className="flex items-center gap-3 group">
-                      <span
-                        className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center flex-shrink-0 transition-transform group-hover:scale-105"
-                        style={{ color: p.color, backgroundColor: `${p.color}18` }}
-                      >
-                        <p.icon className="w-5 h-5 sm:w-[22px] sm:h-[22px]" strokeWidth={1.8} aria-hidden="true" />
-                      </span>
+                      <p.icon
+                        aria-hidden="true"
+                        className="w-6 h-6 sm:w-7 sm:h-7 flex-shrink-0"
+                        style={{ color: p.color }}
+                        strokeWidth={1.8}
+                      />
                       <div>
                         <p className="text-sm font-semibold text-white/70 group-hover:text-white transition-colors leading-none mb-0.5">{p.name}</p>
                         <p className="text-xs text-white/30 leading-none">{p.category}</p>
@@ -78,7 +78,7 @@ export default function ProductsSection() {
             </div>
 
             <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-              <Link href="/products" className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-purple-500 to-blue-500 text-white font-bold text-sm rounded-full hover:opacity-90 transition-opacity">
+              <Link href="/products" className="inline-flex items-center gap-2 px-6 py-3 bg-[#6C63FF] text-white font-bold text-sm rounded-full hover:bg-[#8179ff] transition-colors">
                 Explore all products →
               </Link>
             </motion.div>
