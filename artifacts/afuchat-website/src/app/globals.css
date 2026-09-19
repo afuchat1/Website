@@ -760,3 +760,24 @@ button[class*="rounded-full"] {
 @media (min-width: 1280px) {
   .max-container { width: min(100% - 5rem, 1280px); }
 }
+
+/* Live CSS illustration system: layered devices, nodes and orbiting geometry. */
+.site-backdrop-illustration{position:absolute;z-index:4;pointer-events:none;will-change:transform;animation:illustration-float 10s ease-in-out infinite}
+.site-backdrop-illustration-one{right:7%;top:13%;width:clamp(18rem,30vw,30rem);height:clamp(18rem,30vw,30rem);transform:rotate(-7deg)}
+.site-backdrop-illustration-two{left:4%;bottom:8%;width:clamp(16rem,26vw,25rem);height:clamp(16rem,26vw,25rem);animation-delay:-4s}
+.illustration-device{position:absolute;display:block;border:1px solid rgba(31,149,255,.18);background:linear-gradient(145deg,rgba(255,255,255,.94),rgba(236,247,255,.72));box-shadow:0 28px 70px rgba(31,95,164,.10),inset 0 1px 0 #fff}
+.illustration-phone{right:25%;top:12%;width:30%;height:58%;border-radius:2.2rem;transform:rotate(-10deg)}
+.illustration-phone::after{content:'';position:absolute;left:12%;right:12%;top:11%;bottom:11%;border-radius:1.4rem;background:linear-gradient(160deg,#1f95ff 0 8%,#f6fbff 8% 100%);opacity:.88}
+.illustration-screen{right:3%;bottom:8%;width:58%;height:43%;border-radius:1rem;transform:perspective(600px) rotateY(-8deg) rotateX(3deg)}
+.illustration-screen::after{content:'';position:absolute;inset:12%;border-radius:.45rem;background:linear-gradient(135deg,#eef8ff 0 36%,#1f95ff 36% 48%,#fff 48%);opacity:.7}
+.illustration-node{position:absolute;width:3rem;height:3rem;border-radius:50%;background:#fff;border:1px solid rgba(31,149,255,.18);box-shadow:0 14px 30px rgba(31,95,164,.12);animation:node-pulse 3.5s ease-in-out infinite}
+.illustration-node-one{left:4%;top:24%}.illustration-node-two{left:20%;bottom:5%;animation-delay:-1.5s}
+.illustration-orbit{position:absolute;inset:10%;border:1px solid rgba(31,149,255,.15);border-radius:50%;transform:rotate(28deg) scaleY(.46);animation:orbit-spin 12s linear infinite}
+.illustration-orbit-two{inset:20%;transform:rotate(-24deg) scaleY(.62);animation-duration:9s;animation-direction:reverse;border-color:rgba(66,199,161,.18)}
+.illustration-core{position:absolute;left:39%;top:39%;width:22%;height:22%;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff,#dff2ff 42%,#1f95ff);box-shadow:0 0 70px rgba(31,149,255,.24);animation:core-breathe 4s ease-in-out infinite}
+@keyframes illustration-float{0%,100%{translate:0 0}50%{translate:0 -14px}}
+@keyframes node-pulse{0%,100%{transform:scale(1);box-shadow:0 14px 30px rgba(31,95,164,.10)}50%{transform:scale(1.08);box-shadow:0 18px 40px rgba(31,149,255,.18)}}
+@keyframes orbit-spin{from{rotate:0deg}to{rotate:360deg}}
+@keyframes core-breathe{0%,100%{scale:1;opacity:.86}50%{scale:1.12;opacity:1}}
+@media(max-width:767px){.site-backdrop-illustration-one{right:-20%;top:16%;width:20rem;height:20rem;opacity:.6}.site-backdrop-illustration-two{left:-22%;bottom:7%;width:17rem;height:17rem;opacity:.5}.illustration-node{width:2.3rem;height:2.3rem}}
+@media(prefers-reduced-motion:reduce){.site-backdrop-illustration,.illustration-node,.illustration-orbit,.illustration-core{animation:none!important}}
