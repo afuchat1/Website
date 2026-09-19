@@ -53,13 +53,13 @@ export default function PortfolioHome() {
               ['Amazon Shoe Collection', 'https://raw.githubusercontent.com/afuchat1/Website/fc5e7cc0a61565cdbae179b8d523c817f7ffd138/artifacts/afuchat-website/public/partners/amazon-shoe-collection.png'],
               ['Sabula Shoe Spot', 'https://raw.githubusercontent.com/afuchat1/Website/fc5e7cc0a61565cdbae179b8d523c817f7ffd138/artifacts/afuchat-website/public/partners/sabula-shoe-spot.png'],
               ['Bee brand', 'https://raw.githubusercontent.com/afuchat1/Website/fc5e7cc0a61565cdbae179b8d523c817f7ffd138/artifacts/afuchat-website/public/partners/bee-brand.png'],
-            ], ...[
+            , ...[
               ['AJS Digital Services & IT Solutions', 'https://raw.githubusercontent.com/afuchat1/Website/fc5e7cc0a61565cdbae179b8d523c817f7ffd138/artifacts/afuchat-website/public/partners/ajs-digital-services.png'],
               ['Mindset Media Radio', 'https://raw.githubusercontent.com/afuchat1/Website/fc5e7cc0a61565cdbae179b8d523c817f7ffd138/artifacts/afuchat-website/public/partners/mindset-media-radio.png'],
               ['Amazon Shoe Collection', 'https://raw.githubusercontent.com/afuchat1/Website/fc5e7cc0a61565cdbae179b8d523c817f7ffd138/artifacts/afuchat-website/public/partners/amazon-shoe-collection.png'],
               ['Sabula Shoe Spot', 'https://raw.githubusercontent.com/afuchat1/Website/fc5e7cc0a61565cdbae179b8d523c817f7ffd138/artifacts/afuchat-website/public/partners/sabula-shoe-spot.png'],
               ['Bee brand', 'https://raw.githubusercontent.com/afuchat1/Website/fc5e7cc0a61565cdbae179b8d523c817f7ffd138/artifacts/afuchat-website/public/partners/bee-brand.png'],
-            ]].map(([name, source], index) => (
+            ].map(([name, source], index) => (
               <div className="trusted-by-logo" key={name + '-' + index}>
                 <img src={source} alt={index < 5 ? name : ''} aria-hidden={index >= 5} loading="eager" />
               </div>
