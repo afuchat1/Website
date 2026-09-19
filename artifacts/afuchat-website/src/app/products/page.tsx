@@ -41,7 +41,7 @@ const itemListJsonLd = {
     name: p.name,
     description: p.description,
     url: `${BASE_URL}${p.path}`,
-    image: `${BASE_URL}${p.icon3d}`,
+    image: `${BASE_URL}${p.illustration}`,
   })),
 };
 
