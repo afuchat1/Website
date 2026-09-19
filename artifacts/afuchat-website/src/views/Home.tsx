@@ -10,6 +10,7 @@ import DeveloperSection from '@/components/home/DeveloperSection';
 import CtaSection from '@/components/home/CtaSection';
 import { openCookiePreferences } from '@/lib/cookieConsent';
 import { PRODUCT_DATA } from '@/data/products';
+import ProductIcon from '@/components/products/ProductIcon';
 
 const _FL = '/assets/afuchat_logo_transparent.png';
 const _FT = '/assets/trustpilot_logo.png';
@@ -36,11 +37,11 @@ function PageFooter() {
           </div>
           <div>
             <h4 className="text-white/50 font-semibold text-xs uppercase tracking-widest mb-5">Products</h4>
-            <ul className="flex flex-col gap-3.5">{_FP.slice(0,4).map(p=><li key={p.id}><Link href={p.path} className="flex items-center gap-2.5 text-white/38 hover:text-white text-sm transition-colors"><span className="w-5 h-5 rounded-md flex items-center justify-center flex-shrink-0" style={{ color: p.color, backgroundColor: `${p.color}18` }}><p.icon className="w-3 h-3" strokeWidth={1.8} aria-hidden="true" /></span>{p.name}</Link></li>)}</ul>
+            <ul className="flex flex-col gap-3.5">{_FP.slice(0,4).map(p=><li key={p.id}><Link href={p.path} className="flex items-center gap-2.5 text-white/38 hover:text-white text-sm transition-colors"><ProductIcon product={p} containerClassName="w-6 h-6 rounded-lg" iconClassName="w-3.5 h-3.5" />{p.name}</Link></li>)}</ul>
           </div>
           <div>
             <h4 className="text-white/50 font-semibold text-xs uppercase tracking-widest mb-5">More</h4>
-            <ul className="flex flex-col gap-3.5">{_FP.slice(4).map(p=><li key={p.id}><Link href={p.path} className="flex items-center gap-2.5 text-white/38 hover:text-white text-sm transition-colors"><span className="w-5 h-5 rounded-md flex items-center justify-center flex-shrink-0" style={{ color: p.color, backgroundColor: `${p.color}18` }}><p.icon className="w-3 h-3" strokeWidth={1.8} aria-hidden="true" /></span>{p.name}</Link></li>)}</ul>
+            <ul className="flex flex-col gap-3.5">{_FP.slice(4).map(p=><li key={p.id}><Link href={p.path} className="flex items-center gap-2.5 text-white/38 hover:text-white text-sm transition-colors"><ProductIcon product={p} containerClassName="w-6 h-6 rounded-lg" iconClassName="w-3.5 h-3.5" />{p.name}</Link></li>)}</ul>
           </div>
           <div>
             <h4 className="text-white/50 font-semibold text-xs uppercase tracking-widest mb-5">Company</h4>
