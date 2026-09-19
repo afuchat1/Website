@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Menu, X, ChevronDown, Github } from 'lucide-react';
 import { PRODUCT_DATA } from '@/data/products';
+import ProductIcon from '@/components/products/ProductIcon';
 
 const LOGO_SRC = '/assets/afuchat_logo_transparent.png';
 const GITHUB_REPO_URL = 'https://github.com/afuchat1/Website';
@@ -135,9 +136,7 @@ export default function Navbar() {
                       {PRODUCT_DATA.slice(0, 4).map(p => (
                         <Link key={p.id} href={p.path} onClick={() => setProductsOpen(false)}>
                           <div className="flex items-center gap-3 px-2 py-2.5 rounded-xl hover:bg-white/6 transition-colors group">
-                            <span className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0" style={{ color: p.color, backgroundColor: `${p.color}18` }}>
-                              <p.icon className="w-4 h-4" strokeWidth={1.8} aria-hidden="true" />
-                            </span>
+                            <ProductIcon product={p} containerClassName="w-9 h-9 rounded-xl" iconClassName="w-4 h-4" />
                             <div>
                               <p className="text-sm font-semibold text-white/85 group-hover:text-white leading-none mb-0.5">{p.name}</p>
                               <p className="text-xs text-white/32 leading-none">{p.tagline}</p>
@@ -151,9 +150,7 @@ export default function Navbar() {
                       {PRODUCT_DATA.slice(4, 8).map(p => (
                         <Link key={p.id} href={p.path} onClick={() => setProductsOpen(false)}>
                           <div className="flex items-center gap-3 px-2 py-2.5 rounded-xl hover:bg-white/6 transition-colors group">
-                            <span className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0" style={{ color: p.color, backgroundColor: `${p.color}18` }}>
-                              <p.icon className="w-4 h-4" strokeWidth={1.8} aria-hidden="true" />
-                            </span>
+                            <ProductIcon product={p} containerClassName="w-9 h-9 rounded-xl" iconClassName="w-4 h-4" />
                             <div>
                               <p className="text-sm font-semibold text-white/85 group-hover:text-white leading-none mb-0.5">{p.name}</p>
                               <p className="text-xs text-white/32 leading-none">{p.tagline}</p>
@@ -215,9 +212,7 @@ export default function Navbar() {
               <div className="flex flex-col bg-white/5 py-2">
                 {PRODUCT_DATA.map(p => (
                   <Link key={p.id} href={p.path} className="flex items-center gap-4 px-8 py-3.5 text-sm text-white/60 hover:text-white hover:bg-white/5 transition-colors">
-                    <span className="w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0" style={{ color: p.color, backgroundColor: `${p.color}18` }}>
-                      <p.icon className="w-3.5 h-3.5" strokeWidth={1.8} aria-hidden="true" />
-                    </span>
+                    <ProductIcon product={p} containerClassName="w-8 h-8 rounded-xl" iconClassName="w-4 h-4" />
                     <span className="font-medium">{p.name}</span>
                   </Link>
                 ))}
