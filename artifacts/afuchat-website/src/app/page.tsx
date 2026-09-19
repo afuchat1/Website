@@ -1,27 +1,13 @@
 import type { Metadata } from 'next';
-import HomeView from '@/views/Home';
+import HomeClient from '@/views/Home';
 
 export const metadata: Metadata = {
-  title: 'AfuChat — Powerful tools. Standalone brilliance. Zero friction.',
+  title: 'AfuChat Technologies Limited | Digital Products, Web and Mobile Applications',
   description:
-    'Whether you need blazingly fast chat, secure cloud storage, or an intelligent assistant — pick what you need. They work perfectly apart, and even better together.',
+    'AfuChat Technologies Limited is a Ugandan technology company building digital products, websites, web applications, mobile applications, e-commerce platforms, AI products, and custom digital solutions.',
   alternates: { canonical: 'https://afuchat.com/' },
-  openGraph: {
-    title: 'AfuChat — Powerful tools. Standalone brilliance. Zero friction.',
-    description:
-      'Whether you need blazingly fast chat, secure cloud storage, or an intelligent assistant — pick what you need.',
-    url: 'https://afuchat.com/',
-    images: [
-      {
-        url: '/assets/afuchat_logo_transparent.png',
-        width: 1200,
-        height: 630,
-        alt: 'AfuChat homepage — independent tools for everyone',
-      },
-    ],
-  },
 };
 
-export default function HomePage() {
-  return <HomeView />;
+export default function Page() {
+  return <HomeClient />;
 }

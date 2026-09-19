@@ -5,7 +5,6 @@ import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { ScanSearch, BrainCircuit, Activity, Copy, Check, ArrowRight, Github } from 'lucide-react';
 import { PRODUCT_DATA } from '@/data/products';
-import { openCookiePreferences } from '@/lib/cookieConsent';
 
 /* ─────────────────────────────────────────────
    COPY BUTTON
@@ -110,7 +109,7 @@ console.log(reply.sources);  // live pages AfuBot crawled`,
 
 const client = new Engagera({ apiKey: "eng_..." });
 
-// Token-by-token SSE — build responsive streaming UIs
+// Token by token SSE for responsive streaming UIs
 for await (const event of client.chat.stream({
   messages: [{ role: "user", content: "Explain quantum computing" }],
   model: "engagera-pro",
@@ -123,55 +122,42 @@ for await (const event of client.chat.stream({
 /* ─────────────────────────────────────────────
    INLINE FOOTER
 ───────────────────────────────────────────── */
-const _FL = '/assets/afuchat_logo_transparent.png';
-const _FT = '/assets/trustpilot_logo.png';
-const _FG = '/assets/google_play_badge.png';
-const ENGagera_PLAY_URL = 'https://play.google.com/store/apps/details?id=com.engagera.mobile';
 const _FP = [
-  { n: 'AfuMail',   p: '/products/afumail',   i: '/illustrations/icon3d-afumail.webp' },
-  { n: 'AfuChat',   p: '/products/afuchat',   i: '/illustrations/icon3d-afuchat.webp' },
-  { n: 'AfuAI',     p: '/products/afuai',     i: '/illustrations/icon3d-afuai.webp' },
-  { n: 'AfuCloud',  p: '/products/afucloud',  i: '/illustrations/icon3d-afucloud.webp' },
-  { n: 'AfuMovies', p: '/products/afumovies', i: '/illustrations/icon3d-afumovies.webp' },
-  { n: 'AfuMall',   p: '/products/afumall',   i: '/illustrations/icon3d-afumall.webp' },
-  { n: 'AfuNews',   p: '/products/afunews',   i: '/illustrations/icon3d-afunews.webp' },
-  { n: 'AfuBlog',   p: '/products/afublog',   i: '/illustrations/icon3d-afublog.webp' },
+  { n: 'AfuMail',   p: '/products/afumail' },
+  { n: 'AfuChat',   p: '/products/afuchat' },
+  { n: 'AfuAI',     p: '/products/afuai' },
+  { n: 'AfuCloud',  p: '/products/afucloud' },
+  { n: 'AfuMovies', p: '/products/afumovies' },
+  { n: 'AfuMall',   p: '/products/afumall' },
+  { n: 'AfuNews',   p: '/products/afunews' },
+  { n: 'AfuBlog',   p: '/products/afublog' },
 ];
 function PageFooter() {
-  const yr = new Date().getFullYear();
   return (
     <footer className="relative">
       <div className="max-container container-pad pt-14 pb-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 mb-10 md:mb-12">
           <div className="col-span-1 sm:col-span-2 md:col-span-1">
-            <Link href="/" className="flex items-center gap-2.5 mb-4"><img src={_FL} alt="AfuChat" className="h-7 w-auto" /><span className="text-white font-bold text-base">AfuChat</span></Link>
+            <Link href="/" className="inline-flex items-center mb-4"><span className="text-white font-bold text-base">AfuChat</span></Link>
             <p className="text-white/38 text-sm leading-relaxed mb-4">Independent products.<br />Built for the world.</p>
-            <div className="flex items-center gap-3 flex-wrap mb-4">
-              <a href="https://www.trustpilot.com/review/afuchat.com" target="_blank" rel="noopener noreferrer" className="bg-white hover:bg-white/90 transition-colors rounded-full px-3 py-1.5 flex items-center"><img src={_FT} alt="Trustpilot" className="h-4 w-auto" loading="lazy" /></a>
-              <a href={ENGagera_PLAY_URL} target="_blank" rel="noopener noreferrer" aria-label="Download the Engagera app on Google Play" className="flex flex-col gap-1">
-                <span className="text-white/55 text-[10px] font-semibold uppercase tracking-widest">Download Engagera</span>
-                <img src={_FG} alt="Get the Engagera app on Google Play" className="h-9 w-auto" loading="lazy" />
-              </a>
-            </div>
-            <p className="text-white/20 text-xs">AfuChat Technologies Limited</p>
           </div>
           <div>
             <h4 className="text-white/40 font-semibold text-[10px] uppercase tracking-widest mb-4">Products</h4>
-            <ul className="flex flex-col gap-3">{_FP.slice(0,4).map(p=><li key={p.n}><Link href={p.p} className="flex items-center gap-2 text-white/35 hover:text-white text-sm transition-colors"><img src={p.i} alt="" className="w-4 h-4 object-contain" loading="lazy"/>{p.n}</Link></li>)}</ul>
+            <ul className="flex flex-col gap-3">{_FP.slice(0,4).map(p=><li key={p.n}><Link href={p.p} className="text-white/35 hover:text-white text-sm transition-colors">{p.n}</Link></li>)}</ul>
           </div>
           <div>
             <h4 className="text-white/40 font-semibold text-[10px] uppercase tracking-widest mb-4">More</h4>
-            <ul className="flex flex-col gap-3">{_FP.slice(4).map(p=><li key={p.n}><Link href={p.p} className="flex items-center gap-2 text-white/35 hover:text-white text-sm transition-colors"><img src={p.i} alt="" className="w-4 h-4 object-contain" loading="lazy"/>{p.n}</Link></li>)}</ul>
+            <ul className="flex flex-col gap-3">{_FP.slice(4).map(p=><li key={p.n}><Link href={p.p} className="text-white/35 hover:text-white text-sm transition-colors">{p.n}</Link></li>)}</ul>
           </div>
           <div>
             <h4 className="text-white/40 font-semibold text-[10px] uppercase tracking-widest mb-4">Company</h4>
             <ul className="flex flex-col gap-3">{[{l:'About',h:'/about'},{l:'Developers',h:'/developers'},{l:'Partners',h:'/partners'},{l:'Careers',h:'/about/careers'}].map(x=><li key={x.h}><Link href={x.h} className="text-white/35 hover:text-white text-sm transition-colors">{x.l}</Link></li>)}</ul>
           </div>
         </div>
-        <div className="border-t border-white/6 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="text-white/20 text-xs">© {yr} AfuChat Technologies Limited. All rights reserved.</p>
-          <div className="flex items-center gap-5">{[{l:'Privacy',h:'/legal/privacy'},{l:'Terms',h:'/legal/terms'},{l:'Cookies',h:'/legal/cookies'}].map(x=><Link key={x.h} href={x.h} className="text-white/22 hover:text-white/55 text-xs transition-colors">{x.l}</Link>)}<button onClick={openCookiePreferences} className="text-white/22 hover:text-white/55 text-xs transition-colors">Manage Cookies</button></div>
-        </div>
+          <div className="border-t border-white/6 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
+           <p className="text-white/20 text-xs">© 2026 AfuChat Technologies Limited. All rights reserved.</p>
+           <div className="flex items-center gap-5">{[{l:'Privacy',h:'/legal/privacy'},{l:'Terms',h:'/legal/terms'}].map(x=><Link key={x.h} href={x.h} className="text-white/22 hover:text-white/55 text-xs transition-colors">{x.l}</Link>)}</div>
+         </div>
       </div>
     </footer>
   );
@@ -201,10 +187,10 @@ export default function AfuAIPage() {
               Intelligence,<br /><span className="text-amber-400">built in.</span>
             </h1>
             <p className="text-white/45 text-base leading-relaxed mb-7 max-w-[420px]">
-              AfuAI powers a new generation of products that think, search, and respond in real time. Starting with Engagera — live AI chat, web search, and image generation.
+              AfuAI powers a new generation of products that think, search, and respond in real time. Starting with Engagera: live AI chat, web search, and image generation.
             </p>
 
-            {/* CTA row — favicon-only links */}
+            {/* CTA row with favicon only links */}
             <div className="flex flex-wrap items-center gap-5 mb-8">
               <a href="https://engagera.afuchat.com" target="_blank" rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-amber-400 hover:text-amber-300 font-semibold text-sm transition-colors">
@@ -275,18 +261,18 @@ export default function AfuAIPage() {
 
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-12 lg:gap-20">
 
-          {/* left — description + capabilities */}
+          {/* left: description and capabilities */}
           <motion.div initial={{ opacity: 0, x: -12 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
             <p className="text-white/42 text-sm leading-relaxed mb-10 max-w-md">
-              Engagera gives access to advanced AI models with live web search, image generation, and code execution — all in one clean interface. Powered by AfuBot, our proprietary web crawler that reads the live web so the AI is never working from stale data.
+              Engagera gives access to advanced AI models with live web search, image generation, and code execution, all in one clean interface. Powered by AfuBot, our proprietary web crawler that reads the live web so the AI is never working from stale data.
             </p>
             <div className="flex flex-col gap-7">
               {[
-                { icon: ScanSearch,   color: '#F59E0B', title: 'AfuBot — Live Web Crawler',
-                  desc: 'Spiders live pages in real-time. Extracts og:images, titles, and text snippets. Returns structured citations in every response — no hallucinated URLs.' },
+                { icon: ScanSearch,   color: '#F59E0B', title: 'AfuBot: Live Web Crawler',
+                  desc: 'Spiders live pages in real time. Extracts og:images, titles, and text snippets. Returns structured citations in every response. No hallucinated URLs.' },
                 { icon: BrainCircuit, color: '#60A5FA', title: 'AI Completions',
-                  desc: 'Multi-turn conversations across all supported models. AfuBot is invoked automatically when the query needs fresh web context, with zero configuration.' },
-                { icon: Activity,     color: '#A78BFA', title: 'Token-by-token Streaming',
+                  desc: 'Multi turn conversations across all supported models. AfuBot is invoked automatically when the query needs fresh web context, with zero configuration.' },
+                { icon: Activity,     color: '#A78BFA', title: 'Token by Token Streaming',
                   desc: 'Full SSE streaming. Tokens arrive as they are generated. Source citations appended on the done event so UI can render results progressively.' },
               ].map((c, i) => (
                 <motion.div key={c.title} initial={{ opacity: 0, y: 8 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.07 }}
@@ -301,7 +287,7 @@ export default function AfuAIPage() {
             </div>
           </motion.div>
 
-          {/* right — product spec */}
+          {/* right: product spec */}
           <motion.div initial={{ opacity: 0, x: 12 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: 0.08 }}
             className="flex flex-col gap-8">
 
@@ -312,10 +298,22 @@ export default function AfuAIPage() {
                 <p className="text-white text-xl font-bold">Engagera</p>
               </div>
               <p className="text-white/35 text-[13px] leading-relaxed mb-4">Advanced AI models · Live web search · Image generation · Code execution</p>
-              <a href="https://engagera.afuchat.com" target="_blank" rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-amber-400 hover:text-amber-300 text-sm font-semibold transition-colors">
-                Open Engagera <ArrowRight className="w-3.5 h-3.5" />
-              </a>
+              <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
+                <a href="https://engagera.afuchat.com" target="_blank" rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-amber-400 hover:text-amber-300 text-sm font-semibold transition-colors">
+                  Open Engagera <ArrowRight className="w-3.5 h-3.5" />
+                </a>
+                <a href="https://engagera.afuchat.com" target="_blank" rel="noopener noreferrer"
+                  className="text-white/35 hover:text-white/70 text-xs transition-colors">
+                  Create an account / sign in
+                </a>
+              </div>
+              <div className="mt-4 border-l-2 border-amber-400/50 pl-3">
+                <p className="text-white/55 text-xs font-semibold mb-1">How to get access</p>
+                <p className="text-white/30 text-xs leading-relaxed">
+                  Open Engagera, create or sign in to your account, then create an API key in Developer settings. Use the key as <span className="font-mono text-white/50">eng_...</span> in the SDK.
+                </p>
+              </div>
             </div>
 
             <div>
@@ -349,11 +347,9 @@ export default function AfuAIPage() {
               </div>
             </div>
 
-            {/* Product highlights */}
+            {/* product highlights */}
             <div>
-              <div className="flex items-center gap-2 mb-4">
-                <p className="text-white/20 text-[10px] uppercase tracking-widest font-semibold">Built for modern AI</p>
-              </div>
+              <p className="text-white/20 text-[10px] uppercase tracking-widest font-semibold mb-3">Built for modern AI</p>
               <div className="flex flex-col gap-5">
                 <div>
                   <p className="text-[2.6rem] font-extrabold tracking-tight text-white leading-none">Live web</p>
@@ -397,9 +393,9 @@ export default function AfuAIPage() {
             </div>
           </div>
           <p className="text-white/38 text-sm leading-relaxed max-w-xl">
-            Official TypeScript SDK. Two primitives —{' '}
+            Official TypeScript SDK. Two primitives:{' '}
             <span className="text-white/60 font-medium">AfuBot</span> for live web search and{' '}
-            <span className="text-white/60 font-medium">Chat</span> for AI completions — built to compose.
+            <span className="text-white/60 font-medium">Chat</span> for AI completions, built to compose.
             Supports Node.js, Bun, Deno, and edge runtimes.
           </p>
         </motion.div>
@@ -445,22 +441,22 @@ export default function AfuAIPage() {
             </div>
           </motion.div>
 
-          {/* right — code */}
+          {/* right: code */}
           <motion.div key={tab} initial={{ opacity: 0, y: 5 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.15 }}>
             <Code code={CODE[tab]} lang="typescript" />
           </motion.div>
         </div>
 
-        {/* API quick-ref — developer detail */}
+        {/* API quick reference: developer detail */}
         <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
           className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-8">
           {[
             { ns: 'client.afubot.search(query)', ret: 'Promise<{ answer, searchQuery, sources[] }>',
               note: 'Synchronous web crawl. Returns a synthesised answer plus an array of cited sources with url, title, image, and snippet.' },
             { ns: 'client.chat.create({ messages })', ret: 'Promise<{ content, sources[] }>',
-              note: 'Non-streaming completion. Internally invokes AfuBot when the query needs live data. Accepts system/user/assistant turns.' },
+              note: 'Non streaming completion. Internally invokes AfuBot when the query needs live data. Accepts system/user/assistant turns.' },
             { ns: 'client.chat.stream({ messages })', ret: 'AsyncIterable<{ type, text, sources }>',
-              note: 'Token-by-token SSE. Yields delta events while generating and a final done event with the source citations.' },
+              note: 'Token by token SSE. Yields delta events while generating and a final done event with the source citations.' },
           ].map(r => (
             <div key={r.ns}>
               <p className="text-white/60 font-mono text-[11px] mb-1">{r.ns}</p>

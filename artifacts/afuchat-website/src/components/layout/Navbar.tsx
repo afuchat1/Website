@@ -1,236 +1,133 @@
 'use client';
-import { useState, useEffect, useRef } from 'react';
+
+import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Menu, X, ChevronDown, Github } from 'lucide-react';
+import { ChevronDown, Menu, X, ArrowUpRight } from 'lucide-react';
 import { PRODUCT_DATA } from '@/data/products';
 
-const LOGO_SRC = '/assets/afuchat_logo_transparent.png';
-const GITHUB_REPO_URL = 'https://github.com/afuchat1/Website';
-
-function formatStars(count: number) {
-  if (count >= 1000) return `${(count / 1000).toFixed(1)}K`;
-  return `${count}`;
-}
-
-function GithubStarBadge({ className = '' }: { className?: string }) {
-  const [stars, setStars] = useState<string | null>(null);
-
-  useEffect(() => {
-    let cancelled = false;
-    fetch('https://api.github.com/repos/afuchat1/Website')
-      .then(res => (res.ok ? res.json() : null))
-      .then(data => {
-        if (!cancelled && data && typeof data.stargazers_count === 'number') {
-          setStars(formatStars(data.stargazers_count));
-        }
-      })
-      .catch(() => {});
-    return () => { cancelled = true; };
-  }, []);
-
-  return (
-    <a
-      href={GITHUB_REPO_URL}
-      target="_blank"
-      rel="noopener noreferrer"
-      className={`flex items-center gap-1.5 text-sm font-medium text-white/70 hover:text-white px-3.5 py-2 transition-colors ${className}`}
-    >
-      <Github className="w-4 h-4" />
-      {stars && <span className="text-xs font-semibold text-white/85">{stars}</span>}
-    </a>
-  );
-}
+const companyLinks = [
+  { label: 'About', href: '/about' },
+  { label: 'Leadership', href: '/about/leadership' },
+  { label: 'Careers', href: '/about/careers' },
+  { label: 'Press', href: '/about/press' },
+];
 
 export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
+  const [open, setOpen] = useState(false);
   const [productsOpen, setProductsOpen] = useState(false);
-  const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
+  const [companyOpen, setCompanyOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const pathname = usePathname() ?? '';
-  const productsRef = useRef<HTMLDivElement>(null);
+  const navRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 10);
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
-
-  // Close everything on route change
-  useEffect(() => {
-    setIsOpen(false);
-    setMobileProductsOpen(false);
-    setProductsOpen(false);
-  }, [pathname]);
-
-  // Close products dropdown when clicking outside
-  useEffect(() => {
-    if (!productsOpen) return;
-    const onPointerDown = (e: PointerEvent) => {
-      if (productsRef.current && !productsRef.current.contains(e.target as Node)) {
+    const onScroll = () => setScrolled(window.scrollY > 16);
+    const onOutside = (event: PointerEvent) => {
+      if (navRef.current && !navRef.current.contains(event.target as Node)) {
         setProductsOpen(false);
+        setCompanyOpen(false);
       }
     };
-    document.addEventListener('pointerdown', onPointerDown);
-    return () => document.removeEventListener('pointerdown', onPointerDown);
-  }, [productsOpen]);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    document.addEventListener('pointerdown', onOutside);
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      document.removeEventListener('pointerdown', onOutside);
+    };
+  }, []);
 
-  const navLinks = [
-    { label: 'Partners',   href: '/partners' },
-    { label: 'Developers', href: '/developers' },
-    { label: 'Company',    href: '/about' },
-  ];
+  useEffect(() => {
+    setOpen(false);
+    setProductsOpen(false);
+    setCompanyOpen(false);
+  }, [pathname]);
+
+  const isActive = (href: string) => pathname === href || (pathname ?? '').startsWith(href + '/');
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-[#040c1e]/85 backdrop-blur-xl' : 'bg-transparent'
-      }`}
-    >
-      <div className="max-container container-pad h-16 flex items-center justify-between">
-
-        {/* ── Logo ── */}
-        <Link href="/" className="flex items-center gap-2 flex-shrink-0">
-          <img src={LOGO_SRC} alt="AfuChat" className="h-8 w-auto" />
-          <span className="font-bold text-white text-lg">AfuChat</span>
+    <header className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${scrolled ? 'bg-[#06101f]/92 shadow-[0_12px_45px_rgba(0,0,0,.16)] backdrop-blur-xl' : 'bg-[#06101f]/68 backdrop-blur-md'}`}>
+      <nav ref={navRef} className="max-container flex min-h-[72px] items-center justify-between" aria-label="Primary navigation">
+        <Link href="/" className="group flex shrink-0 items-center" aria-label="AfuChat Technologies home">
+          <img src="/assets/atl-logo.svg" alt="ATL" className="h-8 w-auto transition-transform duration-200 group-hover:scale-[1.02] sm:h-9" />
         </Link>
 
-        {/* ── Desktop Nav ── */}
-        <nav className="hidden md:flex items-center gap-7">
+        <div className="hidden items-center gap-7 md:flex">
+          <Link href="/" className={`studio-link text-[13px] ${pathname === '/' ? 'text-white' : ''}`}>Home</Link>
 
-          {/* Products mega-dropdown */}
-          <div
-            ref={productsRef}
-            className="relative"
-            onMouseEnter={() => setProductsOpen(true)}
-            onMouseLeave={() => setProductsOpen(false)}
-          >
-            <button
-              id="products-btn"
-              aria-haspopup="true"
-              aria-expanded={productsOpen}
-              aria-controls="products-panel"
-              className="flex items-center gap-1.5 text-sm font-medium text-white/70 hover:text-white transition-colors"
-              onClick={() => setProductsOpen(v => !v)}
-              onKeyDown={e => {
-                if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setProductsOpen(v => !v); }
-                if (e.key === 'Escape') setProductsOpen(false);
-              }}
-            >
-              Products
-              <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${productsOpen ? 'rotate-180' : ''}`} />
+          <div className="relative">
+            <button type="button" aria-expanded={productsOpen} onClick={() => { setProductsOpen(v => !v); setCompanyOpen(false); }} className={`studio-link flex items-center gap-1.5 text-[13px] ${isActive('/products') ? 'text-white' : ''}`}>
+              Products <ChevronDown className={`h-3.5 w-3.5 transition-transform ${productsOpen ? 'rotate-180' : ''}`} />
             </button>
-
             {productsOpen && (
-              <div
-                id="products-panel"
-                role="region"
-                aria-label="Products menu"
-                className="absolute top-full left-1/2 -translate-x-1/2 pt-3 w-[620px] z-50"
-              >
-                <div className="bg-[#050d1f]/98 backdrop-blur-2xl border border-white/10 rounded-2xl shadow-2xl shadow-black/60 p-5">
-                  <div className="grid grid-cols-2 gap-0">
-                    <div className="pr-5">
-                      <p className="text-white/28 font-semibold text-[10px] uppercase tracking-widest mb-3 px-2">Products</p>
-                      {PRODUCT_DATA.slice(0, 4).map(p => (
-                        <Link key={p.id} href={p.path} onClick={() => setProductsOpen(false)}>
-                          <div className="flex items-center gap-3 px-2 py-2.5 rounded-xl hover:bg-white/6 transition-colors group">
-                            <span className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0" style={{ color: p.color, backgroundColor: `${p.color}18` }}>
-                              <p.icon className="w-4 h-4" strokeWidth={1.8} aria-hidden="true" />
-                            </span>
-                            <div>
-                              <p className="text-sm font-semibold text-white/85 group-hover:text-white leading-none mb-0.5">{p.name}</p>
-                              <p className="text-xs text-white/32 leading-none">{p.tagline}</p>
-                            </div>
-                          </div>
-                        </Link>
-                      ))}
-                    </div>
-                    <div className="pl-5 border-l border-white/8">
-                      <p className="text-white/28 font-semibold text-[10px] uppercase tracking-widest mb-3 px-2">More</p>
-                      {PRODUCT_DATA.slice(4, 8).map(p => (
-                        <Link key={p.id} href={p.path} onClick={() => setProductsOpen(false)}>
-                          <div className="flex items-center gap-3 px-2 py-2.5 rounded-xl hover:bg-white/6 transition-colors group">
-                            <span className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0" style={{ color: p.color, backgroundColor: `${p.color}18` }}>
-                              <p.icon className="w-4 h-4" strokeWidth={1.8} aria-hidden="true" />
-                            </span>
-                            <div>
-                              <p className="text-sm font-semibold text-white/85 group-hover:text-white leading-none mb-0.5">{p.name}</p>
-                              <p className="text-xs text-white/32 leading-none">{p.tagline}</p>
-                            </div>
-                          </div>
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
-                  <div className="border-t border-white/8 mt-4 pt-4 flex items-center justify-between">
-                    <Link href="/products" onClick={() => setProductsOpen(false)} className="text-xs font-medium text-white/40 hover:text-white transition-colors">
-                      See all products →
+              <div className="absolute left-1/2 top-10 w-[460px] -translate-x-1/2 rounded-2xl border border-white/10 bg-[#081629]/98 p-3 shadow-2xl shadow-black/35 backdrop-blur-xl" role="menu">
+                <Link href="/products" className="flex items-center justify-between rounded-xl px-3 py-3 text-xs text-[#e6f1ff] hover:bg-white/[.05]">
+                  <span><span className="block font-semibold">All products</span><span className="mt-1 block text-[#6f89a7]">Explore the Afu product ecosystem</span></span>
+                  <ArrowUpRight className="h-4 w-4 text-[#4da8ff]" />
+                </Link>
+                <div className="mt-2 grid grid-cols-2 gap-1 border-t border-white/[.07] pt-2">
+                  {PRODUCT_DATA.map(product => (
+                    <Link key={product.id} href={product.path} role="menuitem" className="rounded-xl px-3 py-3 text-xs text-[#91a8c4] hover:bg-white/[.05] hover:text-white">
+                      <span className="block font-medium text-[#dbeaff]">{product.name}</span>
+                      <span className="mt-1 block text-[10px] text-[#627b98]">{product.category}</span>
                     </Link>
-                    <Link href="/products" onClick={() => setProductsOpen(false)} className="text-xs font-semibold text-white bg-gradient-to-r from-[#1F7AFF] to-[#6C63FF] px-4 py-2 rounded-full hover:opacity-90 transition-opacity">
-                      View all products
-                    </Link>
-                  </div>
+                  ))}
                 </div>
               </div>
             )}
           </div>
 
-          {navLinks.map(link => (
-            <Link key={link.label} href={link.href} className="text-sm font-medium text-white/70 hover:text-white transition-colors">
-              {link.label}
-            </Link>
-          ))}
-        </nav>
+          <Link href="/work" className={`studio-link text-[13px] ${isActive('/work') ? 'text-white' : ''}`}>Work</Link>
 
-        {/* ── Desktop actions ── */}
-        <div className="hidden md:flex items-center gap-3">
-          <GithubStarBadge />
-        </div>
-
-        {/* ── Mobile hamburger ── */}
-        <button
-          className="md:hidden p-2 -mr-2 text-white/70 hover:text-white transition-colors"
-          onClick={() => setIsOpen(!isOpen)}
-          aria-label={isOpen ? 'Close menu' : 'Open menu'}
-          aria-expanded={isOpen}
-        >
-          {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-        </button>
-      </div>
-
-      {/* ── Mobile menu ── */}
-      {isOpen && (
-        <div className="md:hidden absolute top-16 left-0 right-0 bg-[#040c1e]/98 backdrop-blur-2xl shadow-2xl shadow-black/40 max-h-[calc(100dvh-64px)] overflow-y-auto pb-6 border-b border-white/10">
-          <div className="flex flex-col py-2">
-            <button
-              className="flex items-center justify-between px-6 py-4 text-base font-medium text-white/80 hover:text-white hover:bg-white/4 w-full transition-colors"
-              onClick={() => setMobileProductsOpen(v => !v)}
-              aria-expanded={mobileProductsOpen}
-            >
-              Products
-              <ChevronDown className={`w-5 h-5 transition-transform ${mobileProductsOpen ? 'rotate-180' : ''}`} />
+          <div className="relative">
+            <button type="button" aria-expanded={companyOpen} onClick={() => { setCompanyOpen(v => !v); setProductsOpen(false); }} className={`studio-link flex items-center gap-1.5 text-[13px] ${isActive('/about') ? 'text-white' : ''}`}>
+              Company <ChevronDown className={`h-3.5 w-3.5 transition-transform ${companyOpen ? 'rotate-180' : ''}`} />
             </button>
-            {mobileProductsOpen && (
-              <div className="flex flex-col bg-white/5 py-2">
-                {PRODUCT_DATA.map(p => (
-                  <Link key={p.id} href={p.path} className="flex items-center gap-4 px-8 py-3.5 text-sm text-white/60 hover:text-white hover:bg-white/5 transition-colors">
-                    <span className="w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0" style={{ color: p.color, backgroundColor: `${p.color}18` }}>
-                      <p.icon className="w-3.5 h-3.5" strokeWidth={1.8} aria-hidden="true" />
-                    </span>
-                    <span className="font-medium">{p.name}</span>
-                  </Link>
+            {companyOpen && (
+              <div className="absolute left-1/2 top-10 w-56 -translate-x-1/2 rounded-2xl border border-white/10 bg-[#081629]/98 p-2 shadow-2xl shadow-black/35 backdrop-blur-xl" role="menu">
+                {companyLinks.map(link => (
+                  <Link key={link.href} href={link.href} role="menuitem" className="block rounded-xl px-3 py-3 text-xs text-[#91a8c4] hover:bg-white/[.05] hover:text-white">{link.label}</Link>
                 ))}
               </div>
             )}
-            {navLinks.map(link => (
-              <Link key={link.label} href={link.href} className="px-6 py-4 text-base font-medium text-white/80 hover:text-white hover:bg-white/4 transition-colors">
-                {link.label}
-              </Link>
-            ))}
           </div>
-          <div className="flex flex-col gap-3 px-6 pt-2">
-            <GithubStarBadge className="justify-center py-3.5" />
+
+          <Link href="/developers" className={`studio-link text-[13px] ${isActive('/developers') ? 'text-white' : ''}`}>Developers</Link>
+          <Link href="/contact" className={`studio-link text-[13px] ${isActive('/contact') ? 'text-white' : ''}`}>Contact</Link>
+        </div>
+
+        <div className="hidden items-center gap-3 md:flex">
+          <Link href="/contact" className="studio-button studio-button-primary min-h-[38px] px-4 text-xs">Start a project</Link>
+        </div>
+
+        <button type="button" aria-label={open ? 'Close navigation menu' : 'Open navigation menu'} aria-expanded={open} onClick={() => setOpen(v => !v)} className="rounded-lg p-2 text-[#91a8c4] hover:bg-white/[.05] hover:text-white md:hidden">
+          {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+        </button>
+      </nav>
+
+      {open && (
+        <div className="border-t border-white/[.08] bg-[#06101f]/98 px-4 pb-6 pt-2 backdrop-blur-xl md:hidden">
+          <div className="mx-auto flex max-w-[1220px] flex-col">
+            <Link href="/" className="border-b border-white/[.07] py-4 text-sm text-[#e6f1ff]">Home</Link>
+            <button type="button" onClick={() => setProductsOpen(v => !v)} className="flex items-center justify-between border-b border-white/[.07] py-4 text-left text-sm text-[#e6f1ff]">
+              Products <ChevronDown className={`h-4 w-4 ${productsOpen ? 'rotate-180' : ''}`} />
+            </button>
+            {productsOpen && (
+              <div className="grid grid-cols-2 gap-x-4 border-b border-white/[.07] py-2">
+                <Link href="/products" className="py-3 text-sm text-[#dbeaff]">All products</Link>
+                {PRODUCT_DATA.map(product => <Link key={product.id} href={product.path} className="py-3 text-sm text-[#91a8c4]">{product.name}</Link>)}
+              </div>
+            )}
+            <Link href="/work" className="border-b border-white/[.07] py-4 text-sm text-[#91a8c4]">Work</Link>
+            <button type="button" onClick={() => setCompanyOpen(v => !v)} className="flex items-center justify-between border-b border-white/[.07] py-4 text-left text-sm text-[#91a8c4]">
+              Company <ChevronDown className={`h-4 w-4 ${companyOpen ? 'rotate-180' : ''}`} />
+            </button>
+            {companyOpen && <div className="border-b border-white/[.07] pl-3">
+              {companyLinks.map(link => <Link key={link.href} href={link.href} className="block py-3 text-sm text-[#91a8c4]">{link.label}</Link>)}
+            </div>}
+            <Link href="/developers" className="border-b border-white/[.07] py-4 text-sm text-[#91a8c4]">Developers</Link>
+            <Link href="/contact" className="border-b border-white/[.07] py-4 text-sm text-[#91a8c4]">Contact</Link>
+            <Link href="/contact" className="studio-button studio-button-primary mt-5 min-h-[44px] justify-center text-xs">Start a project</Link>
           </div>
         </div>
       )}

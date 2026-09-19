@@ -2,7 +2,6 @@
 
 import { usePathname } from 'next/navigation';
 import Navbar from '@/components/layout/Navbar';
-import CookieConsent from '@/components/layout/CookieConsent';
 
 export default function SiteChrome({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
@@ -15,8 +14,7 @@ export default function SiteChrome({ children }: { children: React.ReactNode }) 
   return (
     <>
       <Navbar />
-      <main className="pt-16">{children}</main>
-      <CookieConsent />
+      <main className="pt-[72px]">{children}</main>
     </>
   );
 }
