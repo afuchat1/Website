@@ -1,6 +1,7 @@
 'use client';
 import Link from 'next/link';
 import { PRODUCT_DATA } from '@/data/products';
+import ProductIcon from '@/components/products/ProductIcon';
 import { TRUSTPILOT_PROFILE_URL, TRUSTPILOT_SUMMARY } from '@/data/trustpilot';
 import { openCookiePreferences } from '@/lib/cookieConsent';
 
@@ -67,9 +68,7 @@ export default function Footer() {
               {PRODUCT_DATA.slice(0, 4).map(p => (
                 <li key={p.id}>
                   <Link href={p.path} className="flex items-center gap-2.5 text-white/38 hover:text-white text-sm transition-colors group">
-                    <span className="w-5 h-5 rounded-md flex items-center justify-center flex-shrink-0" style={{ color: p.color, backgroundColor: `${p.color}18` }}>
-                      <p.icon className="w-3 h-3" strokeWidth={1.8} aria-hidden="true" />
-                    </span>
+                    <ProductIcon product={p} containerClassName="w-6 h-6 rounded-lg" iconClassName="w-3.5 h-3.5" />
                     {p.name}
                   </Link>
                 </li>
@@ -84,9 +83,7 @@ export default function Footer() {
               {PRODUCT_DATA.slice(4, 8).map(p => (
                 <li key={p.id}>
                   <Link href={p.path} className="flex items-center gap-2.5 text-white/38 hover:text-white text-sm transition-colors group">
-                    <span className="w-5 h-5 rounded-md flex items-center justify-center flex-shrink-0" style={{ color: p.color, backgroundColor: `${p.color}18` }}>
-                      <p.icon className="w-3 h-3" strokeWidth={1.8} aria-hidden="true" />
-                    </span>
+                    <ProductIcon product={p} containerClassName="w-6 h-6 rounded-lg" iconClassName="w-3.5 h-3.5" />
                     {p.name}
                   </Link>
                 </li>
