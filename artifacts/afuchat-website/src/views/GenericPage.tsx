@@ -2,6 +2,7 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { PRODUCT_DATA } from '@/data/products';
+import ProductIcon from '@/components/products/ProductIcon';
 import {
   illSecAbout, illSecBrand, illSecCareers, illSecContact,
   illSecEnterprise, illSecHelp, illSecIdentity, illSecLeadership,
@@ -183,12 +184,7 @@ export default function GenericPage({ title, type }: GenericPageProps) {
               <motion.div key={p.id} initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.07 }}>
                 <Link href={p.path}>
                   <div className="flex items-center gap-3 group">
-                    <span
-                      className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0"
-                      style={{ color: p.color, backgroundColor: `${p.color}18` }}
-                    >
-                      <p.icon className="w-[18px] h-[18px]" strokeWidth={1.8} aria-hidden="true" />
-                    </span>
+                    <ProductIcon product={p} containerClassName="w-10 h-10 rounded-xl" iconClassName="w-5 h-5" />
                     <span className="text-sm text-white/50 group-hover:text-white transition-colors">{p.name}</span>
                   </div>
                 </Link>
