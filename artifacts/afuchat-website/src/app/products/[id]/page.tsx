@@ -59,7 +59,7 @@ export default async function ProductPage({ params }: Props) {
     operatingSystem: 'Web, Android, iOS',
     description: product.description,
     url: `${BASE_URL}${product.path}`,
-    image: `${BASE_URL}${product.icon3d}`,
+    image: `${BASE_URL}${product.illustration}`,
     offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
     provider: { '@type': 'Organization', name: 'AfuChat Technologies Limited', url: BASE_URL },
     featureList: product.features,
