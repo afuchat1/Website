@@ -5,25 +5,21 @@ import { PRODUCT_DATA } from '@/data/products';
 const BASE_URL = 'https://afuchat.com';
 
 export const metadata: Metadata = {
-  title: 'All Products, Eight Tools, One Ecosystem',
+  title: 'Products, AfuChat Technologies',
   description:
-    'Explore eight standalone digital products: AfuMail, AfuChat, AfuAI, AfuCloud, AfuMovies, AfuMall, AfuNews, and AfuBlog. Each built to excel independently, better together.',
-  keywords: [
-    'AfuMail', 'AfuChat', 'AfuAI', 'AfuCloud', 'AfuMovies', 'AfuMall', 'AfuNews', 'AfuBlog',
-    'digital products', 'software suite', 'AfuChat products',
-  ],
+    'Explore the products built by AfuChat Technologies: AfuChat, AfuMail, AfuCloud, and Engagera.',
+  keywords: ['AfuChat', 'AfuMail', 'AfuCloud', 'Engagera', 'AfuChat Technologies', 'digital products'],
   alternates: { canonical: `${BASE_URL}/products` },
   openGraph: {
-    title: 'All AfuChat Products, Eight Tools, One Ecosystem',
-    description:
-      'Explore eight standalone digital products. Each built to excel independently, better together.',
+    title: 'Products, AfuChat Technologies',
+    description: 'Communication, email, cloud, and AI products built by AfuChat Technologies.',
     url: `${BASE_URL}/products`,
     images: [
       {
         url: '/illustrations/ill-sec-products.webp',
         width: 1200,
         height: 630,
-        alt: 'AfuChat product suite, eight independent tools',
+        alt: 'AfuChat Technologies products',
       },
     ],
   },
@@ -32,8 +28,8 @@ export const metadata: Metadata = {
 const itemListJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'ItemList',
-  name: 'AfuChat Products',
-  description: 'Eight independent digital products by AfuChat Technologies',
+  name: 'AfuChat Technologies Products',
+  description: 'Products built by AfuChat Technologies',
   numberOfItems: PRODUCT_DATA.length,
   itemListElement: PRODUCT_DATA.map((p, i) => ({
     '@type': 'ListItem',
@@ -48,10 +44,7 @@ const itemListJsonLd = {
 export default function ProductsPage() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListJsonLd) }}
-      />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListJsonLd) }} />
       <ProductsView />
     </>
   );
