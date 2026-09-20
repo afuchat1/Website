@@ -24,7 +24,7 @@ const CATEGORIES: {
     key: 'performance',
     label: 'Performance Cookies',
     description:
-      'Help us understand how visitors use our site — pages viewed, time spent, errors encountered — so we can improve performance and reliability.',
+      'Help us understand how visitors use our site, pages viewed, time spent, errors encountered, so we can improve performance and reliability.',
   },
   {
     key: 'targeting',
