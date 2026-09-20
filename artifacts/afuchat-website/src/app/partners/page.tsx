@@ -4,7 +4,7 @@ import PartnersView from '@/views/Partners';
 const BASE_URL = 'https://afuchat.com';
 
 export const metadata: Metadata = {
-  title: 'Partner Program — AfuChat',
+  title: 'Partner Program, AfuChat',
   description:
     'Join the AfuChat partner program. Technology, reseller, and media partnership tracks for businesses, SaaS tools, MSPs, IT consultancies, and content creators.',
   keywords: [
