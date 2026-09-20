@@ -1,12 +1,12 @@
 'use client';
-import { illSecIdentity, illSecSecurity } from '@/data/illustrations';
+import { illSecIdentity } from '@/data/illustrations';
 import { motion } from 'framer-motion';
 import { Mail, ShieldCheck, LayoutGrid } from 'lucide-react';
 
 const steps = [
-  { icon: Mail,        label: 'A connected ecosystem',   desc: 'AfuMail is part of a growing family of independent AfuChat products.' },
-  { icon: ShieldCheck, label: 'End-to-end encrypted',    desc: 'Zero-knowledge security, even we cannot read your data.' },
-  { icon: LayoutGrid,  label: 'Explore everything',      desc: 'Discover AfuChat, AfuAI, AfuCloud and more, each built for a different need.' },
+  { icon: Mail, label: 'AfuMail identity', desc: 'AfuMail gives the ecosystem a dedicated email product and a foundation for connected Afu services.' },
+  { icon: ShieldCheck, label: 'Built with care', desc: 'We focus on privacy, security, reliability, and clear product experiences from the start.' },
+  { icon: LayoutGrid, label: 'Products with a purpose', desc: 'AfuChat, AfuMail, AfuCloud, and Engagera each solve a different problem while sharing the same company vision.' },
 ];
 
 export default function IdentitySection() {
@@ -14,42 +14,22 @@ export default function IdentitySection() {
     <section className="py-16 sm:py-20 lg:py-28">
       <div className="max-container container-pad">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className="flex justify-center"
-          >
+          <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} className="flex justify-center">
             <img src={illSecIdentity} alt="AfuMail identity" className="w-full max-w-sm drop-shadow-2xl" loading="lazy" decoding="async" />
           </motion.div>
           <div>
-            <motion.p
-              initial={{ opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-blue-400 font-semibold text-[10px] sm:text-xs uppercase tracking-widest mb-4"
-            >
-              Identity
+            <motion.p initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+              className="text-blue-400 font-semibold text-[10px] sm:text-xs uppercase tracking-widest mb-4">
+              What connects our work
             </motion.p>
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.05 }}
-              className="text-3xl sm:text-4xl font-bold text-white mb-5 tracking-tight leading-tight"
-            >
-              One identity.<br />Every product.
+            <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.05 }}
+              className="text-3xl sm:text-4xl font-bold text-white mb-5 tracking-tight leading-tight">
+              Different products.<br />One company.
             </motion.h2>
             <div className="flex flex-col gap-6 mt-8">
               {steps.map((step, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, x: 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.1 }}
-                  className="flex items-start gap-4"
-                >
+                <motion.div key={i} initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}
+                  className="flex items-start gap-4">
                   <div className="w-10 h-10 rounded-xl bg-blue-500/15 flex items-center justify-center flex-shrink-0">
                     <step.icon className="w-5 h-5 text-blue-400" />
                   </div>
