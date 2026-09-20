@@ -4,7 +4,7 @@ import GenericPageView from '@/views/GenericPage';
 const BASE_URL = 'https://afuchat.com';
 
 export const metadata: Metadata = {
-  title: 'Help Center — AfuChat',
+  title: 'Help Center, AfuChat',
   description:
     'Get help with AfuChat products. Browse documentation, FAQs, and support resources for AfuMail, AfuChat, AfuAI, AfuCloud, AfuMovies, AfuMall, AfuNews, and AfuBlog.',
   keywords: ['AfuChat help', 'support', 'documentation', 'FAQ', 'AfuChat guide', 'customer support'],
@@ -36,7 +36,7 @@ const faqJsonLd = {
       name: 'Can I use AfuChat products independently?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Yes. Every AfuChat product — AfuMail, AfuChat, AfuAI, AfuCloud, AfuMovies, AfuMall, AfuNews, and AfuBlog — is designed to work perfectly on its own.',
+        text: 'Yes. Every AfuChat product, AfuMail, AfuChat, AfuAI, AfuCloud, AfuMovies, AfuMall, AfuNews, and AfuBlog, is designed to work perfectly on its own.',
       },
     },
     {
