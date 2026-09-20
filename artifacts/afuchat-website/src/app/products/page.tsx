@@ -5,7 +5,7 @@ import { PRODUCT_DATA } from '@/data/products';
 const BASE_URL = 'https://afuchat.com';
 
 export const metadata: Metadata = {
-  title: 'All Products — Eight Tools, One Ecosystem',
+  title: 'All Products, Eight Tools, One Ecosystem',
   description:
     'Explore eight standalone digital products: AfuMail, AfuChat, AfuAI, AfuCloud, AfuMovies, AfuMall, AfuNews, and AfuBlog. Each built to excel independently, better together.',
   keywords: [
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: `${BASE_URL}/products` },
   openGraph: {
-    title: 'All AfuChat Products — Eight Tools, One Ecosystem',
+    title: 'All AfuChat Products, Eight Tools, One Ecosystem',
     description:
       'Explore eight standalone digital products. Each built to excel independently, better together.',
     url: `${BASE_URL}/products`,
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
         url: '/illustrations/ill-sec-products.webp',
         width: 1200,
         height: 630,
-        alt: 'AfuChat product suite — eight independent tools',
+        alt: 'AfuChat product suite, eight independent tools',
       },
     ],
   },
