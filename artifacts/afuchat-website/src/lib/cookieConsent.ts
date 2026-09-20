@@ -1,7 +1,7 @@
 'use client';
 
 // Cookie consent categories, matching the four-category model most vendors
-// (Cloudflare included) use. "necessary" can't be turned off — everything
+// (Cloudflare included) use. "necessary" can't be turned off, everything
 // else defaults to OFF until the visitor explicitly opts in.
 export type ConsentCategory = 'functional' | 'performance' | 'targeting';
 
