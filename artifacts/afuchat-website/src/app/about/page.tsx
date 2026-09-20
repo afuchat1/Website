@@ -4,12 +4,12 @@ import GenericPageView from '@/views/GenericPage';
 const BASE_URL = 'https://afuchat.com';
 
 export const metadata: Metadata = {
-  title: 'About AfuChat — Who We Are',
+  title: 'About AfuChat, Who We Are',
   description:
     'AfuChat Technologies Limited builds eight independent digital products that empower people everywhere. Learn about our mission, values, and how we build software that respects users.',
   alternates: { canonical: `${BASE_URL}/about` },
   openGraph: {
-    title: 'About AfuChat — Who We Are',
+    title: 'About AfuChat, Who We Are',
     description:
       'AfuChat Technologies builds eight independent digital products. Learn about our mission and values.',
     url: `${BASE_URL}/about`,
