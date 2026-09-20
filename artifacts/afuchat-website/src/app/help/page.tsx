@@ -4,47 +4,39 @@ import GenericPageView from '@/views/GenericPage';
 const BASE_URL = 'https://afuchat.com';
 
 export const metadata: Metadata = {
-  title: 'Help Center, AfuChat',
+  title: 'Help Center, AfuChat Technologies',
   description:
-    'Get help with AfuChat products. Browse documentation, FAQs, and support resources for AfuMail, AfuChat, AfuAI, AfuCloud, AfuMovies, AfuMall, AfuNews, and AfuBlog.',
-  keywords: ['AfuChat help', 'support', 'documentation', 'FAQ', 'AfuChat guide', 'customer support'],
+    'Help and support for AfuChat, AfuMail, AfuCloud, and Engagera.',
+  keywords: ['AfuChat help', 'AfuMail support', 'AfuCloud', 'Engagera', 'support', 'documentation'],
   alternates: { canonical: `${BASE_URL}/help` },
   openGraph: {
-    title: 'AfuChat Help Center',
-    description: 'Documentation, FAQs, and support for all AfuChat products.',
+    title: 'AfuChat Technologies Help Center',
+    description: 'Documentation, support, and useful information about our products.',
     url: `${BASE_URL}/help`,
-    images: [{ url: '/illustrations/ill-sec-help.webp', width: 1200, height: 630, alt: 'AfuChat help center' }],
+    images: [{ url: '/illustrations/ill-sec-help.webp', width: 1200, height: 630, alt: 'AfuChat Technologies help center' }],
   },
 };
 
 const faqJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
-  name: 'AfuChat Help Center',
+  name: 'AfuChat Technologies Help Center',
   url: `${BASE_URL}/help`,
   mainEntity: [
     {
       '@type': 'Question',
-      name: 'How do I get started with AfuChat?',
+      name: 'What products does AfuChat Technologies build?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Explore the AfuChat product showcase to learn about all eight independent products.',
+        text: 'AfuChat Technologies builds AfuChat, AfuMail, AfuCloud, and Engagera.',
       },
     },
     {
       '@type': 'Question',
-      name: 'Can I use AfuChat products independently?',
+      name: 'Can the products be used independently?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Yes. Every AfuChat product, AfuMail, AfuChat, AfuAI, AfuCloud, AfuMovies, AfuMall, AfuNews, and AfuBlog, is designed to work perfectly on its own.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Is AfuChat free?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'AfuChat presents eight independent products, each designed to work on its own.',
+        text: 'Yes. Each product has its own purpose and can be used independently, while the products can also work together as the Afu ecosystem grows.',
       },
     },
   ],
