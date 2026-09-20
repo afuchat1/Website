@@ -3,6 +3,24 @@ import { motion } from 'framer-motion';
 import { illSecEcosystem, illSecContact } from '@/data/illustrations';
 import { ShieldCheck, Target, Rocket, Users } from 'lucide-react';
 import Link from 'next/link';
+
+function openEmailDraft(event: React.FormEvent<HTMLFormElement>) {
+  event.preventDefault();
+  const form = event.currentTarget;
+  if (!form.reportValidity()) return;
+
+  const data = new FormData(form);
+  const company = String(data.get('company') || '').trim();
+  const email = String(data.get('email') || '').trim();
+  const need = String(data.get('need') || '').trim();
+  const message = String(data.get('message') || '').trim();
+
+  const subject = `Partnership Inquiry — ${company}`;
+  const body = `Hello AfuChat Technologies Team,\n\nI am reaching out to explore a partnership opportunity with AfuChat Technologies.\n\nPARTNERSHIP DETAILS\nCompany / Organization: ${company}\nContact email: ${email}\nPartnership area: ${need}\n\nPROJECT / PARTNERSHIP OVERVIEW\n${message}\n\nI would be happy to provide any additional information needed and discuss the opportunity further.\n\nKind regards,\n${company}\n${email}`;
+
+  window.location.href = `mailto:hello@afuchat.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+}
+
 import Footer from '@/components/layout/Footer';
 
 export default function Partners() {
@@ -75,17 +93,17 @@ export default function Partners() {
           <div>
             <h2 className="text-[28px] leading-[1.2] sm:text-3xl font-bold text-white mb-4 tracking-tight">Ready to work together?</h2>
             <p className="text-white/55 text-base mb-8 leading-relaxed">Tell us about your organization, product, or project. We will look at the problem and find a practical way to work together.</p>
-            <form className="flex flex-col gap-4">
-              <input type="text" placeholder="Company name" className="bg-black/20 border border-white/10 rounded-2xl px-4 py-3 text-white placeholder-white/30 focus:outline-none focus:border-[#F59E0B]" />
-              <input type="email" placeholder="Work email" className="bg-black/20 border border-white/10 rounded-2xl px-4 py-3 text-white placeholder-white/30 focus:outline-none focus:border-[#F59E0B]" />
-              <select defaultValue="" style={{ colorScheme: 'dark' }} className="bg-black/20 border border-white/10 rounded-2xl px-4 py-3 text-white focus:outline-none focus:border-[#F59E0B] appearance-none">
+            <form className="flex flex-col gap-4" onSubmit={openEmailDraft}>
+              <input name="company" type="text" placeholder="Company name" required autoComplete="organization" className="bg-black/20 border border-white/10 rounded-2xl px-4 py-3 text-white placeholder-white/30 focus:outline-none focus:border-[#F59E0B]" />
+              <input name="email" type="email" placeholder="Work email" required autoComplete="email" className="bg-black/20 border border-white/10 rounded-2xl px-4 py-3 text-white placeholder-white/30 focus:outline-none focus:border-[#F59E0B]" />
+              <select name="need" defaultValue="" required style={{ colorScheme: 'dark' }} className="bg-black/20 border border-white/10 rounded-2xl px-4 py-3 text-white focus:outline-none focus:border-[#F59E0B] appearance-none">
                 <option value="" disabled>What do you need?</option>
                 <option value="integration">Product integration</option>
                 <option value="project">Website or application</option>
                 <option value="product">Product partnership</option>
               </select>
-              <textarea placeholder="Tell us what you are building" rows={4} className="bg-black/20 border border-white/10 rounded-2xl px-4 py-3 text-white placeholder-white/30 focus:outline-none focus:border-[#F59E0B] resize-none"></textarea>
-              <button type="button" className="px-6 py-3.5 bg-[#F59E0B] text-white font-bold rounded-full hover:bg-[#D97706] transition-colors mt-2">Submit Application</button>
+              <textarea name="message" placeholder="Tell us what you are building" required rows={4} className="bg-black/20 border border-white/10 rounded-2xl px-4 py-3 text-white placeholder-white/30 focus:outline-none focus:border-[#F59E0B] resize-none"></textarea>
+              <button type="submit" className="px-6 py-3.5 bg-[#F59E0B] text-white font-bold rounded-full hover:bg-[#D97706] transition-colors mt-2">Submit Application</button>
             </form>
           </div>
           <div className="hidden lg:flex justify-center">
