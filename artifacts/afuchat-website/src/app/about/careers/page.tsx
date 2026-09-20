@@ -4,7 +4,7 @@ import GenericPageView from '@/views/GenericPage';
 const BASE_URL = 'https://afuchat.com';
 
 export const metadata: Metadata = {
-  title: 'Careers — Join AfuChat',
+  title: 'Careers, Join AfuChat',
   description:
     'Join AfuChat Technologies Limited and help build independent digital products used by people around the world. Explore open roles in engineering, design, and product.',
   alternates: { canonical: `${BASE_URL}/about/careers` },
