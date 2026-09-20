@@ -26,7 +26,7 @@ export default function Developers() {
               Build for millions.<br />Ship in hours.
             </h1>
             <p className="text-white/55 text-base sm:text-lg leading-relaxed mb-8 max-w-md">
-              The AfuChat developer platform gives you flexible APIs to build on top of our standalone services — whether you need cloud storage, real-time messaging, or AI processing.
+              The AfuChat developer platform gives you flexible APIs to build on top of our standalone services, whether you need cloud storage, real-time messaging, or AI processing.
             </p>
             <div className="flex flex-col sm:flex-row gap-3">
               <a href="https://developers.afuchat.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center px-7 py-3.5 bg-gradient-to-r from-green-500 to-teal-500 text-white font-bold text-sm rounded-full hover:opacity-90 transition-opacity">
