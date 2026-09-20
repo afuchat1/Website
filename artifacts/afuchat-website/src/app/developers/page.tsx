@@ -4,7 +4,7 @@ import DevelopersView from '@/views/Developers';
 const BASE_URL = 'https://afuchat.com';
 
 export const metadata: Metadata = {
-  title: 'Developer Platform — Build on AfuChat',
+  title: 'Developer Platform, Build on AfuChat',
   description:
     'AfuChat developer platform: REST API, GraphQL, WebSockets, SDKs for React, Node.js, Python, iOS, and Android. AfuMail SSO, webhooks, and real-time event streaming.',
   keywords: [
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: `${BASE_URL}/developers` },
   openGraph: {
-    title: 'AfuChat Developer Platform — Build in Hours, Not Weeks',
+    title: 'AfuChat Developer Platform, Build in Hours, Not Weeks',
     description: 'REST API, GraphQL, WebSockets, SDKs for every major platform. Real-time events and AfuMail SSO.',
     url: `${BASE_URL}/developers`,
     images: [
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
         url: '/illustrations/ill-sec-developer.webp',
         width: 1200,
         height: 630,
-        alt: 'AfuChat developer platform — APIs and SDKs',
+        alt: 'AfuChat developer platform, APIs and SDKs',
       },
     ],
   },
