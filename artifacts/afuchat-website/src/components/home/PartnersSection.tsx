@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 const partners = [
   { name: 'Sabula Shoe Spot', image: '/assets/partners/sabula-shoe-spot.webp' },
   { name: 'Mindset Radio', image: '/assets/partners/mindset-radio.webp' },
+  { name: 'AJS Digital Services', image: 'https://www.ajsdigitalservices.com/assets/ajs-logo-DQ_jrscg.jpeg' },
 ];
 
 function removeWhiteBackground(source: string) {
