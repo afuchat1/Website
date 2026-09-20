@@ -7,14 +7,14 @@ const BASE_URL = 'https://afuchat.com';
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
   title: {
-    default: 'AfuChat, Powerful tools. Standalone brilliance.',
-    template: '%s | AfuChat',
+    default: 'AfuChat Technologies, Building useful digital products',
+    template: '%s | AfuChat Technologies',
   },
   description:
-    'AfuChat Technologies builds eight independent digital products, AfuMail, AfuChat, AfuAI, AfuCloud, AfuMovies, AfuMall, AfuNews, and AfuBlog. Use one, use them all.',
+    'AfuChat Technologies builds products across communication, email, cloud, and AI, while helping businesses and organizations turn useful ideas into working digital experiences.',
   keywords: [
-    'AfuChat', 'AfuMail', 'AfuAI', 'AfuCloud', 'AfuMovies', 'AfuMall', 'AfuNews', 'AfuBlog',
-    'messaging', 'cloud storage', 'AI assistant', 'email', 'streaming', 'shopping',
+    'AfuChat', 'AfuMail', 'AfuCloud', 'Engagera', 'AfuChat Technologies',
+    'web development', 'mobile applications', 'AI', 'digital products',
   ],
   authors: [{ name: 'AfuChat Technologies Limited', url: BASE_URL }],
   creator: 'AfuChat Technologies Limited',
@@ -34,27 +34,17 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: BASE_URL,
-    siteName: 'AfuChat',
-    title: 'AfuChat, Powerful tools. Standalone brilliance.',
-    description:
-      'Eight independent digital products that work perfectly apart and even better together.',
-    images: [
-      {
-        url: '/assets/afuchat_logo_transparent.png',
-        width: 1200,
-        height: 630,
-        alt: 'AfuChat, Independent tools for everyone',
-        type: 'image/png',
-      },
-    ],
+    siteName: 'AfuChat Technologies',
+    title: 'AfuChat Technologies, Building useful digital products',
+    description: 'We build our own products and help organizations turn useful ideas into working digital experiences.',
+    images: [{ url: '/assets/afuchat_logo_transparent.png', width: 1200, height: 630, alt: 'AfuChat Technologies' }],
   },
   twitter: {
     card: 'summary_large_image',
     site: '@afuchat',
     creator: '@afuchat',
-    title: 'AfuChat, Powerful tools. Standalone brilliance.',
-    description:
-      'Eight independent digital products that work perfectly apart and even better together.',
+    title: 'AfuChat Technologies, Building useful digital products',
+    description: 'Products and digital solutions built by AfuChat Technologies.',
     images: ['/assets/afuchat_logo_transparent.png'],
   },
   icons: {
@@ -71,52 +61,25 @@ const orgJsonLd = {
   '@type': 'Organization',
   name: 'AfuChat Technologies Limited',
   url: BASE_URL,
-  logo: {
-    '@type': 'ImageObject',
-    url: `${BASE_URL}/assets/afuchat_logo_transparent.png`,
-    width: 512,
-    height: 512,
-  },
-  sameAs: [
-    'https://github.com/afuchat1/Website',
-    'https://uk.trustpilot.com/review/afuchat.com',
-  ],
-  contactPoint: {
-    '@type': 'ContactPoint',
-    contactType: 'customer support',
-    url: `${BASE_URL}/contact`,
-  },
+  logo: { '@type': 'ImageObject', url: `${BASE_URL}/assets/afuchat_logo_transparent.png`, width: 512, height: 512 },
+  sameAs: ['https://github.com/afuchat1/Website', 'https://uk.trustpilot.com/review/afuchat.com'],
+  contactPoint: { '@type': 'ContactPoint', contactType: 'customer support', url: `${BASE_URL}/contact` },
 };
 
 const websiteJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
-  name: 'AfuChat',
+  name: 'AfuChat Technologies',
   url: BASE_URL,
-  description:
-    'Eight independent digital products: AfuMail, AfuChat, AfuAI, AfuCloud, AfuMovies, AfuMall, AfuNews, and AfuBlog.',
-  potentialAction: {
-    '@type': 'SearchAction',
-    target: { '@type': 'EntryPoint', urlTemplate: `${BASE_URL}/products/{search_term_string}` },
-    'query-input': 'required name=search_term_string',
-  },
+  description: 'AfuChat Technologies builds products across communication, email, cloud, and AI.',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning style={{ background: '#040c1e' }}>
       <body suppressHydrationWarning>
-        {/* JSON-LD structured data, intentionally in <body> so that
-            Replit's devtools <script> injection into <head> cannot cause
-            a hydration mismatch. JSON-LD is valid anywhere in the document. */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
-        />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }} />
         <SiteChrome>{children}</SiteChrome>
       </body>
     </html>
