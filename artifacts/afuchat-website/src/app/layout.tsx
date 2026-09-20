@@ -7,11 +7,11 @@ const BASE_URL = 'https://afuchat.com';
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
   title: {
-    default: 'AfuChat — Powerful tools. Standalone brilliance.',
+    default: 'AfuChat, Powerful tools. Standalone brilliance.',
     template: '%s | AfuChat',
   },
   description:
-    'AfuChat Technologies builds eight independent digital products — AfuMail, AfuChat, AfuAI, AfuCloud, AfuMovies, AfuMall, AfuNews, and AfuBlog. Use one, use them all.',
+    'AfuChat Technologies builds eight independent digital products, AfuMail, AfuChat, AfuAI, AfuCloud, AfuMovies, AfuMall, AfuNews, and AfuBlog. Use one, use them all.',
   keywords: [
     'AfuChat', 'AfuMail', 'AfuAI', 'AfuCloud', 'AfuMovies', 'AfuMall', 'AfuNews', 'AfuBlog',
     'messaging', 'cloud storage', 'AI assistant', 'email', 'streaming', 'shopping',
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: BASE_URL,
     siteName: 'AfuChat',
-    title: 'AfuChat — Powerful tools. Standalone brilliance.',
+    title: 'AfuChat, Powerful tools. Standalone brilliance.',
     description:
       'Eight independent digital products that work perfectly apart and even better together.',
     images: [
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
         url: '/assets/afuchat_logo_transparent.png',
         width: 1200,
         height: 630,
-        alt: 'AfuChat — Independent tools for everyone',
+        alt: 'AfuChat, Independent tools for everyone',
         type: 'image/png',
       },
     ],
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     site: '@afuchat',
     creator: '@afuchat',
-    title: 'AfuChat — Powerful tools. Standalone brilliance.',
+    title: 'AfuChat, Powerful tools. Standalone brilliance.',
     description:
       'Eight independent digital products that work perfectly apart and even better together.',
     images: ['/assets/afuchat_logo_transparent.png'],
@@ -106,7 +106,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" suppressHydrationWarning style={{ background: '#040c1e' }}>
       <body suppressHydrationWarning>
-        {/* JSON-LD structured data — intentionally in <body> so that
+        {/* JSON-LD structured data, intentionally in <body> so that
             Replit's devtools <script> injection into <head> cannot cause
             a hydration mismatch. JSON-LD is valid anywhere in the document. */}
         <script
