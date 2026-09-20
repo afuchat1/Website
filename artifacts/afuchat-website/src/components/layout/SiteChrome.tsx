@@ -6,12 +6,6 @@ import CookieConsent from '@/components/layout/CookieConsent';
 
 export default function SiteChrome({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
-  const isMovies = pathname === '/products/afumovies';
-
-  if (isMovies) {
-    return <main>{children}</main>;
-  }
-
   return (
     <>
       <Navbar />
