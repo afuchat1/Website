@@ -4,7 +4,7 @@ import GenericPageView from '@/views/GenericPage';
 const BASE_URL = 'https://afuchat.com';
 
 export const metadata: Metadata = {
-  title: 'Contact — AfuChat',
+  title: 'Contact, AfuChat',
   description:
     "Get in touch with the AfuChat team. We're here to help with product questions, partnerships, press inquiries, and enterprise sales.",
   alternates: { canonical: `${BASE_URL}/contact` },
