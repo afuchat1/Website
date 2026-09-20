@@ -31,7 +31,7 @@ export default function HeroSection() {
               transition={{ delay: 0.1 }}
               className="text-base sm:text-lg text-white/55 mb-6 sm:mb-8 max-w-md leading-relaxed"
             >
-              Whether you need blazingly fast chat, secure cloud storage, or an intelligent assistant — pick what you need. They work perfectly apart, and even better together.
+              Whether you need blazingly fast chat, secure cloud storage, or an intelligent assistant, pick what you need. They work perfectly apart, and even better together.
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 16 }}
