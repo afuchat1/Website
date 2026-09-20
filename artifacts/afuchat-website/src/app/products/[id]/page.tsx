@@ -20,12 +20,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!product) return { title: 'Product Not Found' };
 
   return {
-    title: `${product.name} — ${product.tagline}`,
+    title: `${product.name}, ${product.tagline}`,
     description: `${product.description} Features: ${product.features.join(', ')}.`,
     keywords: [product.name, product.category, 'AfuChat', ...product.features],
     alternates: { canonical: `${BASE_URL}${product.path}` },
     openGraph: {
-      title: `${product.name} — ${product.tagline} | AfuChat`,
+      title: `${product.name}, ${product.tagline} | AfuChat`,
       description: product.description,
       url: `${BASE_URL}${product.path}`,
       images: [
@@ -33,13 +33,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
           url: product.illustration,
           width: 1200,
           height: 630,
-          alt: `${product.name} by AfuChat — ${product.tagline}`,
+          alt: `${product.name} by AfuChat, ${product.tagline}`,
         },
       ],
     },
     twitter: {
       card: 'summary_large_image',
-      title: `${product.name} — ${product.tagline}`,
+      title: `${product.name}, ${product.tagline}`,
       description: product.description,
       images: [product.illustration],
     },
