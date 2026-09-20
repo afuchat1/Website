@@ -5,12 +5,12 @@ import { TRUSTPILOT_SUMMARY, TRUSTPILOT_REVIEWS } from '@/data/trustpilot';
 const BASE_URL = 'https://afuchat.com';
 
 export const metadata: Metadata = {
-  title: 'Reviews — Loved by Real Users',
+  title: 'Reviews, Loved by Real Users',
   description: `AfuChat has a ${TRUSTPILOT_SUMMARY.rating} star rating on Trustpilot from ${TRUSTPILOT_SUMMARY.reviewCount} verified reviews. See what real users say about AfuMail, AfuChat, AfuAI, AfuCloud, and more.`,
   keywords: ['AfuChat reviews', 'AfuChat Trustpilot', 'AfuChat rating', 'user reviews'],
   alternates: { canonical: `${BASE_URL}/reviews` },
   openGraph: {
-    title: `AfuChat Reviews — ${TRUSTPILOT_SUMMARY.rating} Stars on Trustpilot`,
+    title: `AfuChat Reviews, ${TRUSTPILOT_SUMMARY.rating} Stars on Trustpilot`,
     description: `${TRUSTPILOT_SUMMARY.reviewCount} verified reviews. Real users share their experiences with AfuChat products.`,
     url: `${BASE_URL}/reviews`,
     images: [{ url: '/assets/trustpilot_logo.png', width: 1200, height: 630, alt: 'AfuChat Trustpilot reviews' }],
