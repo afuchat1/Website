@@ -42,10 +42,10 @@ export default function FeaturesSection() {
               transition={{ delay: 0.1 }}
               className="text-white/50 text-base leading-relaxed mb-10 max-w-md"
             >
-              Security, speed, and intelligence aren&apos;t add-ons at AfuChat — they&apos;re the foundation every product is built on.
+              Security, speed, and intelligence aren&apos;t add-ons at AfuChat, they&apos;re the foundation every product is built on.
             </motion.p>
 
-            {/* Flat grid — no cards, no borders */}
+            {/* Flat grid, no cards, no borders */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-7">
               {features.map((f, i) => (
                 <motion.div
