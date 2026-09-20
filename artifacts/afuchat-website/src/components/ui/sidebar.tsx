@@ -606,7 +606,7 @@ function SidebarMenuSkeleton({
 }: React.ComponentProps<'div'> & {
   showIcon?: boolean;
 }) {
-  // Fixed width — Math.random() in useMemo causes a server/client hydration
+  // Fixed width, Math.random() in useMemo causes a server/client hydration
   // mismatch because the value differs between SSR and client renders.
   const width = '60%';
 
