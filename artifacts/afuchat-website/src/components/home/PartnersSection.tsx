@@ -1,8 +1,22 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { useState } from 'react';
+
+const partners = [
+  {
+    name: 'Sabula Shoe Spot',
+    image: '/assets/partners/sabula-shoe-spot.webp',
+  },
+  {
+    name: 'Mindset Radio',
+    image: '/assets/partners/mindset-radio.webp',
+  },
+];
 
 export default function PartnersSection() {
+  const [activePartner, setActivePartner] = useState<number | null>(null);
+
   return (
     <section className="py-14 sm:py-18 lg:py-22">
       <div className="max-container container-pad">
@@ -28,17 +42,33 @@ export default function PartnersSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.08 }}
-          className="flex justify-center"
+          className="flex flex-wrap items-center justify-center gap-8 sm:gap-12 lg:gap-16"
         >
-          <div className="w-full max-w-5xl flex justify-center">
-            <img
-              src="/assets/partners/partner-brands.png"
-              alt="AfuChat Technologies partners"
-              className="w-full max-w-4xl h-auto object-contain"
-              loading="lazy"
-              decoding="async"
-            />
-          </div>
+          {partners.map((partner, index) => {
+            const isActive = activePartner === index;
+
+            return (
+              <button
+                key={partner.name}
+                type="button"
+                aria-label={"Select " + partner.name}
+                aria-pressed={isActive}
+                onClick={() => setActivePartner(index)}
+                className="flex items-center justify-center rounded-xl p-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
+              >
+                <img
+                  src={partner.image}
+                  alt={partner.name}
+                  loading="lazy"
+                  decoding="async"
+                  className={[
+                    'h-28 w-28 sm:h-36 sm:w-36 lg:h-40 lg:w-40 object-contain transition-[filter,opacity] duration-300',
+                    isActive ? 'grayscale-0 opacity-100' : 'grayscale opacity-60',
+                  ].join(' ')}
+                />
+              </button>
+            );
+          })}
         </motion.div>
       </div>
     </section>
