@@ -3,15 +3,15 @@
 
 /* ── Sky-blue palette from the AfuChat brand image ── */
 @theme inline {
-  --color-background: #A8D4F0;
-  --color-surface: rgba(255,255,255,0.70);
-  --color-border: rgba(255,255,255,0.45);
-  --color-border-strong: rgba(255,255,255,0.65);
+  --color-background: #040c1e;
+  --color-surface: rgba(255,255,255,0.06);
+  --color-border: rgba(255,255,255,0.10);
+  --color-border-strong: rgba(255,255,255,0.18);
   --color-primary: #1F95FF;
   --color-primary-dark: #0F7AE0;
   --color-secondary: #6C63FF;
-  --color-text: #0F172A;
-  --color-text-secondary: #2D5A7A;
+  --color-text: #F8FAFC;
+  --color-text-secondary: #A8B6CC;
   --font-sans: 'Inter', sans-serif;
 }
 
@@ -20,13 +20,14 @@
 
   html {
     background: #040c1e;
+    color-scheme: dark;
     min-height: 100%;
   }
 
   body {
     font-family: var(--font-sans);
-    background: transparent;
-    color: #0F172A;
+    background: #040c1e;
+    color: #F8FAFC;
     -webkit-font-smoothing: antialiased;
     min-height: 100vh;
   }
@@ -64,4 +65,59 @@
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
   }
+}
+
+
+/* Follow the visitor's operating-system theme automatically. */
+@media (prefers-color-scheme: light) {
+  :root {
+    color-scheme: light;
+    --color-background: #FFFFFF;
+    --color-surface: #F8FAFC;
+    --color-border: #CBD5E1;
+    --color-border-strong: #94A3B8;
+    --color-text: #0F172A;
+    --color-text-secondary: #475569;
+  }
+
+  html,
+  body {
+    background: #FFFFFF !important;
+    color: #0F172A !important;
+  }
+
+  [class~="text-white"] { color: #0F172A !important; }
+  [class*="text-white/"] { color: #475569 !important; }
+  [class*="bg-white/"] { background-color: #F8FAFC !important; }
+  [class*="bg-black/"] { background-color: #F1F5F9 !important; }
+  [class*="border-white/"] { border-color: #CBD5E1 !important; }
+  [class*="border-[#040c1e]"] { border-color: #FFFFFF !important; }
+  [class*="bg-[#040c1e]"] { background-color: rgba(255,255,255,0.96) !important; }
+  [class*="bg-[#050d1f]"] { background-color: rgba(255,255,255,0.98) !important; }
+
+  [class*="from-[#040c1e]"] {
+    --tw-gradient-from: #FFFFFF !important;
+    --tw-gradient-to: rgb(255 255 255 / 0) !important;
+  }
+
+  input, textarea, select {
+    color: #0F172A !important;
+    background-color: #FFFFFF !important;
+    border-color: #CBD5E1 !important;
+  }
+
+  input::placeholder, textarea::placeholder {
+    color: #64748B !important;
+    opacity: 1 !important;
+  }
+
+  select { color-scheme: light !important; }
+
+  [class*="shadow-black/"] {
+    --tw-shadow-color: rgb(15 23 42 / 0.12) !important;
+  }
+
+  [class*="hover:text-white"]:hover { color: #0F172A !important; }
+  [class*="hover:bg-white/"]:hover { background-color: #E2E8F0 !important; }
+  [class*="hover:border-white/"]:hover { border-color: #94A3B8 !important; }
 }
