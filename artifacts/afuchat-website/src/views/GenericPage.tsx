@@ -53,7 +53,7 @@ const PAGE_CONTENT: Record<string, {
     accent: '#8B5CF6', illustration: illSecIdentity,
     sections: [
       { heading: 'Your digital identity', body: 'AfuMail is more than email, it is a portable identity layer that connects you to every AfuChat product without a separate account for each one.' },
-      { heading: 'How it works', body: 'Sign in once with your AfuMail address and access AfuCloud, AfuChat, AfuAI, and more, all without re-entering credentials. Your identity stays yours, and you control exactly which products can access it.' },
+      { heading: 'How it works', body: 'Sign in once with your AfuMail address and access AfuCloud, AfuChat, Engagera, and more, all without re-entering credentials. Your identity stays yours, and you control exactly which products can access it.' },
       { heading: 'Privacy by design', body: 'We do not sell identity data. Information shared with AfuChat products is protected with privacy-first principles and clear controls.' },
     ],
   },
