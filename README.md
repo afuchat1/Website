@@ -185,11 +185,6 @@ The design direction emphasizes:
 
 The company identity and individual product identities should remain visually distinct.
 
-## Repository history
-
-The current `main` branch is intentionally aligned with commit:
-
-`c66c86de3d40d10179204858604e461cb3999994`
 
 This commit represents the current baseline of the website.
 
