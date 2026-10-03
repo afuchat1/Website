@@ -8,7 +8,7 @@ export default function CtaSection() {
     <section className="py-16 sm:py-20 lg:py-28">
       <div className="max-container container-pad">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-          <motion.div initial={{ opacity: 1, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+          <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
             <p className="text-blue-400 font-semibold text-[10px] sm:text-xs uppercase tracking-widest mb-4">Explore the ecosystem</p>
             <h2 className="text-3xl sm:text-4xl font-bold text-white mb-5 tracking-tight leading-tight">
               Everything you need.<br />Nothing you don&apos;t.
@@ -23,7 +23,7 @@ export default function CtaSection() {
             </div>
           </motion.div>
           <motion.div
-            initial={{ opacity: 1, scale: 0.95 }}
+            initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}

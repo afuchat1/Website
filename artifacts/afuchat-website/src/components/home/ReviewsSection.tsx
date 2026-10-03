@@ -51,7 +51,7 @@ export default function ReviewsSection() {
         <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
           <div>
             <motion.p
-              initial={{ opacity: 1, y: 12 }}
+              initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               className="text-white/35 font-semibold text-[10px] sm:text-xs uppercase tracking-widest mb-3"
@@ -59,7 +59,7 @@ export default function ReviewsSection() {
               Reviews
             </motion.p>
             <motion.h2
-              initial={{ opacity: 1, y: 16 }}
+              initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.05 }}
@@ -69,7 +69,7 @@ export default function ReviewsSection() {
             </motion.h2>
           </div>
           <motion.a
-            initial={{ opacity: 1 }}
+            initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             href={TRUSTPILOT_PROFILE_URL}

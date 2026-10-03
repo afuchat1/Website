@@ -68,7 +68,7 @@
 }
 
 
-/* Keep the light-page palette and text contrast consistent on every device. */
+/* Use light mode by default, with readable foreground colors on white surfaces. */
   :root {
     color-scheme: light;
     --color-background: #FFFFFF;
@@ -119,3 +119,57 @@
   [class*="hover:text-white"]:hover { color: #0F172A !important; }
   [class*="hover:bg-white/"]:hover { background-color: #E2E8F0 !important; }
   [class*="hover:border-white/"]:hover { border-color: #94A3B8 !important; }
+
+/* Restore the dark palette when the operating system requests dark mode. */
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --color-background: #040C1E;
+    --color-surface: #0B1730;
+    --color-border: #334155;
+    --color-border-strong: #475569;
+    --color-text: #F8FAFC;
+    --color-text-secondary: #CBD5E1;
+  }
+
+  html,
+  body {
+    background: #040C1E !important;
+    color: #F8FAFC !important;
+  }
+
+  [class~="text-white"] { color: #F8FAFC !important; }
+  [class*="text-white/"] { color: #CBD5E1 !important; }
+  [class*="bg-white/"] { background-color: rgba(255, 255, 255, 0.05) !important; }
+  [class*="bg-black/"] { background-color: rgba(0, 0, 0, 0.2) !important; }
+  [class*="border-white/"] { border-color: rgba(255, 255, 255, 0.12) !important; }
+  [class*="border-[#040c1e]"] { border-color: #1E293B !important; }
+  [class*="bg-[#040c1e]"] { background-color: #040C1E !important; }
+  [class*="bg-[#050d1f]"] { background-color: #050D1F !important; }
+
+  [class*="from-[#040c1e]"] {
+    --tw-gradient-from: #040C1E !important;
+    --tw-gradient-to: rgb(4 12 30 / 0) !important;
+  }
+
+  input, textarea, select {
+    color: #F8FAFC !important;
+    background-color: #0B1730 !important;
+    border-color: #334155 !important;
+  }
+
+  input::placeholder, textarea::placeholder {
+    color: #94A3B8 !important;
+    opacity: 1 !important;
+  }
+
+  select { color-scheme: dark !important; }
+
+  [class*="shadow-black/"] {
+    --tw-shadow-color: rgb(0 0 0 / 0.4) !important;
+  }
+
+  [class*="hover:text-white"]:hover { color: #FFFFFF !important; }
+  [class*="hover:bg-white/"]:hover { background-color: rgba(255, 255, 255, 0.1) !important; }
+  [class*="hover:border-white/"]:hover { border-color: rgba(255, 255, 255, 0.25) !important; }
+}
