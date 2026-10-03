@@ -9,6 +9,7 @@ const LOGO_SRC         = '/assets/afuchat_logo_transparent.png';
 const TRUSTPILOT_LOGO  = '/assets/trustpilot_logo.png';
 const GOOGLE_PLAY_BADGE = '/assets/google_play_badge.png';
 const AFUCHAT_PLAY_URL = 'https://play.google.com/store/apps/details?id=com.afuchat.mobile';
+const AFUCLOUD_URL = 'https://cloud.afuchat.com';
 
 function StoreButtons() {
   return (
@@ -73,6 +74,11 @@ export default function Footer() {
                   </Link>
                 </li>
               ))}
+              <li>
+                <a href={AFUCLOUD_URL} target="_blank" rel="noopener noreferrer" className="ml-8 text-xs text-white/35 hover:text-white transition-colors">
+                  Open AfuCloud ↗
+                </a>
+              </li>
             </ul>
           </div>
 

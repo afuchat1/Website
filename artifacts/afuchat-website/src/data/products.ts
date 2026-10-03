@@ -53,10 +53,10 @@ export const PRODUCT_DATA: ProductData[] = [
   {
     id: "afucloud",
     name: "AfuCloud",
-    tagline: "Your files, part of your ecosystem.",
+    tagline: "Image storage API for developers.",
     category: "Cloud",
-    description: "Cloud storage and media infrastructure built to make files and digital content easier to store, access, and use across Afu products.",
-    features: ["Cloud storage", "Media handling", "Afu ecosystem"],
+    description: "AfuCloud is an image storage API for developers to upload, organize, and deliver images, store files in object storage, and connect custom domains. Start free.",
+    features: ["Image delivery API", "Object storage", "Custom domains"],
     color: "#0EA5E9",
     bgColor: "#E0F2FE",
     path: "/products/afucloud",

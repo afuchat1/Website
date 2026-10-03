@@ -1,11 +1,16 @@
 'use client';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import { ArrowUpRight } from 'lucide-react';
 import { PRODUCT_DATA } from '@/data/products';
 import ProductIcon from '@/components/products/ProductIcon';
+import AfuCloudDetails from '@/components/products/AfuCloudDetails';
 import { illSecEcosystem } from '@/data/illustrations';
 import Footer from '@/components/layout/Footer';
 import NotFoundPage from '@/views/not-found';
+
+const AFUCLOUD_URL = 'https://cloud.afuchat.com';
+const AFUCLOUD_QUICKSTART_URL = 'https://cloud.afuchat.com/docs/getting-started/quickstart';
 
 export default function ProductPage({ id }: { id: string }) {
   const product = PRODUCT_DATA.find(p => p.id === id);
@@ -25,10 +30,32 @@ export default function ProductPage({ id }: { id: string }) {
               ) : (
                 <Icon className="hidden sm:block w-8 h-8 mb-6" style={{ color: product.color }} />
               )}
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white mb-1 tracking-tight">{product.name}</h1>
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white mb-1 tracking-tight">
+                {product.id === 'afucloud' ? 'AfuCloud Image Storage API' : product.name}
+              </h1>
               <p className="text-[11px] uppercase tracking-widest font-bold text-white/30 mb-4">{product.category}</p>
               <p className="text-lg sm:text-xl font-semibold mb-4 leading-snug" style={{ color: product.color }}>{product.tagline}</p>
               <p className="text-white/55 text-base sm:text-lg leading-relaxed mb-8 max-w-md">{product.description}</p>
+              {product.id === 'afucloud' && (
+                <div className="flex flex-wrap gap-3 mb-8">
+                  <a
+                    href={AFUCLOUD_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 rounded-full bg-[#0EA5E9] px-5 py-3 text-sm font-bold text-[#03131D] hover:bg-[#38BDF8] transition-colors"
+                  >
+                    Visit AfuCloud <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+                  </a>
+                  <a
+                    href={AFUCLOUD_QUICKSTART_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 rounded-full border border-white/15 px-5 py-3 text-sm font-semibold text-white/80 hover:border-white/30 hover:text-white transition-colors"
+                  >
+                    Read the API quickstart <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+                  </a>
+                </div>
+              )}
               <div className="flex flex-wrap gap-2 mb-8">
                 {product.features.map(f => (
                   <span key={f} className="px-3 py-1.5 rounded-full text-xs font-semibold text-white/70 bg-white/8">{f}</span>
@@ -41,13 +68,17 @@ export default function ProductPage({ id }: { id: string }) {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.1, duration: 0.6 }}
                 src={product.illustration}
-                alt={product.name}
+                alt={product.id === 'afucloud' ? 'AfuCloud image storage and delivery illustration' : `${product.name} product illustration`}
+                width={product.id === 'afucloud' ? 900 : undefined}
+                height={product.id === 'afucloud' ? 900 : undefined}
                 className="w-full max-w-sm drop-shadow-2xl"
               />
             </div>
           </div>
         </motion.div>
       </div>
+
+      {product.id === 'afucloud' && <AfuCloudDetails />}
 
       {/* Other products */}
       <div className="max-container container-pad py-16">

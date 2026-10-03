@@ -17,6 +17,7 @@ const _FL = '/assets/afuchat_logo_transparent.png';
 const _FT = '/assets/trustpilot_logo.png';
 const _FG = '/assets/google_play_badge.png';
 const _AFUCHAT_PLAY_URL = 'https://play.google.com/store/apps/details?id=com.afuchat.mobile';
+const _AFUCLOUD_URL = 'https://cloud.afuchat.com';
 const _FP = PRODUCT_DATA;
 function PageFooter() {
   const yr = new Date().getFullYear();
@@ -38,7 +39,7 @@ function PageFooter() {
           </div>
           <div>
             <h4 className="text-white/50 font-semibold text-xs uppercase tracking-widest mb-5">Products</h4>
-            <ul className="flex flex-col gap-3.5">{_FP.slice(0,4).map(p=><li key={p.id}><Link href={p.path} className="flex items-center gap-2.5 text-white/38 hover:text-white text-sm transition-colors"><ProductIcon product={p} containerClassName="w-6 h-6 rounded-lg" iconClassName="w-3.5 h-3.5" />{p.name}</Link></li>)}</ul>
+            <ul className="flex flex-col gap-3.5">{_FP.slice(0,4).map(p=><li key={p.id}><Link href={p.path} className="flex items-center gap-2.5 text-white/38 hover:text-white text-sm transition-colors"><ProductIcon product={p} containerClassName="w-6 h-6 rounded-lg" iconClassName="w-3.5 h-3.5" />{p.name}</Link></li>)}<li><a href={_AFUCLOUD_URL} target="_blank" rel="noopener noreferrer" className="ml-8 text-white/35 hover:text-white text-xs transition-colors">Open AfuCloud ↗</a></li></ul>
           </div>
           <div>
             <h4 className="text-white/50 font-semibold text-xs uppercase tracking-widest mb-5">More</h4>
