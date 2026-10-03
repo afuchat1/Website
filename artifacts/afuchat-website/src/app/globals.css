@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Satoshi:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
 @import 'tailwindcss';
 
 /* ── Sky-blue palette from the AfuChat brand image ── */
@@ -172,4 +173,67 @@
   [class*="hover:text-white"]:hover { color: #FFFFFF !important; }
   [class*="hover:bg-white/"]:hover { background-color: rgba(255, 255, 255, 0.1) !important; }
   [class*="hover:border-white/"]:hover { border-color: rgba(255, 255, 255, 0.25) !important; }
+}
+
+/* AfuCloud's published palette and typography, scoped to its product page. */
+.afucloud-product-page {
+  --afucloud-background: hsl(35 40% 98%);
+  --afucloud-foreground: hsl(28 25% 15%);
+  --afucloud-muted: hsl(28 15% 45%);
+  --afucloud-green: #07965B;
+  background-color: var(--afucloud-background);
+  color: var(--afucloud-foreground);
+  font-family: "DM Sans", system-ui, -apple-system, sans-serif;
+}
+
+.afucloud-product-page h1,
+.afucloud-product-page h2,
+.afucloud-product-page h3,
+.afucloud-product-page h4,
+.afucloud-product-page h5,
+.afucloud-product-page h6 {
+  color: var(--afucloud-foreground);
+  font-family: "Satoshi", "DM Sans", system-ui, sans-serif;
+}
+
+.afucloud-product-page code {
+  font-family: "JetBrains Mono", "Consolas", monospace;
+}
+
+.afucloud-product-page * {
+  background: transparent !important;
+  background-image: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+.afucloud-product-page *:hover {
+  background: transparent !important;
+  background-image: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.afucloud-product-page [class~="text-white"] {
+  color: var(--afucloud-foreground) !important;
+}
+
+.afucloud-product-page [class*="text-white/"] {
+  color: var(--afucloud-muted) !important;
+}
+
+.afucloud-product-page [class*="hover:text-white"]:hover {
+  color: var(--afucloud-foreground) !important;
+}
+
+.afucloud-product-page .afucloud-primary-cta,
+.afucloud-product-page .afucloud-copy-button {
+  color: var(--afucloud-green) !important;
+}
+
+.afucloud-product-page .afucloud-primary-cta:hover,
+.afucloud-product-page .afucloud-copy-button:hover {
+  color: #08764B !important;
+  text-decoration: underline;
 }
