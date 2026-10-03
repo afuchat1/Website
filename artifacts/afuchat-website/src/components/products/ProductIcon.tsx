@@ -2,7 +2,7 @@ import type { LucideIcon } from 'lucide-react';
 import type { ProductData } from '@/data/products';
 
 type ProductIconProps = {
-  product: Pick<ProductData, 'icon' | 'name'>;
+  product: Pick<ProductData, 'icon' | 'name' | 'logo'>;
   containerClassName?: string;
   iconClassName?: string;
 };
@@ -33,7 +33,16 @@ export default function ProductIcon({
           border: '1px solid currentColor',
         }}
       />
-      <Icon className={`relative z-10 ${iconClassName}`} strokeWidth={2.15} aria-hidden="true" />
+      {product.logo ? (
+        <img
+          src={product.logo}
+          alt=""
+          aria-hidden="true"
+          className={`relative z-10 object-contain ${iconClassName}`}
+        />
+      ) : (
+        <Icon className={`relative z-10 ${iconClassName}`} strokeWidth={2.15} aria-hidden="true" />
+      )}
     </span>
   );
 }

@@ -20,7 +20,11 @@ export default function ProductPage({ id }: { id: string }) {
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-start">
             <div className="order-2 lg:order-1">
-              <Icon className="hidden sm:block w-8 h-8 mb-6" style={{ color: product.color }} />
+              {product.logo ? (
+                <img src={product.logo} alt="" aria-hidden="true" className="hidden sm:block w-8 h-8 mb-6 object-contain" />
+              ) : (
+                <Icon className="hidden sm:block w-8 h-8 mb-6" style={{ color: product.color }} />
+              )}
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white mb-1 tracking-tight">{product.name}</h1>
               <p className="text-[11px] uppercase tracking-widest font-bold text-white/30 mb-4">{product.category}</p>
               <p className="text-lg sm:text-xl font-semibold mb-4 leading-snug" style={{ color: product.color }}>{product.tagline}</p>

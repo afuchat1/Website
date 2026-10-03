@@ -19,6 +19,7 @@ export interface ProductData {
   bgColor: string;
   path: string;
   icon: ProductIcon;
+  logo?: string;
   illustration: string;
 }
 
@@ -60,6 +61,7 @@ export const PRODUCT_DATA: ProductData[] = [
     bgColor: "#E0F2FE",
     path: "/products/afucloud",
     icon: Cloud,
+    logo: "/assets/products/afucloud-logo.svg",
     illustration: illSvcAfucloud,
   },
   {
