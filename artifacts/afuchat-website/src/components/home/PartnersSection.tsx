@@ -45,7 +45,7 @@ export default function PartnersSection() {
                   height={180}
                   loading="lazy"
                   decoding="async"
-                  className={'h-28 w-28 sm:h-36 sm:w-36 lg:h-40 lg:w-40 object-contain grayscale opacity-100 transition-transform duration-300 ' + (isActive ? 'scale-105' : '')}
+                  className={'h-28 w-28 sm:h-36 sm:w-36 lg:h-40 lg:w-40 object-contain opacity-100 transition-all duration-300 ' + (isActive ? 'grayscale-0 scale-105' : 'grayscale')}
                 />
               </button>
             );
