@@ -36,7 +36,7 @@ export default function ProductPage({ id }: { id: string }) {
                   {isAfuCloud ? 'AfuCloud Image Storage API' : product.name}
                 </h1>
                 <p className="text-[11px] uppercase tracking-widest font-bold text-white/30 mb-4">{product.category}</p>
-                <p className="text-lg sm:text-xl font-semibold mb-4 leading-snug" style={{ color: product.color }}>{product.tagline}</p>
+                <p className={`text-lg sm:text-xl font-semibold mb-4 leading-snug ${isAfuCloud ? 'afucloud-tagline' : ''}`} style={{ color: product.color }}>{product.tagline}</p>
                 <p className="text-white/55 text-base sm:text-lg leading-relaxed mb-8 max-w-md">{product.description}</p>
                 {isAfuCloud && (
                   <div className="flex flex-wrap gap-3 mb-8">
@@ -94,27 +94,29 @@ export default function ProductPage({ id }: { id: string }) {
       </div>
 
       {/* Other products */}
-      <div className="max-container container-pad py-16">
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-10">
-          <p className="font-semibold text-xs uppercase tracking-widest mb-3 text-white/40">Ecosystem</p>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-            <h2 className="text-2xl font-bold text-white tracking-tight">Works even better together.</h2>
-            <img src={illSecEcosystem} alt="AfuChat ecosystem" className="w-full max-w-xs hidden lg:block" loading="lazy" decoding="async" />
+      {!isAfuCloud && (
+        <div className="max-container container-pad py-16">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-10">
+            <p className="font-semibold text-xs uppercase tracking-widest mb-3 text-white/40">Ecosystem</p>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+              <h2 className="text-2xl font-bold text-white tracking-tight">Works even better together.</h2>
+              <img src={illSecEcosystem} alt="AfuChat ecosystem" className="w-full max-w-xs hidden lg:block" loading="lazy" decoding="async" />
+            </div>
+          </motion.div>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-x-8 gap-y-6">
+            {otherProducts.map((p, i) => (
+              <motion.div key={p.id} initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.07 }}>
+                <Link href={p.path}>
+                  <div className="flex items-center gap-3 group">
+                    <ProductIcon product={p} containerClassName="w-10 h-10 rounded-xl" iconClassName="w-5 h-5" />
+                    <span className="text-sm text-white/50 group-hover:text-white transition-colors">{p.name}</span>
+                  </div>
+                </Link>
+              </motion.div>
+            ))}
           </div>
-        </motion.div>
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-x-8 gap-y-6">
-          {otherProducts.map((p, i) => (
-            <motion.div key={p.id} initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.07 }}>
-              <Link href={p.path}>
-                <div className="flex items-center gap-3 group">
-                  <ProductIcon product={p} containerClassName="w-10 h-10 rounded-xl" iconClassName="w-5 h-5" />
-                  <span className="text-sm text-white/50 group-hover:text-white transition-colors">{p.name}</span>
-                </div>
-              </Link>
-            </motion.div>
-          ))}
         </div>
-      </div>
+      )}
       <Footer />
     </div>
   );

@@ -1,5 +1,6 @@
 'use client';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { PRODUCT_DATA } from '@/data/products';
 import ProductIcon from '@/components/products/ProductIcon';
 import { TRUSTPILOT_PROFILE_URL, TRUSTPILOT_SUMMARY } from '@/data/trustpilot';
@@ -39,6 +40,30 @@ function StoreButtons() {
 
 export default function Footer() {
   const year = new Date().getFullYear();
+  const isAfuCloud = usePathname() === '/products/afucloud';
+
+  if (isAfuCloud) {
+    return (
+      <footer className="afucloud-site-footer relative">
+        <div className="max-container container-pad py-10">
+          <div className="flex flex-col gap-7 sm:flex-row sm:items-center sm:justify-between">
+            <Link href="/products/afucloud" className="inline-flex items-center gap-2.5">
+              <img src="/assets/products/afucloud-logo.svg" alt="" aria-hidden="true" className="h-8 w-8 object-contain" />
+              <span className="text-lg font-bold text-white">AfuCloud</span>
+            </Link>
+            <nav aria-label="AfuCloud links" className="flex flex-wrap items-center gap-x-6 gap-y-3 text-sm">
+              <a href={AFUCLOUD_URL} target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white transition-colors">AfuCloud dashboard</a>
+              <a href="https://cloud.afuchat.com/docs/getting-started/quickstart" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white transition-colors">API quickstart</a>
+              <Link href="/legal/privacy" className="text-white/60 hover:text-white transition-colors">Privacy</Link>
+              <Link href="/legal/terms" className="text-white/60 hover:text-white transition-colors">Terms</Link>
+              <button onClick={openCookiePreferences} className="text-white/60 hover:text-white transition-colors">Manage cookies</button>
+            </nav>
+          </div>
+          <p className="mt-7 text-xs text-white/40">© {year} AfuChat Technologies Limited. All rights reserved.</p>
+        </div>
+      </footer>
+    );
+  }
 
   return (
     <footer className="relative">

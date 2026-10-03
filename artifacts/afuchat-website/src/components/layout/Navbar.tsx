@@ -49,6 +49,7 @@ export default function Navbar() {
   const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname() ?? '';
+  const isAfuCloud = pathname === '/products/afucloud';
   const productsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -84,7 +85,7 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isAfuCloud ? 'afucloud-site-header' : ''} ${
         scrolled ? 'bg-[#040c1e]/85 backdrop-blur-xl' : 'bg-transparent'
       }`}
     >
@@ -92,8 +93,12 @@ export default function Navbar() {
 
         {/* ── Logo ── */}
         <Link href="/" className="flex items-center gap-2 flex-shrink-0">
-          <img src={LOGO_SRC} alt="AfuChat" className="h-8 w-auto" />
-          <span className="font-bold text-white text-lg">AfuChat</span>
+          <img
+            src={isAfuCloud ? '/assets/products/afucloud-logo.svg' : LOGO_SRC}
+            alt={isAfuCloud ? 'AfuCloud' : 'AfuChat'}
+            className="h-8 w-8 object-contain"
+          />
+          <span className="font-bold text-white text-lg">{isAfuCloud ? 'AfuCloud' : 'AfuChat'}</span>
         </Link>
 
         {/* ── Desktop Nav ── */}

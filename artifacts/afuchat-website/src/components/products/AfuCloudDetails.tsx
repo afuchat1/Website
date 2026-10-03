@@ -152,19 +152,30 @@ function CopyableCode({
   async function copyCode() {
     try {
       if (navigator.clipboard?.writeText) {
-        await navigator.clipboard.writeText(code);
-      } else {
-        const textarea = document.createElement('textarea');
-        textarea.value = code;
-        textarea.setAttribute('readonly', '');
-        textarea.style.position = 'fixed';
-        textarea.style.left = '-9999px';
-        document.body.appendChild(textarea);
-        textarea.select();
-        const copied = document.execCommand('copy');
-        textarea.remove();
-        if (!copied) throw new Error('Clipboard access is unavailable');
+        try {
+          await navigator.clipboard.writeText(code);
+          setCopyState('copied');
+          return;
+        } catch {
+          // Fall through to the selection-based fallback for restricted clipboard contexts.
+        }
       }
+
+      const textarea = document.createElement('textarea');
+      textarea.value = code;
+      textarea.setAttribute('readonly', '');
+      textarea.setAttribute('aria-hidden', 'true');
+      textarea.style.position = 'fixed';
+      textarea.style.left = '-9999px';
+      document.body.appendChild(textarea);
+      let copied = false;
+      try {
+        textarea.select();
+        copied = document.execCommand('copy');
+      } finally {
+        textarea.remove();
+      }
+      if (!copied) throw new Error('Clipboard access is unavailable');
       setCopyState('copied');
     } catch {
       setCopyState('error');
