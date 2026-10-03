@@ -8,7 +8,7 @@ import { openCookiePreferences } from '@/lib/cookieConsent';
 const LOGO_SRC         = '/assets/afuchat_logo_transparent.png';
 const TRUSTPILOT_LOGO  = '/assets/trustpilot_logo.png';
 const GOOGLE_PLAY_BADGE = '/assets/google_play_badge.png';
-const AFUCHAT_PLAY_URL = 'https://play.google.com/store/apps/details?id=com.afuchat.afuapp';
+const AFUCHAT_PLAY_URL = 'https://play.google.com/store/apps/details?id=com.afuchat.mobile';
 
 function StoreButtons() {
   return (
@@ -20,7 +20,7 @@ function StoreButtons() {
         aria-label={`${TRUSTPILOT_SUMMARY.rating.toFixed(1)} stars on Trustpilot`}
         className="bg-white hover:bg-white/90 transition-colors rounded-full px-3 py-1.5 flex items-center"
       >
-        <img src={TRUSTPILOT_LOGO} alt="Trustpilot" className="h-5 w-auto" loading="lazy" decoding="async" />
+        <img src={TRUSTPILOT_LOGO} alt="Trustpilot" className="h-10 w-auto" loading="lazy" decoding="async" />
       </a>
       <a
         href={AFUCHAT_PLAY_URL}
