@@ -3,9 +3,10 @@
 import { useState } from 'react';
 
 const partners = [
-  { name: 'Sabula Shoe Spot', image: '/assets/partners/sabula-shoe-spot.png' },
-  { name: 'Mindset Radio', image: '/assets/partners/mindset-radio.png' },
-  { name: 'AJS Digital Services', image: '/assets/partners/ajs-digital-services.png' },
+  { name: 'Sabula Shoe Spot', image: '/assets/partners/sabula-shoe-spot.png', width: 174, height: 165 },
+  { name: 'Mindset Radio', image: '/assets/partners/mindset-radio.png', width: 175, height: 180 },
+  { name: 'AJS Digital Services', image: '/assets/partners/ajs-digital-services.png', width: 484, height: 183 },
+  { name: 'Honeybee Ministries Uganda', image: '/assets/partners/honeybee-ministries-uganda.png', width: 280, height: 312 },
 ];
 
 export default function PartnersSection() {
@@ -41,11 +42,11 @@ export default function PartnersSection() {
                 <img
                   src={partner.image}
                   alt={partner.name}
-                  width={180}
-                  height={180}
+                  width={partner.width}
+                  height={partner.height}
                   loading="lazy"
                   decoding="async"
-                  className={'h-28 w-28 sm:h-36 sm:w-36 lg:h-40 lg:w-40 object-contain opacity-100 transition-all duration-300 ' + (isActive ? 'grayscale-0 scale-105' : 'grayscale')}
+                  className={'h-20 w-auto sm:h-24 lg:h-28 object-contain opacity-100 transition-all duration-300 ' + (isActive ? 'grayscale-0 scale-105' : 'grayscale')}
                 />
               </button>
             );
