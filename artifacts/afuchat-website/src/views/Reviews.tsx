@@ -116,22 +116,22 @@ export default function Reviews() {
           {/* Hero */}
           <div className="text-center mb-16">
             <motion.p
-              initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 1, y: 12 }} animate={{ opacity: 1, y: 0 }}
               className="text-pink-400 font-semibold text-xs uppercase tracking-widest mb-4"
             >Customer Stories</motion.p>
             <motion.h1
-              initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.05 }}
+              initial={{ opacity: 1, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.05 }}
               className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white tracking-tight mb-4"
             >Real reviews,<br />straight from Trustpilot.</motion.h1>
             <motion.p
-              initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.1 }}
+              initial={{ opacity: 1 }} animate={{ opacity: 1 }} transition={{ delay: 0.1 }}
               className="text-white/60 max-w-lg mx-auto mb-6"
             >We don't write these ourselves, every review below is public and verifiable on Trustpilot.</motion.p>
             <motion.a
               href={TRUSTPILOT_PROFILE_URL}
               target="_blank"
               rel="noopener noreferrer"
-              initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.15 }}
+              initial={{ opacity: 1 }} animate={{ opacity: 1 }} transition={{ delay: 0.15 }}
               className="inline-flex items-center gap-2.5 bg-white rounded-full px-4 py-2 hover:bg-white/90 transition-colors"
             >
               <svg viewBox="0 0 24 24" width="18" height="18" fill="#00b67a"><path d="M12 1.5l3.09 6.26L22 8.76l-5 4.87 1.18 6.87L12 17.27l-6.18 3.23L7 13.63 2 8.76l6.91-1L12 1.5z"/></svg>

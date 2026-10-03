@@ -17,7 +17,7 @@ export default function ProductPage({ id }: { id: string }) {
     <div className="w-full min-h-screen">
       {/* Hero */}
       <div className="max-container container-pad pt-6 pb-12 sm:pt-14 sm:pb-16">
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
+        <motion.div initial={{ opacity: 1, y: 20 }} animate={{ opacity: 1, y: 0 }}>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-start">
             <div className="order-2 lg:order-1">
               <Icon className="hidden sm:block w-8 h-8 mb-6" style={{ color: product.color }} />
@@ -33,7 +33,7 @@ export default function ProductPage({ id }: { id: string }) {
             </div>
             <div className="order-1 lg:order-2 flex justify-center">
               <motion.img
-                initial={{ opacity: 0, scale: 0.9 }}
+                initial={{ opacity: 1, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.1, duration: 0.6 }}
                 src={product.illustration}
@@ -47,7 +47,7 @@ export default function ProductPage({ id }: { id: string }) {
 
       {/* Other products */}
       <div className="max-container container-pad py-16">
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-10">
+        <motion.div initial={{ opacity: 1, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-10">
           <p className="font-semibold text-xs uppercase tracking-widest mb-3 text-white/40">Ecosystem</p>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             <h2 className="text-2xl font-bold text-white tracking-tight">Works even better together.</h2>
@@ -56,7 +56,7 @@ export default function ProductPage({ id }: { id: string }) {
         </motion.div>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-x-8 gap-y-6">
           {otherProducts.map((p, i) => (
-            <motion.div key={p.id} initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.07 }}>
+            <motion.div key={p.id} initial={{ opacity: 1, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.07 }}>
               <Link href={p.path}>
                 <div className="flex items-center gap-3 group">
                   <ProductIcon product={p} containerClassName="w-10 h-10 rounded-xl" iconClassName="w-5 h-5" />

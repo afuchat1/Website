@@ -147,13 +147,13 @@ export default function GenericPage({ title, type }: GenericPageProps) {
       {/* Hero */}
       <div className="max-container container-pad pt-20 pb-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }}>
+          <motion.div initial={{ opacity: 1, y: 24 }} animate={{ opacity: 1, y: 0 }}>
             <p className="font-semibold text-xs uppercase tracking-widest mb-3" style={{ color: accent }}>AfuChat</p>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white mb-5 tracking-tight leading-tight">{title}</h1>
             <p className="text-lg text-white/50 max-w-xl leading-relaxed">{content.sections[0]?.body}</p>
           </motion.div>
           {'illustration' in content && content.illustration && (
-            <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.1 }}>
+            <motion.div initial={{ opacity: 1, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.1 }}>
               <img src={content.illustration} alt={title} className="w-full rounded-3xl shadow-2xl" onError={e => { (e.target as HTMLImageElement).style.display = 'none'; }} />
             </motion.div>
           )}
@@ -164,7 +164,7 @@ export default function GenericPage({ title, type }: GenericPageProps) {
       <div className="max-container container-pad py-16">
         <div className="flex flex-col gap-16 max-w-3xl">
           {content.sections.slice(1).map((s, i) => (
-            <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}>
+            <motion.div key={i} initial={{ opacity: 1, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}>
               <h2 className="text-2xl font-bold text-white mb-4 tracking-tight">{s.heading}</h2>
               <p className="text-white/50 leading-relaxed">{s.body}</p>
             </motion.div>
@@ -175,13 +175,13 @@ export default function GenericPage({ title, type }: GenericPageProps) {
       {/* Related products */}
       {!['privacy', 'terms', 'cookies'].includes(type) && (
         <div className="max-container container-pad py-16">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-10">
+          <motion.div initial={{ opacity: 1, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-10">
             <p className="font-semibold text-xs uppercase tracking-widest mb-3" style={{ color: accent }}>Our Products</p>
             <h2 className="text-2xl font-bold text-white tracking-tight">Explore our products</h2>
           </motion.div>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-x-8 gap-y-6">
             {PRODUCT_DATA.slice(0, 4).map((p, i) => (
-              <motion.div key={p.id} initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.07 }}>
+              <motion.div key={p.id} initial={{ opacity: 1, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.07 }}>
                 <Link href={p.path}>
                   <div className="flex items-center gap-3 group">
                     <ProductIcon product={p} containerClassName="w-10 h-10 rounded-xl" iconClassName="w-5 h-5" />
