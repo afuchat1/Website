@@ -68,8 +68,7 @@
 }
 
 
-/* Follow the visitor's operating-system theme automatically. */
-@media (prefers-color-scheme: light) {
+/* Keep the light-page palette and text contrast consistent on every device. */
   :root {
     color-scheme: light;
     --color-background: #FFFFFF;
@@ -120,4 +119,3 @@
   [class*="hover:text-white"]:hover { color: #0F172A !important; }
   [class*="hover:bg-white/"]:hover { background-color: #E2E8F0 !important; }
   [class*="hover:border-white/"]:hover { border-color: #94A3B8 !important; }
-}
