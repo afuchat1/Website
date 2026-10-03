@@ -16,23 +16,11 @@ export default function ProductIcon({
 
   return (
     <span
-      className={`relative inline-flex items-center justify-center shrink-0 overflow-hidden border transition-transform duration-200 group-hover:scale-105${containerClassName ? ` ${containerClassName}` : ''}`}
-      style={{
-        color: 'currentColor',
-        backgroundColor: 'transparent',
-        borderColor: 'currentColor',
-        boxShadow: 'none',
-      }}
+      role="img"
+      className={`inline-flex items-center justify-center shrink-0${containerClassName ? ` ${containerClassName}` : ''}`}
+      style={{ color: 'currentColor' }}
       aria-label={`${product.name} icon`}
     >
-      <span
-        aria-hidden="true"
-        className="absolute inset-[3px] rounded-[inherit] pointer-events-none"
-        style={{
-          backgroundColor: 'transparent',
-          border: '1px solid currentColor',
-        }}
-      />
       {product.logo ? (
         <img
           src={product.logo}
