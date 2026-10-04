@@ -22,12 +22,12 @@ function initialsFor(name?: string) {
 
 function ReviewStars({ rating }: { rating: 1 | 2 | 3 | 4 | 5 }) {
   return (
-    <span className="inline-flex gap-1" role="img" aria-label={`${rating} out of 5 stars`}>
+    <span className="inline-flex gap-1 text-[1.35rem] leading-none sm:text-2xl" role="img" aria-label={`${rating} out of 5 stars`}>
       {Array.from({ length: 5 }, (_, star) => (
         <span
           key={star}
           aria-hidden="true"
-          className={star < rating ? 'text-[#00B67A]' : 'text-white/20'}
+          className={star < rating ? 'text-[#00B67A]' : 'text-slate-300 dark:text-slate-600'}
         >
           ★
         </span>
@@ -109,7 +109,7 @@ export default function ReviewCarousel({
             <article
               key={review.id}
               data-review-card
-              className="review-carousel-card flex flex-col snap-start rounded-2xl p-5 sm:p-6"
+              className="review-carousel-card flex flex-col snap-start rounded-2xl p-6 sm:p-8"
             >
               <div className="mb-5 flex items-center justify-between gap-3">
                 <div className="flex min-w-0 items-center gap-3">
@@ -120,13 +120,13 @@ export default function ReviewCarousel({
                     {initialsFor(review.reviewerName)}
                   </span>
                   <div className="min-w-0">
-                    <p className="truncate text-sm font-semibold text-white">{reviewerName}</p>
+                    <p className="truncate text-base font-semibold text-white">{reviewerName}</p>
                   </div>
                 </div>
                 {review.rating !== undefined && <ReviewStars rating={review.rating} />}
               </div>
               {reviewText && (
-                <blockquote className="text-sm leading-relaxed text-white/70">
+                <blockquote className="text-base leading-7 text-white/70">
                   {reviewText}
                 </blockquote>
               )}
@@ -134,7 +134,7 @@ export default function ReviewCarousel({
                 href={review.sourceUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-auto pt-5 text-xs font-semibold text-[#00B67A] transition-colors hover:text-white"
+                className="mt-auto pt-5 text-sm font-semibold text-[#00B67A] transition-colors hover:text-white"
               >
                 {review.sourceLabel ?? 'Read this review on Trustpilot'} <span aria-hidden="true">↗</span>
               </a>
@@ -144,8 +144,7 @@ export default function ReviewCarousel({
       </div>
 
       {reviews.length > 1 && (
-        <div className="mt-5 flex items-center justify-between gap-4">
-          <p className="text-xs text-white/35">Swipe or use the arrows to browse</p>
+        <div className="mt-5 flex justify-end">
           <div className="flex gap-2">
             <button
               type="button"
@@ -177,29 +176,29 @@ export default function ReviewCarousel({
         }
         .review-carousel-card {
           flex: 0 0 86%;
-          min-height: 250px;
-          border: 1px solid rgba(255, 255, 255, 0.82);
+          min-height: 280px;
+          border: 1px solid rgba(100, 116, 139, 0.38);
           background: linear-gradient(
             135deg,
-            rgba(255, 255, 255, 0.76),
-            rgba(239, 246, 255, 0.58)
+            rgba(255, 255, 255, 0.94),
+            rgba(232, 242, 255, 0.88)
           );
-          -webkit-backdrop-filter: blur(12px) saturate(155%);
-          backdrop-filter: blur(12px) saturate(155%);
+          -webkit-backdrop-filter: blur(16px) saturate(165%);
+          backdrop-filter: blur(16px) saturate(165%);
           box-shadow:
-            0 18px 45px rgba(15, 23, 42, 0.1),
-            inset 0 1px 0 rgba(255, 255, 255, 0.82);
+            0 18px 45px rgba(15, 23, 42, 0.12),
+            inset 0 1px 0 rgba(255, 255, 255, 0.96);
         }
         @media (prefers-color-scheme: dark) {
           .review-carousel-card {
-            border-color: rgba(148, 163, 184, 0.24);
+            border-color: rgba(148, 163, 184, 0.38);
             background: linear-gradient(
               135deg,
-              rgba(30, 41, 59, 0.78),
-              rgba(15, 23, 42, 0.68)
+              rgba(30, 41, 59, 0.94),
+              rgba(15, 23, 42, 0.9)
             );
-            -webkit-backdrop-filter: blur(12px) saturate(145%);
-            backdrop-filter: blur(12px) saturate(145%);
+            -webkit-backdrop-filter: blur(16px) saturate(155%);
+            backdrop-filter: blur(16px) saturate(155%);
             box-shadow:
               0 18px 45px rgba(0, 0, 0, 0.3),
               inset 0 1px 0 rgba(255, 255, 255, 0.12);
