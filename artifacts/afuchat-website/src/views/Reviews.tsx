@@ -73,7 +73,7 @@ export default function Reviews() {
             <motion.p
               initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.1 }}
               className="text-white/60 max-w-lg mx-auto mb-6"
-            >Selected reviews from public Trustpilot listings. Each entry links to its original review; visit the profile for the full, current list.</motion.p>
+            >Review text comes from public listings. Individual Trustpilot links are used when available; the profile link opens the full current list.</motion.p>
             <motion.a
               href={TRUSTPILOT_PROFILE_URL}
               target="_blank"
@@ -91,7 +91,6 @@ export default function Reviews() {
             <span className="text-white font-bold">{TRUSTPILOT_REVIEW_SNAPSHOT.rating.toFixed(1)} / 5</span>
             <span aria-hidden="true">·</span>
             <span>{TRUSTPILOT_REVIEW_SNAPSHOT.totalReviews} reviews on Trustpilot</span>
-            <span className="text-white/30">Snapshot: {TRUSTPILOT_REVIEW_SNAPSHOT.asOf}</span>
           </div>
 
           <div className="mb-20">

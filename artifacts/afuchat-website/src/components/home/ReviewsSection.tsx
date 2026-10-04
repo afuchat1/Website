@@ -47,7 +47,7 @@ export default function ReviewsSection() {
 
       <div className="max-container container-pad">
         <ReviewCarousel
-          reviews={TRUSTPILOT_REVIEWS.filter(review => review.quote).slice(0, 3)}
+          reviews={TRUSTPILOT_REVIEWS}
           label="AfuChat customer reviews"
         />
       </div>
