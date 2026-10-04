@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { PRODUCT_DATA } from '@/data/products';
 import ProductIcon from '@/components/products/ProductIcon';
-import { TRUSTPILOT_PROFILE_URL, TRUSTPILOT_SUMMARY } from '@/data/trustpilot';
+import { TRUSTPILOT_PROFILE_URL } from '@/data/trustpilot';
 import { openCookiePreferences } from '@/lib/cookieConsent';
 
 const LOGO_SRC         = '/assets/afuchat_logo_transparent.png';
@@ -19,7 +19,7 @@ function StoreButtons() {
         href={TRUSTPILOT_PROFILE_URL}
         target="_blank"
         rel="noopener noreferrer"
-        aria-label={`${TRUSTPILOT_SUMMARY.rating.toFixed(1)} stars on Trustpilot`}
+        aria-label="Read AfuChat reviews on Trustpilot"
         className="bg-white hover:bg-white/90 transition-colors rounded-full px-3 py-1.5 flex items-center"
       >
         <img src={TRUSTPILOT_LOGO} alt="Trustpilot" className="h-10 w-auto" loading="lazy" decoding="async" />

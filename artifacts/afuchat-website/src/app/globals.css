@@ -472,3 +472,18 @@
 .afucloud-site-footer {
   color: var(--color-text);
 }
+
+.trustpilot-carousel {
+  width: 100%;
+}
+
+.trustpilot-carousel iframe {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+@media (max-width: 640px) {
+  .trustpilot-carousel iframe {
+    height: 290px !important;
+  }
+}
