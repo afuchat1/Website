@@ -9,10 +9,6 @@ type ReviewCarouselProps = {
   label?: string;
 };
 
-function initialsFor(name: string) {
-  return name.trim().charAt(0).toUpperCase();
-}
-
 function ReviewStars({ rating }: { rating: 1 | 2 | 3 | 4 | 5 }) {
   return (
     <span className="inline-flex gap-1 text-[1.35rem] leading-none sm:text-2xl" role="img" aria-label={`${rating} out of 5 stars`}>
@@ -48,14 +44,14 @@ export default function ReviewCarousel({
 
   const moveByCard = useCallback((direction: -1 | 1) => {
     const track = trackRef.current;
-    const firstCard = track?.querySelector<HTMLElement>('[data-review-card]');
-    if (!track || !firstCard) return;
+    const firstItem = track?.querySelector<HTMLElement>('[data-review-item]');
+    if (!track || !firstItem) return;
 
     const maxScroll = track.scrollWidth - track.clientWidth;
     if (maxScroll <= 1) return;
 
     const gap = Number.parseFloat(window.getComputedStyle(track).columnGap) || 0;
-    const step = firstCard.getBoundingClientRect().width + gap;
+    const step = firstItem.getBoundingClientRect().width + gap;
     const atStart = track.scrollLeft <= 2;
     const atEnd = track.scrollLeft >= maxScroll - 2;
     const nextScroll = direction > 0 && atEnd
@@ -101,44 +97,30 @@ export default function ReviewCarousel({
           return (
             <article
               key={review.id}
-              data-review-card
-              className="review-carousel-card flex flex-col snap-start p-6 sm:p-8"
+              data-review-item
+              className="review-carousel-item min-w-0 snap-start"
             >
-              <div className="flex items-center justify-between gap-4 border-b border-slate-200/80 pb-4 dark:border-slate-600/70">
-                <div className="flex min-w-0 items-center gap-3">
-                  <span
-                    aria-hidden="true"
-                    className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-emerald-100 text-sm font-bold text-emerald-800 ring-1 ring-emerald-600/20 dark:bg-emerald-400/15 dark:text-emerald-200 dark:ring-emerald-300/20"
-                  >
-                    {initialsFor(review.reviewerName)}
+              <p className="text-lg font-medium leading-8 text-slate-800 dark:text-slate-100 sm:text-xl">
+                {reviewText && <>{reviewText}{' '}</>}
+                <a
+                  href={review.sourceUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline font-semibold text-emerald-700 underline decoration-emerald-700/40 underline-offset-4 transition-colors hover:text-emerald-900 dark:text-emerald-300 dark:decoration-emerald-300/50 dark:hover:text-emerald-100"
+                >
+                  {review.sourceLabel ?? 'Read this review on Trustpilot'} <span aria-hidden="true">↗</span>
+                </a>
+              </p>
+              <footer className="mt-3 flex items-center justify-between gap-3 text-sm text-slate-600 dark:text-slate-400">
+                <p className="min-w-0 truncate">
+                  <span className="font-semibold text-slate-900 dark:text-slate-200">
+                    {review.reviewerName}
                   </span>
-                  <div className="min-w-0">
-                    <p className="truncate text-base font-semibold text-slate-900 dark:text-white">
-                      {review.reviewerName}
-                    </p>
-                    <time
-                      dateTime={review.dateTime}
-                      className="mt-0.5 block text-xs font-medium text-slate-500 dark:text-slate-400"
-                    >
-                      {review.date}
-                    </time>
-                  </div>
-                </div>
+                  <span aria-hidden="true" className="mx-2">·</span>
+                  <time dateTime={review.dateTime}>{review.date}</time>
+                </p>
                 {review.rating !== undefined && <ReviewStars rating={review.rating} />}
-              </div>
-              {reviewText && (
-                <blockquote className="flex-1 py-5 text-lg font-medium leading-8 text-slate-800 dark:text-slate-100 sm:text-xl">
-                  {reviewText}
-                </blockquote>
-              )}
-              <a
-                href={review.sourceUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-auto border-t border-slate-200/80 pt-4 text-sm font-semibold text-emerald-700 transition-colors hover:text-emerald-900 dark:border-slate-600/70 dark:text-emerald-300 dark:hover:text-emerald-100"
-              >
-                {review.sourceLabel ?? 'Read this review on Trustpilot'} <span aria-hidden="true">↗</span>
-              </a>
+              </footer>
             </article>
           );
         })}
@@ -151,7 +133,7 @@ export default function ReviewCarousel({
               type="button"
               aria-label="Previous review"
               onClick={() => moveByCard(-1)}
-              className="grid h-10 w-10 place-items-center rounded-full border border-white/10 text-white/70 transition-colors hover:bg-white/10 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
+              className="grid h-10 w-10 place-items-center rounded-full border border-slate-300 text-slate-600 transition-colors hover:bg-slate-100 hover:text-slate-950 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 dark:border-slate-600 dark:text-slate-300 dark:hover:bg-white/10 dark:hover:text-white"
             >
               <ChevronLeft className="h-4 w-4" aria-hidden="true" />
             </button>
@@ -159,7 +141,7 @@ export default function ReviewCarousel({
               type="button"
               aria-label="Next review"
               onClick={() => moveByCard(1)}
-              className="grid h-10 w-10 place-items-center rounded-full border border-white/10 text-white/70 transition-colors hover:bg-white/10 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
+              className="grid h-10 w-10 place-items-center rounded-full border border-slate-300 text-slate-600 transition-colors hover:bg-slate-100 hover:text-slate-950 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 dark:border-slate-600 dark:text-slate-300 dark:hover:bg-white/10 dark:hover:text-white"
             >
               <ChevronRight className="h-4 w-4" aria-hidden="true" />
             </button>
@@ -175,39 +157,11 @@ export default function ReviewCarousel({
         .review-carousel-track::-webkit-scrollbar {
           display: none;
         }
-        .review-carousel-card {
+        .review-carousel-item {
           flex: 0 0 86%;
-          min-height: 320px;
-          border-radius: 0;
-          border: 1px solid rgba(100, 116, 139, 0.38);
-          background: linear-gradient(
-            135deg,
-            rgba(255, 255, 255, 0.98),
-            rgba(239, 246, 255, 0.94)
-          );
-          -webkit-backdrop-filter: blur(12px) saturate(150%);
-          backdrop-filter: blur(12px) saturate(150%);
-          box-shadow:
-            0 12px 32px rgba(15, 23, 42, 0.09),
-            inset 0 1px 0 rgba(255, 255, 255, 0.96);
-        }
-        @media (prefers-color-scheme: dark) {
-          .review-carousel-card {
-            border-color: rgba(148, 163, 184, 0.38);
-            background: linear-gradient(
-              135deg,
-              rgba(30, 41, 59, 0.97),
-              rgba(15, 23, 42, 0.94)
-            );
-            -webkit-backdrop-filter: blur(12px) saturate(145%);
-            backdrop-filter: blur(12px) saturate(145%);
-            box-shadow:
-              0 12px 32px rgba(0, 0, 0, 0.24),
-              inset 0 1px 0 rgba(255, 255, 255, 0.12);
-          }
         }
         @media (min-width: 640px) {
-          .review-carousel-card {
+          .review-carousel-item {
             flex-basis: 48%;
           }
         }
