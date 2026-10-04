@@ -32,8 +32,8 @@ export default function ProductsSection() {
                   transition={{ delay: i * 0.05 }}>
                   <Link href={p.path}>
                     <div className="flex items-center gap-3 group">
-                      <span className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center flex-shrink-0 transition-transform group-hover:scale-105"
-                        style={{ color: p.color, backgroundColor: `${p.color}18` }}>
+                      <span className="w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center flex-shrink-0"
+                        style={{ color: p.color }}>
                         {p.logo ? (
                           <img src={p.logo} alt="" aria-hidden="true" className="w-5 h-5 sm:w-[22px] sm:h-[22px] object-contain" />
                         ) : (
