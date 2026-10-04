@@ -9,14 +9,22 @@ type ReviewCarouselProps = {
   label?: string;
 };
 
+function initialsFor(name: string) {
+  return name.trim().charAt(0).toUpperCase();
+}
+
 function ReviewStars({ rating }: { rating: 1 | 2 | 3 | 4 | 5 }) {
   return (
-    <span className="inline-flex gap-1 text-[1.35rem] leading-none sm:text-2xl" role="img" aria-label={`${rating} out of 5 stars`}>
+    <span className="inline-flex gap-0.5" role="img" aria-label={`${rating} out of 5 stars`}>
       {Array.from({ length: 5 }, (_, star) => (
         <span
           key={star}
           aria-hidden="true"
-          className={star < rating ? 'text-[#00B67A]' : 'text-slate-300 dark:text-slate-600'}
+          className={`grid h-5 w-5 place-items-center text-sm leading-none ${
+            star < rating
+              ? 'bg-[#00B67A] text-white'
+              : 'bg-slate-200 text-slate-500 dark:bg-slate-700 dark:text-slate-300'
+          }`}
         >
           ★
         </span>
@@ -88,7 +96,7 @@ export default function ReviewCarousel({
     >
       <div
         ref={trackRef}
-        className="review-carousel-track flex snap-x snap-mandatory gap-5 overflow-x-auto"
+        className="review-carousel-track flex snap-x snap-mandatory items-start gap-5 overflow-x-auto"
         role="group"
         aria-label={`${label} carousel`}
       >
@@ -98,9 +106,18 @@ export default function ReviewCarousel({
             <article
               key={review.id}
               data-review-item
-              className="review-carousel-item min-w-0 snap-start"
+              className="review-carousel-item min-w-0 snap-start rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-900 dark:shadow-black/20 sm:p-7"
             >
-              <p className="text-lg font-medium leading-8 text-slate-800 dark:text-slate-100 sm:text-xl">
+              <div className="mb-5 flex items-center justify-between gap-3">
+                {review.rating !== undefined && <ReviewStars rating={review.rating} />}
+                <time
+                  dateTime={review.dateTime}
+                  className="text-xs font-medium text-slate-500 dark:text-slate-400"
+                >
+                  {review.date}
+                </time>
+              </div>
+              <p className="text-base leading-7 text-slate-700 dark:text-slate-200">
                 {reviewText && <>{reviewText}{' '}</>}
                 <a
                   href={review.sourceUrl}
@@ -111,15 +128,16 @@ export default function ReviewCarousel({
                   {review.sourceLabel ?? 'Read this review on Trustpilot'} <span aria-hidden="true">↗</span>
                 </a>
               </p>
-              <footer className="mt-3 flex items-center justify-between gap-3 text-sm text-slate-600 dark:text-slate-400">
-                <p className="min-w-0 truncate">
-                  <span className="font-semibold text-slate-900 dark:text-slate-200">
-                    {review.reviewerName}
-                  </span>
-                  <span aria-hidden="true" className="mx-2">·</span>
-                  <time dateTime={review.dateTime}>{review.date}</time>
+              <footer className="mt-5 flex items-center gap-3 border-t border-slate-200 pt-4 dark:border-slate-700">
+                <span
+                  aria-hidden="true"
+                  className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-emerald-100 text-sm font-bold text-emerald-800 ring-1 ring-emerald-600/20 dark:bg-emerald-400/15 dark:text-emerald-200 dark:ring-emerald-300/20"
+                >
+                  {initialsFor(review.reviewerName)}
+                </span>
+                <p className="min-w-0 truncate text-sm font-semibold text-slate-900 dark:text-slate-100">
+                  {review.reviewerName}
                 </p>
-                {review.rating !== undefined && <ReviewStars rating={review.rating} />}
               </footer>
             </article>
           );
@@ -158,11 +176,16 @@ export default function ReviewCarousel({
           display: none;
         }
         .review-carousel-item {
-          flex: 0 0 86%;
+          flex: 0 0 88%;
         }
         @media (min-width: 640px) {
           .review-carousel-item {
-            flex-basis: 48%;
+            flex-basis: calc((100% - 1.25rem) / 2);
+          }
+        }
+        @media (min-width: 1024px) {
+          .review-carousel-item {
+            flex-basis: calc((100% - 2.5rem) / 3);
           }
         }
       `}</style>
