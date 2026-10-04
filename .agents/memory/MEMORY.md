@@ -1,6 +1,6 @@
 - [Vite config env fallbacks](vite-config-env.md) — scaffold vite.config throws on missing PORT/BASE_PATH; use graceful fallbacks when artifact.toml has no [services.env] block.
 - [AfuCloud page theme](afucloud-page-theme.md) — Keep shared theme, green branding, flat sections, code-type color tints, and left-side product navigation.
-- [Manually maintained Trustpilot reviews](trustpilot-reviews.md) — Keep excerpts static, source-linked, and updated manually; don't reintroduce a third-party review widget or API.
+- [Manually maintained Trustpilot reviews](trustpilot-reviews.md) — Keep excerpts source-linked and static; use verified names and initials avatars when Trustpilot hides identity details.
 - [Next.js on Replit dev setup](nextjs-replit-dev.md) — key quirks for running Next.js App Router in Replit's proxied iframe environment.
 - [next/font/google hydration fix](next-font-google-hydration.md) — next/font/google causes React 19 hydration mismatch on Replit; use direct Google Fonts <link> tag instead.
 - [Next.js monorepo installs](nextjs-monorepo-installs.md) — install workspace dependencies with a pnpm filter from the monorepo root so the artifact workflow can resolve Next.js.

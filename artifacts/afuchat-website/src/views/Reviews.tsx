@@ -8,6 +8,7 @@ import { PRODUCT_DATA } from '@/data/products';
 import ProductIcon from '@/components/products/ProductIcon';
 import { TRUSTPILOT_PROFILE_URL } from '@/data/trustpilot';
 import { TRUSTPILOT_REVIEW_SNAPSHOT, TRUSTPILOT_REVIEWS } from '@/data/trustpilot-reviews';
+import ReviewCarousel from '@/components/home/ReviewCarousel';
 
 const _FL = '/assets/afuchat_logo_transparent.png';
 const _FT = '/assets/trustpilot_logo.png';
@@ -93,46 +94,8 @@ export default function Reviews() {
             <span className="text-white/30">Snapshot: {TRUSTPILOT_REVIEW_SNAPSHOT.asOf}</span>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-20">
-            {TRUSTPILOT_REVIEWS.map((review, index) => (
-              <motion.article
-                key={review.id}
-                initial={{ opacity: 0, y: 14 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.05 }}
-                className="h-full rounded-2xl border border-white/10 bg-white/[0.035] p-6 sm:p-8 flex flex-col"
-              >
-                <div className="flex items-center justify-between gap-4 mb-5">
-                  <span className="inline-flex gap-1" role="img" aria-label={`${review.rating} out of 5 stars`}>
-                    {Array.from({ length: 5 }, (_, star) => (
-                      <span
-                        key={star}
-                        aria-hidden="true"
-                        className={star < review.rating ? 'text-[#00B67A]' : 'text-white/20'}
-                      >
-                        ★
-                      </span>
-                    ))}
-                  </span>
-                  <time dateTime={review.dateTime} className="text-xs text-white/40">{review.date}</time>
-                </div>
-                <h2 className="text-xl font-semibold text-white mb-3">{review.title}</h2>
-                {review.quote && (
-                  <blockquote className="text-white/65 leading-relaxed">
-                    “{review.quote}”
-                  </blockquote>
-                )}
-                <a
-                  href={review.sourceUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-auto pt-6 inline-flex items-center gap-2 text-sm font-semibold text-[#00B67A] hover:text-white transition-colors"
-                >
-                  Read this review on Trustpilot <span aria-hidden="true">↗</span>
-                </a>
-              </motion.article>
-            ))}
+          <div className="mb-20">
+            <ReviewCarousel reviews={TRUSTPILOT_REVIEWS} label="All Trustpilot reviews" />
           </div>
 
         </div>

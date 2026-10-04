@@ -8,6 +8,7 @@ export const TRUSTPILOT_REVIEW_SNAPSHOT = {
 
 export type TrustpilotReview = {
   id: string;
+  reviewerName?: string;
   date: string;
   dateTime: string;
   rating: 4 | 5;
@@ -27,6 +28,7 @@ export const TRUSTPILOT_REVIEWS: TrustpilotReview[] = [
   },
   {
     id: '6a888e1d7d8d759e9df3f790',
+    reviewerName: 'Zakooza',
     date: '21 August 2026',
     dateTime: '2026-08-21',
     rating: 5,
@@ -36,6 +38,7 @@ export const TRUSTPILOT_REVIEWS: TrustpilotReview[] = [
   },
   {
     id: '6a3133f58bf63a8a64df5df2',
+    reviewerName: 'Jjunju Acram',
     date: '16 June 2026',
     dateTime: '2026-06-16',
     rating: 4,
