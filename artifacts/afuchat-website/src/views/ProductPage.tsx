@@ -44,7 +44,7 @@ export default function ProductPage({ id }: { id: string }) {
                       href={AFUCLOUD_URL}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="afucloud-primary-cta inline-flex items-center gap-2 px-5 py-3 text-sm font-bold transition-colors"
+                      className="afucloud-primary-cta inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-bold transition-colors"
                     >
                       Visit AfuCloud <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
                     </a>
@@ -52,7 +52,7 @@ export default function ProductPage({ id }: { id: string }) {
                       href={AFUCLOUD_QUICKSTART_URL}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-5 py-3 text-sm font-semibold text-white/80 hover:text-white transition-colors"
+                      className="inline-flex items-center gap-2 rounded-full border border-white/15 px-5 py-3 text-sm font-semibold text-white/80 hover:border-white/30 hover:text-white transition-colors"
                     >
                       Read the API quickstart <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
                     </a>
@@ -60,22 +60,30 @@ export default function ProductPage({ id }: { id: string }) {
                 )}
                 <div className="flex flex-wrap gap-2 mb-8">
                   {product.features.map(f => (
-                    <span key={f} className="px-3 py-1.5 text-xs font-semibold text-white/70">{f}</span>
+                    <span key={f} className="px-3 py-1.5 rounded-full text-xs font-semibold text-white/70 bg-white/8">{f}</span>
                   ))}
                 </div>
               </div>
               <div className="order-1 lg:order-2 flex justify-center">
                 {isAfuCloud && product.logo ? (
-                  <motion.img
+                  <motion.div
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 0.1, duration: 0.6 }}
-                    src={product.logo}
-                    alt="Official AfuCloud green cloud and upload mark"
-                    width={128}
-                    height={128}
-                    className="h-36 w-36 object-contain sm:h-48 sm:w-48"
-                  />
+                    className="w-full max-w-sm"
+                  >
+                    <div className="relative flex aspect-square w-full items-center justify-center overflow-hidden rounded-3xl border border-[hsl(30_15%_88%)] bg-[hsl(35_30%_96%)] p-8">
+                      <div className="absolute inset-[16%] rounded-full bg-[hsl(154_55%_92%)]" aria-hidden="true" />
+                      <div className="absolute inset-[23%] rounded-full border border-[#07965B]/20" aria-hidden="true" />
+                      <img
+                        src={product.logo}
+                        alt="Official AfuCloud green cloud and upload mark"
+                        width={128}
+                        height={128}
+                        className="relative h-32 w-32 object-contain sm:h-36 sm:w-36"
+                      />
+                    </div>
+                  </motion.div>
                 ) : (
                   <motion.img
                     initial={{ opacity: 0, scale: 0.9 }}
@@ -83,7 +91,7 @@ export default function ProductPage({ id }: { id: string }) {
                     transition={{ delay: 0.1, duration: 0.6 }}
                     src={product.illustration}
                     alt={`${product.name} product illustration`}
-                    className="w-full max-w-sm"
+                    className="w-full max-w-sm drop-shadow-2xl"
                   />
                 )}
               </div>
@@ -100,7 +108,7 @@ export default function ProductPage({ id }: { id: string }) {
             <p className="font-semibold text-xs uppercase tracking-widest mb-3 text-white/40">Ecosystem</p>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
               <h2 className="text-2xl font-bold text-white tracking-tight">Works even better together.</h2>
-              <img src={illSecEcosystem} alt="AfuChat ecosystem" className="w-full max-w-xs hidden lg:block" loading="lazy" decoding="async" />
+            <img src={illSecEcosystem} alt="AfuChat ecosystem" className="w-full max-w-xs drop-shadow-2xl hidden lg:block" loading="lazy" decoding="async" />
             </div>
           </motion.div>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-x-8 gap-y-6">

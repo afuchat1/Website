@@ -1,7 +1,4 @@
-'use client';
-
-import { useState } from 'react';
-import { ArrowUpRight, Check, Copy, Database, Globe2, Image, KeyRound } from 'lucide-react';
+import { Database, Globe2, Image, KeyRound, ArrowUpRight, Check } from 'lucide-react';
 
 const AFUCLOUD_URL = 'https://cloud.afuchat.com';
 
@@ -54,173 +51,10 @@ const plans = [
 
 const formats = ['PNG', 'JPEG', 'WebP', 'GIF', 'AVIF', 'SVG', 'HEIC'];
 
-const uploadExample = `const API_BASE = "https://api.afuchat.com/v1";
-
-export async function uploadImage(file: File): Promise<string> {
-  const projectId = process.env.AFUCLOUD_PROJECT_ID;
-  const apiKey = process.env.AFUCLOUD_API_KEY;
-
-  if (!projectId || !apiKey) {
-    throw new Error("Set AFUCLOUD_PROJECT_ID and AFUCLOUD_API_KEY");
-  }
-  const supportedTypes = new Set([
-    "image/png",
-    "image/jpeg",
-    "image/webp",
-    "image/gif",
-    "image/avif",
-    "image/svg+xml",
-    "image/heic",
-  ]);
-  if (!supportedTypes.has(file.type)) {
-    throw new Error("Choose a supported image file");
-  }
-
-  const contentType = file.type;
-  const authHeaders = {
-    Authorization: "Bearer " + apiKey,
-    "Content-Type": "application/json",
-  };
-
-  const uploadRequest = await fetch(
-    API_BASE + "/projects/" + projectId + "/images/upload-url",
-    {
-      method: "POST",
-      headers: authHeaders,
-      body: JSON.stringify({
-        filename: file.name,
-        contentType,
-        name: file.name,
-      }),
-    },
-  );
-  if (!uploadRequest.ok) {
-    throw new Error("Could not request an upload URL: " + uploadRequest.status);
-  }
-
-  const { uploadUrl, imageId, key } = (await uploadRequest.json()) as {
-    uploadUrl: string;
-    imageId: string;
-    key: string;
-  };
-
-  const fileUpload = await fetch(uploadUrl, {
-    method: "PUT",
-    headers: { "Content-Type": contentType },
-    body: file,
-  });
-  if (!fileUpload.ok) {
-    throw new Error("Image upload failed: " + fileUpload.status);
-  }
-
-  const confirmation = await fetch(
-    API_BASE + "/projects/" + projectId + "/images/confirm-upload",
-    {
-      method: "POST",
-      headers: authHeaders,
-      body: JSON.stringify({ imageId, key, size: file.size }),
-    },
-  );
-  if (!confirmation.ok) {
-    throw new Error("Could not confirm the image upload: " + confirmation.status);
-  }
-
-  const image = (await confirmation.json()) as { url: string };
-  return image.url;
-}`;
-
-const listImagesExample = `curl "https://api.afuchat.com/v1/projects/$AFUCLOUD_PROJECT_ID/images" \\
-  -H "Authorization: Bearer $AFUCLOUD_API_KEY"`;
-
-const displayImageExample = `<img
-  src={imageUrl}
-  alt="Uploaded image"
-  loading="lazy"
-/>`;
-
-function CopyableCode({
-  title,
-  language,
-  code,
-}: {
-  title: string;
-  language: string;
-  code: string;
-}) {
-  const [copyState, setCopyState] = useState<'idle' | 'copied' | 'error'>('idle');
-  const codeTone = language.toLowerCase().includes('curl') ? 'red' : 'green';
-
-  async function copyCode() {
-    try {
-      if (navigator.clipboard?.writeText) {
-        try {
-          await navigator.clipboard.writeText(code);
-          setCopyState('copied');
-          return;
-        } catch {
-          // Fall through to the selection-based fallback for restricted clipboard contexts.
-        }
-      }
-
-      const textarea = document.createElement('textarea');
-      textarea.value = code;
-      textarea.setAttribute('readonly', '');
-      textarea.setAttribute('aria-hidden', 'true');
-      textarea.style.position = 'fixed';
-      textarea.style.left = '-9999px';
-      document.body.appendChild(textarea);
-      let copied = false;
-      try {
-        textarea.select();
-        copied = document.execCommand('copy');
-      } finally {
-        textarea.remove();
-      }
-      if (!copied) throw new Error('Clipboard access is unavailable');
-      setCopyState('copied');
-    } catch {
-      setCopyState('error');
-    }
-  }
-
-  return (
-    <article className={`afucloud-code-example afucloud-code-example--${codeTone} py-6`}>
-      <div className="mb-3 flex flex-wrap items-baseline justify-between gap-3">
-        <div className="flex flex-wrap items-baseline gap-3">
-          <h3 className="text-base font-semibold text-white">{title}</h3>
-          <span className="afucloud-code-language text-xs uppercase tracking-widest">{language}</span>
-        </div>
-        <button
-          type="button"
-          onClick={copyCode}
-          aria-label={`Copy ${title} example`}
-          className="afucloud-copy-button inline-flex items-center gap-2 text-sm font-semibold"
-        >
-          {copyState === 'copied' ? (
-            <Check className="h-4 w-4" aria-hidden="true" />
-          ) : (
-            <Copy className="h-4 w-4" aria-hidden="true" />
-          )}
-          {copyState === 'copied' ? 'Copied' : copyState === 'error' ? 'Copy unavailable' : 'Copy'}
-        </button>
-      </div>
-      <pre className="afucloud-code-block m-0 overflow-x-auto whitespace-pre-wrap break-words text-sm leading-relaxed">
-        <code>{code}</code>
-      </pre>
-      {copyState === 'error' && (
-        <p role="status" className="mt-2 text-xs text-white/45">
-          Select the code and copy it manually.
-        </p>
-      )}
-      {copyState === 'copied' && <span className="sr-only" role="status">Code copied.</span>}
-    </article>
-  );
-}
-
 export default function AfuCloudDetails() {
   return (
     <div className="max-container container-pad">
-      <section aria-labelledby="afucloud-capabilities" className="py-14 sm:py-20">
+      <section aria-labelledby="afucloud-capabilities" className="border-t border-white/10 py-14 sm:py-20">
         <div className="max-w-3xl mb-9">
           <p className="text-[#07965B] font-semibold text-xs uppercase tracking-widest mb-3">AfuCloud platform</p>
           <h2 id="afucloud-capabilities" className="text-3xl sm:text-4xl font-bold text-white tracking-tight mb-4">
@@ -231,22 +65,24 @@ export default function AfuCloudDetails() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-x-8 gap-y-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
           {capabilities.map(({ icon: Icon, title, description }) => (
-            <article key={title} className="py-2">
-              <Icon className="w-6 h-6 text-[#07965B] mb-5" aria-hidden="true" />
+            <article key={title} className="rounded-2xl border border-white/10 bg-white/[0.035] p-5 sm:p-6">
+              <div className="w-10 h-10 rounded-xl bg-[hsl(154_55%_92%)] text-[#07965B] flex items-center justify-center mb-5">
+                <Icon className="w-5 h-5" aria-hidden="true" />
+              </div>
               <h3 className="text-white font-semibold mb-2">{title}</h3>
               <p className="text-white/50 text-sm leading-relaxed">{description}</p>
             </article>
           ))}
         </div>
 
-        <div className="mt-10">
+        <div className="mt-6 rounded-2xl border border-white/10 bg-white/[0.025] p-5 sm:p-6">
           <h3 className="text-white font-semibold mb-3">Supported image formats</h3>
           <p className="text-white/45 text-sm mb-4">Upload images in the formats supported by AfuCloud’s image API.</p>
-          <ul className="flex flex-wrap gap-x-5 gap-y-2" aria-label="Supported image formats">
+          <ul className="flex flex-wrap gap-2" aria-label="Supported image formats">
             {formats.map(format => (
-              <li key={format} className="text-sm font-medium text-white/70">
+              <li key={format} className="rounded-full border border-white/10 px-3 py-1.5 text-xs font-medium text-white/70">
                 {format}
               </li>
             ))}
@@ -254,7 +90,7 @@ export default function AfuCloudDetails() {
         </div>
       </section>
 
-      <section aria-labelledby="afucloud-workflow" className="py-14 sm:py-20">
+      <section aria-labelledby="afucloud-workflow" className="border-t border-white/10 py-14 sm:py-20">
         <div className="grid grid-cols-1 lg:grid-cols-[0.8fr_1.2fr] gap-8 lg:gap-14 items-start">
           <div>
             <p className="text-[#07965B] font-semibold text-xs uppercase tracking-widest mb-3">Getting started</p>
@@ -279,7 +115,7 @@ export default function AfuCloudDetails() {
               { step: '02', title: 'Upload an image', body: 'Request a temporary upload URL, then send the image file to that URL.' },
               { step: '03', title: 'Deliver the file', body: 'Confirm the upload and use the image URL returned by AfuCloud.' },
             ].map(item => (
-              <li key={item.step} className="py-3">
+              <li key={item.step} className="rounded-2xl border border-white/10 bg-white/[0.035] p-5">
                 <span className="text-[#07965B] text-xs font-bold tracking-widest">{item.step}</span>
                 <h3 className="text-white font-semibold mt-4 mb-2">{item.title}</h3>
                 <p className="text-white/50 text-sm leading-relaxed">{item.body}</p>
@@ -289,27 +125,7 @@ export default function AfuCloudDetails() {
         </div>
       </section>
 
-      <section id="afucloud-integration" aria-labelledby="afucloud-integration-title" className="py-14 sm:py-20">
-        <div className="max-w-3xl mb-8">
-          <p className="text-[#07965B] font-semibold text-xs uppercase tracking-widest mb-3">Developer integration</p>
-          <h2 id="afucloud-integration-title" className="text-3xl sm:text-4xl font-bold text-white tracking-tight mb-4">
-            Upload from your server, deliver anywhere
-          </h2>
-          <p className="text-white/55 leading-relaxed mb-4">
-            Request a temporary upload URL, send the image, and confirm it to receive a delivery URL.
-          </p>
-          <p className="text-white/50 text-sm leading-relaxed">
-            Create a project key with <code>images:write</code> for uploads and <code>images:read</code> for the list example. Keep it in server-side environment variables; never expose it in browser code.
-          </p>
-        </div>
-        <div className="space-y-4">
-          <CopyableCode title="Upload and confirm an image" language="Node.js · TypeScript" code={uploadExample} />
-          <CopyableCode title="List project images" language="cURL" code={listImagesExample} />
-          <CopyableCode title="Render the returned URL" language="JSX" code={displayImageExample} />
-        </div>
-      </section>
-
-      <section id="afucloud-pricing" aria-labelledby="afucloud-pricing-title" className="py-14 sm:py-20">
+      <section id="afucloud-pricing" aria-labelledby="afucloud-pricing-title" className="border-t border-white/10 py-14 sm:py-20">
         <div className="max-w-3xl mx-auto text-center mb-10">
           <p className="text-[#07965B] font-semibold text-xs uppercase tracking-widest mb-3">Plans</p>
           <h2 id="afucloud-pricing-title" className="text-3xl sm:text-4xl font-bold text-white tracking-tight mb-4">
@@ -320,17 +136,18 @@ export default function AfuCloudDetails() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-x-10 gap-y-8 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-stretch">
           {plans.map(plan => (
-            <article key={plan.name} className="py-2">
-              <div className="flex items-baseline justify-between gap-3">
-                <h3 className="text-white font-semibold">{plan.name}</h3>
-                {plan.popular && (
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-[#07965B]">
-                    Most popular
-                  </span>
-                )}
-              </div>
+            <article
+              key={plan.name}
+              className={`relative rounded-2xl border p-6 sm:p-7 ${plan.popular ? 'border-[#07965B]/40 bg-[hsl(154_55%_92%)]' : 'border-white/10 bg-white/[0.035]'}`}
+            >
+              {plan.popular && (
+                <span className="absolute right-5 top-5 rounded-full bg-[hsl(154_55%_92%)] px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-[hsl(154_95%_18%)]">
+                  Most popular
+                </span>
+              )}
+              <h3 className="text-white font-semibold">{plan.name}</h3>
               <p className="mt-5 flex items-baseline gap-2">
                 <span className="text-4xl font-bold tracking-tight text-white">{plan.price}</span>
                 <span className="text-sm text-white/45">{plan.period}</span>
@@ -352,7 +169,7 @@ export default function AfuCloudDetails() {
           ))}
         </div>
 
-        <div className="mt-7 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 py-4">
+        <div className="mt-7 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 rounded-2xl border border-white/10 bg-white/[0.025] p-5 sm:px-6">
           <p className="text-white/45 text-sm leading-relaxed">
             Pro and Business are monthly subscriptions, cancellable through Whop. Eligible new customers can use <code className="text-white/75">afucloud25</code> for 25% off their first three paid monthly charges.
           </p>
@@ -360,7 +177,7 @@ export default function AfuCloudDetails() {
             href={AFUCLOUD_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex shrink-0 items-center gap-2 text-sm font-semibold text-[#07965B] hover:text-[#08764B] transition-colors"
+            className="inline-flex shrink-0 items-center gap-2 rounded-full border border-white/15 px-4 py-2.5 text-sm font-semibold text-white/80 hover:border-[#07965B]/50 hover:text-[#07965B] transition-colors"
           >
             View current plans <ArrowUpRight className="w-4 h-4" aria-hidden="true" />
           </a>
