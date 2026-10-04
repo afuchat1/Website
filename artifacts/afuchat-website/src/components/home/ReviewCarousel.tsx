@@ -9,15 +9,8 @@ type ReviewCarouselProps = {
   label?: string;
 };
 
-function initialsFor(name?: string) {
-  if (!name) return 'TP';
-  if (name === 'Trustpilot reviewer') return 'TP';
-  return name
-    .trim()
-    .split(/\s+/)
-    .slice(0, 2)
-    .map(part => part[0]?.toUpperCase() ?? '')
-    .join('');
+function initialsFor(name: string) {
+  return name.trim().charAt(0).toUpperCase();
 }
 
 function ReviewStars({ rating }: { rating: 1 | 2 | 3 | 4 | 5 }) {
@@ -41,6 +34,7 @@ export default function ReviewCarousel({
   label = 'Customer reviews',
 }: ReviewCarouselProps) {
   const trackRef = useRef<HTMLDivElement>(null);
+  const verifiedReviews = reviews.filter((review) => review.reviewerName.trim().length > 0);
   const [paused, setPaused] = useState(false);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(true);
 
@@ -77,12 +71,12 @@ export default function ReviewCarousel({
   }, [prefersReducedMotion]);
 
   useEffect(() => {
-    if (paused || prefersReducedMotion || reviews.length < 2) return;
+    if (paused || prefersReducedMotion || verifiedReviews.length < 2) return;
     const timer = window.setInterval(() => moveByCard(1), 6500);
     return () => window.clearInterval(timer);
-  }, [moveByCard, paused, prefersReducedMotion, reviews.length]);
+  }, [moveByCard, paused, prefersReducedMotion, verifiedReviews.length]);
 
-  if (reviews.length === 0) return null;
+  if (verifiedReviews.length === 0) return null;
 
   return (
     <section
@@ -102,31 +96,38 @@ export default function ReviewCarousel({
         role="group"
         aria-label={`${label} carousel`}
       >
-        {reviews.map((review) => {
-          const reviewerName = review.reviewerName ?? 'Trustpilot reviewer';
+        {verifiedReviews.map((review) => {
           const reviewText = review.quote ?? review.title;
           return (
             <article
               key={review.id}
               data-review-card
-              className="review-carousel-card flex flex-col snap-start rounded-2xl p-6 sm:p-8"
+              className="review-carousel-card flex flex-col snap-start p-6 sm:p-8"
             >
-              <div className="mb-5 flex items-center justify-between gap-3">
+              <div className="flex items-center justify-between gap-4 border-b border-slate-200/80 pb-4 dark:border-slate-600/70">
                 <div className="flex min-w-0 items-center gap-3">
                   <span
                     aria-hidden="true"
-                    className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-blue-500/15 text-sm font-bold text-blue-200 ring-1 ring-white/10"
+                    className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-emerald-100 text-sm font-bold text-emerald-800 ring-1 ring-emerald-600/20 dark:bg-emerald-400/15 dark:text-emerald-200 dark:ring-emerald-300/20"
                   >
                     {initialsFor(review.reviewerName)}
                   </span>
                   <div className="min-w-0">
-                    <p className="truncate text-base font-semibold text-white">{reviewerName}</p>
+                    <p className="truncate text-base font-semibold text-slate-900 dark:text-white">
+                      {review.reviewerName}
+                    </p>
+                    <time
+                      dateTime={review.dateTime}
+                      className="mt-0.5 block text-xs font-medium text-slate-500 dark:text-slate-400"
+                    >
+                      {review.date}
+                    </time>
                   </div>
                 </div>
                 {review.rating !== undefined && <ReviewStars rating={review.rating} />}
               </div>
               {reviewText && (
-                <blockquote className="text-base leading-7 text-white/70">
+                <blockquote className="flex-1 py-5 text-lg font-medium leading-8 text-slate-800 dark:text-slate-100 sm:text-xl">
                   {reviewText}
                 </blockquote>
               )}
@@ -134,7 +135,7 @@ export default function ReviewCarousel({
                 href={review.sourceUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-auto pt-5 text-sm font-semibold text-[#00B67A] transition-colors hover:text-white"
+                className="mt-auto border-t border-slate-200/80 pt-4 text-sm font-semibold text-emerald-700 transition-colors hover:text-emerald-900 dark:border-slate-600/70 dark:text-emerald-300 dark:hover:text-emerald-100"
               >
                 {review.sourceLabel ?? 'Read this review on Trustpilot'} <span aria-hidden="true">↗</span>
               </a>
@@ -143,7 +144,7 @@ export default function ReviewCarousel({
         })}
       </div>
 
-      {reviews.length > 1 && (
+      {verifiedReviews.length > 1 && (
         <div className="mt-5 flex justify-end">
           <div className="flex gap-2">
             <button
@@ -176,17 +177,18 @@ export default function ReviewCarousel({
         }
         .review-carousel-card {
           flex: 0 0 86%;
-          min-height: 280px;
+          min-height: 320px;
+          border-radius: 0;
           border: 1px solid rgba(100, 116, 139, 0.38);
           background: linear-gradient(
             135deg,
-            rgba(255, 255, 255, 0.94),
-            rgba(232, 242, 255, 0.88)
+            rgba(255, 255, 255, 0.98),
+            rgba(239, 246, 255, 0.94)
           );
-          -webkit-backdrop-filter: blur(16px) saturate(165%);
-          backdrop-filter: blur(16px) saturate(165%);
+          -webkit-backdrop-filter: blur(12px) saturate(150%);
+          backdrop-filter: blur(12px) saturate(150%);
           box-shadow:
-            0 18px 45px rgba(15, 23, 42, 0.12),
+            0 12px 32px rgba(15, 23, 42, 0.09),
             inset 0 1px 0 rgba(255, 255, 255, 0.96);
         }
         @media (prefers-color-scheme: dark) {
@@ -194,13 +196,13 @@ export default function ReviewCarousel({
             border-color: rgba(148, 163, 184, 0.38);
             background: linear-gradient(
               135deg,
-              rgba(30, 41, 59, 0.94),
-              rgba(15, 23, 42, 0.9)
+              rgba(30, 41, 59, 0.97),
+              rgba(15, 23, 42, 0.94)
             );
-            -webkit-backdrop-filter: blur(16px) saturate(155%);
-            backdrop-filter: blur(16px) saturate(155%);
+            -webkit-backdrop-filter: blur(12px) saturate(145%);
+            backdrop-filter: blur(12px) saturate(145%);
             box-shadow:
-              0 18px 45px rgba(0, 0, 0, 0.3),
+              0 12px 32px rgba(0, 0, 0, 0.24),
               inset 0 1px 0 rgba(255, 255, 255, 0.12);
           }
         }
