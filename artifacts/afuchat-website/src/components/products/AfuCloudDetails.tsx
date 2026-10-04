@@ -148,6 +148,7 @@ function CopyableCode({
   code: string;
 }) {
   const [copyState, setCopyState] = useState<'idle' | 'copied' | 'error'>('idle');
+  const codeTone = language.toLowerCase().includes('curl') ? 'red' : 'green';
 
   async function copyCode() {
     try {
@@ -183,11 +184,11 @@ function CopyableCode({
   }
 
   return (
-    <article className="afucloud-code-card">
-      <div className="afucloud-code-card-heading">
-        <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5">
+    <article className={`afucloud-code-example afucloud-code-example--${codeTone} py-6`}>
+      <div className="mb-3 flex flex-wrap items-baseline justify-between gap-3">
+        <div className="flex flex-wrap items-baseline gap-3">
           <h3 className="text-base font-semibold text-white">{title}</h3>
-          <span className="afucloud-code-language">{language}</span>
+          <span className="afucloud-code-language text-xs uppercase tracking-widest">{language}</span>
         </div>
         <button
           type="button"
@@ -203,7 +204,7 @@ function CopyableCode({
           {copyState === 'copied' ? 'Copied' : copyState === 'error' ? 'Copy unavailable' : 'Copy'}
         </button>
       </div>
-      <pre className="afucloud-code-block">
+      <pre className="afucloud-code-block m-0 overflow-x-auto whitespace-pre-wrap break-words text-sm leading-relaxed">
         <code>{code}</code>
       </pre>
       {copyState === 'error' && (
