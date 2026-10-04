@@ -178,17 +178,32 @@ export default function ReviewCarousel({
         .review-carousel-card {
           flex: 0 0 86%;
           min-height: 250px;
-          border: 1px solid rgba(255, 255, 255, 0.78);
+          border: 1px solid rgba(255, 255, 255, 0.82);
           background: linear-gradient(
             135deg,
-            rgba(255, 255, 255, 0.82),
-            rgba(255, 255, 255, 0.58)
+            rgba(255, 255, 255, 0.76),
+            rgba(239, 246, 255, 0.58)
           );
-          -webkit-backdrop-filter: blur(22px);
-          backdrop-filter: blur(22px);
+          -webkit-backdrop-filter: blur(12px) saturate(155%);
+          backdrop-filter: blur(12px) saturate(155%);
           box-shadow:
-            0 18px 45px rgba(15, 23, 42, 0.09),
-            inset 0 1px 0 rgba(255, 255, 255, 0.9);
+            0 18px 45px rgba(15, 23, 42, 0.1),
+            inset 0 1px 0 rgba(255, 255, 255, 0.82);
+        }
+        @media (prefers-color-scheme: dark) {
+          .review-carousel-card {
+            border-color: rgba(148, 163, 184, 0.24);
+            background: linear-gradient(
+              135deg,
+              rgba(30, 41, 59, 0.78),
+              rgba(15, 23, 42, 0.68)
+            );
+            -webkit-backdrop-filter: blur(12px) saturate(145%);
+            backdrop-filter: blur(12px) saturate(145%);
+            box-shadow:
+              0 18px 45px rgba(0, 0, 0, 0.3),
+              inset 0 1px 0 rgba(255, 255, 255, 0.12);
+          }
         }
         @media (min-width: 640px) {
           .review-carousel-card {
