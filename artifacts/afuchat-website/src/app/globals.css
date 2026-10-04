@@ -215,6 +215,68 @@
   box-shadow: none !important;
 }
 
+.afucloud-product-page .afucloud-code-card,
+.afucloud-product-page .afucloud-code-card:hover {
+  padding: 1rem;
+  border: 1px solid var(--color-border) !important;
+  border-radius: 0.875rem;
+  background-color: var(--color-surface) !important;
+  background-image: none !important;
+  box-shadow: none !important;
+}
+
+.afucloud-product-page .afucloud-code-card-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.85rem;
+}
+
+.afucloud-product-page .afucloud-code-language {
+  display: inline-flex;
+  align-items: center;
+  min-height: 1.5rem;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  background-color: color-mix(in srgb, var(--color-surface) 78%, #07965B 22%) !important;
+  color: var(--afucloud-accent) !important;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1rem;
+  text-transform: uppercase;
+}
+
+.afucloud-product-page .afucloud-copy-button,
+.afucloud-product-page .afucloud-copy-button:hover {
+  padding: 0.4rem 0.65rem;
+  border-radius: 0.55rem;
+  background-color: color-mix(in srgb, var(--color-surface) 78%, #07965B 22%) !important;
+  text-decoration: none;
+}
+
+.afucloud-product-page .afucloud-code-block,
+.afucloud-product-page .afucloud-code-block:hover {
+  max-width: 100%;
+  margin: 0;
+  padding: 1rem;
+  overflow-x: auto;
+  border: 1px solid color-mix(in srgb, var(--color-border) 72%, #07965B 28%) !important;
+  border-radius: 0.7rem;
+  background-color: color-mix(in srgb, var(--color-surface) 82%, #07965B 18%) !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  color: var(--afucloud-foreground);
+  font-size: 0.8rem;
+  line-height: 1.7;
+  white-space: pre;
+}
+
+.afucloud-product-page .afucloud-code-block code {
+  color: var(--afucloud-foreground) !important;
+}
+
 .afucloud-product-page [class~="text-white"] {
   color: var(--afucloud-foreground) !important;
 }

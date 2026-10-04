@@ -183,11 +183,11 @@ function CopyableCode({
   }
 
   return (
-    <article className="py-6">
-      <div className="mb-3 flex flex-wrap items-baseline justify-between gap-3">
-        <div className="flex items-baseline gap-3">
+    <article className="afucloud-code-card">
+      <div className="afucloud-code-card-heading">
+        <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5">
           <h3 className="text-base font-semibold text-white">{title}</h3>
-          <span className="text-xs uppercase tracking-widest text-white/45">{language}</span>
+          <span className="afucloud-code-language">{language}</span>
         </div>
         <button
           type="button"
@@ -203,7 +203,7 @@ function CopyableCode({
           {copyState === 'copied' ? 'Copied' : copyState === 'error' ? 'Copy unavailable' : 'Copy'}
         </button>
       </div>
-      <pre className="m-0 overflow-x-auto whitespace-pre-wrap break-words text-sm leading-relaxed text-white">
+      <pre className="afucloud-code-block">
         <code>{code}</code>
       </pre>
       {copyState === 'error' && (

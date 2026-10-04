@@ -1,5 +1,5 @@
 - [Vite config env fallbacks](vite-config-env.md) — scaffold vite.config throws on missing PORT/BASE_PATH; use graceful fallbacks when artifact.toml has no [services.env] block.
-- [AfuCloud page theme](afucloud-page-theme.md) — Keep shared AfuChat light/dark surfaces, AfuCloud green branding, flat content, and left-side product navigation.
+- [AfuCloud page theme](afucloud-page-theme.md) — Keep shared theme and green branding, flat sections, visible code cards, and left-side product navigation.
 - [Next.js on Replit dev setup](nextjs-replit-dev.md) — key quirks for running Next.js App Router in Replit's proxied iframe environment.
 - [next/font/google hydration fix](next-font-google-hydration.md) — next/font/google causes React 19 hydration mismatch on Replit; use direct Google Fonts <link> tag instead.
 - [Next.js monorepo installs](nextjs-monorepo-installs.md) — install workspace dependencies with a pnpm filter from the monorepo root so the artifact workflow can resolve Next.js.
