@@ -129,7 +129,7 @@ export default function Navbar() {
   const navLinks = [
     { label: 'Partners',   href: '/partners' },
     { label: 'Developers', href: '/developers' },
-    { label: 'Company',    href: '/about' },
+    { label: 'About us',    href: '/about' },
   ];
 
   return (
@@ -145,10 +145,10 @@ export default function Navbar() {
           <Link href="/" className="flex items-center gap-2 flex-shrink-0">
             <img
               src={isAfuCloud ? '/assets/products/afucloud-logo.svg' : LOGO_SRC}
-              alt={isAfuCloud ? 'AfuCloud' : 'AfuChat'}
+              alt={isAfuCloud ? 'AfuCloud' : 'AfuChat Technologies Limited'}
               className={`h-8 w-8 object-contain ${isAfuCloud ? '' : 'dark:brightness-0 dark:invert'}`}
             />
-            <span className="font-bold text-white text-lg">{isAfuCloud ? 'AfuCloud' : 'AfuChat'}</span>
+            <span className="font-bold text-white text-lg">{isAfuCloud ? 'AfuCloud' : 'AfuChat Technologies'}</span>
           </Link>
 
           {/* ── Desktop Nav ── */}
