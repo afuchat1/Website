@@ -6,7 +6,7 @@ import { Menu, X, ChevronDown, ArrowRight, Github } from 'lucide-react';
 import { PRODUCT_DATA } from '@/data/products';
 import ProductIcon from '@/components/products/ProductIcon';
 
-const LOGO_SRC = '/assets/afuchat_logo_transparent.png';
+const LOGO_SRC = '/assets/afuchat-brand-symbol.svg';
 const GITHUB_REPO_URL = 'https://github.com/afuchat1/Website';
 
 function formatStars(count: number) {
@@ -146,7 +146,7 @@ export default function Navbar() {
             <img
               src={isAfuCloud ? '/assets/products/afucloud-logo.svg' : LOGO_SRC}
               alt={isAfuCloud ? 'AfuCloud' : 'AfuChat'}
-              className="h-8 w-8 object-contain"
+              className={`h-8 w-8 object-contain ${isAfuCloud ? '' : 'brightness-0 invert'}`}
             />
             <span className="font-bold text-white text-lg">{isAfuCloud ? 'AfuCloud' : 'AfuChat'}</span>
           </Link>
