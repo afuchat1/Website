@@ -15,7 +15,7 @@ export default function PartnersSection() {
   const items = [...partners, ...partners, ...partners, ...partners];
 
   return (
-    <section className="photo-bg-section relative isolate overflow-hidden py-14 sm:py-18 lg:py-22" style={{ backgroundImage: "linear-gradient(90deg, rgba(4, 13, 31, 0.93), rgba(4, 13, 31, 0.84)), url(\'https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=2000&q=85\')", backgroundSize: "cover", backgroundPosition: "center" }}>
+    <section className="photo-bg-section relative isolate overflow-hidden py-14 sm:py-18 lg:py-22" style={{ backgroundImage: "linear-gradient(90deg, var(--photo-overlay-strong), var(--photo-overlay-soft)), url(\'https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=2000&q=85\')", backgroundSize: "cover", backgroundPosition: "center" }}>
       <div className="max-container container-pad">
         <div className="text-center mb-8 sm:mb-10">
           <p className="text-blue-400 font-semibold text-[10px] sm:text-xs uppercase tracking-widest mb-3">Our partners</p>
