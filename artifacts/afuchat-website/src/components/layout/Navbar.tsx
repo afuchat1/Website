@@ -77,17 +77,10 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [productsOpen, setProductsOpen] = useState(false);
   const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname() ?? '';
   const isAfuCloud = pathname === '/products/afucloud';
   const productsRef = useRef<HTMLDivElement>(null);
   const drawerCloseButtonRef = useRef<HTMLButtonElement>(null);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 10);
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
 
   // Close everything on route change
   useEffect(() => {
