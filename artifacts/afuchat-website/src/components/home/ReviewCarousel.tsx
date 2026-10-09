@@ -87,9 +87,12 @@ export default function ReviewCarousel({
                     <footer className="mt-auto flex items-center gap-3 border-t border-slate-200 pt-4 dark:border-slate-700">
                       <span
                         aria-hidden="true"
-                        className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-blue-100 text-sm font-bold text-blue-800 ring-1 ring-blue-600/20 dark:bg-blue-400/15 dark:text-blue-200 dark:ring-blue-300/20"
+                        className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-slate-100 text-slate-500 ring-1 ring-slate-200 dark:bg-slate-800 dark:text-slate-300 dark:ring-slate-700"
                       >
-                        {initialsFor(review.reviewerName)}
+                        <svg viewBox="0 0 24 24" fill="none" className="h-6 w-6" aria-hidden="true">
+                          <circle cx="12" cy="8" r="3.5" fill="currentColor" />
+                          <path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                        </svg>
                       </span>
                       <p className="min-w-0 truncate text-sm font-semibold text-slate-900 dark:text-slate-100">
                         {review.reviewerName}
