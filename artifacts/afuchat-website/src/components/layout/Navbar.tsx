@@ -139,7 +139,7 @@ export default function Navbar() {
               alt={isAfuCloud ? 'AfuCloud' : 'AfuChat Technologies Limited'}
               className={`h-8 w-8 object-contain ${isAfuCloud ? '' : 'dark:brightness-0 dark:invert'}`}
             />
-            <span className={`font-bold text-lg ${isAfuCloud ? "text-white" : "text-slate-900 dark:text-white"}`}>{isAfuCloud ? 'AfuCloud' : 'AfuChat Technologies'}</span>
+            <span className={`font-bold text-lg ${isAfuCloud ? "text-white" : "text-slate-900 dark:text-white"}`}>{isAfuCloud ? 'AfuCloud' : 'ATL Uganda'}</span>
           </Link>
 
           {/* ── Desktop Nav ── */}
