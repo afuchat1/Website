@@ -20,7 +20,7 @@ export default function ProductPage({ id }: { id: string }) {
   const otherProducts = PRODUCT_DATA.filter(p => p.id !== product.id).slice(0, 4);
 
   return (
-    <div className={`w-full min-h-screen ${isAfuCloud ? 'afucloud-product-page' : ''}`}>
+    <div className={`product-detail-page w-full min-h-screen ${isAfuCloud ? 'afucloud-product-page' : ''}`}>
       <div className={isAfuCloud ? 'afucloud-brand-content' : ''}>
         {/* Hero */}
         <div className="max-container container-pad pt-6 pb-12 sm:pt-14 sm:pb-16">
