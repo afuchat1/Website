@@ -565,3 +565,40 @@ input::placeholder, textarea::placeholder {
     color: #F8FAFC !important;
   }
 }
+
+/* Product catalogue and detail pages use a stable, high-contrast surface.
+   Avoid mixing dark system backgrounds with hard-coded dark product headings. */
+.product-catalogue-page,
+.product-detail-page:not(.afucloud-product-page) {
+  background: #FFFFFF !important;
+  color: #0F172A !important;
+  color-scheme: light;
+}
+.product-catalogue-page h1,
+.product-catalogue-page h2,
+.product-catalogue-page h3,
+.product-detail-page:not(.afucloud-product-page) h1,
+.product-detail-page:not(.afucloud-product-page) h2,
+.product-detail-page:not(.afucloud-product-page) h3 {
+  color: #0F172A !important;
+}
+.product-catalogue-page [class*="text-white"],
+.product-detail-page:not(.afucloud-product-page) [class*="text-white"] {
+  color: #475569 !important;
+}
+.product-catalogue-page [class*="text-white"][class*="font-bold"],
+.product-detail-page:not(.afucloud-product-page) [class*="text-white"][class*="font-bold"] {
+  color: #0F172A !important;
+}
+.product-catalogue-page a:focus-visible,
+.product-detail-page:not(.afucloud-product-page) a:focus-visible {
+  outline: 3px solid #1746A2;
+  outline-offset: 4px;
+  border-radius: 0.5rem;
+}
+.product-catalogue-page img,
+.product-detail-page:not(.afucloud-product-page) img {
+  opacity: 1;
+  visibility: visible;
+}
+
