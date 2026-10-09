@@ -32,12 +32,12 @@ export default function ProductPage({ id }: { id: string }) {
                 ) : (
                   <Icon className="hidden sm:block w-8 h-8 mb-6" style={{ color: product.color }} />
                 )}
-                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white mb-1 tracking-tight">
+                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-950 mb-1 tracking-tight">
                   {isAfuCloud ? 'AfuCloud Image Storage API' : product.name}
                 </h1>
-                <p className="text-[11px] uppercase tracking-widest font-bold text-white/30 mb-4">{product.category}</p>
-                <p className={`text-lg sm:text-xl font-semibold mb-4 leading-snug ${isAfuCloud ? 'afucloud-tagline' : ''}`} style={{ color: product.color }}>{product.tagline}</p>
-                <p className="text-white/55 text-base sm:text-lg leading-relaxed mb-8 max-w-md">{product.description}</p>
+                <p className="text-[11px] uppercase tracking-widest font-bold text-slate-500 mb-4">{product.category}</p>
+                <p className={`text-lg sm:text-xl font-semibold mb-4 leading-snug ${isAfuCloud ? 'afucloud-tagline' : ''}`} style={{ color: isAfuCloud ? undefined : '#1746A2' }} style={{ color: product.color }}>{product.tagline}</p>
+                <p className="text-slate-600 text-base sm:text-lg leading-relaxed mb-8 max-w-md">{product.description}</p>
                 {isAfuCloud && (
                   <div className="flex flex-wrap gap-3 mb-8">
                     <a
@@ -52,7 +52,7 @@ export default function ProductPage({ id }: { id: string }) {
                       href={AFUCLOUD_QUICKSTART_URL}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 rounded-full border border-white/15 px-5 py-3 text-sm font-semibold text-white/80 hover:border-white/30 hover:text-white transition-colors"
+                      className="inline-flex items-center gap-2 rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 hover:border-[#1746A2] hover:text-[#1746A2] transition-colors"
                     >
                       Read the API quickstart <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
                     </a>
@@ -60,7 +60,7 @@ export default function ProductPage({ id }: { id: string }) {
                 )}
                 <div className="flex flex-wrap gap-2 mb-8">
                   {product.features.map(f => (
-                    <span key={f} className="px-3 py-1.5 rounded-full text-xs font-semibold text-white/70 bg-white/8">{f}</span>
+                    <span key={f} className="px-3 py-1.5 rounded-full text-xs font-semibold text-slate-700 bg-slate-100 border border-slate-200">{f}</span>
                   ))}
                 </div>
               </div>
@@ -105,9 +105,9 @@ export default function ProductPage({ id }: { id: string }) {
       {!isAfuCloud && (
         <div className="max-container container-pad py-16">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-10">
-            <p className="font-semibold text-xs uppercase tracking-widest mb-3 text-white/40">Ecosystem</p>
+            <p className="font-semibold text-xs uppercase tracking-widest mb-3 text-[#1746A2]">Ecosystem</p>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-              <h2 className="text-2xl font-bold text-white tracking-tight">Works even better together.</h2>
+              <h2 className="text-2xl font-bold text-slate-950 tracking-tight">Works even better together.</h2>
             <img src={illSecEcosystem} alt="AfuChat ecosystem" className="w-full max-w-xs drop-shadow-2xl hidden lg:block" loading="lazy" decoding="async" />
             </div>
           </motion.div>
@@ -115,9 +115,9 @@ export default function ProductPage({ id }: { id: string }) {
             {otherProducts.map((p, i) => (
               <motion.div key={p.id} initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.07 }}>
                 <Link href={p.path}>
-                  <div className="flex items-center gap-3 group">
+                  <div className="flex items-center gap-3 rounded-xl border border-slate-200 bg-white p-3 group hover:border-[#1746A2]/40 transition-colors">
                     <ProductIcon product={p} containerClassName="w-10 h-10 rounded-xl" iconClassName="w-5 h-5" />
-                    <span className="text-sm text-white/50 group-hover:text-white transition-colors">{p.name}</span>
+                    <span className="text-sm text-slate-600 group-hover:text-[#1746A2] transition-colors">{p.name}</span>
                   </div>
                 </Link>
               </motion.div>
