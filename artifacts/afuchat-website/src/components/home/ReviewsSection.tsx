@@ -8,7 +8,7 @@ const TRUSTPILOT_LOGO = '/assets/trustpilot_logo.png';
 
 export default function ReviewsSection() {
   return (
-    <section className="photo-bg-section relative isolate overflow-hidden py-16 sm:py-20" style={{ backgroundImage: "linear-gradient(90deg, rgba(4, 13, 31, 0.92), rgba(4, 13, 31, 0.82)), url(\'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=2000&q=85\')", backgroundSize: "cover", backgroundPosition: "center" }}>
+    <section className="photo-bg-section relative isolate overflow-hidden py-16 sm:py-20" style={{ backgroundImage: "linear-gradient(90deg, var(--photo-overlay-strong), var(--photo-overlay-soft)), url(\'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=2000&q=85\')", backgroundSize: "cover", backgroundPosition: "center" }}>
       <div className="max-container container-pad mb-8 sm:mb-12">
         <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
           <div>
