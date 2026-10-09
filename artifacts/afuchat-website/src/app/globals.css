@@ -496,3 +496,72 @@ input::placeholder, textarea::placeholder {
   .photo-bg-section [class*="border-white/"] { border-color: rgb(255 255 255 / 0.22) !important; }
   .photo-bg-section a:not([class*="bg-gradient-to-r"]) { color: inherit; }
 }
+
+
+/* AfuChat corporate site: continuous sections and a restrained single-brand-colour system. */
+:root {
+  --afu-brand: #1746A2;
+  --afu-brand-strong: #1746A2;
+  --afu-brand-soft: #1746A2;
+}
+.afu-monochrome-site > section,
+.afu-monochrome-site > div > section,
+.afu-monochrome-site section.photo-bg-section {
+  border-top: 0 !important;
+  border-bottom: 0 !important;
+  box-shadow: none !important;
+}
+.afu-monochrome-site section + section {
+  border-top: 0 !important;
+}
+.afu-monochrome-site [class*="bg-gradient-to-"] {
+  background-image: none !important;
+  background-color: var(--afu-brand) !important;
+}
+.afu-monochrome-site [class*="from-"],
+.afu-monochrome-site [class*="via-"],
+.afu-monochrome-site [class*="to-"] {
+  --tw-gradient-from: var(--afu-brand) !important;
+  --tw-gradient-via: var(--afu-brand) !important;
+  --tw-gradient-to: var(--afu-brand) !important;
+}
+.afu-monochrome-site [class*="text-transparent"][class*="bg-clip-text"] {
+  color: var(--afu-brand) !important;
+  background: none !important;
+  -webkit-text-fill-color: currentColor !important;
+}
+.afu-monochrome-site [class*="text-blue-"],
+.afu-monochrome-site [class*="text-cyan-"],
+.afu-monochrome-site [class*="text-teal-"],
+.afu-monochrome-site [class*="text-green-"],
+.afu-monochrome-site [class*="text-indigo-"],
+.afu-monochrome-site [class*="text-purple-"] {
+  color: var(--afu-brand) !important;
+}
+.afu-monochrome-site [class*="bg-blue-"],
+.afu-monochrome-site [class*="bg-cyan-"],
+.afu-monochrome-site [class*="bg-teal-"],
+.afu-monochrome-site [class*="bg-green-"],
+.afu-monochrome-site [class*="bg-indigo-"],
+.afu-monochrome-site [class*="bg-purple-"] {
+  background-color: var(--afu-brand) !important;
+}
+.afu-monochrome-site [class*="border-blue-"],
+.afu-monochrome-site [class*="border-cyan-"],
+.afu-monochrome-site [class*="border-teal-"],
+.afu-monochrome-site [class*="border-green-"],
+.afu-monochrome-site [class*="border-indigo-"],
+.afu-monochrome-site [class*="border-purple-"] {
+  border-color: var(--afu-brand) !important;
+}
+.afu-monochrome-site .photo-bg-section {
+  background-image: none !important;
+  background-color: #FFFFFF !important;
+  color: #0F172A !important;
+}
+@media (prefers-color-scheme: dark) {
+  .afu-monochrome-site .photo-bg-section {
+    background-color: #040C1E !important;
+    color: #F8FAFC !important;
+  }
+}
