@@ -48,11 +48,8 @@ export const metadata: Metadata = {
     images: ['/assets/afuchat_logo_transparent.png'],
   },
   icons: {
-    icon: [
-      { url: '/assets/afuchat-brand-symbol.svg', type: 'image/svg+xml' },
-      { url: '/favicon.png', type: 'image/png' },
-    ],
-    shortcut: '/assets/afuchat-brand-symbol.svg',
+    icon: [{ url: '/favicon.png', type: 'image/png' }],
+    shortcut: '/favicon.png',
     apple: '/favicon.png',
   },
   alternates: { canonical: BASE_URL },
