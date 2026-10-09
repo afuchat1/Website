@@ -11,7 +11,7 @@ const steps = [
 
 export default function IdentitySection() {
   return (
-    <section className="photo-bg-section relative isolate overflow-hidden py-16 sm:py-20 lg:py-28" style={{ backgroundImage: "linear-gradient(90deg, rgba(4, 13, 31, 0.93), rgba(4, 13, 31, 0.84)), url(\'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=2000&q=85\')", backgroundSize: "cover", backgroundPosition: "center" }}>
+    <section className="photo-bg-section relative isolate overflow-hidden py-16 sm:py-20 lg:py-28" style={{ backgroundImage: "linear-gradient(90deg, var(--photo-overlay-strong), var(--photo-overlay-soft)), url(\'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=2000&q=85\')", backgroundSize: "cover", backgroundPosition: "center" }}>
       <div className="max-container container-pad">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center">
           <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} className="flex justify-center">
