@@ -602,3 +602,45 @@ input::placeholder, textarea::placeholder {
   visibility: visible;
 }
 
+
+
+/* Keep non-AfuCloud product detail pages readable regardless of the device theme.
+   Scope these overrides to the detail-page wrapper so the rest of the site is unchanged. */
+.product-detail-page:not(.afucloud-product-page) {
+  color-scheme: light !important;
+  --color-background: #FFFFFF;
+  --color-surface: #F8FAFC;
+  --color-text: #0F172A;
+  --color-text-secondary: #475569;
+  background-color: #FFFFFF !important;
+  color: #0F172A !important;
+}
+.product-detail-page:not(.afucloud-product-page) p,
+.product-detail-page:not(.afucloud-product-page) li,
+.product-detail-page:not(.afucloud-product-page) span {
+  color: #334155;
+}
+.product-detail-page:not(.afucloud-product-page) h1,
+.product-detail-page:not(.afucloud-product-page) h2,
+.product-detail-page:not(.afucloud-product-page) h3,
+.product-detail-page:not(.afucloud-product-page) h4,
+.product-detail-page:not(.afucloud-product-page) h5,
+.product-detail-page:not(.afucloud-product-page) h6 {
+  color: #0F172A !important;
+}
+.product-detail-page:not(.afucloud-product-page) [class~="text-white"],
+.product-detail-page:not(.afucloud-product-page) [class*="text-white/"] {
+  color: #334155 !important;
+}
+.product-detail-page:not(.afucloud-product-page) [class*="bg-[#040C1E]"],
+.product-detail-page:not(.afucloud-product-page) [class*="bg-[#0B1730]"],
+.product-detail-page:not(.afucloud-product-page) [class*="bg-slate-900"],
+.product-detail-page:not(.afucloud-product-page) [class*="bg-slate-950"] {
+  background-color: #F8FAFC !important;
+}
+.product-detail-page:not(.afucloud-product-page) a {
+  color: #1746A2;
+}
+.product-detail-page:not(.afucloud-product-page) a:hover {
+  color: #12377F;
+}
