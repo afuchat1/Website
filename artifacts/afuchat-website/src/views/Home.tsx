@@ -22,7 +22,7 @@ const _FP = PRODUCT_DATA;
 function PageFooter() {
   const yr = new Date().getFullYear();
   return (
-    <footer className="relative">
+    <footer className="photo-bg-section relative isolate overflow-hidden" style={{ backgroundImage: "linear-gradient(90deg, rgba(3, 12, 30, 0.96), rgba(3, 12, 30, 0.90)), url(\'https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=2000&q=85\')", backgroundSize: "cover", backgroundPosition: "center" }}>
       <div className="max-container container-pad pt-16 pb-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 mb-10 md:mb-14">
           <div className="col-span-1 sm:col-span-2 md:col-span-1">
