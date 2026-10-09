@@ -3,6 +3,7 @@ import { illSecProducts } from '@/data/illustrations';
 import { motion } from 'framer-motion';
 import { PRODUCT_DATA } from '@/data/products';
 import Link from 'next/link';
+import ProductIcon from '@/components/products/ProductIcon';
 
 export default function ProductsSection() {
   return (
@@ -32,14 +33,11 @@ export default function ProductsSection() {
                   transition={{ delay: i * 0.05 }}>
                   <Link href={p.path}>
                     <div className="flex items-center gap-3 group">
-                      <span className="w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center flex-shrink-0"
-                        style={{ color: p.color }}>
-                        {p.logo ? (
-                          <img src={p.logo} alt="" aria-hidden="true" className="w-5 h-5 sm:w-[22px] sm:h-[22px] object-contain" />
-                        ) : (
-                          <p.icon className="w-5 h-5 sm:w-[22px] sm:h-[22px]" strokeWidth={1.8} aria-hidden="true" />
-                        )}
-                      </span>
+                      <ProductIcon
+                        product={p}
+                        containerClassName="w-9 h-9 sm:w-10 sm:h-10 rounded-xl"
+                        iconClassName="w-5 h-5 sm:w-[22px] sm:h-[22px]"
+                      />
                       <div>
                         <p className="text-sm font-semibold text-white/70 group-hover:text-white transition-colors leading-none mb-0.5">{p.name}</p>
                         <p className="text-xs text-white/30 leading-none">{p.category}</p>
