@@ -75,11 +75,10 @@ const PAGE_CONTENT: Record<string, {
     ],
   },
   brand: {
-    accent: '#8B5CF6', illustration: illSecBrand,
+    accent: '#1746A2',
     sections: [
-      { heading: 'Our visual identity', body: 'The AfuChat brand is built around a single idea, clarity. Our logo, color palette, and typography are designed to feel consistent across our product suite while giving each app its own distinct personality.' },
-      { heading: 'Logo usage', body: 'Please do not alter, recolor, or distort the AfuChat logo. Maintain clear space around it equal to the height of the logomark, and always use the provided source files rather than recreating it.' },
-      { heading: 'Download assets', body: 'Approved logos, color specifications, and typography guidelines are available for partners and press upon request at brand@afuchat.com.' },
+      { heading: 'Brand assets', body: 'Download the official AfuChat logo and brand colour below.' },
+      { heading: 'Logo usage', body: 'Keep the logo proportions intact. Do not stretch, redraw, or recolour the official asset.' },
     ],
   },
   help: {
@@ -153,7 +152,7 @@ export default function GenericPage({ title, type }: GenericPageProps) {
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white mb-5 tracking-tight leading-tight">{title}</h1>
             <p className="text-lg text-white/50 max-w-xl leading-relaxed">{content.sections[0]?.body}</p>
           </motion.div>
-          {'illustration' in content && content.illustration && (
+          {type.toLowerCase() !== 'brand' && 'illustration' in content && content.illustration && (
             <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.1 }}>
               <img src={content.illustration} alt={title} className="w-full rounded-3xl shadow-2xl" onError={e => { (e.target as HTMLImageElement).style.display = 'none'; }} />
             </motion.div>
