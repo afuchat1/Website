@@ -639,3 +639,105 @@ input::placeholder, textarea::placeholder {
 .product-detail-page:not(.afucloud-product-page) a:hover {
   color: #12377F;
 }
+
+
+/* Company information pages: keep copy readable on light-system-theme devices.
+   These overrides are intentionally limited to the company, developer and partner pages. */
+@media (prefers-color-scheme: light) {
+  .company-info-page,
+  .developers-page,
+  .partners-page {
+    color-scheme: light;
+    background-color: #FFFFFF;
+    color: #0F172A;
+  }
+
+  .company-info-page h1,
+  .company-info-page h2,
+  .company-info-page h3,
+  .company-info-page h4,
+  .developers-page h1,
+  .developers-page h2,
+  .developers-page h3,
+  .developers-page h4,
+  .partners-page h1,
+  .partners-page h2,
+  .partners-page h3,
+  .partners-page h4 {
+    color: #0F172A !important;
+  }
+
+  .company-info-page [class~="text-white"],
+  .company-info-page [class*="text-white/"],
+  .developers-page [class~="text-white"],
+  .developers-page [class*="text-white/"],
+  .partners-page [class~="text-white"],
+  .partners-page [class*="text-white/"] {
+    color: #475569 !important;
+  }
+
+  .company-info-page h1 [class~="text-white"],
+  .company-info-page h2 [class~="text-white"],
+  .company-info-page h3 [class~="text-white"],
+  .developers-page h1 [class~="text-white"],
+  .developers-page h2 [class~="text-white"],
+  .developers-page h3 [class~="text-white"],
+  .partners-page h1 [class~="text-white"],
+  .partners-page h2 [class~="text-white"],
+  .partners-page h3 [class~="text-white"] {
+    color: #0F172A !important;
+  }
+
+  .company-info-page a:not([class*="bg-"]),
+  .developers-page a:not([class*="bg-"]),
+  .partners-page a:not([class*="bg-"]) {
+    color: #1746A2;
+  }
+
+  .company-info-page [class*="border-white/"],
+  .developers-page [class*="border-white/"],
+  .partners-page [class*="border-white/"] {
+    border-color: #CBD5E1 !important;
+  }
+
+  .company-info-page [class*="bg-black/"],
+  .company-info-page [class*="bg-[#040C1E]"],
+  .company-info-page [class*="bg-[#0B1730]"],
+  .developers-page [class*="bg-black/"],
+  .developers-page [class*="bg-[#040C1E]"],
+  .developers-page [class*="bg-[#0B1730]"],
+  .partners-page [class*="bg-black/"],
+  .partners-page [class*="bg-[#040C1E]"],
+  .partners-page [class*="bg-[#0B1730]"] {
+    background-color: #F8FAFC !important;
+  }
+
+  .partners-page input,
+  .partners-page textarea,
+  .partners-page select {
+    color: #0F172A !important;
+    background-color: #F8FAFC !important;
+    border-color: #CBD5E1 !important;
+  }
+
+  .partners-page input::placeholder,
+  .partners-page textarea::placeholder {
+    color: #64748B !important;
+  }
+
+  .partners-page select option {
+    color: #0F172A;
+    background-color: #FFFFFF;
+  }
+
+  .company-info-page a:focus-visible,
+  .developers-page a:focus-visible,
+  .partners-page a:focus-visible,
+  .partners-page button:focus-visible,
+  .partners-page input:focus-visible,
+  .partners-page textarea:focus-visible,
+  .partners-page select:focus-visible {
+    outline: 3px solid #1746A2;
+    outline-offset: 3px;
+  }
+}
