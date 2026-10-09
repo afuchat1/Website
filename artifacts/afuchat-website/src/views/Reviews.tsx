@@ -10,7 +10,7 @@ import { TRUSTPILOT_PROFILE_URL } from '@/data/trustpilot';
 import { TRUSTPILOT_REVIEW_SNAPSHOT, TRUSTPILOT_REVIEWS } from '@/data/trustpilot-reviews';
 import ReviewCarousel from '@/components/home/ReviewCarousel';
 
-const _FL = '/assets/afuchat_logo_transparent.png';
+const _FL = '/assets/afuchat-brand-symbol.svg';
 const _FT = '/assets/trustpilot_logo.png';
 const _FG = '/assets/google_play_badge.png';
 const _AFUCHAT_PLAY_URL = 'https://play.google.com/store/apps/details?id=com.afuchat.mobile';
@@ -23,7 +23,7 @@ function PageFooter() {
       <div className="max-container container-pad pt-16 pb-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 mb-10 md:mb-14">
           <div className="col-span-1 sm:col-span-2 md:col-span-1">
-            <Link href="/" className="flex items-center gap-2.5 mb-5"><img src={_FL} alt="AfuChat" className="h-8 w-auto" /><span className="text-white font-bold text-lg">AfuChat</span></Link>
+            <Link href="/" className="flex items-center gap-2.5 mb-5"><img src={_FL} alt="AfuChat Technologies" className="h-8 w-8 object-contain brightness-0 invert" /><span className="text-white font-bold text-lg">AfuChat</span></Link>
             <p className="text-white/40 text-sm leading-relaxed mb-5">Useful products.<br />Built from Uganda.</p>
             <div className="flex items-center gap-3 flex-wrap mb-5">
               <a href="https://www.trustpilot.com/review/afuchat.com" target="_blank" rel="noopener noreferrer" className="bg-white hover:bg-white/90 transition-colors rounded-full px-3 py-1.5 flex items-center"><img src={_FT} alt="Trustpilot" className="h-10 w-auto" loading="lazy" /></a>
