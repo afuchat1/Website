@@ -16,7 +16,7 @@ const resources = [
 
 export default function Developers() {
   return (
-    <div className="w-full min-h-screen">
+    <div className="developers-page w-full min-h-screen">
       {/* Hero */}
       <div className="max-container container-pad pt-12 pb-10 sm:pt-20 sm:pb-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">
