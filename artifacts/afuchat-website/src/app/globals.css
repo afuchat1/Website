@@ -615,11 +615,6 @@ input::placeholder, textarea::placeholder {
   background-color: #FFFFFF !important;
   color: #0F172A !important;
 }
-.product-detail-page:not(.afucloud-product-page) p,
-.product-detail-page:not(.afucloud-product-page) li,
-.product-detail-page:not(.afucloud-product-page) span {
-  color: #334155;
-}
 .product-detail-page:not(.afucloud-product-page) h1,
 .product-detail-page:not(.afucloud-product-page) h2,
 .product-detail-page:not(.afucloud-product-page) h3,
