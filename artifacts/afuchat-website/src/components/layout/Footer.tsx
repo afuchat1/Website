@@ -54,6 +54,7 @@ export default function Footer() {
             <nav aria-label="AfuCloud links" className="flex flex-wrap items-center gap-x-6 gap-y-3 text-sm">
               <a href={AFUCLOUD_URL} target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white transition-colors">AfuCloud dashboard</a>
               <a href="https://cloud.afuchat.com/docs/getting-started/quickstart" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white transition-colors">API quickstart</a>
+              <Link href="/about/brand" className="text-white/60 hover:text-white transition-colors">Brand</Link>
               <Link href="/legal/privacy" className="text-white/60 hover:text-white transition-colors">Privacy</Link>
               <Link href="/legal/terms" className="text-white/60 hover:text-white transition-colors">Terms</Link>
               <button onClick={openCookiePreferences} className="text-white/60 hover:text-white transition-colors">Manage cookies</button>
@@ -130,6 +131,7 @@ export default function Footer() {
                 { label: 'About',      href: '/about' },
                 { label: 'Developers', href: '/developers' },
                 { label: 'Partners',   href: '/partners' },
+                { label: 'Brand',      href: '/about/brand' },
                 { label: 'Careers',    href: '/about/careers' },
               ].map(l => (
                 <li key={l.href}>
