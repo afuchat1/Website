@@ -467,3 +467,32 @@ input::placeholder, textarea::placeholder {
   .photo-bg-section [class*="border-white/"] { border-color: rgb(255 255 255 / 0.22) !important; }
   .photo-bg-section a:not([class*="bg-gradient-to-r"]) { color: inherit; }
 }
+
+
+/* Photo-led sections adapt image overlays and text to light/dark system themes. */
+.photo-bg-section {
+  --photo-overlay-strong: rgb(255 255 255 / 0.91);
+  --photo-overlay-mid: rgb(255 255 255 / 0.84);
+  --photo-overlay-soft: rgb(255 255 255 / 0.76);
+  color: #0F172A;
+}
+.photo-bg-section [class~="text-white"]:not(a):not(button) { color: #0F172A !important; }
+.photo-bg-section [class*="text-white/"]:not(a):not(button) { color: #334155 !important; }
+.photo-bg-section [class*="hover:text-white"]:hover { color: #0F172A !important; }
+.photo-bg-section [class*="border-white/"] { border-color: rgb(15 23 42 / 0.18) !important; }
+.photo-bg-section a:not([class*="bg-gradient-to-r"]) { color: #1D4ED8; }
+.photo-bg-section a[class*="bg-gradient-to-r"] { color: #FFFFFF !important; }
+
+@media (prefers-color-scheme: dark) {
+  .photo-bg-section {
+    --photo-overlay-strong: rgb(3 12 30 / 0.95);
+    --photo-overlay-mid: rgb(3 12 30 / 0.84);
+    --photo-overlay-soft: rgb(3 12 30 / 0.60);
+    color: #F8FAFC;
+  }
+  .photo-bg-section [class~="text-white"]:not(a):not(button) { color: #FFFFFF !important; }
+  .photo-bg-section [class*="text-white/"]:not(a):not(button) { color: rgb(255 255 255 / 0.78) !important; }
+  .photo-bg-section [class*="hover:text-white"]:hover { color: #FFFFFF !important; }
+  .photo-bg-section [class*="border-white/"] { border-color: rgb(255 255 255 / 0.22) !important; }
+  .photo-bg-section a:not([class*="bg-gradient-to-r"]) { color: inherit; }
+}
