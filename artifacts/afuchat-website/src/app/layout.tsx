@@ -7,13 +7,13 @@ const BASE_URL = 'https://afuchat.com';
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
   title: {
-    default: 'AfuChat Technologies, Building useful digital products',
-    template: '%s | AfuChat Technologies',
+    default: 'ATL Uganda | AfuChat Technologies Limited — Digital Products & Technology',
+    template: '%s | ATL Uganda',
   },
   description:
     'AfuChat Technologies builds products across communication, email, cloud, and AI, while helping businesses and organizations turn useful ideas into working digital experiences.',
   keywords: [
-    'AfuChat', 'AfuMail', 'AfuCloud', 'Engagera', 'AfuChat Technologies',
+    'ATL Uganda', 'AfuChat Technologies Limited', 'AfuChat Technologies', 'AfuChat', 'AfuMail', 'AfuCloud', 'Engagera',
     'web development', 'mobile applications', 'AI', 'digital products',
   ],
   authors: [{ name: 'AfuChat Technologies Limited', url: BASE_URL }],
@@ -34,8 +34,8 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: BASE_URL,
-    siteName: 'AfuChat Technologies',
-    title: 'AfuChat Technologies, Building useful digital products',
+    siteName: 'ATL Uganda',
+    title: 'ATL Uganda | AfuChat Technologies Limited — Digital Products & Technology',
     description: 'We build our own products and help organizations turn useful ideas into working digital experiences.',
     images: [{ url: '/assets/afuchat_logo_transparent.png', width: 1200, height: 630, alt: 'AfuChat Technologies' }],
   },
@@ -60,6 +60,7 @@ const orgJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
   name: 'AfuChat Technologies Limited',
+  alternateName: ['ATL Uganda', 'AfuChat Technologies'],
   url: BASE_URL,
   logo: { '@type': 'ImageObject', url: `${BASE_URL}/assets/afuchat-brand-symbol.svg`, width: 512, height: 512 },
   sameAs: ['https://github.com/afuchat1/Website', 'https://uk.trustpilot.com/review/afuchat.com'],
@@ -69,9 +70,10 @@ const orgJsonLd = {
 const websiteJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
-  name: 'AfuChat Technologies',
+  name: 'ATL Uganda',
+  alternateName: 'AfuChat Technologies Limited',
   url: BASE_URL,
-  description: 'AfuChat Technologies builds products across communication, email, cloud, and AI.',
+  description: 'ATL Uganda, also known as AfuChat Technologies Limited, builds products across communication, email, cloud, and AI.',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

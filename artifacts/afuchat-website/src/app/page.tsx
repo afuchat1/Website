@@ -2,9 +2,9 @@ import type { Metadata } from 'next';
 import HomeView from '@/views/Home';
 
 export const metadata: Metadata = {
-  title: 'AfuChat Technologies, Building useful digital products',
+  title: 'ATL Uganda | AfuChat Technologies Limited — Digital Products & Technology',
   description:
-    'AfuChat Technologies builds its own digital products across communication, email, cloud, and AI, while helping businesses and organizations turn useful ideas into working digital experiences.',
+    'ATL Uganda (AfuChat Technologies Limited) builds digital products across communication, email, cloud, and AI, and helps organizations turn useful ideas into working digital experiences.',
   alternates: { canonical: 'https://afuchat.com/' },
   openGraph: {
     title: 'AfuChat Technologies, Building useful digital products',
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
         url: '/assets/afuchat_logo_transparent.png',
         width: 1200,
         height: 630,
-        alt: 'AfuChat Technologies',
+        alt: 'ATL Uganda — AfuChat Technologies Limited',
       },
     ],
   },
