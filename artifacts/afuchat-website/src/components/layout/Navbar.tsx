@@ -135,9 +135,7 @@ export default function Navbar() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isAfuCloud ? 'afucloud-site-header' : ''} ${
-          scrolled ? 'bg-[#040c1e]/85 backdrop-blur-xl' : 'bg-transparent'
-        }`}
+        className={`fixed top-0 left-0 right-0 z-50 ${isAfuCloud ? 'afucloud-site-header' : ''} site-header-stable`}
       >
         <div className="max-container container-pad h-16 flex items-center justify-between">
 
@@ -146,7 +144,7 @@ export default function Navbar() {
             <img
               src={isAfuCloud ? '/assets/products/afucloud-logo.svg' : LOGO_SRC}
               alt={isAfuCloud ? 'AfuCloud' : 'AfuChat Technologies Limited'}
-              className={`h-8 w-8 object-contain ${isAfuCloud ? '' : 'dark:brightness-0 dark:invert'}`}
+              className="h-8 w-8 object-contain"
             />
             <span className="font-bold text-white text-lg">{isAfuCloud ? 'AfuCloud' : 'AfuChat Technologies'}</span>
           </Link>
