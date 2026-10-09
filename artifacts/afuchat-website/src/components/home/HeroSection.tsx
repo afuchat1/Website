@@ -5,7 +5,7 @@ import { illSecHero } from '@/data/illustrations';
 
 export default function HeroSection() {
   return (
-    <section className="relative flex items-center overflow-hidden">
+    <section className="relative isolate overflow-hidden flex items-center bg-[#06132a] text-white" style={{ backgroundImage: "linear-gradient(90deg, rgba(3, 12, 30, 0.95) 0%, rgba(3, 12, 30, 0.84) 48%, rgba(3, 12, 30, 0.52) 100%), url('https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=2000&q=85')", backgroundSize: 'cover', backgroundPosition: 'center' }}>
       <div className="relative z-10 max-container container-pad w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center pt-8 pb-4 sm:pt-12 sm:pb-8 lg:py-20">
           <div>
@@ -38,7 +38,7 @@ export default function HeroSection() {
           </div>
           <motion.div initial={{ opacity: 0, scale: 0.92, y: 20 }} animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }} className="flex justify-center lg:justify-end mt-4 sm:mt-0">
-            <img src={illSecHero} alt="AfuChat Technologies digital products" className="w-full max-w-[280px] sm:max-w-md lg:max-w-lg drop-shadow-2xl" />
+            <img src={illSecHero} alt="AfuChat Technologies digital products" className="w-full max-w-[280px] sm:max-w-md lg:max-w-lg drop-shadow-2xl rounded-2xl" />
           </motion.div>
         </div>
       </div>
