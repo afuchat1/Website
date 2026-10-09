@@ -76,7 +76,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="col-span-1 sm:col-span-2 md:col-span-1">
             <Link href="/" className="flex items-center gap-2.5 mb-5">
-              <img src={LOGO_SRC} alt="AfuChat Technologies Limited" className="h-8 w-8 object-contain brightness-0 invert" />
+              <img src={LOGO_SRC} alt="AfuChat Technologies Limited" className="h-8 w-8 object-contain dark:brightness-0 dark:invert" />
               <span className="text-white font-bold text-lg">ATL Uganda</span>
             </Link>
             <p className="text-white/40 text-sm leading-relaxed mb-5">
