@@ -48,9 +48,9 @@ export const metadata: Metadata = {
     images: ['/assets/afuchat_logo_transparent.png'],
   },
   icons: {
-    icon: [{ url: '/favicon.png', type: 'image/png' }],
-    shortcut: '/favicon.png',
-    apple: '/favicon.png',
+    icon: [{ url: '/favicon.svg', type: 'image/svg+xml' }],
+    shortcut: '/favicon.svg',
+    apple: '/favicon.svg',
   },
   alternates: { canonical: BASE_URL },
   category: 'technology',
@@ -61,7 +61,7 @@ const orgJsonLd = {
   '@type': 'Organization',
   name: 'AfuChat Technologies Limited',
   url: BASE_URL,
-  logo: { '@type': 'ImageObject', url: `${BASE_URL}/assets/afuchat_logo_transparent.png`, width: 512, height: 512 },
+  logo: { '@type': 'ImageObject', url: `${BASE_URL}/assets/afuchat-brand-symbol.svg`, width: 512, height: 512 },
   sameAs: ['https://github.com/afuchat1/Website', 'https://uk.trustpilot.com/review/afuchat.com'],
   contactPoint: { '@type': 'ContactPoint', contactType: 'customer support', url: `${BASE_URL}/contact` },
 };

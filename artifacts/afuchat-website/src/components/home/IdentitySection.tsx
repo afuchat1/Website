@@ -11,7 +11,7 @@ const steps = [
 
 export default function IdentitySection() {
   return (
-    <section className="py-16 sm:py-20 lg:py-28">
+    <section className="photo-bg-section relative isolate overflow-hidden py-16 sm:py-20 lg:py-28" style={{ backgroundImage: "linear-gradient(90deg, var(--photo-overlay-strong), var(--photo-overlay-soft)), url(\'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=2000&q=85\')", backgroundSize: "cover", backgroundPosition: "center" }}>
       <div className="max-container container-pad">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center">
           <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} className="flex justify-center">
@@ -30,8 +30,8 @@ export default function IdentitySection() {
               {steps.map((step, i) => (
                 <motion.div key={i} initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}
                   className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-xl bg-blue-500/15 flex items-center justify-center flex-shrink-0">
-                    <step.icon className="w-5 h-5 text-blue-400" />
+                  <div className="home-feature-icon-tile w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <step.icon className="home-feature-icon w-5 h-5" />
                   </div>
                   <div>
                     <p className="text-white font-semibold text-sm mb-1">{step.label}</p>

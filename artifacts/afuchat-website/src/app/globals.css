@@ -69,59 +69,35 @@
 }
 
 
-/* Use light mode by default, with readable foreground colors on white surfaces. */
-  :root {
-    color-scheme: light;
-    --color-background: #FFFFFF;
-    --color-surface: #F8FAFC;
-    --color-border: #CBD5E1;
-    --color-border-strong: #94A3B8;
-    --color-text: #0F172A;
-    --color-text-secondary: #475569;
-  }
+/* Theme foundations: preserve component-level foreground/background pairs.
+   Global utility rewrites here previously changed white text to dark text even on
+   dark/photo backgrounds, and changed translucent dark surfaces in light mode. */
+:root {
+  color-scheme: light;
+  --color-background: #FFFFFF;
+  --color-surface: #F8FAFC;
+  --color-border: #CBD5E1;
+  --color-border-strong: #94A3B8;
+  --color-text: #0F172A;
+  --color-text-secondary: #475569;
+}
 
-  html,
-  body {
-    background: #FFFFFF !important;
-    color: #0F172A !important;
-  }
+html, body {
+  background: var(--color-background);
+  color: var(--color-text);
+}
 
-  [class~="text-white"] { color: #0F172A !important; }
-  [class*="text-white/"] { color: #475569 !important; }
-  [class*="bg-white/"] { background-color: #F8FAFC !important; }
-  [class*="bg-black/"] { background-color: #F1F5F9 !important; }
-  [class*="border-white/"] { border-color: #CBD5E1 !important; }
-  [class*="border-[#040c1e]"] { border-color: #FFFFFF !important; }
-  [class*="bg-[#040c1e]"] { background-color: rgba(255,255,255,0.96) !important; }
-  [class*="bg-[#050d1f]"] { background-color: rgba(255,255,255,0.98) !important; }
+input, textarea, select {
+  color: var(--color-text);
+  background-color: var(--color-surface);
+  border-color: var(--color-border);
+}
 
-  [class*="from-[#040c1e]"] {
-    --tw-gradient-from: #FFFFFF !important;
-    --tw-gradient-to: rgb(255 255 255 / 0) !important;
-  }
+input::placeholder, textarea::placeholder {
+  color: var(--color-text-secondary);
+  opacity: 1;
+}
 
-  input, textarea, select {
-    color: #0F172A !important;
-    background-color: #FFFFFF !important;
-    border-color: #CBD5E1 !important;
-  }
-
-  input::placeholder, textarea::placeholder {
-    color: #64748B !important;
-    opacity: 1 !important;
-  }
-
-  select { color-scheme: light !important; }
-
-  [class*="shadow-black/"] {
-    --tw-shadow-color: rgb(15 23 42 / 0.12) !important;
-  }
-
-  [class*="hover:text-white"]:hover { color: #0F172A !important; }
-  [class*="hover:bg-white/"]:hover { background-color: #E2E8F0 !important; }
-  [class*="hover:border-white/"]:hover { border-color: #94A3B8 !important; }
-
-/* Restore the dark palette when the operating system requests dark mode. */
 @media (prefers-color-scheme: dark) {
   :root {
     color-scheme: dark;
@@ -133,46 +109,21 @@
     --color-text-secondary: #CBD5E1;
   }
 
-  html,
-  body {
-    background: #040C1E !important;
-    color: #F8FAFC !important;
-  }
-
-  [class~="text-white"] { color: #F8FAFC !important; }
-  [class*="text-white/"] { color: #CBD5E1 !important; }
-  [class*="bg-white/"] { background-color: rgba(255, 255, 255, 0.05) !important; }
-  [class*="bg-black/"] { background-color: rgba(0, 0, 0, 0.2) !important; }
-  [class*="border-white/"] { border-color: rgba(255, 255, 255, 0.12) !important; }
-  [class*="border-[#040c1e]"] { border-color: #1E293B !important; }
-  [class*="bg-[#040c1e]"] { background-color: #040C1E !important; }
-  [class*="bg-[#050d1f]"] { background-color: #050D1F !important; }
-
-  [class*="from-[#040c1e]"] {
-    --tw-gradient-from: #040C1E !important;
-    --tw-gradient-to: rgb(4 12 30 / 0) !important;
+  html, body {
+    background: var(--color-background);
+    color: var(--color-text);
   }
 
   input, textarea, select {
-    color: #F8FAFC !important;
-    background-color: #0B1730 !important;
-    border-color: #334155 !important;
+    color: var(--color-text);
+    background-color: var(--color-surface);
+    border-color: var(--color-border);
   }
 
   input::placeholder, textarea::placeholder {
-    color: #94A3B8 !important;
-    opacity: 1 !important;
+    color: #94A3B8;
+    opacity: 1;
   }
-
-  select { color-scheme: dark !important; }
-
-  [class*="shadow-black/"] {
-    --tw-shadow-color: rgb(0 0 0 / 0.4) !important;
-  }
-
-  [class*="hover:text-white"]:hover { color: #FFFFFF !important; }
-  [class*="hover:bg-white/"]:hover { background-color: rgba(255, 255, 255, 0.1) !important; }
-  [class*="hover:border-white/"]:hover { border-color: rgba(255, 255, 255, 0.25) !important; }
 }
 
 /* AfuCloud page styling follows AfuChat's shared light/dark theme; the product logo stays branded. */
@@ -485,5 +436,338 @@
 @media (max-width: 640px) {
   .trustpilot-carousel iframe {
     height: 290px !important;
+  }
+}
+
+
+/* Photo-led sections adapt the image overlay and copy to the active system theme. */
+.photo-bg-section {
+  --photo-overlay-strong: rgb(255 255 255 / 0.91);
+  --photo-overlay-mid: rgb(255 255 255 / 0.84);
+  --photo-overlay-soft: rgb(255 255 255 / 0.76);
+  color: #0F172A;
+}
+.photo-bg-section [class~="text-white"]:not(a):not(button) { color: #0F172A !important; }
+.photo-bg-section [class*="text-white/"]:not(a):not(button) { color: #334155 !important; }
+.photo-bg-section [class*="hover:text-white"]:hover { color: #0F172A !important; }
+.photo-bg-section [class*="border-white/"] { border-color: rgb(15 23 42 / 0.18) !important; }
+.photo-bg-section a:not([class*="bg-gradient-to-r"]) { color: #1D4ED8; }
+.photo-bg-section a[class*="bg-gradient-to-r"] { color: #FFFFFF !important; }
+
+@media (prefers-color-scheme: dark) {
+  .photo-bg-section {
+    --photo-overlay-strong: rgb(3 12 30 / 0.95);
+    --photo-overlay-mid: rgb(3 12 30 / 0.84);
+    --photo-overlay-soft: rgb(3 12 30 / 0.60);
+    color: #F8FAFC;
+  }
+  .photo-bg-section [class~="text-white"]:not(a):not(button) { color: #FFFFFF !important; }
+  .photo-bg-section [class*="text-white/"]:not(a):not(button) { color: rgb(255 255 255 / 0.78) !important; }
+  .photo-bg-section [class*="hover:text-white"]:hover { color: #FFFFFF !important; }
+  .photo-bg-section [class*="border-white/"] { border-color: rgb(255 255 255 / 0.22) !important; }
+  .photo-bg-section a:not([class*="bg-gradient-to-r"]) { color: inherit; }
+}
+
+
+/* Photo-led sections adapt image overlays and text to light/dark system themes. */
+.photo-bg-section {
+  --photo-overlay-strong: rgb(255 255 255 / 0.91);
+  --photo-overlay-mid: rgb(255 255 255 / 0.84);
+  --photo-overlay-soft: rgb(255 255 255 / 0.76);
+  color: #0F172A;
+}
+.photo-bg-section [class~="text-white"]:not(a):not(button) { color: #0F172A !important; }
+.photo-bg-section [class*="text-white/"]:not(a):not(button) { color: #334155 !important; }
+.photo-bg-section [class*="hover:text-white"]:hover { color: #0F172A !important; }
+.photo-bg-section [class*="border-white/"] { border-color: rgb(15 23 42 / 0.18) !important; }
+.photo-bg-section a:not([class*="bg-gradient-to-r"]) { color: #1D4ED8; }
+.photo-bg-section a[class*="bg-gradient-to-r"] { color: #FFFFFF !important; }
+
+@media (prefers-color-scheme: dark) {
+  .photo-bg-section {
+    --photo-overlay-strong: rgb(3 12 30 / 0.95);
+    --photo-overlay-mid: rgb(3 12 30 / 0.84);
+    --photo-overlay-soft: rgb(3 12 30 / 0.60);
+    color: #F8FAFC;
+  }
+  .photo-bg-section [class~="text-white"]:not(a):not(button) { color: #FFFFFF !important; }
+  .photo-bg-section [class*="text-white/"]:not(a):not(button) { color: rgb(255 255 255 / 0.78) !important; }
+  .photo-bg-section [class*="hover:text-white"]:hover { color: #FFFFFF !important; }
+  .photo-bg-section [class*="border-white/"] { border-color: rgb(255 255 255 / 0.22) !important; }
+  .photo-bg-section a:not([class*="bg-gradient-to-r"]) { color: inherit; }
+}
+
+
+/* AfuChat corporate site: continuous sections and a restrained single-brand-colour system. */
+:root {
+  --afu-brand: #1746A2;
+  --afu-brand-strong: #1746A2;
+  --afu-brand-soft: #1746A2;
+}
+.afu-monochrome-site > section,
+.afu-monochrome-site > div > section,
+.afu-monochrome-site section.photo-bg-section {
+  border-top: 0 !important;
+  border-bottom: 0 !important;
+  box-shadow: none !important;
+}
+.afu-monochrome-site section + section {
+  border-top: 0 !important;
+}
+.afu-monochrome-site [class*="bg-gradient-to-"] {
+  background-image: none !important;
+  background-color: var(--afu-brand) !important;
+}
+.afu-monochrome-site [class*="from-"],
+.afu-monochrome-site [class*="via-"],
+.afu-monochrome-site [class*="to-"] {
+  --tw-gradient-from: var(--afu-brand) !important;
+  --tw-gradient-via: var(--afu-brand) !important;
+  --tw-gradient-to: var(--afu-brand) !important;
+}
+.afu-monochrome-site [class*="text-transparent"][class*="bg-clip-text"] {
+  color: var(--afu-brand) !important;
+  background: none !important;
+  -webkit-text-fill-color: currentColor !important;
+}
+.afu-monochrome-site [class*="text-blue-"],
+.afu-monochrome-site [class*="text-cyan-"],
+.afu-monochrome-site [class*="text-teal-"],
+.afu-monochrome-site [class*="text-green-"],
+.afu-monochrome-site [class*="text-indigo-"],
+.afu-monochrome-site [class*="text-purple-"] {
+  color: var(--afu-brand) !important;
+}
+.afu-monochrome-site [class*="bg-blue-"],
+.afu-monochrome-site [class*="bg-cyan-"],
+.afu-monochrome-site [class*="bg-teal-"],
+.afu-monochrome-site [class*="bg-green-"],
+.afu-monochrome-site [class*="bg-indigo-"],
+.afu-monochrome-site [class*="bg-purple-"] {
+  background-color: var(--afu-brand) !important;
+}
+.afu-monochrome-site [class*="border-blue-"],
+.afu-monochrome-site [class*="border-cyan-"],
+.afu-monochrome-site [class*="border-teal-"],
+.afu-monochrome-site [class*="border-green-"],
+.afu-monochrome-site [class*="border-indigo-"],
+.afu-monochrome-site [class*="border-purple-"] {
+  border-color: var(--afu-brand) !important;
+}
+.afu-monochrome-site .photo-bg-section {
+  background-image: none !important;
+  background-color: #FFFFFF !important;
+  color: #0F172A !important;
+}
+@media (prefers-color-scheme: dark) {
+  .afu-monochrome-site .photo-bg-section {
+    background-color: #040C1E !important;
+    color: #F8FAFC !important;
+  }
+}
+
+/* Product catalogue and detail pages use a stable, high-contrast surface.
+   Avoid mixing dark system backgrounds with hard-coded dark product headings. */
+.product-catalogue-page,
+.product-detail-page:not(.afucloud-product-page) {
+  background: #FFFFFF !important;
+  color: #0F172A !important;
+  color-scheme: light;
+}
+.product-catalogue-page h1,
+.product-catalogue-page h2,
+.product-catalogue-page h3,
+.product-detail-page:not(.afucloud-product-page) h1,
+.product-detail-page:not(.afucloud-product-page) h2,
+.product-detail-page:not(.afucloud-product-page) h3 {
+  color: #0F172A !important;
+}
+.product-catalogue-page [class*="text-white"],
+.product-detail-page:not(.afucloud-product-page) [class*="text-white"] {
+  color: #475569 !important;
+}
+.product-catalogue-page [class*="text-white"][class*="font-bold"],
+.product-detail-page:not(.afucloud-product-page) [class*="text-white"][class*="font-bold"] {
+  color: #0F172A !important;
+}
+.product-catalogue-page a:focus-visible,
+.product-detail-page:not(.afucloud-product-page) a:focus-visible {
+  outline: 3px solid #1746A2;
+  outline-offset: 4px;
+  border-radius: 0.5rem;
+}
+.product-catalogue-page img,
+.product-detail-page:not(.afucloud-product-page) img {
+  opacity: 1;
+  visibility: visible;
+}
+
+
+
+/* Keep non-AfuCloud product detail pages readable regardless of the device theme.
+   Scope these overrides to the detail-page wrapper so the rest of the site is unchanged. */
+.product-detail-page:not(.afucloud-product-page) {
+  color-scheme: light !important;
+  --color-background: #FFFFFF;
+  --color-surface: #F8FAFC;
+  --color-text: #0F172A;
+  --color-text-secondary: #475569;
+  background-color: #FFFFFF !important;
+  color: #0F172A !important;
+}
+.product-detail-page:not(.afucloud-product-page) h1,
+.product-detail-page:not(.afucloud-product-page) h2,
+.product-detail-page:not(.afucloud-product-page) h3,
+.product-detail-page:not(.afucloud-product-page) h4,
+.product-detail-page:not(.afucloud-product-page) h5,
+.product-detail-page:not(.afucloud-product-page) h6 {
+  color: #0F172A !important;
+}
+.product-detail-page:not(.afucloud-product-page) [class~="text-white"],
+.product-detail-page:not(.afucloud-product-page) [class*="text-white/"] {
+  color: #334155 !important;
+}
+.product-detail-page:not(.afucloud-product-page) [class*="bg-[#040C1E]"],
+.product-detail-page:not(.afucloud-product-page) [class*="bg-[#0B1730]"],
+.product-detail-page:not(.afucloud-product-page) [class*="bg-slate-900"],
+.product-detail-page:not(.afucloud-product-page) [class*="bg-slate-950"] {
+  background-color: #F8FAFC !important;
+}
+.product-detail-page:not(.afucloud-product-page) a {
+  color: #1746A2;
+}
+.product-detail-page:not(.afucloud-product-page) a:hover {
+  color: #12377F;
+}
+
+
+/* Company information pages: keep copy readable on light-system-theme devices.
+   These overrides are intentionally limited to the company, developer and partner pages. */
+@media (prefers-color-scheme: light) {
+  .company-info-page,
+  .developers-page,
+  .partners-page {
+    color-scheme: light;
+    background-color: #FFFFFF;
+    color: #0F172A;
+  }
+
+  .company-info-page h1,
+  .company-info-page h2,
+  .company-info-page h3,
+  .company-info-page h4,
+  .developers-page h1,
+  .developers-page h2,
+  .developers-page h3,
+  .developers-page h4,
+  .partners-page h1,
+  .partners-page h2,
+  .partners-page h3,
+  .partners-page h4 {
+    color: #0F172A !important;
+  }
+
+  .company-info-page [class~="text-white"]:not(a):not(button),
+  .company-info-page [class*="text-white/"]:not(a):not(button),
+  .developers-page [class~="text-white"]:not(a):not(button),
+  .developers-page [class*="text-white/"]:not(a):not(button),
+  .partners-page [class~="text-white"]:not(a):not(button),
+  .partners-page [class*="text-white/"]:not(a):not(button) {
+    color: #475569 !important;
+  }
+
+  .company-info-page h1 [class~="text-white"],
+  .company-info-page h2 [class~="text-white"],
+  .company-info-page h3 [class~="text-white"],
+  .developers-page h1 [class~="text-white"],
+  .developers-page h2 [class~="text-white"],
+  .developers-page h3 [class~="text-white"],
+  .partners-page h1 [class~="text-white"],
+  .partners-page h2 [class~="text-white"],
+  .partners-page h3 [class~="text-white"] {
+    color: #0F172A !important;
+  }
+
+   .company-info-page a:not([class*="bg-"]),
+  .developers-page a:not([class*="bg-"]),
+  .partners-page a:not([class*="bg-"]) {
+    color: #1746A2 !important;
+  }
+
+  .company-info-page [class*="border-white/"],
+  .developers-page [class*="border-white/"],
+  .partners-page [class*="border-white/"] {
+    border-color: #CBD5E1 !important;
+  }
+
+  .company-info-page [class*="bg-black/"],
+  .company-info-page [class*="bg-[#040C1E]"],
+  .company-info-page [class*="bg-[#0B1730]"],
+  .developers-page [class*="bg-black/"],
+  .developers-page [class*="bg-[#040C1E]"],
+  .developers-page [class*="bg-[#0B1730]"],
+  .partners-page [class*="bg-black/"],
+  .partners-page [class*="bg-[#040C1E]"],
+  .partners-page [class*="bg-[#0B1730]"] {
+    background-color: #F8FAFC !important;
+  }
+
+  .partners-page input,
+  .partners-page textarea,
+  .partners-page select {
+    color: #0F172A !important;
+    background-color: #F8FAFC !important;
+    border-color: #CBD5E1 !important;
+  }
+
+  .partners-page input::placeholder,
+  .partners-page textarea::placeholder {
+    color: #64748B !important;
+  }
+
+  .partners-page select option {
+    color: #0F172A;
+    background-color: #FFFFFF;
+  }
+
+  .company-info-page a:focus-visible,
+  .developers-page a:focus-visible,
+  .partners-page a:focus-visible,
+  .partners-page button:focus-visible,
+  .partners-page input:focus-visible,
+  .partners-page textarea:focus-visible,
+  .partners-page select:focus-visible {
+    outline: 3px solid #1746A2;
+    outline-offset: 3px;
+  }
+}
+
+
+/* Corporate navbar: keep the header theme-aware and let the logo filter follow it. */
+.site-header-stable { background-color: #FFFFFF; background-image: none; backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid #E2E8F0; }
+@media (prefers-color-scheme: dark) {
+  .site-header-stable { background-color: #040C1E; border-bottom-color: rgba(255,255,255,0.08); }
+}
+
+
+/* Keep feature icons distinct from their tiles on the monochrome corporate page.
+   Broad brand-colour rules should not flatten the icon and its background into one shade. */
+.afu-monochrome-site .home-feature-icon-tile {
+  background-color: rgba(23, 70, 162, 0.10) !important;
+  color: #1746A2 !important;
+  border: 1px solid rgba(23, 70, 162, 0.16);
+}
+.afu-monochrome-site .home-feature-icon-tile .home-feature-icon {
+  color: #1746A2 !important;
+  stroke: currentColor;
+  opacity: 1 !important;
+}
+@media (prefers-color-scheme: dark) {
+  .afu-monochrome-site .home-feature-icon-tile {
+    background-color: rgba(96, 165, 250, 0.16) !important;
+    border-color: rgba(147, 197, 253, 0.24);
+  }
+  .afu-monochrome-site .home-feature-icon-tile .home-feature-icon {
+    color: #93C5FD !important;
   }
 }

@@ -6,7 +6,7 @@ import { Menu, X, ChevronDown, ArrowRight, Github } from 'lucide-react';
 import { PRODUCT_DATA } from '@/data/products';
 import ProductIcon from '@/components/products/ProductIcon';
 
-const LOGO_SRC = '/assets/afuchat_logo_transparent.png';
+const LOGO_SRC = '/assets/afuchat-brand-symbol.svg';
 const GITHUB_REPO_URL = 'https://github.com/afuchat1/Website';
 
 function formatStars(count: number) {
@@ -35,10 +35,10 @@ function GithubStarBadge({ className = '' }: { className?: string }) {
       href={GITHUB_REPO_URL}
       target="_blank"
       rel="noopener noreferrer"
-      className={`flex items-center gap-1.5 text-sm font-medium text-white/70 hover:text-white px-3.5 py-2 transition-colors ${className}`}
+      className={`flex items-center gap-1.5 text-sm font-medium text-slate-700 hover:text-[#1746A2] dark:text-white/70 dark:hover:text-white px-3.5 py-2 transition-colors ${className}`}
     >
       <Github className="w-4 h-4" />
-      {stars && <span className="text-xs font-semibold text-white/85">{stars}</span>}
+      {stars && <span className="text-xs font-semibold text-slate-800 dark:text-white/85">{stars}</span>}
     </a>
   );
 }
@@ -77,17 +77,10 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [productsOpen, setProductsOpen] = useState(false);
   const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname() ?? '';
   const isAfuCloud = pathname === '/products/afucloud';
   const productsRef = useRef<HTMLDivElement>(null);
   const drawerCloseButtonRef = useRef<HTMLButtonElement>(null);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 10);
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
 
   // Close everything on route change
   useEffect(() => {
@@ -129,15 +122,13 @@ export default function Navbar() {
   const navLinks = [
     { label: 'Partners',   href: '/partners' },
     { label: 'Developers', href: '/developers' },
-    { label: 'Company',    href: '/about' },
+    { label: 'About us',    href: '/about' },
   ];
 
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isAfuCloud ? 'afucloud-site-header' : ''} ${
-          scrolled ? 'bg-[#040c1e]/85 backdrop-blur-xl' : 'bg-transparent'
-        }`}
+        className={`fixed top-0 left-0 right-0 z-50 ${isAfuCloud ? 'afucloud-site-header border-transparent' : 'border-slate-200 bg-white dark:border-white/10 dark:bg-[#040C1E]'}`}
       >
         <div className="max-container container-pad h-16 flex items-center justify-between">
 
@@ -145,10 +136,10 @@ export default function Navbar() {
           <Link href="/" className="flex items-center gap-2 flex-shrink-0">
             <img
               src={isAfuCloud ? '/assets/products/afucloud-logo.svg' : LOGO_SRC}
-              alt={isAfuCloud ? 'AfuCloud' : 'AfuChat'}
-              className="h-8 w-8 object-contain"
+              alt={isAfuCloud ? 'AfuCloud' : 'AfuChat Technologies Limited'}
+              className={`h-8 w-8 object-contain ${isAfuCloud ? '' : 'dark:brightness-0 dark:invert'}`}
             />
-            <span className="font-bold text-white text-lg">{isAfuCloud ? 'AfuCloud' : 'AfuChat'}</span>
+            <span className={`font-bold text-lg ${isAfuCloud ? "text-white" : "text-slate-900 dark:text-white"}`}>{isAfuCloud ? 'AfuCloud' : 'AfuChat Technologies'}</span>
           </Link>
 
           {/* ── Desktop Nav ── */}
@@ -177,7 +168,7 @@ export default function Navbar() {
                   aria-haspopup="true"
                   aria-expanded={productsOpen}
                   aria-controls="products-panel"
-                  className="flex items-center gap-1.5 text-sm font-medium text-white/70 hover:text-white transition-colors"
+                  className="flex items-center gap-1.5 text-sm font-medium text-slate-700 hover:text-[#1746A2] dark:text-white/70 dark:hover:text-white transition-colors"
                   onClick={() => setProductsOpen(v => !v)}
                   onKeyDown={e => {
                     if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setProductsOpen(v => !v); }
@@ -241,7 +232,7 @@ export default function Navbar() {
             )}
 
             {navLinks.map(link => (
-              <Link key={link.label} href={link.href} className="text-sm font-medium text-white/70 hover:text-white transition-colors">
+              <Link key={link.label} href={link.href} className="text-sm font-medium text-slate-700 hover:text-[#1746A2] dark:text-white/70 dark:hover:text-white transition-colors">
                 {link.label}
               </Link>
             ))}
@@ -254,7 +245,7 @@ export default function Navbar() {
 
           {/* ── Mobile hamburger ── */}
           <button
-            className="md:hidden p-2 -mr-2 text-white/70 hover:text-white transition-colors"
+            className="md:hidden p-2 -mr-2 text-slate-700 hover:text-[#1746A2] dark:text-white/70 dark:hover:text-white transition-colors"
             onClick={() => setIsOpen(!isOpen)}
             aria-label={isOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={isOpen}

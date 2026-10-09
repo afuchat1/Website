@@ -13,7 +13,7 @@ import { openCookiePreferences } from '@/lib/cookieConsent';
 import { PRODUCT_DATA } from '@/data/products';
 import ProductIcon from '@/components/products/ProductIcon';
 
-const _FL = '/assets/afuchat_logo_transparent.png';
+const _FL = '/assets/afuchat-brand-symbol.svg';
 const _FT = '/assets/trustpilot_logo.png';
 const _FG = '/assets/google_play_badge.png';
 const _AFUCHAT_PLAY_URL = 'https://play.google.com/store/apps/details?id=com.afuchat.mobile';
@@ -22,11 +22,11 @@ const _FP = PRODUCT_DATA;
 function PageFooter() {
   const yr = new Date().getFullYear();
   return (
-    <footer className="relative">
+    <footer className="photo-bg-section relative isolate overflow-hidden" style={{ backgroundImage: "linear-gradient(90deg, rgba(3, 12, 30, 0.96), rgba(3, 12, 30, 0.90)), url(\'https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=2000&q=85\')", backgroundSize: "cover", backgroundPosition: "center" }}>
       <div className="max-container container-pad pt-16 pb-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 mb-10 md:mb-14">
           <div className="col-span-1 sm:col-span-2 md:col-span-1">
-            <Link href="/" className="flex items-center gap-2.5 mb-5"><img src={_FL} alt="AfuChat" className="h-8 w-auto" /><span className="text-white font-bold text-lg">AfuChat</span></Link>
+            <Link href="/" className="flex items-center gap-2.5 mb-5"><img src={_FL} alt="AfuChat Technologies" className="h-8 w-8 object-contain brightness-0 invert" /><span className="text-white font-bold text-lg">AfuChat</span></Link>
             <p className="text-white/40 text-sm leading-relaxed mb-5">Independent products.<br />Built for the world.</p>
             <div className="flex items-center gap-3 flex-wrap mb-5">
               <a href="https://www.trustpilot.com/review/afuchat.com" target="_blank" rel="noopener noreferrer" className="bg-white hover:bg-white/90 transition-colors rounded-full px-3 py-1.5 flex items-center"><img src={_FT} alt="Trustpilot" className="h-10 w-auto" loading="lazy" /></a>
@@ -47,7 +47,7 @@ function PageFooter() {
           </div>
           <div>
             <h4 className="text-white/50 font-semibold text-xs uppercase tracking-widest mb-5">Company</h4>
-            <ul className="flex flex-col gap-3">{[{l:'About',h:'/about'},{l:'Developers',h:'/developers'},{l:'Partners',h:'/partners'},{l:'Careers',h:'/about/careers'}].map(x=><li key={x.h}><Link href={x.h} className="text-white/38 hover:text-white text-sm transition-colors">{x.l}</Link></li>)}</ul>
+            <ul className="flex flex-col gap-3">{[{l:'About',h:'/about'},{l:'Developers',h:'/developers'},{l:'Partners',h:'/partners'},{l:'Brand',h:'/about/brand'},{l:'Careers',h:'/about/careers'}].map(x=><li key={x.h}><Link href={x.h} className="text-white/38 hover:text-white text-sm transition-colors">{x.l}</Link></li>)}</ul>
           </div>
         </div>
         <div className="border-t border-white/8 pt-7 flex flex-col sm:flex-row items-center justify-between gap-4">

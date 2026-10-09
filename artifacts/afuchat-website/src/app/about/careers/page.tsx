@@ -24,7 +24,7 @@ const jobPostingJsonLd = {
     '@type': 'Organization',
     name: 'AfuChat Technologies Limited',
     url: BASE_URL,
-    logo: `${BASE_URL}/assets/afuchat_logo_transparent.png`,
+    logo: `${BASE_URL}/assets/afuchat-brand-symbol.svg`,
   },
   jobLocation: { '@type': 'Place', address: { '@type': 'PostalAddress', addressCountry: 'GB' } },
   employmentType: 'FULL_TIME',

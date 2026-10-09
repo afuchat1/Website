@@ -1,5 +1,6 @@
 'use client';
 import { motion } from 'framer-motion';
+import { Download, Palette, ShieldCheck } from 'lucide-react';
 import Link from 'next/link';
 import { PRODUCT_DATA } from '@/data/products';
 import ProductIcon from '@/components/products/ProductIcon';
@@ -74,11 +75,10 @@ const PAGE_CONTENT: Record<string, {
     ],
   },
   brand: {
-    accent: '#8B5CF6', illustration: illSecBrand,
+    accent: '#1746A2',
     sections: [
-      { heading: 'Our visual identity', body: 'The AfuChat brand is built around a single idea, clarity. Our logo, color palette, and typography are designed to feel consistent across our product suite while giving each app its own distinct personality.' },
-      { heading: 'Logo usage', body: 'Please do not alter, recolor, or distort the AfuChat logo. Maintain clear space around it equal to the height of the logomark, and always use the provided source files rather than recreating it.' },
-      { heading: 'Download assets', body: 'Approved logos, color specifications, and typography guidelines are available for partners and press upon request at brand@afuchat.com.' },
+      { heading: 'Brand assets', body: 'Download the official AfuChat logo and brand colour below.' },
+      { heading: 'Logo usage', body: 'Keep the logo proportions intact. Do not stretch, redraw, or recolour the official asset.' },
     ],
   },
   help: {
@@ -143,7 +143,7 @@ export default function GenericPage({ title, type }: GenericPageProps) {
   const accent = content.accent;
 
   return (
-    <div className="w-full min-h-screen">
+    <div className="company-info-page w-full min-h-screen">
       {/* Hero */}
       <div className="max-container container-pad pt-20 pb-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -152,13 +152,51 @@ export default function GenericPage({ title, type }: GenericPageProps) {
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white mb-5 tracking-tight leading-tight">{title}</h1>
             <p className="text-lg text-white/50 max-w-xl leading-relaxed">{content.sections[0]?.body}</p>
           </motion.div>
-          {'illustration' in content && content.illustration && (
+          {type.toLowerCase() !== 'brand' && 'illustration' in content && content.illustration && (
             <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.1 }}>
               <img src={content.illustration} alt={title} className="w-full rounded-3xl shadow-2xl" onError={e => { (e.target as HTMLImageElement).style.display = 'none'; }} />
             </motion.div>
           )}
         </div>
       </div>
+
+      {/* Brand assets */}
+      {type.toLowerCase() === 'brand' && (
+        <section className="max-container container-pad pb-16" aria-labelledby="brand-assets-title">
+          <div className="rounded-3xl border border-slate-200 bg-white p-6 sm:p-8 shadow-sm">
+            <div className="max-w-2xl mb-8">
+              <p className="text-xs font-semibold uppercase tracking-widest mb-2" style={{ color: '#1746A2' }}>Official brand resources</p>
+              <h2 id="brand-assets-title" className="text-2xl sm:text-3xl font-bold text-slate-900 mb-3">AfuChat brand assets</h2>
+              <p className="text-slate-600 leading-relaxed">Download the official AfuChat symbol in scalable SVG format. This version uses brand blue, not black, and stays sharp at any size.</p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
+              <div className="flex flex-col items-center justify-center rounded-2xl border border-slate-200 bg-slate-50 p-8 min-h-64">
+                <img src="/assets/afuchat-logo-blue.svg" alt="AfuChat logo symbol in brand blue" className="w-36 h-36 object-contain mb-5" />
+                <p className="font-semibold text-slate-900">AfuChat symbol · Brand blue</p>
+                <p className="text-sm text-slate-500 mt-1">SVG · Transparent background</p>
+                <a href="/assets/afuchat-logo-blue.svg" download="afuchat-logo-blue.svg" className="mt-5 inline-flex items-center justify-center gap-2 rounded-full bg-[#1746A2] px-5 py-3 text-sm font-semibold text-white hover:bg-[#12377F] transition-colors">
+                  <Download className="h-4 w-4" aria-hidden="true" /> Download logo (SVG)
+                </a>
+              </div>
+              <div className="rounded-2xl border border-slate-200 bg-white p-6 flex flex-col justify-center">
+                <div className="flex items-start gap-3 mb-5">
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-[#1746A2]"><Palette className="h-5 w-5" aria-hidden="true" /></span>
+                  <div><h3 className="font-semibold text-slate-900">Core brand colour</h3><p className="text-sm text-slate-600 mt-1">Use the same blue for consistent brand recognition.</p></div>
+                </div>
+                <div className="flex items-center gap-3 rounded-xl border border-slate-200 p-3">
+                  <span className="h-12 w-12 rounded-lg bg-[#1746A2]" aria-hidden="true" />
+                  <div className="flex-1"><p className="text-sm font-semibold text-slate-900">AfuChat Blue</p><code className="text-sm text-slate-600">#1746A2</code></div>
+                  <button type="button" onClick={() => navigator.clipboard?.writeText('#1746A2')} className="rounded-lg border border-slate-200 px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50">Copy</button>
+                </div>
+                <div className="flex items-start gap-3 mt-5">
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-slate-100 text-slate-700"><ShieldCheck className="h-5 w-5" aria-hidden="true" /></span>
+                  <div><h3 className="font-semibold text-slate-900">Usage guidelines</h3><p className="text-sm leading-relaxed text-slate-600 mt-1">Keep the logo proportions intact, leave clear space around it, and do not stretch, redraw, or recolour the official asset.</p></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Sections */}
       <div className="max-container container-pad py-16">

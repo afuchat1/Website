@@ -14,7 +14,7 @@ const features = [
 
 export default function FeaturesSection() {
   return (
-    <section className="py-16 sm:py-20 lg:py-28">
+    <section className="photo-bg-section relative isolate overflow-hidden py-16 sm:py-20 lg:py-28 bg-[#06132a] text-white" style={{ backgroundImage: "linear-gradient(90deg, var(--photo-overlay-strong), var(--photo-overlay-soft)), url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=2000&q=85')", backgroundSize: 'cover', backgroundPosition: 'center' }}>
       <div className="max-container container-pad">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-start">
           <div>
@@ -34,8 +34,8 @@ export default function FeaturesSection() {
               {features.map((f, i) => (
                 <motion.div key={i} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
                   transition={{ delay: i * 0.06 }} className="flex items-start gap-3">
-                  <div className="w-9 h-9 rounded-lg bg-teal-500/15 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <f.icon className="w-4.5 h-4.5 text-teal-400" />
+                  <div className="home-feature-icon-tile w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <f.icon className="home-feature-icon w-5 h-5" />
                   </div>
                   <div>
                     <p className="text-white/85 font-semibold text-sm mb-1">{f.label}</p>

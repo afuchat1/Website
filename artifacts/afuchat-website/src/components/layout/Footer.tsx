@@ -6,7 +6,7 @@ import ProductIcon from '@/components/products/ProductIcon';
 import { TRUSTPILOT_PROFILE_URL } from '@/data/trustpilot';
 import { openCookiePreferences } from '@/lib/cookieConsent';
 
-const LOGO_SRC         = '/assets/afuchat_logo_transparent.png';
+const LOGO_SRC         = '/assets/afuchat-brand-symbol.svg';
 const TRUSTPILOT_LOGO  = '/assets/trustpilot_logo.png';
 const GOOGLE_PLAY_BADGE = '/assets/google_play_badge.png';
 const AFUCHAT_PLAY_URL = 'https://play.google.com/store/apps/details?id=com.afuchat.mobile';
@@ -19,7 +19,7 @@ function StoreButtons() {
         href={TRUSTPILOT_PROFILE_URL}
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Read AfuChat reviews on Trustpilot"
+        aria-label="Read company reviews on Trustpilot"
         className="bg-white hover:bg-white/90 transition-colors rounded-full px-3 py-1.5 flex items-center"
       >
         <img src={TRUSTPILOT_LOGO} alt="Trustpilot" className="h-10 w-auto" loading="lazy" decoding="async" />
@@ -28,10 +28,10 @@ function StoreButtons() {
         href={AFUCHAT_PLAY_URL}
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Download the AfuChat app on Google Play"
+        aria-label="Visit AfuChat Technologies on Google Play"
         className="flex flex-col gap-1"
       >
-        <span className="text-white/55 text-[10px] font-semibold uppercase tracking-widest">Download AfuChat</span>
+        <span className="text-white/55 text-[10px] font-semibold uppercase tracking-widest">Explore our products</span>
         <img src={GOOGLE_PLAY_BADGE} alt="Get it on Google Play" className="h-10 w-auto" loading="lazy" decoding="async" />
       </a>
     </div>
@@ -54,6 +54,7 @@ export default function Footer() {
             <nav aria-label="AfuCloud links" className="flex flex-wrap items-center gap-x-6 gap-y-3 text-sm">
               <a href={AFUCLOUD_URL} target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white transition-colors">AfuCloud dashboard</a>
               <a href="https://cloud.afuchat.com/docs/getting-started/quickstart" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white transition-colors">API quickstart</a>
+              <Link href="/about/brand" className="text-white/60 hover:text-white transition-colors">Brand</Link>
               <Link href="/legal/privacy" className="text-white/60 hover:text-white transition-colors">Privacy</Link>
               <Link href="/legal/terms" className="text-white/60 hover:text-white transition-colors">Terms</Link>
               <button onClick={openCookiePreferences} className="text-white/60 hover:text-white transition-colors">Manage cookies</button>
@@ -75,11 +76,11 @@ export default function Footer() {
           {/* Brand */}
           <div className="col-span-1 sm:col-span-2 md:col-span-1">
             <Link href="/" className="flex items-center gap-2.5 mb-5">
-              <img src={LOGO_SRC} alt="AfuChat" className="h-8 w-auto" />
-              <span className="text-white font-bold text-lg">AfuChat</span>
+              <img src={LOGO_SRC} alt="AfuChat Technologies Limited" className="h-8 w-8 object-contain brightness-0 invert" />
+              <span className="text-white font-bold text-lg">AfuChat Technologies</span>
             </Link>
             <p className="text-white/40 text-sm leading-relaxed mb-5">
-              Independent products.<br />Built for the world.
+              Independent products.<br />Practical technology. Global ambition.
             </p>
             <div className="mb-5">
               <StoreButtons />
@@ -130,6 +131,7 @@ export default function Footer() {
                 { label: 'About',      href: '/about' },
                 { label: 'Developers', href: '/developers' },
                 { label: 'Partners',   href: '/partners' },
+                { label: 'Brand',      href: '/about/brand' },
                 { label: 'Careers',    href: '/about/careers' },
               ].map(l => (
                 <li key={l.href}>

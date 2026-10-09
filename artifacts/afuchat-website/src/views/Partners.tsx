@@ -25,7 +25,7 @@ import Footer from '@/components/layout/Footer';
 
 export default function Partners() {
   return (
-    <div className="w-full min-h-screen">
+    <div className="partners-page w-full min-h-screen">
       <div className="max-container container-pad pt-12 pb-10 sm:pt-20 sm:pb-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">
           <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
