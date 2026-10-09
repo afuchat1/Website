@@ -20,11 +20,11 @@ export default function ProductsSection() {
             </motion.p>
             <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.05 }}
               className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4 sm:mb-6 tracking-tight leading-tight">
-              Products we are<br />actually building.
+              Our growing<br />product portfolio.
             </motion.h2>
             <motion.p initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}
               className="text-white/50 text-base leading-relaxed mb-8 sm:mb-10 max-w-md">
-              AfuChat Technologies develops products for communication, identity, cloud services, and AI. Each product has a clear purpose, and the ecosystem grows from products that are actually built and used.
+              We build and operate a growing portfolio of digital products, each designed around a clear need. Explore the platforms and services created by AfuChat Technologies Limited.
             </motion.p>
             <div className="grid grid-cols-2 gap-x-6 gap-y-4 sm:gap-y-5 mb-8 sm:mb-10">
               {PRODUCT_DATA.map((p, i) => (
@@ -51,7 +51,7 @@ export default function ProductsSection() {
             </div>
             <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
               <Link href="/products" className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#1F7AFF] to-[#6C63FF] text-white font-bold text-sm rounded-full hover:opacity-90 transition-opacity">
-                View all products
+                Explore the portfolio
               </Link>
             </motion.div>
           </div>
