@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 export default function HeroSection() {
   return (
-    <section className="photo-bg-section relative isolate overflow-hidden flex items-center bg-[#06132a] text-white" style={{ backgroundImage: "linear-gradient(90deg, rgba(3, 12, 30, 0.95) 0%, rgba(3, 12, 30, 0.84) 48%, rgba(3, 12, 30, 0.52) 100%), url('https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=2000&q=85')", backgroundSize: 'cover', backgroundPosition: 'center' }}>
+    <section className="photo-bg-section relative isolate overflow-hidden flex items-center bg-[#06132a] text-white" style={{ backgroundImage: "linear-gradient(90deg, var(--photo-overlay-strong) 0%, var(--photo-overlay-mid) 48%, var(--photo-overlay-soft) 100%), url('https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=2000&q=85')", backgroundSize: 'cover', backgroundPosition: 'center' }}>
       <div className="relative z-10 max-container container-pad w-full">
         <div className="grid grid-cols-1 items-center py-16 sm:py-24 lg:py-32">
           <div className="max-w-3xl">
