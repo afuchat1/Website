@@ -36,7 +36,7 @@ export default function ProductPage({ id }: { id: string }) {
                   {isAfuCloud ? 'AfuCloud Image Storage API' : product.name}
                 </h1>
                 <p className="text-[11px] uppercase tracking-widest font-bold text-slate-500 mb-4">{product.category}</p>
-                <p className={`text-lg sm:text-xl font-semibold mb-4 leading-snug ${isAfuCloud ? 'afucloud-tagline' : ''}`} style={{ color: isAfuCloud ? undefined : '#1746A2' }} style={{ color: product.color }}>{product.tagline}</p>
+                <p className={`text-lg sm:text-xl font-semibold mb-4 leading-snug ${isAfuCloud ? 'afucloud-tagline' : ''}`} style={{ color: product.color }}>{product.tagline}</p>
                 <p className="text-slate-600 text-base sm:text-lg leading-relaxed mb-8 max-w-md">{product.description}</p>
                 {isAfuCloud && (
                   <div className="flex flex-wrap gap-3 mb-8">
