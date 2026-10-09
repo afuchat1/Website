@@ -9,7 +9,7 @@ export default function SiteChrome({ children }: { children: React.ReactNode }) 
   return (
     <>
       <Navbar />
-      <main className="pt-16">{children}</main>
+      <main className="afu-monochrome-site pt-16">{children}</main>
       <CookieConsent />
     </>
   );
