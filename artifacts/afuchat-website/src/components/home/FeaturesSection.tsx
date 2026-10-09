@@ -14,7 +14,7 @@ const features = [
 
 export default function FeaturesSection() {
   return (
-    <section className="py-16 sm:py-20 lg:py-28">
+    <section className="relative isolate overflow-hidden py-16 sm:py-20 lg:py-28 bg-[#06132a] text-white" style={{ backgroundImage: "linear-gradient(90deg, rgba(4, 13, 31, 0.94), rgba(4, 13, 31, 0.80)), url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=2000&q=85')", backgroundSize: 'cover', backgroundPosition: 'center' }}>
       <div className="max-container container-pad">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-start">
           <div>
