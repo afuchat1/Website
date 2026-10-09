@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 export default function DeveloperSection() {
   return (
-    <section className="py-16 sm:py-20 lg:py-28">
+    <section className="photo-bg-section relative isolate overflow-hidden py-16 sm:py-20 lg:py-28" style={{ backgroundImage: "linear-gradient(90deg, rgba(4, 13, 31, 0.93), rgba(4, 13, 31, 0.82)), url(\'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=2000&q=85\')", backgroundSize: "cover", backgroundPosition: "center" }}>
       <div className="max-container container-pad">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center">
           <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
