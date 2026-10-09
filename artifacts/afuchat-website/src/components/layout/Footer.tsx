@@ -19,7 +19,7 @@ function StoreButtons() {
         href={TRUSTPILOT_PROFILE_URL}
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Read AfuChat reviews on Trustpilot"
+        aria-label="Read company reviews on Trustpilot"
         className="bg-white hover:bg-white/90 transition-colors rounded-full px-3 py-1.5 flex items-center"
       >
         <img src={TRUSTPILOT_LOGO} alt="Trustpilot" className="h-10 w-auto" loading="lazy" decoding="async" />
@@ -28,10 +28,10 @@ function StoreButtons() {
         href={AFUCHAT_PLAY_URL}
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Download the AfuChat app on Google Play"
+        aria-label="Visit AfuChat Technologies on Google Play"
         className="flex flex-col gap-1"
       >
-        <span className="text-white/55 text-[10px] font-semibold uppercase tracking-widest">Download AfuChat</span>
+        <span className="text-white/55 text-[10px] font-semibold uppercase tracking-widest">Explore our products</span>
         <img src={GOOGLE_PLAY_BADGE} alt="Get it on Google Play" className="h-10 w-auto" loading="lazy" decoding="async" />
       </a>
     </div>
@@ -75,11 +75,11 @@ export default function Footer() {
           {/* Brand */}
           <div className="col-span-1 sm:col-span-2 md:col-span-1">
             <Link href="/" className="flex items-center gap-2.5 mb-5">
-              <img src={LOGO_SRC} alt="AfuChat Technologies" className="h-8 w-8 object-contain brightness-0 invert" />
-              <span className="text-white font-bold text-lg">AfuChat</span>
+              <img src={LOGO_SRC} alt="AfuChat Technologies Limited" className="h-8 w-8 object-contain brightness-0 invert" />
+              <span className="text-white font-bold text-lg">AfuChat Technologies</span>
             </Link>
             <p className="text-white/40 text-sm leading-relaxed mb-5">
-              Independent products.<br />Built for the world.
+              Independent products.<br />Practical technology. Global ambition.
             </p>
             <div className="mb-5">
               <StoreButtons />
