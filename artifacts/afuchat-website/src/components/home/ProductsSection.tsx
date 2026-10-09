@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 export default function ProductsSection() {
   return (
-    <section className="relative isolate overflow-hidden py-16 sm:py-20 lg:py-28 bg-[#06132a] text-white" style={{ backgroundImage: "linear-gradient(90deg, rgba(4, 13, 31, 0.94), rgba(4, 13, 31, 0.80)), url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=2000&q=85')", backgroundSize: 'cover', backgroundPosition: 'center' }}>
+    <section className="photo-bg-section relative isolate overflow-hidden py-16 sm:py-20 lg:py-28 bg-[#06132a] text-white" style={{ backgroundImage: "linear-gradient(90deg, var(--photo-overlay-strong), var(--photo-overlay-soft)), url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=2000&q=85')", backgroundSize: 'cover', backgroundPosition: 'center' }}>
       <div className="max-container container-pad">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center">
           <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}
