@@ -143,7 +143,7 @@ export default function GenericPage({ title, type }: GenericPageProps) {
   const accent = content.accent;
 
   return (
-    <div className="w-full min-h-screen">
+    <div className="company-info-page w-full min-h-screen">
       {/* Hero */}
       <div className="max-container container-pad pt-20 pb-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
