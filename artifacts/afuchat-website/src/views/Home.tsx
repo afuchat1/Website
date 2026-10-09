@@ -26,7 +26,7 @@ function PageFooter() {
       <div className="max-container container-pad pt-16 pb-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 mb-10 md:mb-14">
           <div className="col-span-1 sm:col-span-2 md:col-span-1">
-            <Link href="/" className="flex items-center gap-2.5 mb-5"><img src={_FL} alt="AfuChat Technologies" className="h-8 w-8 object-contain brightness-0 invert" /><span className="text-white font-bold text-lg">AfuChat</span></Link>
+            <Link href="/" className="flex items-center gap-2.5 mb-5"><img src={_FL} alt="AfuChat Technologies" className="h-8 w-8 object-contain dark:brightness-0 dark:invert" /><span className="text-white font-bold text-lg">ATL Uganda</span></Link>
             <p className="text-white/40 text-sm leading-relaxed mb-5">Independent products.<br />Built for the world.</p>
             <div className="flex items-center gap-3 flex-wrap mb-5">
               <a href="https://www.trustpilot.com/review/afuchat.com" target="_blank" rel="noopener noreferrer" className="bg-white hover:bg-white/90 transition-colors rounded-full px-3 py-1.5 flex items-center"><img src={_FT} alt="Trustpilot" className="h-10 w-auto" loading="lazy" /></a>
