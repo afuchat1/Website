@@ -487,3 +487,10 @@
     height: 290px !important;
   }
 }
+
+
+/* Photo-led corporate sections retain high-contrast text in both system themes. */
+.photo-bg-section [class~="text-white"] { color: #FFFFFF !important; }
+.photo-bg-section [class*="text-white/"] { color: rgb(255 255 255 / 0.78) !important; }
+.photo-bg-section [class*="hover:text-white"]:hover { color: #FFFFFF !important; }
+.photo-bg-section [class*="border-white/"] { border-color: rgb(255 255 255 / 0.22) !important; }
