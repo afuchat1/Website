@@ -743,27 +743,8 @@ input::placeholder, textarea::placeholder {
 }
 
 
-/* Stable corporate navbar: no transparent-to-solid color change on scroll. */
-.site-header-stable {
-  background-color: #040C1E !important;
-  background-image: none !important;
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-}
-.site-header-stable > div a,
-.site-header-stable > div nav a,
-.site-header-stable > div nav button,
-.site-header-stable > div > button {
-  color: #FFFFFF;
-}
-.site-header-stable > div > a > span {
-  color: #FFFFFF !important;
-  opacity: 1 !important;
-  visibility: visible !important;
-}
-.site-header-stable > div > a > img {
-  opacity: 1 !important;
-  visibility: visible !important;
-  filter: none !important;
+/* Corporate navbar: keep the header theme-aware and let the logo filter follow it. */
+.site-header-stable { background-color: #FFFFFF; background-image: none; backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid #E2E8F0; }
+@media (prefers-color-scheme: dark) {
+  .site-header-stable { background-color: #040C1E; border-bottom-color: rgba(255,255,255,0.08); }
 }
