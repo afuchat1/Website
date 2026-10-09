@@ -6,7 +6,7 @@ import ProductIcon from '@/components/products/ProductIcon';
 import { TRUSTPILOT_PROFILE_URL } from '@/data/trustpilot';
 import { openCookiePreferences } from '@/lib/cookieConsent';
 
-const LOGO_SRC         = '/assets/afuchat_logo_transparent.png';
+const LOGO_SRC         = '/assets/afuchat-brand-symbol.svg';
 const TRUSTPILOT_LOGO  = '/assets/trustpilot_logo.png';
 const GOOGLE_PLAY_BADGE = '/assets/google_play_badge.png';
 const AFUCHAT_PLAY_URL = 'https://play.google.com/store/apps/details?id=com.afuchat.mobile';
@@ -75,7 +75,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="col-span-1 sm:col-span-2 md:col-span-1">
             <Link href="/" className="flex items-center gap-2.5 mb-5">
-              <img src={LOGO_SRC} alt="AfuChat" className="h-8 w-auto" />
+              <img src={LOGO_SRC} alt="AfuChat Technologies" className="h-8 w-8 object-contain brightness-0 invert" />
               <span className="text-white font-bold text-lg">AfuChat</span>
             </Link>
             <p className="text-white/40 text-sm leading-relaxed mb-5">
