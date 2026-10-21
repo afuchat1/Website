@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import SiteChrome from '@/components/layout/SiteChrome';
 import '@/app/globals.css';
 
-const BASE_URL = 'https://afuchat.com';
+const BASE_URL = 'https://www.afuchat.com';
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
