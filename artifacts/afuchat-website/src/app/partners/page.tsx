@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import PartnersView from '@/views/Partners';
 
-const BASE_URL = 'https://afuchat.com';
+const BASE_URL = 'https://www.afuchat.com';
 
 export const metadata: Metadata = {
   title: 'Partner Program, AfuChat',
@@ -16,7 +16,15 @@ export const metadata: Metadata = {
     title: 'AfuChat Partner Program',
     description: 'Technology, reseller, and media partnership tracks. Apply to become an AfuChat partner.',
     url: `${BASE_URL}/partners`,
+    siteName: 'ATL Uganda',
+    type: 'website',
     images: [{ url: '/illustrations/ill-sec-ecosystem.webp', width: 1200, height: 630, alt: 'AfuChat partner program' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'AfuChat Partner Program',
+    description: 'Technology, reseller, and media partnership tracks. Apply to become an AfuChat partner.',
+    images: ['/illustrations/ill-sec-ecosystem.webp'],
   },
 };
 
