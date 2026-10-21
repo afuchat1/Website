@@ -3,7 +3,7 @@ import { PRODUCT_DATA } from '@/data/products';
 
 export const dynamic = 'force-static';
 
-const BASE_URL = 'https://afuchat.com';
+const BASE_URL = 'https://www.afuchat.com';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
