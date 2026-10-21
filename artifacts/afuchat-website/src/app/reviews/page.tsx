@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import ReviewsView from '@/views/Reviews';
 
-const BASE_URL = 'https://afuchat.com';
+const BASE_URL = 'https://www.afuchat.com';
 
 export const metadata: Metadata = {
   title: 'Reviews, AfuChat Technologies',
