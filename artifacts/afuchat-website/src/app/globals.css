@@ -131,10 +131,10 @@ input::placeholder, textarea::placeholder {
   --afucloud-background: var(--color-background);
   --afucloud-foreground: var(--color-text);
   --afucloud-muted: var(--color-text-secondary);
-  --afucloud-accent: #07965B;
+  --afucloud-accent: #1F95FF;
   background-color: var(--afucloud-background);
   color: var(--afucloud-foreground);
-  font-family: "DM Sans", system-ui, -apple-system, sans-serif;
+  font-family: var(--font-sans), system-ui, sans-serif;
 }
 
 .afucloud-product-page h1,
@@ -144,7 +144,7 @@ input::placeholder, textarea::placeholder {
 .afucloud-product-page h5,
 .afucloud-product-page h6 {
   color: var(--afucloud-foreground);
-  font-family: "Satoshi", "DM Sans", system-ui, sans-serif;
+  font-family: var(--font-sans), system-ui, sans-serif;
 }
 
 .afucloud-product-page code {
@@ -155,7 +155,7 @@ input::placeholder, textarea::placeholder {
    buttons, borders, and hover states each own their visual treatment. */
 
 .afucloud-product-page .afucloud-code-example--green {
-  --afucloud-code-accent: #08764B;
+  --afucloud-code-accent: #0F7AE0;
   --afucloud-code-background: color-mix(in srgb, var(--color-background) 90%, #07965B 10%);
 }
 
@@ -215,7 +215,7 @@ input::placeholder, textarea::placeholder {
   color: var(--afucloud-accent) !important;
 }
 
-.afucloud-product-page [class*="text-[#07965B]"] {
+.afucloud-product-page [class*="text-[#1F95FF]"] {
   color: var(--afucloud-accent) !important;
 }
 
@@ -225,7 +225,7 @@ input::placeholder, textarea::placeholder {
 
 .afucloud-product-page .afucloud-primary-cta:hover,
 .afucloud-product-page .afucloud-copy-button:hover {
-  color: #08764B !important;
+  color: #0F7AE0 !important;
   text-decoration: underline;
 }
 
@@ -258,15 +258,15 @@ input::placeholder, textarea::placeholder {
 }
 
 .afucloud-site-header [class*="hover:text-white"]:hover {
-  color: #07965B !important;
+  color: #1F95FF !important;
 }
 
 .afucloud-site-header [class*="from-[#1F7AFF]"] {
-  color: #07965B !important;
+  color: #1F95FF !important;
 }
 
 .afucloud-site-header svg {
-  color: #07965B !important;
+  color: #1F95FF !important;
 }
 
 .afucloud-tablet-products-trigger {
@@ -274,12 +274,12 @@ input::placeholder, textarea::placeholder {
 }
 
 .afucloud-tablet-products-trigger:hover {
-  color: #07965B;
+  color: #1F95FF;
 }
 
 .afucloud-products-sidebar,
 .afucloud-products-drawer {
-  --afucloud-sidebar-accent: #07965B;
+  --afucloud-sidebar-accent: #1F95FF;
   color: var(--color-text);
 }
 
@@ -298,7 +298,7 @@ input::placeholder, textarea::placeholder {
 
 .afucloud-products-sidebar-heading {
   margin: 0 0 1rem;
-  color: var(--afucloud-sidebar-accent, #07965B);
+  color: var(--afucloud-sidebar-accent, #1F95FF);
   font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 0.12em;
@@ -321,7 +321,7 @@ input::placeholder, textarea::placeholder {
 
 .afucloud-product-nav-link:hover,
 .afucloud-product-nav-link[aria-current="page"] {
-  color: var(--afucloud-sidebar-accent, #07965B);
+  color: var(--afucloud-sidebar-accent, #1F95FF);
 }
 
 .afucloud-product-nav-link[aria-current="page"] {
@@ -329,7 +329,7 @@ input::placeholder, textarea::placeholder {
 }
 
 .afucloud-product-nav-link svg {
-  color: #07965B;
+  color: #1F95FF;
 }
 
 .afucloud-product-nav-all {
@@ -338,7 +338,7 @@ input::placeholder, textarea::placeholder {
   gap: 0.5rem;
   margin-top: 1rem;
   padding: 0.65rem 0;
-  color: #07965B;
+  color: #1F95FF;
   font-size: 0.85rem;
   font-weight: 600;
   text-decoration: none;
@@ -388,11 +388,11 @@ input::placeholder, textarea::placeholder {
 }
 
 .afucloud-products-drawer-close:hover {
-  color: #07965B;
+  color: #1F95FF;
 }
 
 .afucloud-products-drawer-close:focus-visible {
-  outline: 2px solid #07965B;
+  outline: 2px solid #1F95FF;
   outline-offset: 3px;
 }
 
