@@ -104,7 +104,7 @@ export default function AfuCloudDetails() {
               href="https://cloud.afuchat.com/docs/getting-started/quickstart"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-sm font-semibold text-[#1F95FF] hover:text-[#08764B] transition-colors"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-[#1F95FF] hover:text-[#0F7AE0] transition-colors"
             >
               Follow the AfuCloud quickstart <ArrowUpRight className="w-4 h-4" aria-hidden="true" />
             </a>
