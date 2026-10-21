@@ -27,7 +27,7 @@ const capabilities = [
 
 export default function WorkPageView() {
   return (
-    <main className="min-h-screen w-full bg-white text-slate-950">
+    <main className="work-page min-h-screen w-full bg-white text-slate-950">
       <section className="relative isolate overflow-hidden bg-[#06132a] text-white">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(31,122,255,0.24),transparent_55%)]" />
         <div className="relative max-container container-pad py-20 sm:py-28 lg:py-32">
