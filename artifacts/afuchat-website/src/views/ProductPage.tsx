@@ -72,9 +72,9 @@ export default function ProductPage({ id }: { id: string }) {
                     transition={{ delay: 0.1, duration: 0.6 }}
                     className="w-full max-w-sm"
                   >
-                    <div className="relative flex aspect-square w-full items-center justify-center overflow-hidden rounded-3xl border border-[hsl(30_15%_88%)] bg-[hsl(35_30%_96%)] p-8">
-                      <div className="absolute inset-[16%] rounded-full bg-[hsl(154_55%_92%)]" aria-hidden="true" />
-                      <div className="absolute inset-[23%] rounded-full border border-[#07965B]/20" aria-hidden="true" />
+                    <div className="relative flex aspect-square w-full items-center justify-center overflow-hidden rounded-3xl border border-[#E2E8F0] bg-[#F8FAFC] p-8">
+                      <div className="absolute inset-[16%] rounded-full bg-[#EBF5FF]" aria-hidden="true" />
+                      <div className="absolute inset-[23%] rounded-full border border-[#1F95FF]/20" aria-hidden="true" />
                       <img
                         src={product.logo}
                         alt="Official AfuCloud green cloud and upload mark"
