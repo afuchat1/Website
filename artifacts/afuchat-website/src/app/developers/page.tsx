@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import DevelopersView from '@/views/Developers';
 
-const BASE_URL = 'https://afuchat.com';
+const BASE_URL = 'https://www.afuchat.com';
 
 export const metadata: Metadata = {
   title: 'Developer Platform, Build on AfuChat',
