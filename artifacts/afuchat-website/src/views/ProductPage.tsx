@@ -52,7 +52,7 @@ export default function ProductPage({ id }: { id: string }) {
                       href={AFUCLOUD_QUICKSTART_URL}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 hover:border-[#1746A2] hover:text-[#1746A2] transition-colors"
+                      className="inline-flex items-center gap-2 rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 hover:border-[#08764B] hover:text-[#08764B] transition-colors"
                     >
                       Read the API quickstart <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
                     </a>
@@ -73,11 +73,11 @@ export default function ProductPage({ id }: { id: string }) {
                     className="w-full max-w-sm"
                   >
                     <div className="relative flex aspect-square w-full items-center justify-center overflow-hidden rounded-3xl border border-[#E2E8F0] bg-[#F8FAFC] p-8">
-                      <div className="absolute inset-[16%] rounded-full bg-[#EBF5FF]" aria-hidden="true" />
-                      <div className="absolute inset-[23%] rounded-full border border-[#1F95FF]/20" aria-hidden="true" />
+                      <div className="absolute inset-[16%] rounded-full bg-[#E8F7EF]" aria-hidden="true" />
+                      <div className="absolute inset-[23%] rounded-full border border-[#07965B]/20" aria-hidden="true" />
                       <img
                         src={product.logo}
-                        alt="Official AfuCloud green cloud and upload mark"
+                        alt="Official AfuCloud cloud and upload mark"
                         width={128}
                         height={128}
                         className="relative h-32 w-32 object-contain sm:h-36 sm:w-36"
@@ -105,7 +105,7 @@ export default function ProductPage({ id }: { id: string }) {
       {!isAfuCloud && (
         <div className="max-container container-pad py-16">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-10">
-            <p className="font-semibold text-xs uppercase tracking-widest mb-3 text-[#1746A2]">Ecosystem</p>
+            <p className="font-semibold text-xs uppercase tracking-widest mb-3 text-[#08764B]">Ecosystem</p>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
               <h2 className="text-2xl font-bold text-slate-950 tracking-tight">Works even better together.</h2>
             <img src={illSecEcosystem} alt="AfuChat ecosystem" className="w-full max-w-xs drop-shadow-2xl hidden lg:block" loading="lazy" decoding="async" />
@@ -115,9 +115,9 @@ export default function ProductPage({ id }: { id: string }) {
             {otherProducts.map((p, i) => (
               <motion.div key={p.id} initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.07 }}>
                 <Link href={p.path}>
-                  <div className="flex items-center gap-3 rounded-xl border border-slate-200 bg-white p-3 group hover:border-[#1746A2]/40 transition-colors">
+                  <div className="flex items-center gap-3 rounded-xl border border-slate-200 bg-white p-3 group hover:border-[#08764B]/40 transition-colors">
                     <ProductIcon product={p} containerClassName="w-10 h-10 rounded-xl" iconClassName="w-5 h-5" />
-                    <span className="text-sm text-slate-600 group-hover:text-[#1746A2] transition-colors">{p.name}</span>
+                    <span className="text-sm text-slate-600 group-hover:text-[#08764B] transition-colors">{p.name}</span>
                   </div>
                 </Link>
               </motion.div>
