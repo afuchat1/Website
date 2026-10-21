@@ -5,12 +5,12 @@ export const metadata: Metadata = {
   title: 'Terms of Service, AfuChat',
   description:
     'AfuChat Technologies Limited terms of service. Your rights, responsibilities, and our obligations when you use any of our eight products.',
-  alternates: { canonical: 'https://afuchat.com/legal/terms' },
+  alternates: { canonical: 'https://www.afuchat.com/legal/terms' },
   robots: { index: true, follow: true },
   openGraph: {
     title: 'Terms of Service, AfuChat Technologies Limited',
     description: 'Your rights and responsibilities when using AfuChat products.',
-    url: 'https://afuchat.com/legal/terms',
+    url: 'https://www.afuchat.com/legal/terms',
   },
 };
 
