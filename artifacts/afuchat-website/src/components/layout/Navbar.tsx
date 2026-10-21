@@ -137,7 +137,7 @@ export default function Navbar() {
             <img
               src={isAfuCloud ? '/assets/products/afucloud-logo.svg' : LOGO_SRC}
               alt={isAfuCloud ? 'AfuCloud' : 'AfuChat Technologies Limited'}
-              className={`h-8 w-8 object-contain ${isAfuCloud ? '' : 'dark:brightness-0 dark:invert'}`}
+              className="h-8 w-8 object-contain"
             />
             <span className={`font-bold text-lg ${isAfuCloud ? "text-white" : "text-slate-900 dark:text-white"}`}>{isAfuCloud ? 'AfuCloud' : 'ATL Uganda'}</span>
           </Link>
