@@ -151,20 +151,8 @@ input::placeholder, textarea::placeholder {
   font-family: "JetBrains Mono", "Consolas", monospace;
 }
 
-.afucloud-product-page * {
-  background: transparent !important;
-  background-image: none !important;
-  border: none !important;
-  box-shadow: none !important;
-  filter: none !important;
-}
-
-.afucloud-product-page *:hover {
-  background: transparent !important;
-  background-image: none !important;
-  border: none !important;
-  box-shadow: none !important;
-}
+/* Do not apply blanket resets to AfuCloud descendants: cards, code samples,
+   buttons, borders, and hover states each own their visual treatment. */
 
 .afucloud-product-page .afucloud-code-example--green {
   --afucloud-code-accent: #08764B;
