@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import { PRODUCT_DATA } from '@/data/products';
 import ProductPageView from '@/views/ProductPage';
 
-const BASE_URL = 'https://afuchat.com';
+const BASE_URL = 'https://www.afuchat.com';
 const AFUCLOUD_URL = 'https://cloud.afuchat.com';
 const AFUCLOUD_SEO_TITLE = 'AfuCloud Image Storage API';
 const AFUCLOUD_SEO_DESCRIPTION = 'AfuCloud is an image storage API for developers to upload, organize, and deliver images, store files in object storage, and connect custom domains. Start free.';
