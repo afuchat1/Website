@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import GenericPageView from '@/views/GenericPage';
 
-const BASE_URL = 'https://afuchat.com';
+const BASE_URL = 'https://www.afuchat.com';
 
 export const metadata: Metadata = {
   title: 'Help Center, AfuChat Technologies',
