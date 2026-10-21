@@ -717,3 +717,21 @@ input::placeholder, textarea::placeholder {
     color: #93C5FD !important;
   }
 }
+
+/* Site-wide footer contrast: footers use a deliberate dark surface so the
+   existing white/translucent footer labels never sit on a white page background. */
+.afu-monochrome-site footer {
+  background-color: #06101F;
+  color: #E6F1FF;
+  color-scheme: dark;
+}
+.afu-monochrome-site footer [class*="text-white/"] {
+  color: #CBD5E1 !important;
+}
+.afu-monochrome-site footer a:hover,
+.afu-monochrome-site footer button:hover {
+  color: #FFFFFF !important;
+}
+.afu-monochrome-site footer [class*="border-white/"] {
+  border-color: rgba(203, 213, 225, 0.22) !important;
+}
