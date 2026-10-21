@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import ProductsView from '@/views/Products';
 import { PRODUCT_DATA } from '@/data/products';
 
-const BASE_URL = 'https://afuchat.com';
+const BASE_URL = 'https://www.afuchat.com';
 
 export const metadata: Metadata = {
   title: 'Products, AfuChat Technologies',
