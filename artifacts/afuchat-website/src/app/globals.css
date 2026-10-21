@@ -512,13 +512,12 @@ input::placeholder, textarea::placeholder {
   border-top: 0;
 }
 
-/* Product catalogue and detail pages use a stable, high-contrast surface.
-   Avoid mixing dark system backgrounds with hard-coded dark product headings. */
+/* Product surfaces follow the active system theme; component colours remain distinct. */
 .product-catalogue-page,
 .product-detail-page:not(.afucloud-product-page) {
-  background: #FFFFFF !important;
-  color: #0F172A !important;
-  color-scheme: light;
+  background: var(--color-background) !important;
+  color: var(--color-text) !important;
+  color-scheme: light dark;
 }
 .product-catalogue-page h1,
 .product-catalogue-page h2,
@@ -526,15 +525,7 @@ input::placeholder, textarea::placeholder {
 .product-detail-page:not(.afucloud-product-page) h1,
 .product-detail-page:not(.afucloud-product-page) h2,
 .product-detail-page:not(.afucloud-product-page) h3 {
-  color: #0F172A !important;
-}
-.product-catalogue-page [class*="text-white"],
-.product-detail-page:not(.afucloud-product-page) [class*="text-white"] {
-  color: #475569 !important;
-}
-.product-catalogue-page [class*="text-white"][class*="font-bold"],
-.product-detail-page:not(.afucloud-product-page) [class*="text-white"][class*="font-bold"] {
-  color: #0F172A !important;
+  color: var(--color-text) !important;
 }
 .product-catalogue-page a:focus-visible,
 .product-detail-page:not(.afucloud-product-page) a:focus-visible {
@@ -553,13 +544,12 @@ input::placeholder, textarea::placeholder {
 /* Keep non-AfuCloud product detail pages readable regardless of the device theme.
    Scope these overrides to the detail-page wrapper so the rest of the site is unchanged. */
 .product-detail-page:not(.afucloud-product-page) {
-  color-scheme: light !important;
-  --color-background: #FFFFFF;
-  --color-surface: #F8FAFC;
-  --color-text: #0F172A;
-  --color-text-secondary: #475569;
-  background-color: #FFFFFF !important;
-  color: #0F172A !important;
+  --color-background: var(--color-background);
+  --color-surface: var(--color-surface);
+  --color-text: var(--color-text);
+  --color-text-secondary: var(--color-text-secondary);
+  background-color: var(--color-background) !important;
+  color: var(--color-text) !important;
 }
 .product-detail-page:not(.afucloud-product-page) h1,
 .product-detail-page:not(.afucloud-product-page) h2,
@@ -734,4 +724,85 @@ input::placeholder, textarea::placeholder {
 }
 .afu-monochrome-site footer [class*="border-white/"] {
   border-color: rgba(203, 213, 225, 0.22) !important;
+}
+
+
+/* Dark-theme coverage for product catalogue, product details, and the work portfolio.
+   Tailwind light utility classes are intentionally remapped only inside these page roots. */
+@media (prefers-color-scheme: dark) {
+  .product-catalogue-page,
+  .product-detail-page:not(.afucloud-product-page),
+  .work-page {
+    background-color: #040C1E !important;
+    color: #F8FAFC !important;
+    color-scheme: dark;
+  }
+
+  .product-catalogue-page h1,
+  .product-catalogue-page h2,
+  .product-catalogue-page h3,
+  .product-detail-page:not(.afucloud-product-page) h1,
+  .product-detail-page:not(.afucloud-product-page) h2,
+  .product-detail-page:not(.afucloud-product-page) h3,
+  .work-page h1,
+  .work-page h2,
+  .work-page h3,
+  .work-page h4 {
+    color: #F8FAFC !important;
+  }
+
+  .product-catalogue-page [class~="text-slate-950"],
+  .product-detail-page:not(.afucloud-product-page) [class~="text-slate-950"],
+  .work-page [class~="text-slate-950"] {
+    color: #F8FAFC !important;
+  }
+
+  .product-catalogue-page [class~="text-slate-700"],
+  .product-catalogue-page [class~="text-slate-600"],
+  .product-catalogue-page [class~="text-slate-500"],
+  .product-detail-page:not(.afucloud-product-page) [class~="text-slate-700"],
+  .product-detail-page:not(.afucloud-product-page) [class~="text-slate-600"],
+  .product-detail-page:not(.afucloud-product-page) [class~="text-slate-500"],
+  .work-page [class~="text-slate-700"],
+  .work-page [class~="text-slate-600"],
+  .work-page [class~="text-slate-500"] {
+    color: #CBD5E1 !important;
+  }
+
+  .product-catalogue-page [class~="bg-white"],
+  .product-detail-page:not(.afucloud-product-page) [class~="bg-white"],
+  .work-page [class~="bg-white"] {
+    background-color: #0B1730 !important;
+  }
+
+  .product-catalogue-page [class~="bg-slate-50"],
+  .product-detail-page:not(.afucloud-product-page) [class~="bg-slate-50"],
+  .work-page [class~="bg-slate-50"] {
+    background-color: #071226 !important;
+  }
+
+  .product-catalogue-page [class*="border-slate-200"],
+  .product-detail-page:not(.afucloud-product-page) [class*="border-slate-200"],
+  .work-page [class*="border-slate-200"] {
+    border-color: #26364D !important;
+  }
+
+  .product-detail-page:not(.afucloud-product-page) [class*="bg-[#040C1E]"],
+  .product-detail-page:not(.afucloud-product-page) [class*="bg-[#0B1730]"],
+  .product-detail-page:not(.afucloud-product-page) [class*="bg-slate-900"],
+  .product-detail-page:not(.afucloud-product-page) [class*="bg-slate-950"] {
+    background-color: #0B1730 !important;
+  }
+
+  .product-detail-page:not(.afucloud-product-page) [class~="text-white"]:not(a):not(button),
+  .product-detail-page:not(.afucloud-product-page) [class*="text-white/"]:not(a):not(button) {
+    color: #F8FAFC !important;
+  }
+
+  .product-detail-page:not(.afucloud-product-page) a {
+    color: #93C5FD;
+  }
+  .product-detail-page:not(.afucloud-product-page) a:hover {
+    color: #BFDBFE;
+  }
 }
