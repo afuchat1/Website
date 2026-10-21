@@ -5,11 +5,11 @@ export const metadata: Metadata = {
   title: 'Site Map, AfuChat',
   description:
     'Browse all pages on the AfuChat website. Find products, company information, developer resources, legal documents, and more.',
-  alternates: { canonical: 'https://afuchat.com/sitemap' },
+  alternates: { canonical: 'https://www.afuchat.com/sitemap' },
   openGraph: {
     title: 'Site Map, AfuChat',
     description: 'Find every page on the AfuChat website.',
-    url: 'https://afuchat.com/sitemap',
+    url: 'https://www.afuchat.com/sitemap',
     images: [{ url: '/illustrations/ill-sec-sitemap.webp', width: 1200, height: 630, alt: 'AfuChat site map' }],
   },
 };
