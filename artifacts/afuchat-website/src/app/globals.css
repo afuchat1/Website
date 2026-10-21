@@ -544,10 +544,6 @@ input::placeholder, textarea::placeholder {
 /* Keep non-AfuCloud product detail pages readable regardless of the device theme.
    Scope these overrides to the detail-page wrapper so the rest of the site is unchanged. */
 .product-detail-page:not(.afucloud-product-page) {
-  --color-background: var(--color-background);
-  --color-surface: var(--color-surface);
-  --color-text: var(--color-text);
-  --color-text-secondary: var(--color-text-secondary);
   background-color: var(--color-background) !important;
   color: var(--color-text) !important;
 }
@@ -744,6 +740,9 @@ input::placeholder, textarea::placeholder {
   .product-detail-page:not(.afucloud-product-page) h1,
   .product-detail-page:not(.afucloud-product-page) h2,
   .product-detail-page:not(.afucloud-product-page) h3,
+  .product-detail-page:not(.afucloud-product-page) h4,
+  .product-detail-page:not(.afucloud-product-page) h5,
+  .product-detail-page:not(.afucloud-product-page) h6,
   .work-page h1,
   .work-page h2,
   .work-page h3,
@@ -777,7 +776,8 @@ input::placeholder, textarea::placeholder {
 
   .product-catalogue-page [class~="bg-slate-50"],
   .product-detail-page:not(.afucloud-product-page) [class~="bg-slate-50"],
-  .work-page [class~="bg-slate-50"] {
+  .work-page [class~="bg-slate-50"],
+  .product-detail-page:not(.afucloud-product-page) [class~="bg-slate-100"] {
     background-color: #071226 !important;
   }
 
