@@ -56,7 +56,7 @@ export default function AfuCloudDetails() {
     <div className="max-container container-pad">
       <section aria-labelledby="afucloud-capabilities" className="border-t border-white/10 py-14 sm:py-20">
         <div className="max-w-3xl mb-9">
-          <p className="text-[#07965B] font-semibold text-xs uppercase tracking-widest mb-3">AfuCloud platform</p>
+          <p className="text-[#1F95FF] font-semibold text-xs uppercase tracking-widest mb-3">AfuCloud platform</p>
           <h2 id="afucloud-capabilities" className="text-3xl sm:text-4xl font-bold text-white tracking-tight mb-4">
             Images, files, and domains in one developer platform
           </h2>
@@ -68,7 +68,7 @@ export default function AfuCloudDetails() {
         <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
           {capabilities.map(({ icon: Icon, title, description }) => (
             <article key={title} className="rounded-2xl border border-white/10 bg-white/[0.035] p-5 sm:p-6">
-              <div className="w-10 h-10 rounded-xl bg-[hsl(154_55%_92%)] text-[#07965B] flex items-center justify-center mb-5">
+              <div className="w-10 h-10 rounded-xl bg-[#EBF5FF] text-[#1F95FF] flex items-center justify-center mb-5">
                 <Icon className="w-5 h-5" aria-hidden="true" />
               </div>
               <h3 className="text-white font-semibold mb-2">{title}</h3>
@@ -93,7 +93,7 @@ export default function AfuCloudDetails() {
       <section aria-labelledby="afucloud-workflow" className="border-t border-white/10 py-14 sm:py-20">
         <div className="grid grid-cols-1 lg:grid-cols-[0.8fr_1.2fr] gap-8 lg:gap-14 items-start">
           <div>
-            <p className="text-[#07965B] font-semibold text-xs uppercase tracking-widest mb-3">Getting started</p>
+            <p className="text-[#1F95FF] font-semibold text-xs uppercase tracking-widest mb-3">Getting started</p>
             <h2 id="afucloud-workflow" className="text-3xl font-bold text-white tracking-tight mb-4">
               From upload to delivery URL
             </h2>
@@ -104,7 +104,7 @@ export default function AfuCloudDetails() {
               href="https://cloud.afuchat.com/docs/getting-started/quickstart"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-sm font-semibold text-[#07965B] hover:text-[#08764B] transition-colors"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-[#1F95FF] hover:text-[#08764B] transition-colors"
             >
               Follow the AfuCloud quickstart <ArrowUpRight className="w-4 h-4" aria-hidden="true" />
             </a>
@@ -116,7 +116,7 @@ export default function AfuCloudDetails() {
               { step: '03', title: 'Deliver the file', body: 'Confirm the upload and use the image URL returned by AfuCloud.' },
             ].map(item => (
               <li key={item.step} className="rounded-2xl border border-white/10 bg-white/[0.035] p-5">
-                <span className="text-[#07965B] text-xs font-bold tracking-widest">{item.step}</span>
+                <span className="text-[#1F95FF] text-xs font-bold tracking-widest">{item.step}</span>
                 <h3 className="text-white font-semibold mt-4 mb-2">{item.title}</h3>
                 <p className="text-white/50 text-sm leading-relaxed">{item.body}</p>
               </li>
@@ -127,7 +127,7 @@ export default function AfuCloudDetails() {
 
       <section id="afucloud-pricing" aria-labelledby="afucloud-pricing-title" className="border-t border-white/10 py-14 sm:py-20">
         <div className="max-w-3xl mx-auto text-center mb-10">
-          <p className="text-[#07965B] font-semibold text-xs uppercase tracking-widest mb-3">Plans</p>
+          <p className="text-[#1F95FF] font-semibold text-xs uppercase tracking-widest mb-3">Plans</p>
           <h2 id="afucloud-pricing-title" className="text-3xl sm:text-4xl font-bold text-white tracking-tight mb-4">
             Start free, scale when you need to
           </h2>
@@ -140,10 +140,10 @@ export default function AfuCloudDetails() {
           {plans.map(plan => (
             <article
               key={plan.name}
-              className={`relative rounded-2xl border p-6 sm:p-7 ${plan.popular ? 'border-[#07965B]/40 bg-[hsl(154_55%_92%)]' : 'border-white/10 bg-white/[0.035]'}`}
+              className={`relative rounded-2xl border p-6 sm:p-7 ${plan.popular ? 'border-[#1F95FF]/40 bg-[#EBF5FF]' : 'border-white/10 bg-white/[0.035]'}`}
             >
               {plan.popular && (
-                <span className="absolute right-5 top-5 rounded-full bg-[hsl(154_55%_92%)] px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-[hsl(154_95%_18%)]">
+                <span className="absolute right-5 top-5 rounded-full bg-[#EBF5FF] px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-[#1746A2]">
                   Most popular
                 </span>
               )}
@@ -153,14 +153,14 @@ export default function AfuCloudDetails() {
                 <span className="text-sm text-white/45">{plan.period}</span>
               </p>
               {plan.trial ? (
-                <p className="mt-2 text-sm font-medium text-[#07965B]">{plan.trial}</p>
+                <p className="mt-2 text-sm font-medium text-[#1F95FF]">{plan.trial}</p>
               ) : (
                 <p className="mt-2 text-sm text-white/45">No subscription required</p>
               )}
               <ul className="mt-6 space-y-3">
                 {plan.limits.map(limit => (
                   <li key={limit} className="flex items-start gap-2.5 text-sm text-white/65">
-                    <Check className="w-4 h-4 mt-0.5 shrink-0 text-[#07965B]" aria-hidden="true" />
+                    <Check className="w-4 h-4 mt-0.5 shrink-0 text-[#1F95FF]" aria-hidden="true" />
                     {limit}
                   </li>
                 ))}
@@ -177,7 +177,7 @@ export default function AfuCloudDetails() {
             href={AFUCLOUD_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex shrink-0 items-center gap-2 rounded-full border border-white/15 px-4 py-2.5 text-sm font-semibold text-white/80 hover:border-[#07965B]/50 hover:text-[#07965B] transition-colors"
+            className="inline-flex shrink-0 items-center gap-2 rounded-full border border-white/15 px-4 py-2.5 text-sm font-semibold text-white/80 hover:border-[#1F95FF]/50 hover:text-[#1F95FF] transition-colors"
           >
             View current plans <ArrowUpRight className="w-4 h-4" aria-hidden="true" />
           </a>
