@@ -4,15 +4,15 @@ import { useState, type FormEvent } from 'react';
 import Link from 'next/link';
 
 const departments = [
-  ['Frontend Engineering', 'React, Next.js, TypeScript, accessibility and design systems.'],
-  ['Backend Engineering', 'APIs, Node.js/NestJS, databases, authentication and integrations.'],
-  ['Mobile Development', 'Android, iOS, React Native, Flutter and mobile experiences.'],
-  ['AI & Intelligent Search', 'Applied AI, search, retrieval, ranking and automation.'],
-  ['Cloud & DevOps', 'Infrastructure, CI/CD, deployment, observability and reliability.'],
-  ['Product Design (UI/UX)', 'Research, interaction design, prototypes and design systems.'],
-  ['Quality & Application Security', 'Automated testing, QA, secure coding and application security.'],
-  ['Technical Leadership & Architecture', 'Technical direction, architecture, standards and mentoring.'],
-  ['Product, Data & Growth', 'Product planning, analytics, documentation and developer experience.'],
+  ['Frontend Engineering', 'Build fast, accessible, responsive product experiences and reusable interface systems.', '🖥️', ['Web apps', 'Design systems', 'Accessibility', 'Performance']],
+  ['Backend Engineering', 'Design dependable APIs, business logic, data models and secure service integrations.', '⚙️', ['REST / GraphQL APIs', 'Databases', 'Auth & permissions', 'Integrations']],
+  ['Mobile Development', 'Create polished mobile experiences and reliable releases across phone platforms.', '📱', ['Android & iOS', 'React Native', 'Flutter', 'Release workflows']],
+  ['AI & Intelligent Search', 'Make product knowledge discoverable through useful AI features and high-quality search.', '✨', ['Search & ranking', 'Retrieval', 'AI integrations', 'Evaluation']],
+  ['Cloud & DevOps', 'Keep applications deployable, observable, secure and resilient from preview to production.', '☁️', ['CI/CD', 'Cloud infrastructure', 'Monitoring', 'Reliability']],
+  ['Product Design (UI/UX)', 'Turn user needs into clear journeys, thoughtful visual systems and testable prototypes.', '🎨', ['User research', 'Interaction design', 'Prototyping', 'Design systems']],
+  ['Quality & Application Security', 'Prevent regressions and reduce risk through systematic testing and secure engineering.', '🛡️', ['Test automation', 'QA strategy', 'Threat review', 'Accessibility checks']],
+  ['Technical Leadership & Architecture', 'Help teams make sound technical decisions, set standards and deliver maintainable systems.', '🧭', ['System design', 'Code review', 'Technical planning', 'Mentoring']],
+  ['Product, Data & Growth', 'Connect product strategy, evidence and adoption so teams build the right things.', '📊', ['Product discovery', 'Analytics', 'Documentation', 'Developer experience']],
 ] as const;
 
 const skills = [
@@ -100,8 +100,21 @@ export default function JoinTeam() {
         <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">Find your department.</h2>
         <p className="mt-4 max-w-2xl leading-7 text-slate-600">Choose the area closest to your skills. These are contribution areas, not a promise that every role is currently staffed or formally open.</p>
         <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {departments.map(([title, description]) => <article key={title} className="rounded-2xl border border-slate-200 bg-white p-6 transition hover:-translate-y-0.5 hover:border-emerald-300 hover:shadow-lg hover:shadow-emerald-950/5"><span aria-hidden="true" className="flex h-11 w-11 items-center justify-center rounded-xl bg-emerald-50 text-xl font-bold text-emerald-700">✳</span><h3 className="mt-4 text-lg font-bold">{title}</h3><p className="mt-2 text-sm leading-6 text-slate-600">{description}</p><button type="button" onClick={() => { setDepartment(title); document.getElementById('apply')?.scrollIntoView({ behavior: 'smooth' }); }} className="mt-5 text-sm font-bold text-emerald-700 hover:text-emerald-900">Choose department →</button></article>)}
+          {departments.map(([title, description, icon, focusAreas], index) => <article key={title} className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white p-5 transition duration-200 hover:-translate-y-1 hover:border-emerald-400 hover:shadow-xl hover:shadow-emerald-950/10 sm:p-6">
+            <div aria-hidden="true" className="absolute inset-x-0 top-0 h-1 origin-left scale-x-0 bg-gradient-to-r from-emerald-500 to-cyan-500 transition-transform duration-200 group-hover:scale-x-100" />
+            <div className="flex items-start justify-between gap-3">
+              <span aria-hidden="true" className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-emerald-100 bg-gradient-to-br from-emerald-50 to-cyan-50 text-2xl">{icon}</span>
+              <span className="rounded-full bg-slate-100 px-2.5 py-1 text-[10px] font-bold uppercase tracking-[.14em] text-slate-500">Area {String(index + 1).padStart(2, '0')}</span>
+            </div>
+            <h3 className="mt-5 text-lg font-bold tracking-tight text-slate-950">{title}</h3>
+            <p className="mt-2 text-sm leading-6 text-slate-600">{description}</p>
+            <div className="mt-4 flex flex-wrap gap-1.5">{focusAreas.map((area) => <span key={area} className="rounded-full border border-slate-200 bg-slate-50 px-2.5 py-1 text-[11px] font-medium text-slate-600">{area}</span>)}</div>
+            <button type="button" onClick={() => { setDepartment(title); document.getElementById('apply')?.scrollIntoView({ behavior: 'smooth' }); }} className="mt-6 inline-flex min-h-10 items-center justify-between gap-3 border-t border-slate-100 pt-4 text-left text-sm font-bold text-emerald-800 transition hover:text-emerald-950 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2">
+              <span>Explore this department</span><span aria-hidden="true" className="transition-transform group-hover:translate-x-1">↗</span>
+            </button>
+          </article>)}
         </div>
+        <p className="mt-5 text-xs leading-5 text-slate-500">Not sure where you fit? Choose the closest area in the application and describe your strengths. We can discuss cross-functional contributions.</p>
       </div></section>
 
       <section className="section-pad"><div className="max-container container-pad">
