@@ -5,21 +5,21 @@ import Link from 'next/link';
 import { Code2, Server, Smartphone, Search, Cloud, Palette, ShieldCheck, Network, ChartNoAxesCombined } from 'lucide-react';
 
 const departments = [
-  { title: 'Frontend Engineering', description: 'Build accessible, responsive web interfaces and reusable design systems.', Icon: Code2, focus: 'React · Next.js · TypeScript · Accessibility' },
-  { title: 'Backend Engineering', description: 'Develop APIs, data models, authentication and reliable service integrations.', Icon: Server, focus: 'APIs · Databases · Identity · Integrations' },
-  { title: 'Mobile Development', description: 'Deliver robust mobile applications and maintain quality across releases.', Icon: Smartphone, focus: 'Android · iOS · React Native · Flutter' },
-  { title: 'AI & Intelligent Search', description: 'Improve discovery with search, retrieval, ranking and carefully evaluated AI features.', Icon: Search, focus: 'Search · Retrieval · Ranking · AI evaluation' },
-  { title: 'Cloud & DevOps', description: 'Build dependable delivery pipelines and operate secure, observable infrastructure.', Icon: Cloud, focus: 'CI/CD · Cloud infrastructure · Monitoring · Reliability' },
-  { title: 'Product Design (UI/UX)', description: 'Translate user needs into clear journeys, usable interfaces and tested prototypes.', Icon: Palette, focus: 'Research · Interaction design · Prototyping · Systems' },
-  { title: 'Quality & Application Security', description: 'Improve release confidence through systematic testing and secure engineering.', Icon: ShieldCheck, focus: 'Automation · QA · Threat review · Accessibility' },
-  { title: 'Technical Leadership & Architecture', description: 'Guide system design, engineering standards, technical planning and mentoring.', Icon: Network, focus: 'System design · Reviews · Standards · Mentoring' },
-  { title: 'Product, Data & Growth', description: 'Use product strategy and evidence to prioritize work and improve adoption.', Icon: ChartNoAxesCombined, focus: 'Discovery · Analytics · Documentation · Adoption' },
+  { title: 'Frontend Engineering', description: 'Build accessible, responsive web interfaces and reusable design systems.', Icon: Code2, focus: 'React · Next.js · TypeScript · Accessibility', technologies: [['React', 'react'], ['Next.js', 'nextdotjs'], ['TypeScript', 'typescript'], ['Tailwind CSS', 'tailwindcss']] },
+  { title: 'Backend Engineering', description: 'Develop APIs, data models, authentication and reliable service integrations.', Icon: Server, focus: 'APIs · Databases · Identity · Integrations', technologies: [['Node.js', 'nodedotjs'], ['NestJS', 'nestjs'], ['Python', 'python'], ['PostgreSQL', 'postgresql'], ['Supabase', 'supabase']] },
+  { title: 'Mobile Development', description: 'Deliver robust mobile applications and maintain quality across releases.', Icon: Smartphone, focus: 'Android · iOS · React Native · Flutter', technologies: [['Android', 'android'], ['Apple / iOS', 'apple'], ['React Native', 'reactnative'], ['Flutter', 'flutter'], ['Kotlin', 'kotlin'], ['Swift', 'swift']] },
+  { title: 'AI & Intelligent Search', description: 'Improve discovery with search, retrieval, ranking and carefully evaluated AI features.', Icon: Search, focus: 'Search · Retrieval · Ranking · AI evaluation', technologies: [['OpenAI', 'openai'], ['Python', 'python']] },
+  { title: 'Cloud & DevOps', description: 'Build dependable delivery pipelines and operate secure, observable infrastructure.', Icon: Cloud, focus: 'CI/CD · Cloud infrastructure · Monitoring · Reliability', technologies: [['Cloudflare', 'cloudflare'], ['Vercel', 'vercel'], ['AWS', 'amazonaws'], ['Docker', 'docker'], ['GitHub', 'github']] },
+  { title: 'Product Design (UI/UX)', description: 'Translate user needs into clear journeys, usable interfaces and tested prototypes.', Icon: Palette, focus: 'Research · Interaction design · Prototyping · Systems', technologies: [['Figma', 'figma']] },
+  { title: 'Quality & Application Security', description: 'Improve release confidence through systematic testing and secure engineering.', Icon: ShieldCheck, focus: 'Automation · QA · Threat review · Accessibility', technologies: [['GitHub', 'github'], ['Linux', 'linux']] },
+  { title: 'Technical Leadership & Architecture', description: 'Guide system design, engineering standards, technical planning and mentoring.', Icon: Network, focus: 'System design · Reviews · Standards · Mentoring', technologies: [['TypeScript', 'typescript'], ['Node.js', 'nodedotjs'], ['PostgreSQL', 'postgresql'], ['Docker', 'docker']] },
+  { title: 'Product, Data & Growth', description: 'Use product strategy and evidence to prioritize work and improve adoption.', Icon: ChartNoAxesCombined, focus: 'Discovery · Analytics · Documentation · Adoption', technologies: [['Python', 'python'], ['PostgreSQL', 'postgresql'], ['Figma', 'figma']] },
 ] as const;
 
 const skills = [
   ['JavaScript', 'javascript'], ['TypeScript', 'typescript'], ['React', 'react'], ['Next.js', 'nextdotjs'],
   ['Node.js', 'nodedotjs'], ['NestJS', 'nestjs'], ['Python', 'python'], ['Java', 'java'],
-  ['Kotlin', 'kotlin'], ['Swift', 'swift'], ['Android OS', 'android'], ['iOS (Apple)', 'apple'], ['React Native', 'reactnative'], ['Flutter', 'flutter'],
+  ['Kotlin', 'kotlin'], ['Swift', 'swift'], ['React Native', 'reactnative'], ['Flutter', 'flutter'],
   ['Dart', 'dart'], ['Go', 'go'], ['Rust', 'rust'], ['PHP', 'php'],
   ['HTML5', 'html5'], ['CSS3', 'css'], ['Tailwind CSS', 'tailwindcss'], ['PostgreSQL', 'postgresql'],
   ['Supabase', 'supabase'], ['MongoDB', 'mongodb'], ['Redis', 'redis'], ['GraphQL', 'graphql'],
@@ -112,6 +112,14 @@ export default function JoinTeam() {
               </div>
             </div>
             <p className="mt-4 pl-[3.75rem] text-xs leading-5 text-slate-500">{focus}</p>
+            <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-3 pl-[3.75rem]" aria-label={`Technologies for ${title}`}>
+              {('technologies' in departments.find((item) => item.title === title)! ? departments.find((item) => item.title === title)!.technologies : []).map(([label, slug]) => (
+                <span key={label} title={label} className="inline-flex items-center gap-1.5 text-xs text-slate-600">
+                  <img src={`https://cdn.simpleicons.org/${slug}`} alt="" loading="lazy" width={20} height={20} className="h-5 w-5 shrink-0 object-contain" onError={(event) => { event.currentTarget.style.display = 'none'; }} />
+                  <span>{label}</span>
+                </span>
+              ))}
+            </div>
             <button type="button" onClick={() => { setDepartment(title); document.getElementById('apply')?.scrollIntoView({ behavior: 'smooth' }); }} className="mt-4 inline-flex min-h-10 items-center gap-2 self-start pl-[3.75rem] text-sm font-semibold text-emerald-800 underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 focus-visible:ring-offset-2">
               Select department <span aria-hidden="true">→</span>
             </button>
