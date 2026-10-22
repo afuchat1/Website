@@ -123,6 +123,7 @@ export default function Navbar() {
     { label: 'Partners',   href: '/partners' },
     { label: 'Developers', href: '/developers' },
     { label: 'About us',    href: '/about' },
+    { label: 'Join the team', href: '/about/careers' },
   ];
 
   return (
