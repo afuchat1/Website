@@ -101,7 +101,7 @@ export default function JoinTeam() {
         <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">Find your department.</h2>
         <p className="mt-4 max-w-2xl leading-7 text-slate-600">Choose the area closest to your skills. These are contribution areas, not a promise that every role is currently staffed or formally open.</p>
         <div className="mt-9 grid gap-0 border-y border-slate-200 sm:grid-cols-2 sm:border-l">
-          {departments.map(({ title, description, Icon, focus }, index) => <article key={title} className="flex min-w-0 flex-col border-b border-slate-200 py-6 sm:border-r sm:px-6 lg:px-7 [&:nth-last-child(-n+1)]:border-b-0">
+          {departments.map(({ title, description, Icon, focus }) => <article key={title} className="flex min-w-0 flex-col border-b border-slate-200 py-6 sm:border-r sm:px-6 lg:px-7 [&:nth-last-child(-n+1)]:border-b-0">
             <div className="flex items-start gap-4">
               <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-700">
                 <Icon size={21} strokeWidth={1.7} aria-hidden="true" />
