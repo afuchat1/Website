@@ -17,8 +17,8 @@ const departments = [
 
 const skills = [
   ['JavaScript', 'javascript'], ['TypeScript', 'typescript'], ['React', 'react'], ['Next.js', 'nextdotjs'],
-  ['Node.js', 'nodedotjs'], ['NestJS', 'nestjs'], ['Python', 'python'], ['Java', 'openjdk'],
-  ['Kotlin', 'kotlin'], ['Swift', 'swift'], ['React Native', 'react'], ['Flutter', 'flutter'],
+  ['Node.js', 'nodedotjs'], ['NestJS', 'nestjs'], ['Python', 'python'], ['Java', 'java'],
+  ['Kotlin', 'kotlin'], ['Swift', 'swift'], ['React Native', 'reactnative'], ['Flutter', 'flutter'],
   ['Dart', 'dart'], ['Go', 'go'], ['Rust', 'rust'], ['PHP', 'php'],
   ['HTML5', 'html5'], ['CSS3', 'css'], ['Tailwind CSS', 'tailwindcss'], ['PostgreSQL', 'postgresql'],
   ['Supabase', 'supabase'], ['MongoDB', 'mongodb'], ['Redis', 'redis'], ['GraphQL', 'graphql'],
