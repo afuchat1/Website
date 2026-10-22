@@ -15,6 +15,18 @@ const departments = [
   ['Product, Data & Growth', 'Product planning, analytics, documentation and developer experience.'],
 ] as const;
 
+const skills = [
+  ['JavaScript', 'javascript'], ['TypeScript', 'typescript'], ['React', 'react'], ['Next.js', 'nextdotjs'],
+  ['Node.js', 'nodedotjs'], ['NestJS', 'nestjs'], ['Python', 'python'], ['Java', 'openjdk'],
+  ['Kotlin', 'kotlin'], ['Swift', 'swift'], ['React Native', 'react'], ['Flutter', 'flutter'],
+  ['Dart', 'dart'], ['Go', 'go'], ['Rust', 'rust'], ['PHP', 'php'],
+  ['HTML5', 'html5'], ['CSS3', 'css'], ['Tailwind CSS', 'tailwindcss'], ['PostgreSQL', 'postgresql'],
+  ['Supabase', 'supabase'], ['MongoDB', 'mongodb'], ['Redis', 'redis'], ['GraphQL', 'graphql'],
+  ['Cloudflare', 'cloudflare'], ['Vercel', 'vercel'], ['AWS', 'amazonaws'], ['Docker', 'docker'],
+  ['Git', 'git'], ['GitHub', 'github'], ['Linux', 'linux'], ['Figma', 'figma'],
+  ['Firebase', 'firebase'], ['OpenAI / AI', 'openai']
+] as const;
+
 const docs = [
   ['Developer & Co-Founder Opportunity Guide', 'Company overview, departments, expectations and the opportunity model.', '/docs/developer-cofounder-opportunity-guide.md'],
   ['Technical Collaboration Guide', 'GitHub workflow, code reviews, issues, security and releases.', '/docs/technical-collaboration-guide.md'],
@@ -29,6 +41,7 @@ export default function JoinTeam() {
   const [email, setEmail] = useState('');
   const [profile, setProfile] = useState('');
   const [experience, setExperience] = useState('');
+  const [selectedSkills, setSelectedSkills] = useState<string[]>([]);
   const [contribution, setContribution] = useState('');
   const [consent, setConsent] = useState(false);
   const [status, setStatus] = useState('');
@@ -49,7 +62,8 @@ export default function JoinTeam() {
       'Preferred contribution: ' + role,
       'Availability: ' + availability,
       'GitHub / portfolio: ' + (profile || 'Not provided'), '',
-      'Skills and experience:', experience, '',
+      'Selected skills: ' + (selectedSkills.length ? selectedSkills.join(', ') : 'Not selected'),
+      'Additional skills and experience:', experience, '',
       'How I can contribute:', contribution, '',
       'I understand this is an early-stage venture opportunity, not a salaried job offer. Any equity or other terms would need to be discussed and agreed separately.',
     ].join('\n');
@@ -109,7 +123,22 @@ export default function JoinTeam() {
             <label className="block text-sm font-semibold">Preferred contribution<select value={role} onChange={(e) => setRole(e.target.value)} className="mt-2 w-full rounded-xl border border-slate-300 bg-white px-4 py-3 font-normal outline-none focus:border-emerald-600 focus:ring-2 focus:ring-emerald-100"><option>Developer</option><option>Technical Lead</option><option>Potential Co-Founder</option><option>Contributor / Mentor</option></select></label>
             <label className="block text-sm font-semibold">Availability<select value={availability} onChange={(e) => setAvailability(e.target.value)} className="mt-2 w-full rounded-xl border border-slate-300 bg-white px-4 py-3 font-normal outline-none focus:border-emerald-600 focus:ring-2 focus:ring-emerald-100"><option>Part-time</option><option>Full-time</option><option>Flexible / project-based</option><option>Mentoring / occasional</option></select></label>
             <label className="block text-sm font-semibold">GitHub or portfolio link<input type="url" value={profile} onChange={(e) => setProfile(e.target.value)} className="mt-2 w-full rounded-xl border border-slate-300 bg-white px-4 py-3 font-normal outline-none focus:border-emerald-600 focus:ring-2 focus:ring-emerald-100" placeholder="https://..." /></label>
-            <label className="block text-sm font-semibold sm:col-span-2">Skills and experience<textarea required rows={3} value={experience} onChange={(e) => setExperience(e.target.value)} className="mt-2 w-full rounded-xl border border-slate-300 bg-white px-4 py-3 font-normal outline-none focus:border-emerald-600 focus:ring-2 focus:ring-emerald-100" placeholder="Technologies, projects and strengths" /></label>
+            <fieldset className="sm:col-span-2">
+              <legend className="text-sm font-semibold">Tap your skills <span className="font-normal text-slate-500">— choose all that apply</span></legend>
+              <p className="mt-1 text-xs leading-5 text-slate-500">Select the technologies you know. Your selections will be included in your application automatically.</p>
+              <div className="mt-3 grid grid-cols-2 gap-2 sm:grid-cols-3">
+                {skills.map(([label, slug]) => {
+                  const selected = selectedSkills.includes(label);
+                  return <button key={label} type="button" aria-pressed={selected} onClick={() => setSelectedSkills((current) => selected ? current.filter((skill) => skill !== label) : [...current, label])} className={`flex min-h-12 items-center gap-2 rounded-xl border px-3 py-2 text-left text-sm font-semibold transition focus:outline-none focus:ring-2 focus:ring-emerald-500 ${selected ? 'border-emerald-700 bg-emerald-50 text-emerald-900 ring-1 ring-emerald-600' : 'border-slate-200 bg-white text-slate-700 hover:border-emerald-400'}`}>
+                    <img src={`https://cdn.simpleicons.org/${slug}`} alt="" loading="lazy" className="h-5 w-5 shrink-0 object-contain" onError={(event) => { event.currentTarget.style.display = 'none'; }} />
+                    <span className="min-w-0 flex-1">{label}</span>
+                    <span aria-hidden="true" className={selected ? 'text-emerald-700' : 'text-slate-300'}>{selected ? '✓' : '+'}</span>
+                  </button>;
+                })}
+              </div>
+              {selectedSkills.length > 0 && <div className="mt-3 flex items-center justify-between gap-3 text-xs text-slate-600"><span>{selectedSkills.length} skill{selectedSkills.length === 1 ? '' : 's'} selected</span><button type="button" onClick={() => setSelectedSkills([])} className="font-semibold text-emerald-800 underline">Clear selection</button></div>}
+            </fieldset>
+            <label className="block text-sm font-semibold sm:col-span-2">Additional skills, experience or projects<textarea required rows={3} value={experience} onChange={(e) => setExperience(e.target.value)} className="mt-2 w-full rounded-xl border border-slate-300 bg-white px-4 py-3 font-normal outline-none focus:border-emerald-600 focus:ring-2 focus:ring-emerald-100" placeholder="Tell us about your projects, strengths or any skills not listed above" /></label>
             <label className="block text-sm font-semibold sm:col-span-2">How would you contribute?<textarea required rows={3} value={contribution} onChange={(e) => setContribution(e.target.value)} className="mt-2 w-full rounded-xl border border-slate-300 bg-white px-4 py-3 font-normal outline-none focus:border-emerald-600 focus:ring-2 focus:ring-emerald-100" placeholder="What would you like to help us build?" /></label>
           </div>
           <label className="mt-5 flex items-start gap-3 text-sm leading-6 text-slate-600"><input type="checkbox" checked={consent} onChange={(e) => setConsent(e.target.checked)} className="mt-1 h-4 w-4 accent-emerald-700" />I agree to share these details with AfuChat Technologies Limited to review this expression of interest.</label>
