@@ -47,6 +47,14 @@ export default function JoinTeam() {
   const [consent, setConsent] = useState(false);
   const [status, setStatus] = useState('');
 
+  function chooseDepartment(title: string) {
+    setDepartment(title);
+    const selectedDepartment = departments.find((item) => item.title === title);
+    if (!selectedDepartment) return;
+    const relevantSlugs: readonly string[] = selectedDepartment.technologies.map(([, slug]) => slug);
+    setSelectedSkills(skills.filter(([, slug]) => relevantSlugs.includes(slug)).map(([label]) => label));
+  }
+
   function submitApplication(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     if (!consent) {
@@ -115,12 +123,12 @@ export default function JoinTeam() {
             <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-3 pl-[3.75rem]" aria-label={`Technologies for ${title}`}>
               {technologies.map(([label, slug]) => (
                 <span key={label} title={label} className="inline-flex items-center gap-1.5 text-xs text-slate-600">
-                  <img src={`https://cdn.simpleicons.org/${slug}`} alt="" loading="lazy" width={20} height={20} className="h-5 w-5 shrink-0 object-contain" onError={(event) => { event.currentTarget.style.display = 'none'; }} />
+                  <img src={`https://cdn.simpleicons.org/${slug}${slug === 'openai' ? '/000000' : ''}`} alt="" loading="lazy" width={20} height={20} className="h-5 w-5 shrink-0 object-contain" onError={(event) => { event.currentTarget.style.display = 'none'; }} />
                   <span>{label}</span>
                 </span>
               ))}
             </div>
-            <button type="button" onClick={() => { setDepartment(title); document.getElementById('apply')?.scrollIntoView({ behavior: 'smooth' }); }} className="mt-4 inline-flex min-h-10 items-center gap-2 self-start pl-[3.75rem] text-sm font-semibold text-emerald-800 underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 focus-visible:ring-offset-2">
+            <button type="button" onClick={() => { chooseDepartment(title); document.getElementById('apply')?.scrollIntoView({ behavior: 'smooth' }); }} className="mt-4 inline-flex min-h-10 items-center gap-2 self-start pl-[3.75rem] text-sm font-semibold text-emerald-800 underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 focus-visible:ring-offset-2">
               Select department <span aria-hidden="true">→</span>
             </button>
           </article>)}
@@ -133,7 +141,7 @@ export default function JoinTeam() {
           <div className="grid gap-5 sm:grid-cols-2">
             <label className="block text-sm font-semibold">Full name<input required value={name} onChange={(e) => setName(e.target.value)} autoComplete="name" className="mt-2 w-full rounded-lg bg-slate-100 px-4 py-3 font-normal outline-none  focus:ring-2 focus:ring-emerald-100" placeholder="Your name" /></label>
             <label className="block text-sm font-semibold">Email address<input required type="email" value={email} onChange={(e) => setEmail(e.target.value)} autoComplete="email" className="mt-2 w-full rounded-lg bg-slate-100 px-4 py-3 font-normal outline-none  focus:ring-2 focus:ring-emerald-100" placeholder="you@example.com" /></label>
-            <label className="block text-sm font-semibold">Department<select value={department} onChange={(e) => setDepartment(e.target.value)} className="mt-2 w-full rounded-lg bg-slate-100 px-4 py-3 font-normal outline-none  focus:ring-2 focus:ring-emerald-100">{departments.map(({ title }) => <option key={title} value={title}>{title}</option>)}</select></label>
+            <label className="block text-sm font-semibold">Department<select value={department} onChange={(e) => chooseDepartment(e.target.value)} className="mt-2 w-full rounded-lg bg-slate-100 px-4 py-3 font-normal outline-none  focus:ring-2 focus:ring-emerald-100">{departments.map(({ title }) => <option key={title} value={title}>{title}</option>)}</select></label>
             <label className="block text-sm font-semibold">Preferred contribution<select value={role} onChange={(e) => setRole(e.target.value)} className="mt-2 w-full rounded-lg bg-slate-100 px-4 py-3 font-normal outline-none  focus:ring-2 focus:ring-emerald-100"><option>Developer</option><option>Technical Lead</option><option>Potential Co-Founder</option><option>Contributor / Mentor</option></select></label>
             <label className="block text-sm font-semibold">Availability<select value={availability} onChange={(e) => setAvailability(e.target.value)} className="mt-2 w-full rounded-lg bg-slate-100 px-4 py-3 font-normal outline-none  focus:ring-2 focus:ring-emerald-100"><option>Part-time</option><option>Full-time</option><option>Flexible / project-based</option><option>Mentoring / occasional</option></select></label>
             <label className="block text-sm font-semibold">GitHub or portfolio link<input type="url" value={profile} onChange={(e) => setProfile(e.target.value)} className="mt-2 w-full rounded-lg bg-slate-100 px-4 py-3 font-normal outline-none  focus:ring-2 focus:ring-emerald-100" placeholder="https://..." /></label>
