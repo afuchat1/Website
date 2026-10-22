@@ -101,7 +101,7 @@ export default function JoinTeam() {
         <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">Find your department.</h2>
         <p className="mt-4 max-w-2xl leading-7 text-slate-600">Choose the area closest to your skills. These are contribution areas, not a promise that every role is currently staffed or formally open.</p>
         <div className="mt-9 grid gap-x-10 gap-y-10 sm:grid-cols-2 lg:gap-x-14">
-          {departments.map(({ title, description, Icon, focus }) => <article key={title} className="flex min-w-0 flex-col py-2 sm:px-0">
+          {departments.map(({ title, description, Icon, focus, technologies }) => <article key={title} className="flex min-w-0 flex-col py-2 sm:px-0">
             <div className="flex items-start gap-4">
               <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-slate-100 text-slate-700">
                 <Icon size={21} strokeWidth={1.7} aria-hidden="true" />
@@ -113,7 +113,7 @@ export default function JoinTeam() {
             </div>
             <p className="mt-4 pl-[3.75rem] text-xs leading-5 text-slate-500">{focus}</p>
             <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-3 pl-[3.75rem]" aria-label={`Technologies for ${title}`}>
-              {('technologies' in departments.find((item) => item.title === title)! ? departments.find((item) => item.title === title)!.technologies : []).map(([label, slug]) => (
+              {technologies.map(([label, slug]) => (
                 <span key={label} title={label} className="inline-flex items-center gap-1.5 text-xs text-slate-600">
                   <img src={`https://cdn.simpleicons.org/${slug}`} alt="" loading="lazy" width={20} height={20} className="h-5 w-5 shrink-0 object-contain" onError={(event) => { event.currentTarget.style.display = 'none'; }} />
                   <span>{label}</span>
