@@ -2,17 +2,18 @@
 
 import { useState, type FormEvent } from 'react';
 import Link from 'next/link';
+import { Code2, Server, Smartphone, Search, Cloud, Palette, ShieldCheck, Network, ChartNoAxesCombined } from 'lucide-react';
 
 const departments = [
-  ['Frontend Engineering', 'Build fast, accessible, responsive product experiences and reusable interface systems.', '🖥️', ['Web apps', 'Design systems', 'Accessibility', 'Performance']],
-  ['Backend Engineering', 'Design dependable APIs, business logic, data models and secure service integrations.', '⚙️', ['REST / GraphQL APIs', 'Databases', 'Auth & permissions', 'Integrations']],
-  ['Mobile Development', 'Create polished mobile experiences and reliable releases across phone platforms.', '📱', ['Android & iOS', 'React Native', 'Flutter', 'Release workflows']],
-  ['AI & Intelligent Search', 'Make product knowledge discoverable through useful AI features and high-quality search.', '✨', ['Search & ranking', 'Retrieval', 'AI integrations', 'Evaluation']],
-  ['Cloud & DevOps', 'Keep applications deployable, observable, secure and resilient from preview to production.', '☁️', ['CI/CD', 'Cloud infrastructure', 'Monitoring', 'Reliability']],
-  ['Product Design (UI/UX)', 'Turn user needs into clear journeys, thoughtful visual systems and testable prototypes.', '🎨', ['User research', 'Interaction design', 'Prototyping', 'Design systems']],
-  ['Quality & Application Security', 'Prevent regressions and reduce risk through systematic testing and secure engineering.', '🛡️', ['Test automation', 'QA strategy', 'Threat review', 'Accessibility checks']],
-  ['Technical Leadership & Architecture', 'Help teams make sound technical decisions, set standards and deliver maintainable systems.', '🧭', ['System design', 'Code review', 'Technical planning', 'Mentoring']],
-  ['Product, Data & Growth', 'Connect product strategy, evidence and adoption so teams build the right things.', '📊', ['Product discovery', 'Analytics', 'Documentation', 'Developer experience']],
+  { title: 'Frontend Engineering', description: 'Build accessible, responsive web interfaces and reusable design systems.', Icon: Code2, focus: 'React · Next.js · TypeScript · Accessibility' },
+  { title: 'Backend Engineering', description: 'Develop APIs, data models, authentication and reliable service integrations.', Icon: Server, focus: 'APIs · Databases · Identity · Integrations' },
+  { title: 'Mobile Development', description: 'Deliver robust mobile applications and maintain quality across releases.', Icon: Smartphone, focus: 'Android · iOS · React Native · Flutter' },
+  { title: 'AI & Intelligent Search', description: 'Improve discovery with search, retrieval, ranking and carefully evaluated AI features.', Icon: Search, focus: 'Search · Retrieval · Ranking · AI evaluation' },
+  { title: 'Cloud & DevOps', description: 'Build dependable delivery pipelines and operate secure, observable infrastructure.', Icon: Cloud, focus: 'CI/CD · Cloud infrastructure · Monitoring · Reliability' },
+  { title: 'Product Design (UI/UX)', description: 'Translate user needs into clear journeys, usable interfaces and tested prototypes.', Icon: Palette, focus: 'Research · Interaction design · Prototyping · Systems' },
+  { title: 'Quality & Application Security', description: 'Improve release confidence through systematic testing and secure engineering.', Icon: ShieldCheck, focus: 'Automation · QA · Threat review · Accessibility' },
+  { title: 'Technical Leadership & Architecture', description: 'Guide system design, engineering standards, technical planning and mentoring.', Icon: Network, focus: 'System design · Reviews · Standards · Mentoring' },
+  { title: 'Product, Data & Growth', description: 'Use product strategy and evidence to prioritize work and improve adoption.', Icon: ChartNoAxesCombined, focus: 'Discovery · Analytics · Documentation · Adoption' },
 ] as const;
 
 const skills = [
@@ -99,30 +100,22 @@ export default function JoinTeam() {
         <p className="text-xs font-bold uppercase tracking-[.18em] text-emerald-700">Areas of contribution</p>
         <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">Find your department.</h2>
         <p className="mt-4 max-w-2xl leading-7 text-slate-600">Choose the area closest to your skills. These are contribution areas, not a promise that every role is currently staffed or formally open.</p>
-        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {departments.map(([title, description, icon, focusAreas], index) => <article key={title} className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white p-5 transition duration-200 hover:-translate-y-1 hover:border-emerald-400 hover:shadow-xl hover:shadow-emerald-950/10 sm:p-6">
-            <div aria-hidden="true" className="absolute inset-x-0 top-0 h-1 origin-left scale-x-0 bg-gradient-to-r from-emerald-500 to-cyan-500 transition-transform duration-200 group-hover:scale-x-100" />
-            <div className="flex items-start justify-between gap-3">
-              <span aria-hidden="true" className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-emerald-100 bg-gradient-to-br from-emerald-50 to-cyan-50 text-2xl">{icon}</span>
-              <span className="rounded-full bg-slate-100 px-2.5 py-1 text-[10px] font-bold uppercase tracking-[.14em] text-slate-500">Area {String(index + 1).padStart(2, '0')}</span>
+        <div className="mt-9 grid gap-0 border-y border-slate-200 sm:grid-cols-2 sm:border-l">
+          {departments.map(({ title, description, Icon, focus }, index) => <article key={title} className="flex min-w-0 flex-col border-b border-slate-200 py-6 sm:border-r sm:px-6 lg:px-7 [&:nth-last-child(-n+1)]:border-b-0">
+            <div className="flex items-start gap-4">
+              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-700">
+                <Icon size={21} strokeWidth={1.7} aria-hidden="true" />
+              </div>
+              <div className="min-w-0 flex-1">
+                <h3 className="text-base font-semibold tracking-tight text-slate-950">{title}</h3>
+                <p className="mt-2 text-sm leading-6 text-slate-600">{description}</p>
+              </div>
             </div>
-            <h3 className="mt-5 text-lg font-bold tracking-tight text-slate-950">{title}</h3>
-            <p className="mt-2 text-sm leading-6 text-slate-600">{description}</p>
-            <div className="mt-4 flex flex-wrap gap-1.5">{focusAreas.map((area) => <span key={area} className="rounded-full border border-slate-200 bg-slate-50 px-2.5 py-1 text-[11px] font-medium text-slate-600">{area}</span>)}</div>
-            <button type="button" onClick={() => { setDepartment(title); document.getElementById('apply')?.scrollIntoView({ behavior: 'smooth' }); }} className="mt-6 inline-flex min-h-10 items-center justify-between gap-3 border-t border-slate-100 pt-4 text-left text-sm font-bold text-emerald-800 transition hover:text-emerald-950 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2">
-              <span>Explore this department</span><span aria-hidden="true" className="transition-transform group-hover:translate-x-1">↗</span>
+            <p className="mt-4 pl-[3.75rem] text-xs leading-5 text-slate-500">{focus}</p>
+            <button type="button" onClick={() => { setDepartment(title); document.getElementById('apply')?.scrollIntoView({ behavior: 'smooth' }); }} className="mt-4 inline-flex min-h-10 items-center gap-2 self-start pl-[3.75rem] text-sm font-semibold text-emerald-800 underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 focus-visible:ring-offset-2">
+              Select department <span aria-hidden="true">→</span>
             </button>
           </article>)}
-        </div>
-        <p className="mt-5 text-xs leading-5 text-slate-500">Not sure where you fit? Choose the closest area in the application and describe your strengths. We can discuss cross-functional contributions.</p>
-      </div></section>
-
-      <section className="section-pad"><div className="max-container container-pad">
-        <p className="text-xs font-bold uppercase tracking-[.18em] text-emerald-700">Read before applying</p>
-        <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">Download the team guides.</h2>
-        <p className="mt-4 max-w-2xl leading-7 text-slate-600">Understand the opportunity, collaboration expectations and equity discussion topics before getting in touch.</p>
-        <div className="mt-8 grid gap-4 lg:grid-cols-3">
-          {docs.map(([title, description, href]) => <article key={href} className="flex flex-col rounded-2xl border border-slate-200 p-6"><span aria-hidden="true" className="text-2xl text-emerald-700">▤</span><h3 className="mt-4 text-lg font-bold">{title}</h3><p className="mt-2 flex-1 text-sm leading-6 text-slate-600">{description}</p><a href={href} download className="mt-6 inline-flex items-center justify-center rounded-full border border-emerald-700 px-4 py-3 text-sm font-bold text-emerald-800 transition hover:bg-emerald-50">Download guide ↓</a></article>)}
         </div>
       </div></section>
 
