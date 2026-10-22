@@ -124,19 +124,34 @@ export default function JoinTeam() {
             <label className="block text-sm font-semibold">Availability<select value={availability} onChange={(e) => setAvailability(e.target.value)} className="mt-2 w-full rounded-xl border border-slate-300 bg-white px-4 py-3 font-normal outline-none focus:border-emerald-600 focus:ring-2 focus:ring-emerald-100"><option>Part-time</option><option>Full-time</option><option>Flexible / project-based</option><option>Mentoring / occasional</option></select></label>
             <label className="block text-sm font-semibold">GitHub or portfolio link<input type="url" value={profile} onChange={(e) => setProfile(e.target.value)} className="mt-2 w-full rounded-xl border border-slate-300 bg-white px-4 py-3 font-normal outline-none focus:border-emerald-600 focus:ring-2 focus:ring-emerald-100" placeholder="https://..." /></label>
             <fieldset className="sm:col-span-2">
-              <legend className="text-sm font-semibold">Tap your skills <span className="font-normal text-slate-500">— choose all that apply</span></legend>
-              <p className="mt-1 text-xs leading-5 text-slate-500">Select the technologies you know. Your selections will be included in your application automatically.</p>
-              <div className="mt-3 grid grid-cols-2 gap-2 sm:grid-cols-3">
-                {skills.map(([label, slug]) => {
-                  const selected = selectedSkills.includes(label);
-                  return <button key={label} type="button" aria-pressed={selected} onClick={() => setSelectedSkills((current) => selected ? current.filter((skill) => skill !== label) : [...current, label])} className={`flex min-h-12 items-center gap-2 rounded-xl border px-3 py-2 text-left text-sm font-semibold transition focus:outline-none focus:ring-2 focus:ring-emerald-500 ${selected ? 'border-emerald-700 bg-emerald-50 text-emerald-900 ring-1 ring-emerald-600' : 'border-slate-200 bg-white text-slate-700 hover:border-emerald-400'}`}>
-                    <img src={`https://cdn.simpleicons.org/${slug}`} alt="" loading="lazy" className="h-5 w-5 shrink-0 object-contain" onError={(event) => { event.currentTarget.style.display = 'none'; }} />
-                    <span className="min-w-0 flex-1">{label}</span>
-                    <span aria-hidden="true" className={selected ? 'text-emerald-700' : 'text-slate-300'}>{selected ? '✓' : '+'}</span>
-                  </button>;
-                })}
-              </div>
-              {selectedSkills.length > 0 && <div className="mt-3 flex items-center justify-between gap-3 text-xs text-slate-600"><span>{selectedSkills.length} skill{selectedSkills.length === 1 ? '' : 's'} selected</span><button type="button" onClick={() => setSelectedSkills([])} className="font-semibold text-emerald-800 underline">Clear selection</button></div>}
+              <legend className="text-sm font-semibold">Skills & technologies <span className="font-normal text-slate-500">— optional, select any</span></legend>
+              <p className="mt-1 text-xs leading-5 text-slate-500">Keep the form compact: open the picker to choose your skills.</p>
+              <details className="group mt-3 rounded-xl border border-slate-200 bg-white">
+                <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-3 rounded-xl px-3 py-2 text-sm outline-none hover:bg-slate-50 focus:ring-2 focus:ring-emerald-500 [&::-webkit-details-marker]:hidden">
+                  <span className="flex min-w-0 items-center gap-2">
+                    <span className="text-emerald-700" aria-hidden="true">⌘</span>
+                    <span className="truncate font-medium text-slate-700">{selectedSkills.length ? `${selectedSkills.length} skill${selectedSkills.length === 1 ? '' : 's'} selected` : 'Choose skills'}</span>
+                  </span>
+                  <span className="text-xs text-slate-500 group-open:hidden">Open +</span>
+                  <span className="hidden text-xs text-slate-500 group-open:inline">Close −</span>
+                </summary>
+                <div className="border-t border-slate-100 p-3">
+                  {selectedSkills.length > 0 && <div className="mb-3 flex flex-wrap items-center gap-1.5">
+                    {selectedSkills.map((skill) => <button key={skill} type="button" onClick={() => setSelectedSkills((current) => current.filter((item) => item !== skill))} className="inline-flex items-center gap-1 rounded-full bg-emerald-50 px-2.5 py-1 text-xs font-medium text-emerald-900 ring-1 ring-inset ring-emerald-200" aria-label={`Remove ${skill}`}>{skill}<span aria-hidden="true">×</span></button>)}
+                    <button type="button" onClick={() => setSelectedSkills([])} className="px-1.5 py-1 text-xs font-semibold text-slate-500 underline">Clear all</button>
+                  </div>}
+                  <div className="grid max-h-48 grid-cols-2 gap-1.5 overflow-y-auto sm:grid-cols-3">
+                    {skills.map(([label, slug]) => {
+                      const selected = selectedSkills.includes(label);
+                      return <button key={label} type="button" aria-pressed={selected} onClick={() => setSelectedSkills((current) => selected ? current.filter((skill) => skill !== label) : [...current, label])} className={`flex min-h-9 items-center gap-2 rounded-lg border px-2 py-1.5 text-left text-xs font-medium transition focus:outline-none focus:ring-2 focus:ring-emerald-500 ${selected ? 'border-emerald-700 bg-emerald-50 text-emerald-900' : 'border-slate-200 bg-white text-slate-700 hover:border-emerald-400'}`}>
+                        <img src={`https://cdn.simpleicons.org/${slug}`} alt="" loading="lazy" className="h-4 w-4 shrink-0 object-contain" onError={(event) => { event.currentTarget.style.display = 'none'; }} />
+                        <span className="min-w-0 flex-1">{label}</span>
+                        <span aria-hidden="true" className={selected ? 'text-emerald-700' : 'text-slate-300'}>{selected ? '✓' : '+'}</span>
+                      </button>;
+                    })}
+                  </div>
+                </div>
+              </details>
             </fieldset>
             <label className="block text-sm font-semibold sm:col-span-2">Additional skills, experience or projects<textarea required rows={3} value={experience} onChange={(e) => setExperience(e.target.value)} className="mt-2 w-full rounded-xl border border-slate-300 bg-white px-4 py-3 font-normal outline-none focus:border-emerald-600 focus:ring-2 focus:ring-emerald-100" placeholder="Tell us about your projects, strengths or any skills not listed above" /></label>
             <label className="block text-sm font-semibold sm:col-span-2">How would you contribute?<textarea required rows={3} value={contribution} onChange={(e) => setContribution(e.target.value)} className="mt-2 w-full rounded-xl border border-slate-300 bg-white px-4 py-3 font-normal outline-none focus:border-emerald-600 focus:ring-2 focus:ring-emerald-100" placeholder="What would you like to help us build?" /></label>
