@@ -19,7 +19,7 @@ const departments = [
 const skills = [
   ['JavaScript', 'javascript'], ['TypeScript', 'typescript'], ['React', 'react'], ['Next.js', 'nextdotjs'],
   ['Node.js', 'nodedotjs'], ['NestJS', 'nestjs'], ['Python', 'python'], ['Java', 'java'],
-  ['Kotlin', 'kotlin'], ['Swift', 'swift'], ['React Native', 'reactnative'], ['Flutter', 'flutter'],
+  ['Kotlin', 'kotlin'], ['Swift', 'swift'], ['Android OS', 'android'], ['iOS (Apple)', 'apple'], ['React Native', 'reactnative'], ['Flutter', 'flutter'],
   ['Dart', 'dart'], ['Go', 'go'], ['Rust', 'rust'], ['PHP', 'php'],
   ['HTML5', 'html5'], ['CSS3', 'css'], ['Tailwind CSS', 'tailwindcss'], ['PostgreSQL', 'postgresql'],
   ['Supabase', 'supabase'], ['MongoDB', 'mongodb'], ['Redis', 'redis'], ['GraphQL', 'graphql'],
@@ -150,7 +150,7 @@ export default function JoinTeam() {
                     {skills.map(([label, slug]) => {
                       const selected = selectedSkills.includes(label);
                       return <button key={label} type="button" aria-pressed={selected} onClick={() => setSelectedSkills((current) => selected ? current.filter((skill) => skill !== label) : [...current, label])} className={`flex min-h-9 items-center gap-2 rounded-lg  px-2 py-1.5 text-left text-xs font-medium transition focus:outline-none focus:ring-2 focus:ring-emerald-500 ${selected ? ' bg-emerald-50 text-emerald-900' : ' bg-white text-slate-700 '}`}>
-                        <img src={`https://cdn.simpleicons.org/${slug}`} alt="" loading="lazy" className="h-4 w-4 shrink-0 object-contain" onError={(event) => { event.currentTarget.style.display = 'none'; }} />
+                        <img src={`https://cdn.simpleicons.org/${slug}`} alt="" loading="lazy" width={20} height={20} className="h-5 w-5 shrink-0 object-contain" onError={(event) => { event.currentTarget.style.display = 'none'; }} />
                         <span className="min-w-0 flex-1">{label}</span>
                         <span aria-hidden="true" className={selected ? 'text-emerald-700' : 'text-slate-300'}>{selected ? '✓' : '+'}</span>
                       </button>;
