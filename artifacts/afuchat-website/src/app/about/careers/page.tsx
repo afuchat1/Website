@@ -1,41 +1,22 @@
 import type { Metadata } from 'next';
-import GenericPageView from '@/views/GenericPage';
+import JoinTeam from '@/views/JoinTeam';
 
 const BASE_URL = 'https://www.afuchat.com';
 
 export const metadata: Metadata = {
-  title: 'Careers, Join AfuChat',
+  title: 'Join the Team | Developers & Co-Founders',
   description:
-    'Join AfuChat Technologies Limited and help build independent digital products used by people around the world. Explore open roles in engineering, design, and product.',
+    'Explore engineering and product departments, download contributor guides, and express interest in joining AfuChat Technologies Limited as a developer, technical lead or potential co-founder.',
   alternates: { canonical: `${BASE_URL}/about/careers` },
   openGraph: {
-    title: 'Careers at AfuChat',
-    description: 'Help build independent digital products used by people around the world.',
+    title: 'Join AfuChat Technologies | Developers & Co-Founders',
+    description:
+      'Help build AfuChat products. Explore contribution departments, read the guides and introduce yourself to the team.',
     url: `${BASE_URL}/about/careers`,
-    images: [{ url: '/illustrations/ill-sec-careers.webp', width: 1200, height: 630, alt: 'Careers at AfuChat' }],
+    images: [{ url: '/illustrations/ill-sec-careers.webp', width: 1200, height: 630, alt: 'Join AfuChat Technologies' }],
   },
-};
-
-const jobPostingJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'JobPosting',
-  title: 'Open Roles at AfuChat',
-  hiringOrganization: {
-    '@type': 'Organization',
-    name: 'AfuChat Technologies Limited',
-    url: BASE_URL,
-    logo: `${BASE_URL}/assets/afuchat-brand-symbol.svg`,
-  },
-  jobLocation: { '@type': 'Place', address: { '@type': 'PostalAddress', addressCountry: 'GB' } },
-  employmentType: 'FULL_TIME',
-  description: 'Join AfuChat Technologies Limited and help build world-class digital products.',
 };
 
 export default function CareersPage() {
-  return (
-    <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jobPostingJsonLd) }} />
-      <GenericPageView title="Careers" type="careers" />
-    </>
-  );
+  return <JoinTeam />;
 }
